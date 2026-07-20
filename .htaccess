@@ -1,0 +1,46 @@
+# stanislav-peev.com - Apache/LiteSpeed config (Jump.bg / cPanel)
+
+# ---- ModSecurity: allow AI crawlers (Jump.bg support fix) ----
+# Rules 350001 + 1020 block GPTBot / OAI-SearchBot / ClaudeBot etc. with 403.
+# Confirmed by Jump.bg support - remove them per domain.
+<IfModule mod_security.c>
+  SecRuleRemoveById 350001
+  SecRuleRemoveById 1020
+</IfModule>
+
+# ---- Force www -> apex (backup to the Cloudflare rules) ----
+RewriteEngine On
+RewriteCond %{HTTP_HOST} ^www\.(.+)$ [NC]
+RewriteRule ^ https://%1%{REQUEST_URI} [R=301,L]
+
+# ---- Markdown for agents ----
+# Agents that ask for text/markdown via the Accept header get the .md version.
+AddType text/markdown .md
+AddCharset utf-8 .md
+
+RewriteCond %{HTTP:Accept} text/markdown [NC]
+RewriteRule ^$ /index.md [L]
+RewriteCond %{HTTP:Accept} text/markdown [NC]
+RewriteRule ^services/?$ /services/index.md [L]
+
+# ---- Link headers (RFC 8288): agent discovery ----
+# rel values are unquoted tokens and type uses the unquoted media-type form,
+# both valid per RFC 8288 - LiteSpeed mangles escaped quotes in .htaccess.
+<IfModule mod_headers.c>
+  Header set Link "<https://stanislav-peev.com/llms.txt>; rel=describedby; type=text/plain, <https://stanislav-peev.com/llms.txt>; rel=llms-txt, <https://stanislav-peev.com/index.md>; rel=alternate; type=text/markdown, <https://stanislav-peev.com/.well-known/api-catalog>; rel=api-catalog"
+  Header append Vary "Accept"
+</IfModule>
+
+# ---- API catalog (RFC 9727 linkset) ----
+<FilesMatch "^api-catalog$">
+  ForceType application/linkset+json
+</FilesMatch>
+
+# ---- Browser caching for static assets ----
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType text/css "access plus 30 days"
+  ExpiresByType image/jpeg "access plus 30 days"
+  ExpiresByType image/png "access plus 30 days"
+  ExpiresByType image/webp "access plus 30 days"
+</IfModule>

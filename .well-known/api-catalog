@@ -1,0 +1,16 @@
+{
+  "linkset": [
+    {
+      "anchor": "https://stanislav-peev.com/",
+      "describedby": [
+        { "href": "https://stanislav-peev.com/llms.txt", "type": "text/plain" }
+      ],
+      "alternate": [
+        { "href": "https://stanislav-peev.com/index.md", "type": "text/markdown" }
+      ],
+      "service-doc": [
+        { "href": "https://stanislav-peev.com/services/index.md", "type": "text/markdown" }
+      ]
+    }
+  ]
+}

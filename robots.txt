@@ -1,0 +1,27 @@
+# robots.txt - stanislav-peev.com
+# Content Signals (contentsignals.org): search, AI answers and AI training all welcome.
+
+User-agent: *
+Content-Signal: search=yes, ai-input=yes, ai-train=yes
+Allow: /
+
+# Explicit welcome for AI crawlers (GEO)
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+Sitemap: https://stanislav-peev.com/sitemap.xml

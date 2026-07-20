@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Stanislav Peev - SEO &amp; AI Search (GEO) Research</title>
+    <link>https://stanislav-peev.com/</link>
+    <description>Original research and data reports on AI search visibility, GEO (generative engine optimization) and SEO - by Stanislav Peev, independent SEO consultant and AI search specialist.</description>
+    <language>en</language>
+    <lastBuildDate>Mon, 20 Jul 2026 12:00:00 GMT</lastBuildDate>
+    <atom:link href="https://stanislav-peev.com/rss.xml" rel="self" type="application/rss+xml"/>
+    <item>
+      <title>How often AI gets business information wrong: 2026 statistics</title>
+      <link>https://stanislav-peev.com/research/ai-wrong-business-information-statistics/</link>
+      <guid isPermaLink="true">https://stanislav-peev.com/research/ai-wrong-business-information-statistics/</guid>
+      <pubDate>Mon, 20 Jul 2026 10:00:00 GMT</pubDate>
+      <description>93% of businesses have at least one fact wrong or missing in AI answers. Source-verified statistics on how often ChatGPT, Gemini and Perplexity misstate business hours, phone numbers and services - with a 10-prompt self-audit protocol to test your own business.</description>
+    </item>
+  </channel>
+</rss>
