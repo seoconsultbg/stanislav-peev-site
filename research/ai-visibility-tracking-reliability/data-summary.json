@@ -1,0 +1,333 @@
+{
+  "category": "project management software",
+  "generated_utc": "2026-08-17T11:37:59.435662+00:00",
+  "prompts": [
+    "What project management software should a small team use?",
+    "Best project management tool for a 10-person startup?",
+    "Which project management app should my team pick in 2026?",
+    "Recommend a project management platform for a small remote team."
+  ],
+  "repeats": 5,
+  "models": [
+    "perplexity/sonar",
+    "openai/gpt-4o:online",
+    "google/gemini-2.5-flash:online"
+  ],
+  "cell_metrics": [
+    {
+      "prompt_idx": 0,
+      "model": "google/gemini-2.5-flash:online",
+      "runs": 5,
+      "set_instability": 0.381,
+      "top1_stability": 0.4,
+      "union_brands": [
+        "Asana",
+        "Basecamp",
+        "ClickUp",
+        "Hive",
+        "Linear",
+        "Microsoft Planner",
+        "Monday.com",
+        "Nifty",
+        "Notion",
+        "Teamwork",
+        "Trello",
+        "Wrike",
+        "Zoho Projects"
+      ],
+      "always_present": [
+        "Asana",
+        "ClickUp",
+        "Notion",
+        "Trello"
+      ]
+    },
+    {
+      "prompt_idx": 0,
+      "model": "openai/gpt-4o:online",
+      "runs": 5,
+      "set_instability": 0.38,
+      "top1_stability": 0.6,
+      "union_brands": [
+        "Asana",
+        "Basecamp",
+        "ClickUp",
+        "Notion",
+        "Trello",
+        "Zoho Projects"
+      ],
+      "always_present": [
+        "Asana",
+        "Trello"
+      ]
+    },
+    {
+      "prompt_idx": 0,
+      "model": "perplexity/sonar",
+      "runs": 5,
+      "set_instability": 0.0,
+      "top1_stability": 1.0,
+      "union_brands": [
+        "Asana",
+        "ClickUp",
+        "Monday.com",
+        "Trello"
+      ],
+      "always_present": [
+        "Asana",
+        "ClickUp",
+        "Monday.com",
+        "Trello"
+      ]
+    },
+    {
+      "prompt_idx": 1,
+      "model": "google/gemini-2.5-flash:online",
+      "runs": 5,
+      "set_instability": 0.121,
+      "top1_stability": 1.0,
+      "union_brands": [
+        "Basecamp",
+        "ClickUp",
+        "Jira",
+        "Linear",
+        "Monday.com",
+        "Notion",
+        "Trello"
+      ],
+      "always_present": [
+        "Basecamp",
+        "ClickUp",
+        "Linear",
+        "Monday.com",
+        "Notion"
+      ]
+    },
+    {
+      "prompt_idx": 1,
+      "model": "openai/gpt-4o:online",
+      "runs": 5,
+      "set_instability": 0.22,
+      "top1_stability": 1.0,
+      "union_brands": [
+        "Basecamp",
+        "ClickUp",
+        "Jira",
+        "Linear",
+        "Monday.com",
+        "Notion"
+      ],
+      "always_present": [
+        "ClickUp",
+        "Linear",
+        "Notion"
+      ]
+    },
+    {
+      "prompt_idx": 1,
+      "model": "perplexity/sonar",
+      "runs": 5,
+      "set_instability": 0.532,
+      "top1_stability": 0.6,
+      "union_brands": [
+        "Airtable",
+        "Asana",
+        "ClickUp",
+        "Jira",
+        "Monday.com",
+        "Notion",
+        "Trello",
+        "Wrike"
+      ],
+      "always_present": [
+        "ClickUp"
+      ]
+    },
+    {
+      "prompt_idx": 2,
+      "model": "google/gemini-2.5-flash:online",
+      "runs": 5,
+      "set_instability": 0.08,
+      "top1_stability": 0.6,
+      "union_brands": [
+        "Asana",
+        "Basecamp",
+        "ClickUp",
+        "Jira",
+        "Monday.com",
+        "Notion",
+        "Smartsheet",
+        "Teamwork",
+        "Wrike",
+        "Zoho Projects"
+      ],
+      "always_present": [
+        "Asana",
+        "Basecamp",
+        "ClickUp",
+        "Jira",
+        "Monday.com",
+        "Smartsheet",
+        "Wrike",
+        "Zoho Projects"
+      ]
+    },
+    {
+      "prompt_idx": 2,
+      "model": "openai/gpt-4o:online",
+      "runs": 5,
+      "set_instability": 0.202,
+      "top1_stability": 0.8,
+      "union_brands": [
+        "Asana",
+        "Basecamp",
+        "ClickUp",
+        "Jira",
+        "Monday.com",
+        "Teamwork",
+        "Wrike",
+        "Zoho Projects"
+      ],
+      "always_present": [
+        "Asana",
+        "ClickUp",
+        "Jira",
+        "Monday.com",
+        "Zoho Projects"
+      ]
+    },
+    {
+      "prompt_idx": 2,
+      "model": "perplexity/sonar",
+      "runs": 5,
+      "set_instability": 0.207,
+      "top1_stability": 0.8,
+      "union_brands": [
+        "Asana",
+        "ClickUp",
+        "Jira",
+        "Monday.com",
+        "Smartsheet",
+        "Teamwork",
+        "Trello",
+        "Wrike"
+      ],
+      "always_present": [
+        "Asana",
+        "ClickUp",
+        "Jira",
+        "Monday.com",
+        "Trello"
+      ]
+    },
+    {
+      "prompt_idx": 3,
+      "model": "google/gemini-2.5-flash:online",
+      "runs": 5,
+      "set_instability": 0.0,
+      "top1_stability": 1.0,
+      "union_brands": [
+        "TeamEasy",
+        "t0ggles"
+      ],
+      "always_present": [
+        "TeamEasy",
+        "t0ggles"
+      ]
+    },
+    {
+      "prompt_idx": 3,
+      "model": "openai/gpt-4o:online",
+      "runs": 5,
+      "set_instability": 0.2,
+      "top1_stability": 0.6,
+      "union_brands": [
+        "TeamEasy",
+        "t0ggles"
+      ],
+      "always_present": [
+        "t0ggles"
+      ]
+    },
+    {
+      "prompt_idx": 3,
+      "model": "perplexity/sonar",
+      "runs": 5,
+      "set_instability": 0.34,
+      "top1_stability": 1.0,
+      "union_brands": [
+        "Asana",
+        "Basecamp",
+        "ClickUp",
+        "Monday.com",
+        "Trello"
+      ],
+      "always_present": [
+        "Asana",
+        "ClickUp"
+      ]
+    }
+  ],
+  "aggregate_per_model": {
+    "perplexity/sonar": {
+      "total_runs": 20,
+      "mention_rate": {
+        "ClickUp": 1.0,
+        "Trello": 0.9,
+        "Asana": 0.85,
+        "Monday.com": 0.8,
+        "Jira": 0.35,
+        "Wrike": 0.25,
+        "Notion": 0.15,
+        "Smartsheet": 0.15,
+        "Basecamp": 0.15,
+        "Teamwork": 0.1,
+        "Airtable": 0.05
+      }
+    },
+    "openai/gpt-4o:online": {
+      "total_runs": 20,
+      "mention_rate": {
+        "ClickUp": 0.65,
+        "Asana": 0.5,
+        "Zoho Projects": 0.45,
+        "Jira": 0.45,
+        "Monday.com": 0.45,
+        "Notion": 0.4,
+        "Basecamp": 0.3,
+        "Trello": 0.25,
+        "Linear": 0.25,
+        "t0ggles": 0.25,
+        "TeamEasy": 0.2,
+        "Wrike": 0.15,
+        "Teamwork": 0.15
+      }
+    },
+    "google/gemini-2.5-flash:online": {
+      "total_runs": 20,
+      "mention_rate": {
+        "ClickUp": 0.75,
+        "Basecamp": 0.7,
+        "Notion": 0.7,
+        "Monday.com": 0.55,
+        "Asana": 0.5,
+        "Zoho Projects": 0.45,
+        "Linear": 0.45,
+        "Jira": 0.45,
+        "Wrike": 0.4,
+        "Trello": 0.3,
+        "Teamwork": 0.25,
+        "Smartsheet": 0.25,
+        "t0ggles": 0.25,
+        "TeamEasy": 0.25,
+        "Nifty": 0.1,
+        "Hive": 0.1,
+        "Microsoft Planner": 0.05
+      }
+    }
+  },
+  "headline": {
+    "mean_set_instability": 0.222,
+    "mean_top1_stability": 0.783
+  }
+}

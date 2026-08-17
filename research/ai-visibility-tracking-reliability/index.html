@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>How reliable is AI visibility tracking? A 60-query experiment - Stanislav Peev</title>
+<meta name="description" content="I ran the same 4 buyer questions 60 times across ChatGPT, Gemini and Perplexity. Which engine you track moved a brand's measured AI visibility 2.3x more than the model's own randomness. Original data, methodology and limitations.">
+<link rel="canonical" href="https://stanislav-peev.com/research/ai-visibility-tracking-reliability/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Stanislav Peev">
+<meta property="og:title" content="How Reliable Is AI Visibility Tracking? A 60-Query Experiment">
+<meta property="og:description" content="Same questions, same day, 60 queries across ChatGPT, Gemini and Perplexity. The engine you track moved measured visibility 2.3x more than model randomness - and two engines recommended a tool the third never named once.">
+<meta property="og:url" content="https://stanislav-peev.com/research/ai-visibility-tracking-reliability/">
+<meta property="og:image" content="https://stanislav-peev.com/assets/stanislav-peev-og.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:creator" content="@SeoPeev">
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="alternate" type="application/rss+xml" title="Stanislav Peev - SEO &amp; AI Search Research" href="/rss.xml">
+<link rel="stylesheet" href="/assets/site.css?v=6">
+<style>
+.article-meta { font-size: .9rem; color: var(--ink-soft); margin-bottom: 34px; }
+.article-meta b { color: var(--ink); }
+.hero-stat {
+  background: linear-gradient(135deg, var(--surface), var(--band));
+  border: 1px solid var(--green); border-radius: 18px;
+  padding: 36px 32px; text-align: center; margin: 0 0 40px;
+}
+.hero-stat .big {
+  font-family: var(--serif); font-size: clamp(3.2rem, 8vw, 5rem);
+  color: var(--green); font-weight: 700; line-height: 1; display: block; margin-bottom: 12px;
+}
+.hero-stat p { color: var(--ink); font-size: 1.1rem; max-width: 60ch; margin: 0 auto 8px; }
+.hero-stat .src { font-size: .85rem; color: var(--ink-soft); }
+.takeaways {
+  background: var(--surface); border: 1px solid var(--line); border-left: 4px solid var(--green);
+  border-radius: 12px; padding: 26px 28px; margin: 0 0 40px;
+}
+.takeaways h2 {
+  font-family: var(--sans); font-size: .8rem; font-weight: 700; letter-spacing: .12em;
+  text-transform: uppercase; color: var(--green); margin-bottom: 14px;
+}
+.takeaways ul { list-style: none; display: grid; gap: 10px; }
+.takeaways li { padding-left: 22px; position: relative; color: var(--ink-soft); font-size: .98rem; }
+.takeaways li::before { content: '→'; position: absolute; left: 0; color: var(--green); }
+.takeaways li b { color: var(--ink); font-family: var(--serif); }
+.toc {
+  border: 1px solid var(--line); border-radius: 12px; padding: 22px 26px; margin: 0 0 48px;
+  background: var(--bg-alt);
+}
+.toc h2 { font-family: var(--sans); font-size: .95rem; margin-bottom: 12px; }
+.toc ol { margin-left: 20px; color: var(--ink-soft); display: grid; gap: 6px; font-size: .95rem; }
+.toc a { color: var(--green); text-decoration: none; }
+.toc a:hover { text-decoration: underline; }
+.article h2 {
+  margin-top: 56px; margin-bottom: 16px; scroll-margin-top: 90px;
+}
+.article .capsule { color: var(--ink); font-size: 1.08rem; margin-bottom: 18px; max-width: 70ch; }
+.article p { color: var(--ink-soft); margin-bottom: 18px; max-width: 72ch; }
+.article p strong { color: var(--ink); }
+.article a { color: var(--green); }
+.metric-table { width: 100%; border-collapse: collapse; margin: 22px 0; font-size: .95rem; }
+.metric-table th {
+  background: var(--band); color: var(--ink); text-align: left;
+  padding: 11px 14px; text-transform: uppercase; font-size: .76rem; letter-spacing: .07em;
+  border-bottom: 2px solid var(--green);
+}
+.metric-table td { padding: 11px 14px; border-bottom: 1px solid var(--line); color: var(--ink-soft); }
+.metric-table td.v { font-family: var(--serif); font-weight: 700; color: var(--green); white-space: nowrap; }
+.metric-table td.s { font-size: .85rem; }
+.metric-table td.hi { color: var(--green); font-weight: 700; }
+.metric-table td.lo { color: var(--ink-soft); }
+.stat-callout {
+  display: flex; align-items: center; gap: 22px; background: var(--surface);
+  border: 1px solid var(--line); border-left: 4px solid var(--green); border-radius: 12px;
+  padding: 20px 24px; margin: 24px 0;
+}
+.stat-callout .val {
+  font-family: var(--serif); font-size: 2.1rem; font-weight: 700; color: var(--green);
+  white-space: nowrap; min-width: 90px; text-align: center;
+}
+.stat-callout div p { margin: 0; font-size: .96rem; }
+.stat-callout div .src { font-size: .82rem; color: var(--ink-soft); margin-top: 4px; }
+.bar-chart { margin: 24px 0; display: grid; gap: 10px; max-width: 640px; }
+.bar-row { display: grid; grid-template-columns: 190px 1fr; align-items: center; gap: 12px; }
+.bar-row .lbl { font-size: .9rem; color: var(--ink-soft); text-align: right; }
+.bar-track { background: var(--band); border-radius: 6px; overflow: hidden; height: 30px; position: relative; }
+.bar-fill {
+  height: 100%; background: var(--green); border-radius: 6px;
+  display: flex; align-items: center; padding-left: 10px;
+  font-family: var(--serif); font-weight: 700; font-size: .88rem; color: var(--btn-text);
+  min-width: fit-content; white-space: nowrap;
+}
+.bar-fill.dim { background: var(--ink-soft); }
+.bar-note { font-size: .82rem; color: var(--ink-soft); margin-top: 2px; }
+.audit {
+  background: var(--surface); border: 1px solid var(--green); border-radius: 16px;
+  padding: 30px; margin: 26px 0;
+}
+.audit ol { list-style: none; display: grid; gap: 12px; margin: 18px 0 22px; }
+.audit li { display: flex; gap: 12px; align-items: flex-start; }
+.audit li label { color: var(--ink-soft); font-size: .96rem; cursor: pointer; }
+.audit li label b { color: var(--ink); }
+.audit input[type="checkbox"] {
+  width: 20px; height: 20px; margin-top: 3px; accent-color: var(--green); cursor: pointer; flex-shrink: 0;
+}
+.audit-result {
+  border-top: 1px solid var(--line); padding-top: 18px; font-size: 1rem; color: var(--ink);
+}
+.audit-result b { font-family: var(--serif); font-size: 1.5rem; color: var(--green); }
+.data-box {
+  background: var(--bg-alt); border: 1px solid var(--line); border-radius: 12px;
+  padding: 22px 26px; margin: 26px 0;
+}
+.data-box h3 { font-size: 1rem; margin-bottom: 8px; }
+.data-box p { font-size: .92rem; margin-bottom: 10px; }
+.sources-list { font-size: .92rem; color: var(--ink-soft); margin-left: 20px; display: grid; gap: 10px; }
+.sources-list a { color: var(--green); word-break: break-all; }
+.updated { font-size: .88rem; color: var(--ink-soft); border-top: 1px solid var(--line); padding-top: 20px; margin-top: 48px; }
+@media (max-width: 640px) {
+  .bar-row { grid-template-columns: 1fr; gap: 4px; }
+  .bar-row .lbl { text-align: left; }
+  .stat-callout { flex-direction: column; align-items: flex-start; gap: 10px; }
+}
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://stanislav-peev.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Research", "item": "https://stanislav-peev.com/research/" },
+        { "@type": "ListItem", "position": 3, "name": "How Reliable Is AI Visibility Tracking", "item": "https://stanislav-peev.com/research/ai-visibility-tracking-reliability/" }
+      ]
+    },
+    {
+      "@type": "Article",
+      "@id": "https://stanislav-peev.com/research/ai-visibility-tracking-reliability/#article",
+      "headline": "How Reliable Is AI Visibility Tracking? A 60-Query Experiment",
+      "description": "An original controlled experiment measuring how much AI-visibility results move under identical conditions across ChatGPT, Gemini and Perplexity, and how far the three engines disagree.",
+      "author": { "@id": "https://stanislav-peev.com/#person" },
+      "publisher": { "@id": "https://stanislav-peev.com/#person" },
+      "datePublished": "2026-08-17",
+      "dateModified": "2026-08-17",
+      "mainEntityOfPage": "https://stanislav-peev.com/research/ai-visibility-tracking-reliability/",
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": [".hero-stat", ".takeaways"] }
+    },
+    {
+      "@type": "Dataset",
+      "name": "AI Visibility Measurement Stability Experiment 2026",
+      "description": "60 controlled queries (4 buyer-intent prompts x 3 web-enabled models x 5 identical repeats) in the project management software category, run in one session on 2026-08-17. Records brands named and mention order per answer, with computed within-engine set instability, cross-engine set distance and top-1 stability. Raw model answers included.",
+      "url": "https://stanislav-peev.com/research/ai-visibility-tracking-reliability/",
+      "creator": { "@id": "https://stanislav-peev.com/#person" },
+      "temporalCoverage": "2026-08-17",
+      "measurementTechnique": "Repeated identical prompting across Perplexity Sonar, OpenAI GPT-4o and Google Gemini 2.5 Flash with web retrieval enabled; Jaccard-based set stability metrics.",
+      "variableMeasured": ["brand mention set", "brand mention order", "within-engine set instability", "cross-engine set distance", "top-1 stability"],
+      "distribution": [
+        { "@type": "DataDownload", "encodingFormat": "application/json", "contentUrl": "https://stanislav-peev.com/research/ai-visibility-tracking-reliability/data-summary.json" },
+        { "@type": "DataDownload", "encodingFormat": "application/x-ndjson", "contentUrl": "https://stanislav-peev.com/research/ai-visibility-tracking-reliability/data-raw.jsonl" }
+      ],
+      "license": "https://creativecommons.org/licenses/by/4.0/"
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://stanislav-peev.com/research/ai-visibility-tracking-reliability/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How many prompts do I need for a reliable AI visibility check?",
+          "acceptedAnswer": { "@type": "Answer", "text": "More than one engine and more than a handful of repeats. In this experiment, repeating the same prompt on the same model five times still moved the full recommended set by about 22% (Jaccard distance) and flipped the single top recommendation in one cell out of five. The mainstream top choice stabilized quickly; every brand below the top and every long-tail tool needed more repeats. Track each engine separately and repeat each prompt several times, or the number is mostly sampling luck." }
+        },
+        {
+          "@type": "Question",
+          "name": "Does it matter which AI engine I track for visibility?",
+          "acceptedAnswer": { "@type": "Answer", "text": "It matters more than anything else measured here. Across the three engines, the recommended brand set diverged by about 50% on average, versus 22% run-to-run noise within a single engine - so the choice of engine moved the result roughly 2.3 times more than the model's own randomness. A single 'AI visibility score' that blends engines hides which effect it is reporting." }
+        },
+        {
+          "@type": "Question",
+          "name": "Why do AI visibility tools give a different number every week?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Two independent reasons. First, the models are non-deterministic: identical prompts return different brand sets minutes apart. Second, answer length varies - the same question sometimes returns a five-tool list and sometimes a one-tool recommendation, so a brand's presence flips on verbosity, not ranking. A weekly change under the top position, measured on few repeats, is often noise rather than a trend." }
+        },
+        {
+          "@type": "Question",
+          "name": "Is a single AI visibility score meaningful?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Only for the very top of the answer. Top-1 recommendations for mainstream brands were about 78% stable across repeats, so a headline leader is fairly reliable. Everything below the top, and every smaller brand, requires a per-engine breakdown and multiple repeats. A one-number score with no breakdown and no repeat count sells more confidence than the data supports." }
+        },
+        {
+          "@type": "Question",
+          "name": "Which is more reliable for brand recommendations: ChatGPT, Gemini or Perplexity?",
+          "acceptedAnswer": { "@type": "Answer", "text": "They are not noisy versions of one ranking - they are different rankings. In this test Perplexity concentrated on four mainstream tools, while Gemini rated Notion and Basecamp far higher and both GPT-4o and Gemini surfaced query-optimized long-tail tools Perplexity never named. 'More reliable' depends on which engine your buyers actually use; there is no single correct answer engine to optimize for." }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I trust an AI visibility report from a vendor?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Ask two questions before trusting any number: is it broken down per engine, and how many times was each prompt repeated? If the report gives one blended score with no repeat count, it is averaging over two incompatible things - run-to-run noise and engine disagreement - and presenting the average as a trend. That is not fraud, but it is confidence the underlying data does not support." }
+        }
+      ]
+    }
+  ]
+}
+</script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-5TB26Q273D"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-5TB26Q273D');
+</script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="/">Stanislav <em>Peev</em></a>
+    <nav class="site-nav" aria-label="Main">
+      <a href="/#geo">AI / GEO</a>
+      <a href="/services/">Services</a>
+      <a href="/research/" aria-current="page">Research</a>
+      <a href="/#clients">Clients</a>
+      <a href="/#experience" class="hide-m">Experience</a>
+      <a href="/#proof" class="hide-m">Publications</a>
+      <a class="cta" href="#contact">Write to me</a>
+    </nav>
+  </div>
+</header>
+
+<nav class="crumbs" aria-label="Breadcrumb">
+  <div class="wrap"><a href="/">Home</a> › Research › AI Visibility Tracking Reliability</div>
+</nav>
+
+<main>
+
+<section class="hero" style="padding:40px 0 8px">
+  <div class="wrap" style="display:block">
+    <span class="kicker">Research · AI Search Data</span>
+    <h1 style="max-width:24ch">How reliable is AI visibility <span class="accent">tracking</span>? I ran the same queries 60 times</h1>
+    <p class="article-meta">By <b>Stanislav Peev</b>, SEO consultant &amp; GEO specialist · Published <b>August 17, 2026</b> · Original experiment · 8 min read</p>
+  </div>
+</section>
+
+<section style="padding:0 0 72px">
+  <div class="wrap article">
+
+    <div class="hero-stat">
+      <span class="big">2.3×</span>
+      <p>Which AI engine you track moved a brand's measured visibility about 2.3 times more than the model's own run-to-run randomness. Same category, same day, same questions - the engine, not the model's noise, decided the answer.</p>
+      <span class="src">Source: this experiment - 60 queries across ChatGPT, Gemini and Perplexity, August 17, 2026</span>
+    </div>
+
+    <div class="takeaways">
+      <h2>Key takeaways</h2>
+      <ul>
+        <li><b>2.3×</b> - engines disagreed with each other about 2.3 times more than a single engine wavered between identical repeats (cross-engine set distance 0.50 vs within-engine 0.22)</li>
+        <li><b>78%</b> - even repeating one prompt on one model five times, the single top recommendation held only ~78% of the time; the fuller list churned ~22%</li>
+        <li><b>0% vs 100%</b> - for one buyer question, Asana was recommended in every Perplexity answer and in none of the ChatGPT or Gemini answers, the same day</li>
+        <li><b>t0ggles</b> - two of three engines handed that same question entirely to little-known tools (t0ggles, TeamEasy) that the third engine never named once</li>
+        <li><b>90% vs ~28%</b> - Trello looked dominant on Perplexity and marginal on the other two; the same brand ranks differently on each engine, not noisily around one truth</li>
+        <li><b>60 queries</b>, 3 engines, 4 questions, one category, one day - <a href="#data">raw data published</a> under CC BY 4.0</li>
+      </ul>
+    </div>
+
+    <div class="toc">
+      <h2>What's in this report</h2>
+      <ol>
+        <li><a href="#setup">What I measured, in one paragraph</a></li>
+        <li><a href="#within">Same model, same question, five times: the list still moves</a></li>
+        <li><a href="#cross">Engines disagree 2.3x more than one engine wavers</a></li>
+        <li><a href="#bombshell">The clearest case: two engines recommend a tool the third never mentions</a></li>
+        <li><a href="#swing">The same brand ranks differently on every engine</a></li>
+        <li><a href="#smell-test">Is your AI visibility report trustworthy? A 6-point test</a></li>
+        <li><a href="#methodology">Methodology</a></li>
+        <li><a href="#limitations">Limitations</a></li>
+        <li><a href="#faq">FAQ</a></li>
+        <li><a href="#data">Get the data</a></li>
+      </ol>
+    </div>
+
+    <h2 id="setup">1. What I measured, in one paragraph</h2>
+    <p class="capsule">I picked one category - project management software - and four buyer questions a real customer would type. I ran each question five times, unchanged, on three web-connected AI engines, in one sitting. That is 60 answers. For each answer I logged which brands were named and in what order, then measured how much the result moved: between identical repeats on one engine, and between the three engines.</p>
+    <p>The point was not to rank project management tools. It was to test the thing every AI-visibility dashboard quietly assumes: that a weekly "you were mentioned in X% of answers" number is a stable measurement. If the same question, asked the same way, on the same day, produces a different answer each time, then a lot of what those dashboards report as movement is not movement at all. Full method and the raw answers are <a href="#methodology">below</a>.</p>
+
+    <h2 id="within">2. Same model, same question, five times: the list still moves</h2>
+    <p class="capsule">Repeating an identical prompt five times on a single engine, the set of recommended brands changed by about 22% on average (Jaccard distance). The single top pick was more stable - it held about 78% of the time - but in one cell out of five, even the first-named brand changed between identical runs.</p>
+    <div class="bar-chart" role="img" aria-label="Within a single engine repeating the same prompt: top-1 recommendation stable 78 percent, full recommended set stable 78 percent (churn 22 percent)">
+      <div class="bar-row"><span class="lbl">Top-1 recommendation stable</span><div class="bar-track"><div class="bar-fill" style="width:78%">~78%</div></div></div>
+      <div class="bar-row"><span class="lbl">Full recommended set stable</span><div class="bar-track"><div class="bar-fill dim" style="width:78%">~78%</div></div></div>
+      <p class="bar-note">Within-engine, across 5 identical repeats. Set instability 0.22 means the named set differs by ~22% run to run.</p>
+    </div>
+    <p>The pattern underneath the average matters. Mainstream leaders locked in fast: for "what project management software should a small team use?", Perplexity named the same four tools in all five runs (instability 0.00). The churn lived at the bottom of the list and in the long tail - a fifth or sixth tool that appears in one run and vanishes in the next. A second, quieter driver was <strong>answer length</strong>: the same question sometimes returned a five-tool comparison and sometimes a one-line recommendation. When the answer shortened, every brand except the winner disappeared - so a tracker counting "mentions" records a brand as absent purely because the model was terse that time, not because its ranking changed.</p>
+    <div class="stat-callout">
+      <span class="val">1 in 5</span>
+      <div>
+        <p>In one prompt-and-engine cell out of five, even the top recommendation flipped between identical repeats - for example ClickUp on three runs, Asana on two, same question, same engine, minutes apart.</p>
+        <p class="src">This experiment, 2026</p>
+      </div>
+    </div>
+
+    <h2 id="cross">3. Engines disagree 2.3x more than one engine wavers</h2>
+    <p class="capsule">Within one engine, the recommended set moved ~22% between identical repeats. Between the three engines, it moved ~50%. The engine you choose to track determines the result about 2.3 times more than the model's own randomness does.</p>
+    <div class="bar-chart" role="img" aria-label="Set divergence: within one engine 22 percent, between three engines 50 percent">
+      <div class="bar-row"><span class="lbl">Within one engine (repeat noise)</span><div class="bar-track"><div class="bar-fill dim" style="width:44%">0.22</div></div></div>
+      <div class="bar-row"><span class="lbl">Between three engines</span><div class="bar-track"><div class="bar-fill" style="width:100%">0.50</div></div></div>
+      <p class="bar-note">Mean Jaccard distance between recommended sets. Higher = more disagreement. 0 = identical, 1 = no overlap.</p>
+    </div>
+    <p>This is the finding that should change how the reports are read. An AI-visibility score has <strong>two independent layers of instability</strong>: the model is not deterministic between identical runs, and the models do not agree with each other. The second layer is more than twice the size of the first. A dashboard that blends ChatGPT, Gemini and Perplexity into one "AI visibility" percentage is averaging over the largest source of variance in the whole measurement and reporting the average as if it were a single fact. The divergence was widest exactly where buyers make decisions: for the two most specific, most commercial questions, cross-engine distance reached 0.60 and 0.67 - close to no overlap at all.</p>
+
+    <h2 id="bombshell">4. The clearest case: two engines recommend a tool the third never mentions</h2>
+    <p class="capsule">For "recommend a project management platform for a small remote team", the three engines did not just rank tools differently - they recommended different companies entirely. Perplexity named only mainstream tools. ChatGPT and Gemini named only two little-known ones, and named them almost every time.</p>
+    <table class="metric-table">
+      <thead><tr><th>Engine</th><th>Who it recommended for "small remote team"</th></tr></thead>
+      <tbody>
+        <tr><td>Perplexity Sonar</td><td class="lo">Asana, ClickUp, Trello, Monday.com, Basecamp</td></tr>
+        <tr><td>ChatGPT (GPT-4o, web)</td><td class="hi">t0ggles, TeamEasy</td></tr>
+        <tr><td>Gemini 2.5 Flash (web)</td><td class="hi">t0ggles, TeamEasy (all 5 runs identical)</td></tr>
+      </tbody>
+    </table>
+    <p>t0ggles and TeamEasy are niche tools with landing pages written for exactly this phrasing (<span style="color:var(--ink)">t0ggles.com/for/small-teams</span>, <span style="color:var(--ink)">teameasy.app</span>). Two of the three engines handed the entire recommendation to them and never mentioned a single mainstream brand; Perplexity did the reverse and never mentioned them. The overlap between engines on this question was almost zero (cross-engine distance 0.67). Read as visibility: <strong>Asana's AI visibility for this query was 100% on one engine and 0% on the other two, on the same afternoon.</strong> Read as opportunity: a small, focused tool can own two of three answer engines for a real buyer query while the category leaders are invisible - which is the whole case for <a href="/#geo">generative engine optimization</a> as a distinct discipline from ranking.</p>
+
+    <h2 id="swing">5. The same brand ranks differently on every engine</h2>
+    <p class="capsule">Across all 20 answers per engine, a brand's mention rate was not a noisy estimate of one underlying popularity. It was a different number on each engine - often a reversal, not a wobble.</p>
+    <table class="metric-table">
+      <thead><tr><th>Brand</th><th>Perplexity</th><th>ChatGPT</th><th>Gemini</th></tr></thead>
+      <tbody>
+        <tr><td>ClickUp</td><td class="v">100%</td><td>65%</td><td>75%</td></tr>
+        <tr><td>Trello</td><td class="v">90%</td><td>25%</td><td>30%</td></tr>
+        <tr><td>Asana</td><td class="v">85%</td><td>50%</td><td>50%</td></tr>
+        <tr><td>Monday.com</td><td class="v">80%</td><td>45%</td><td>55%</td></tr>
+        <tr><td>Notion</td><td class="lo">15%</td><td>40%</td><td class="v">70%</td></tr>
+        <tr><td>Basecamp</td><td class="lo">15%</td><td>30%</td><td class="v">70%</td></tr>
+        <tr><td>Zoho Projects</td><td class="lo">0%</td><td>45%</td><td>45%</td></tr>
+        <tr><td>Linear</td><td class="lo">0%</td><td>25%</td><td>45%</td></tr>
+        <tr><td>t0ggles</td><td class="lo">0%</td><td>25%</td><td>25%</td></tr>
+        <tr><td>TeamEasy</td><td class="lo">0%</td><td>20%</td><td>25%</td></tr>
+      </tbody>
+    </table>
+    <p>Read the rows, not the columns. Trello looks like a category leader on Perplexity (90%) and a bit player on the other two (~28%). Notion and Basecamp are the mirror image: near-invisible on Perplexity (15%), dominant on Gemini (70%). Zoho Projects and Linear do not exist for Perplexity at all and are real presences on the other two. If your AI-visibility program optimizes for the engine your report happens to sample, you can move a number while your actual buyers - on a different engine - see none of it. This is why I baseline <a href="/services/">AI visibility per engine</a> and never as a single blended score.</p>
+
+    <h2 id="smell-test">6. Is your AI visibility report trustworthy? A 6-point test</h2>
+    <p class="capsule">You do not need to run this experiment yourself to judge a report. Tick every statement that is true of the AI-visibility number you were handed - by a tool or an agency.</p>
+    <div class="audit" id="auditBox">
+      <ol>
+        <li><input type="checkbox" id="q1"><label for="q1"><b>Per engine, not blended.</b> The score is broken out for ChatGPT, Gemini and Perplexity separately, not merged into one "AI visibility" percentage.</label></li>
+        <li><input type="checkbox" id="q2"><label for="q2"><b>Repeat count is stated.</b> It says how many times each prompt was run - not a single pass per prompt.</label></li>
+        <li><input type="checkbox" id="q3"><label for="q3"><b>Real buyer prompts.</b> The prompt set is buying-intent questions your customers would actually ask, listed openly, not a black box.</label></li>
+        <li><input type="checkbox" id="q4"><label for="q4"><b>Distinguishes top-1 from the tail.</b> It separates "named as the top pick" from "mentioned somewhere in the list" - they are not the same claim.</label></li>
+        <li><input type="checkbox" id="q5"><label for="q5"><b>Movement has a threshold.</b> A week-on-week change is only flagged as real when it exceeds the tool's own run-to-run noise, not on any wobble.</label></li>
+        <li><input type="checkbox" id="q6"><label for="q6"><b>Long-tail competitors are visible.</b> The tracked brand set is not limited to the obvious names, so a query-optimized challenger like the ones above would actually show up.</label></li>
+      </ol>
+      <div class="audit-result" id="auditResult"><b>0/6</b> checked - tick each statement that is true of your report.</div>
+    </div>
+    <p>Six out of six is a report you can act on. Three to five, and the number is directional at best - useful for the very top of the answer, unreliable below it. Below three, you are being sold a trend line drawn through noise. None of this makes AI visibility unmeasurable; it makes it measurable only with a method that respects how much the answers move.</p>
+
+    <h2 id="methodology">7. Methodology</h2>
+    <p>One category was used as a testbed: project management software. Four buyer-intent prompts were fixed in advance: "what project management software should a small team use?", "best project management tool for a 10-person startup?", "which project management app should my team pick in 2026?", and "recommend a project management platform for a small remote team." Each prompt was sent five times, unchanged, to three web-connected models, all in a single session on August 17, 2026: Perplexity Sonar, OpenAI GPT-4o and Google Gemini 2.5 Flash, each with web search enabled, routed through one OpenRouter key. That is 4 prompts x 3 models x 5 repeats = 60 answers.</p>
+    <p>For every answer, brand names were extracted against a fixed dictionary and recorded in order of first mention. Three metrics were computed. <strong>Within-engine set instability</strong>: the mean pairwise Jaccard distance between the five repeat sets for a given prompt and engine (0 = identical every run, 1 = no overlap). <strong>Cross-engine set distance</strong>: the mean pairwise Jaccard distance between the three engines' combined sets for a given prompt. <strong>Top-1 stability</strong>: the share of repeats whose first-named brand equals the most common first-named brand in that cell. Every raw answer, with timestamp, is <a href="#data">published</a> so the numbers can be recomputed or challenged. A browser cross-check on the consumer Perplexity interface the same day reproduced the same instability pattern.</p>
+
+    <h2 id="limitations">8. Limitations</h2>
+    <p class="capsule">This is a directional experiment, not a benchmark. The effect is unmistakable at this size, but the exact figures should not be quoted as universal constants - they are a floor, measured under favorable conditions.</p>
+    <p>Four honest caveats. First, scope: one category, four prompts, five repeats, one day and the API's default location. Enough to show the direction and the rough magnitude; not enough to attach a confidence interval to any single brand's number - that needs more repeats and more categories. Second, the models were queried through OpenRouter's web plugin, which is not identical to the consumer ChatGPT, Gemini and Perplexity apps (no personalization, memory or app-specific UI). That means this measures the <em>floor</em> of the noise; the consumer surfaces most buyers use are at least this variable, usually more. Third, brand extraction used a fixed dictionary, so a tool outside it would read as zero mentions - the dictionary was expanded to include t0ggles and TeamEasy after they first appeared. Fourth, this is not a ranking of project management tools; the category is only a testbed for the measurement question. I will extend this to more categories and higher repeat counts, and update this page with the harder numbers.</p>
+
+    <h2 id="faq">9. Frequently asked questions</h2>
+    <div class="faq">
+      <details>
+        <summary>How many prompts do I need for a reliable AI visibility check?</summary>
+        <p>More than one engine, and more than a handful of repeats. Repeating the same prompt five times on one model still moved the full recommended set by about 22% and flipped the top pick in one cell out of five. Mainstream leaders stabilize fast; everything below the top and every smaller brand needs several repeats per engine before the number means anything.</p>
+      </details>
+      <details>
+        <summary>Does it matter which AI engine I track?</summary>
+        <p>More than anything else here. The three engines disagreed about 2.3 times more than a single engine wavered between identical runs. A blended "AI visibility" score hides which of those two effects it is actually reporting - track ChatGPT, Gemini and Perplexity separately.</p>
+      </details>
+      <details>
+        <summary>Why does an AI visibility tool give a different number every week?</summary>
+        <p>Two reasons. The models are non-deterministic, so identical prompts return different sets minutes apart. And answer length varies, so a brand drops out of a shorter answer without any change in ranking. A weekly move below the top position, measured on few repeats, is usually noise, not a trend.</p>
+      </details>
+      <details>
+        <summary>Is a single blended AI visibility score meaningful?</summary>
+        <p>Only for the very top of the answer. Top-1 recommendations for mainstream brands were about 78% stable, so a headline leader is fairly trustworthy. Below the top, and for any smaller brand, a one-number score with no per-engine breakdown and no repeat count reports more certainty than the data supports.</p>
+      </details>
+      <details>
+        <summary>Which is more reliable: ChatGPT, Gemini or Perplexity?</summary>
+        <p>They are different rankings, not noisy copies of one. Perplexity concentrated on four mainstream tools; Gemini rated Notion and Basecamp far higher; both GPT-4o and Gemini surfaced query-optimized long-tail tools Perplexity never named. The engine that matters is the one your buyers use.</p>
+      </details>
+      <details>
+        <summary>Can I trust an AI visibility report from a vendor?</summary>
+        <p>Ask two things: is it per engine, and how many repeats per prompt? A single blended score with no repeat count averages over run-to-run noise and engine disagreement and presents the average as a trend. Use the <a href="#smell-test">6-point test</a> above before acting on any AI-visibility number.</p>
+      </details>
+    </div>
+
+    <h2 id="data">10. Get the data</h2>
+    <div class="data-box">
+      <h3>Full dataset, CC BY 4.0</h3>
+      <p>All 60 raw answers with timestamps, plus the computed per-cell and per-engine metrics. Recompute the numbers, challenge them, or replicate the method on your own category.</p>
+      <p>
+        <a href="/research/ai-visibility-tracking-reliability/data-summary.json" rel="noopener">data-summary.json</a> - metrics, prompts, per-engine mention rates<br>
+        <a href="/research/ai-visibility-tracking-reliability/data-raw.jsonl" rel="noopener">data-raw.jsonl</a> - every answer, one JSON object per line
+      </p>
+      <p style="margin-bottom:0">Citing this page: link to this URL. If you replicate it on another category or at higher repeat counts, <a href="mailto:info@stanislav-peev.com?subject=AI%20visibility%20stability%20-%20replication">email me</a> and I'll add it here.</p>
+    </div>
+
+    <p class="updated">Published: August 17, 2026. Original experiment by <a href="/">Stanislav Peev</a>. This is a directional first run; I will extend it to more categories and higher repeat counts and update this page with the harder numbers. Method or figures look off? <a href="mailto:info@stanislav-peev.com?subject=AI%20visibility%20experiment%20-%20feedback">Email me</a> - the raw data is published so it can be checked.</p>
+
+  </div>
+</section>
+
+<section class="contact-band" id="contact" style="padding:56px 0">
+  <div class="wrap contact-cols">
+    <div>
+      <h2>Want an AI visibility baseline that isn't just noise?</h2>
+      <p class="section-intro">I run AI-visibility baselines and GEO programs measured per engine, on real buyer prompts, with enough repeats to tell signal from noise - so you know where ChatGPT, Gemini and Perplexity actually place you. Describe your situation in a few sentences and I'll reply personally with an honest first read. No calls, no meetings.</p>
+      <p><a class="btn btn-primary" href="/services/">See GEO services</a> <a class="btn btn-ghost" href="mailto:info@stanislav-peev.com?subject=AI%20visibility%20baseline%20inquiry" style="margin-left:10px">Email me</a></p>
+    </div>
+    <ul class="contact-list">
+      <li><b>Email</b><a class="link" href="mailto:info@stanislav-peev.com">info@stanislav-peev.com</a></li>
+      <li><b>LinkedIn</b><a class="link" href="https://www.linkedin.com/in/stanislav-peev-seo/" rel="noopener">in/stanislav-peev-seo</a></li>
+      <li><b>Based in</b>Bratislava, Slovakia - working worldwide (EN · RU)</li>
+    </ul>
+  </div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div>© 2026 Stanislav Peev · SEO Consultant &amp; AI Search (GEO) Specialist, Bratislava, Slovakia</div>
+    <nav class="footer-nav" aria-label="Footer">
+      <a href="/">Home</a>
+      <a href="/#geo">AI / GEO</a>
+      <a href="/services/">Services</a>
+      <a href="/services/seo-audit/">SEO Audit</a>
+      <a href="/services/small-business-seo/">Small Business SEO</a>
+      <a href="/research/">Research</a>
+      <a href="https://www.linkedin.com/in/stanislav-peev-seo/" rel="noopener">LinkedIn</a>
+    </nav>
+  </div>
+</footer>
+
+<button class="to-top" id="toTop" aria-label="Back to top" title="Back to top">↑</button>
+<script>
+(function () {
+  var t = document.getElementById('toTop');
+  addEventListener('scroll', function () {
+    t.classList.toggle('show', scrollY > 600);
+  }, { passive: true });
+  t.addEventListener('click', function () {
+    scrollTo({ top: 0, behavior: 'smooth' });
+  });
+  var box = document.getElementById('auditBox');
+  var result = document.getElementById('auditResult');
+  if (box && result) {
+    var boxes = box.querySelectorAll('input[type="checkbox"]');
+    box.addEventListener('change', function () {
+      var n = 0;
+      boxes.forEach(function (b) { if (b.checked) n++; });
+      var msg;
+      if (n >= 6) { msg = 'a report you can act on. The number respects how much AI answers move.'; }
+      else if (n >= 3) { msg = 'directional at best - trust it for the top of the answer, not below it.'; }
+      else { msg = 'a trend line drawn through noise. Ask for a per-engine breakdown and a repeat count before acting.'; }
+      result.innerHTML = '<b>' + n + '/6</b> checked - ' + msg;
+    });
+  }
+})();
+</script>
+
+</body>
+</html>

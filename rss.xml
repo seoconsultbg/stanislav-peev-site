@@ -5,8 +5,22 @@
     <link>https://stanislav-peev.com/</link>
     <description>Original research and data reports on AI search visibility, GEO (generative engine optimization) and SEO - by Stanislav Peev, independent SEO consultant and AI search specialist.</description>
     <language>en</language>
-    <lastBuildDate>Mon, 20 Jul 2026 12:00:00 GMT</lastBuildDate>
+    <lastBuildDate>Mon, 17 Aug 2026 12:00:00 GMT</lastBuildDate>
     <atom:link href="https://stanislav-peev.com/rss.xml" rel="self" type="application/rss+xml"/>
+    <item>
+      <title>How reliable is AI visibility tracking? A 60-query experiment</title>
+      <link>https://stanislav-peev.com/research/ai-visibility-tracking-reliability/</link>
+      <guid isPermaLink="true">https://stanislav-peev.com/research/ai-visibility-tracking-reliability/</guid>
+      <pubDate>Mon, 17 Aug 2026 10:00:00 GMT</pubDate>
+      <description>An original experiment: the same four buyer questions run 60 times across ChatGPT, Gemini and Perplexity. Which engine you track moved a brand's measured AI visibility 2.3x more than the model's own run-to-run randomness, and two engines recommended a tool the third never named once. Full method, limitations and raw dataset published.</description>
+    </item>
+    <item>
+      <title>SEO Profy: what a real SEO professional does and how to hire one</title>
+      <link>https://stanislav-peev.com/research/seo-profy/</link>
+      <guid isPermaLink="true">https://stanislav-peev.com/research/seo-profy/</guid>
+      <pubDate>Thu, 30 Jul 2026 10:00:00 GMT</pubDate>
+      <description>A working SEO professional's guide for US businesses: what the job includes in 2026 (including AI search), when DIY is enough, engagement models, what business owners really say about hiring SEO help, and the red flags to walk away from.</description>
+    </item>
     <item>
       <title>How often AI gets business information wrong: 2026 statistics</title>
       <link>https://stanislav-peev.com/research/ai-wrong-business-information-statistics/</link>
