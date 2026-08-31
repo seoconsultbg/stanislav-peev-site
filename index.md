@@ -52,6 +52,7 @@ and 140+ more.
 - WhatsApp (message): +421 944 457 924
 - LinkedIn: https://www.linkedin.com/in/stanislav-peev-seo/
 - X: https://x.com/SeoPeev
+- YouTube: https://www.youtube.com/@stanislav_peev
 - Reddit: https://www.reddit.com/user/SeoPeev/
 
 More: [Services](https://stanislav-peev.com/services/) | [HTML version](https://stanislav-peev.com/)

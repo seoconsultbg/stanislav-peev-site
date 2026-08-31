@@ -5,8 +5,22 @@
     <link>https://stanislav-peev.com/</link>
     <description>Original research and data reports on AI search visibility, GEO (generative engine optimization) and SEO - by Stanislav Peev, independent SEO consultant and AI search specialist.</description>
     <language>en</language>
-    <lastBuildDate>Mon, 17 Aug 2026 12:00:00 GMT</lastBuildDate>
+    <lastBuildDate>Mon, 31 Aug 2026 12:00:00 GMT</lastBuildDate>
     <atom:link href="https://stanislav-peev.com/rss.xml" rel="self" type="application/rss+xml"/>
+    <item>
+      <title>AI referral traffic vs organic search: how it converts for a small business</title>
+      <link>https://stanislav-peev.com/research/ai-referral-traffic-conversion-vs-organic/</link>
+      <guid isPermaLink="true">https://stanislav-peev.com/research/ai-referral-traffic-conversion-vs-organic/</guid>
+      <pubDate>Mon, 31 Aug 2026 10:00:00 GMT</pubDate>
+      <description>Aggregated, source-verified 2026 data on how AI-referral traffic converts against organic search: about 50% higher on Shopify product pages, 4.4x per-visitor value (Semrush), and 14.2% vs 2.8% lead conversion in B2B (Opollo) - with the catch that volume is still tiny and AI converted 43% worse than other channels as recently as July 2024. What it means for a small business, limitations named.</description>
+    </item>
+    <item>
+      <title>Google review concentration: who really owns the reviews in a local market</title>
+      <link>https://stanislav-peev.com/research/google-review-concentration-home-services/</link>
+      <guid isPermaLink="true">https://stanislav-peev.com/research/google-review-concentration-home-services/</guid>
+      <pubDate>Mon, 24 Aug 2026 10:00:00 GMT</pubDate>
+      <description>Original dataset: 7,072 Google Business Profile listings across 6 home service trades in 12 US cities. The most-reviewed company held a top-3 Maps position in just 5.6% of 72 markets; the top 5 listings hold a median 58.3% of visible review volume; trade predicts difficulty far better than city size. Full method, limitations and raw data published.</description>
+    </item>
     <item>
       <title>How reliable is AI visibility tracking? A 60-query experiment</title>
       <link>https://stanislav-peev.com/research/ai-visibility-tracking-reliability/</link>

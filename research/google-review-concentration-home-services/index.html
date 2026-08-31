@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Google Review Concentration in Local Markets: 2026 Data</title>
+<meta name="description" content="Does the most-reviewed company rank first on Google Maps? Across 72 US home services markets it held a top-3 spot just 5.6% of the time. Original data.">
+<link rel="canonical" href="https://stanislav-peev.com/research/google-review-concentration-home-services/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Stanislav Peev">
+<meta property="og:title" content="Does the most-reviewed company win the map pack? 72 markets say no">
+<meta property="og:description" content="Across 72 US home services markets the review leader held a top-3 Maps position 5.6% of the time. Its median position was #35. Original data, method and limitations.">
+<meta property="og:url" content="https://stanislav-peev.com/research/google-review-concentration-home-services/">
+<meta property="og:image" content="https://stanislav-peev.com/research/google-review-concentration-home-services/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="5.6% of the time the most-reviewed business ranks top-3 on Google Maps - data card with top-5 review share by trade">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:creator" content="@SeoPeev">
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="alternate" type="application/rss+xml" title="Stanislav Peev - SEO &amp; AI Search Research" href="/rss.xml">
+<link rel="stylesheet" href="/assets/site.css?v=6">
+<style>
+.article-meta { font-size: .9rem; color: var(--ink-soft); margin-bottom: 34px; }
+.article-meta b { color: var(--ink); }
+.hero-stat {
+  background: linear-gradient(135deg, var(--surface), var(--band));
+  border: 1px solid var(--green); border-radius: 18px;
+  padding: 36px 32px; text-align: center; margin: 0 0 40px;
+}
+.hero-stat .big {
+  font-family: var(--serif); font-size: clamp(3.2rem, 8vw, 5rem);
+  color: var(--green); font-weight: 700; line-height: 1; display: block; margin-bottom: 12px;
+}
+.hero-stat p { color: var(--ink); font-size: 1.1rem; max-width: 62ch; margin: 0 auto 8px; }
+.hero-stat .src { font-size: .85rem; color: var(--ink-soft); }
+.takeaways {
+  background: var(--surface); border: 1px solid var(--line); border-left: 4px solid var(--green);
+  border-radius: 12px; padding: 26px 28px; margin: 0 0 40px;
+}
+.takeaways h2 {
+  font-family: var(--sans); font-size: .8rem; font-weight: 700; letter-spacing: .12em;
+  text-transform: uppercase; color: var(--green); margin-bottom: 14px;
+}
+.takeaways ul { list-style: none; display: grid; gap: 10px; }
+.takeaways li { padding-left: 22px; position: relative; color: var(--ink-soft); font-size: .98rem; }
+.takeaways li::before { content: '→'; position: absolute; left: 0; color: var(--green); }
+.takeaways li b { color: var(--ink); font-family: var(--serif); }
+.toc {
+  border: 1px solid var(--line); border-radius: 12px; padding: 22px 26px; margin: 0 0 48px;
+  background: var(--bg-alt);
+}
+.toc h2 { font-family: var(--sans); font-size: .95rem; margin-bottom: 12px; }
+.toc ol { margin-left: 20px; color: var(--ink-soft); display: grid; gap: 6px; font-size: .95rem; }
+.toc a { color: var(--green); text-decoration: none; }
+.toc a:hover { text-decoration: underline; }
+.article h2 { margin-top: 56px; margin-bottom: 16px; scroll-margin-top: 90px; }
+.article h3 { margin-top: 30px; margin-bottom: 10px; font-size: 1.12rem; }
+.article .capsule { color: var(--ink); font-size: 1.08rem; margin-bottom: 18px; max-width: 70ch; }
+.article p { color: var(--ink-soft); margin-bottom: 18px; max-width: 72ch; }
+.statcards { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px,1fr)); gap: 14px; margin: 26px 0 32px; }
+.statcard { background: var(--surface); border: 1px solid var(--line); border-top: 3px solid var(--green); border-radius: 12px; padding: 18px 16px; text-align: center; }
+.statcard .v { font-family: var(--serif); font-size: 1.9rem; font-weight: 700; color: var(--green); line-height: 1.1; }
+.statcard .l { font-size: .82rem; color: var(--ink-soft); margin-top: 6px; line-height: 1.35; }
+.dtable-wrap { overflow-x: auto; margin: 24px 0 10px; border-radius: 12px; border: 1px solid var(--line); }
+table.dtable { width: 100%; border-collapse: collapse; font-size: .93rem; }
+table.dtable th { background: var(--ink) !important; color: #fff !important; padding: 10px 12px; text-align: left; font-weight: 600; font-size: .8rem; letter-spacing: .04em; text-transform: uppercase; white-space: nowrap; }
+table.dtable td { padding: 9px 12px; border-bottom: 1px solid var(--line); color: var(--ink-soft); }
+table.dtable td.num { font-variant-numeric: tabular-nums; text-align: right; }
+table.dtable tbody tr:nth-child(even) { background: var(--bg-alt); }
+table.dtable tbody tr:hover { background: var(--band); }
+table.dtable th[data-sort] { cursor: pointer; }
+table.dtable th[data-sort]::after { content: ' ↕'; opacity: .45; }
+table.dtable th[data-dir="asc"]::after { content: ' ↑'; opacity: 1; }
+table.dtable th[data-dir="desc"]::after { content: ' ↓'; opacity: 1; }
+.tsource { font-size: .82rem; color: var(--ink-soft); margin: 0 0 26px; }
+.barchart { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 22px 24px; margin: 26px 0 12px; }
+.barchart h3 { font-family: var(--sans); font-size: .78rem; letter-spacing: .1em; text-transform: uppercase; color: var(--ink-soft); margin: 0 0 16px; }
+.bar-row { display: flex; align-items: center; margin-bottom: 10px; }
+.bar-label { width: 110px; font-size: .88rem; text-align: right; padding-right: 14px; flex-shrink: 0; color: var(--ink); }
+.bar-track { flex: 1; height: 30px; background: var(--band); border-radius: 6px; overflow: hidden; }
+.bar-fill { height: 100%; background: var(--green); border-radius: 6px; display: flex; align-items: center; padding-left: 11px; font-size: .84rem; font-weight: 700; color: #fff; font-variant-numeric: tabular-nums; }
+.widget { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 26px 24px; margin: 30px 0; }
+.widget h3 { margin-top: 0; }
+.wctl { display: flex; flex-wrap: wrap; gap: 14px; margin-bottom: 18px; }
+.wctl label { display: block; font-size: .78rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--ink-soft); margin-bottom: 5px; }
+.wctl select { padding: 9px 12px; border: 1px solid var(--line); border-radius: 8px; font-size: .95rem; background: var(--bg); color: var(--ink); min-width: 165px; }
+.wcount { font-size: .85rem; color: var(--ink-soft); margin-top: 4px; }
+.verdict { border-left: 4px solid var(--green); background: var(--band); border-radius: 0 10px 10px 0; padding: 14px 18px; margin: 18px 0; }
+.verdict b { color: var(--ink); }
+.methodology { background: var(--bg-alt); border: 1px solid var(--line); border-radius: 12px; padding: 26px 28px; margin: 40px 0; }
+.methodology ul { margin-left: 18px; color: var(--ink-soft); display: grid; gap: 7px; font-size: .95rem; }
+.faq details { border: 1px solid var(--line); border-radius: 10px; margin-bottom: 10px; overflow: hidden; }
+.faq summary { padding: 14px 18px; font-weight: 600; cursor: pointer; background: var(--surface); color: var(--ink); list-style: none; }
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary::before { content: '+ '; color: var(--green); font-weight: 700; }
+.faq details[open] summary::before { content: '- '; }
+.faq details > div { padding: 14px 18px; }
+.faq details > div p { margin: 0; }
+.srclist { margin-left: 20px; color: var(--ink-soft); font-size: .92rem; display: grid; gap: 9px; }
+.updated { font-size: .9rem; color: var(--ink-soft); border-top: 1px solid var(--line); padding-top: 18px; margin-top: 40px; }
+@media (max-width: 620px) {
+  .bar-label { width: 78px; font-size: .78rem; padding-right: 8px; }
+  .statcards { grid-template-columns: repeat(2,1fr); }
+}
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://stanislav-peev.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Research", "item": "https://stanislav-peev.com/research/" },
+        { "@type": "ListItem", "position": 3, "name": "Google Review Concentration in Local Markets", "item": "https://stanislav-peev.com/research/google-review-concentration-home-services/" }
+      ]
+    },
+    {
+      "@type": "Article",
+      "headline": "Google Review Concentration in Local Markets: 2026 Data",
+      "description": "Does the most-reviewed company rank first on Google Maps? Across 72 US home services markets it held a top-3 spot just 5.6% of the time. Original data.",
+      "author": { "@type": "Person", "name": "Stanislav Peev", "url": "https://stanislav-peev.com/" },
+      "publisher": { "@type": "Person", "name": "Stanislav Peev" },
+      "datePublished": "2026-08-24",
+      "dateModified": "2026-08-24",
+      "mainEntityOfPage": "https://stanislav-peev.com/research/google-review-concentration-home-services/",
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": [".hero-stat", ".takeaways"] }
+    },
+    {
+      "@type": "Dataset",
+      "name": "Google review concentration across 72 US home services markets (2026)",
+      "description": "Review counts and Maps ranking positions for 7,072 Google Business Profile listings across 6 home service trades in 12 US cities, with concentration metrics (top-N share, Gini) per market.",
+      "creator": { "@type": "Person", "name": "Stanislav Peev" },
+      "datePublished": "2026-08-24",
+      "license": "https://creativecommons.org/licenses/by/4.0/",
+      "isAccessibleForFree": true,
+      "distribution": [
+        { "@type": "DataDownload", "encodingFormat": "application/json", "contentUrl": "https://stanislav-peev.com/research/google-review-concentration-home-services/data-summary.json" },
+        { "@type": "DataDownload", "encodingFormat": "application/x-ndjson", "contentUrl": "https://stanislav-peev.com/research/google-review-concentration-home-services/data-raw.jsonl" }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Do you need the most reviews to rank first on Google Maps?",
+          "acceptedAnswer": { "@type": "Answer", "text": "No. Across 72 home services markets the most-reviewed company held a top-3 position only 5.6% of the time, and its median position was #35. The median first-ranked listing had 121 reviews while the median review leader had 4,447." }
+        },
+        {
+          "@type": "Question",
+          "name": "How many Google reviews does a typical local contractor have?",
+          "acceptedAnswer": { "@type": "Answer", "text": "The median listing across 7,072 profiles was 40 reviews. It varies sharply by trade: plumbers ran a median of 70.5 and electricians just 13.5. Roughly 5% of listings had no reviews at all." }
+        },
+        {
+          "@type": "Question",
+          "name": "Is it easier to compete in a smaller city?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Not on review concentration. Median top-5 share was 60.2% in large metros, 57.8% in mid-sized and 58.9% in small ones. Which trade you are in matters far more than which city you are in." }
+        },
+        {
+          "@type": "Question",
+          "name": "Which home services trade is hardest to break into on reviews?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Electricians, where the top 5 hold 73.8% of the visible review volume and the leader has 634 times the reviews of the median listing. Much of that is driven by plumbing and HVAC conglomerates appearing in electrician results." }
+        },
+        {
+          "@type": "Question",
+          "name": "How many reviews do I actually need to compete?",
+          "acceptedAnswer": { "@type": "Answer", "text": "The top-3 ranked listings carried a median of 1.96 times the market median, not hundreds of times. Reviews behave like a threshold to clear rather than a race to win, so roughly double your local median is a defensible target." }
+        },
+        {
+          "@type": "Question",
+          "name": "Why do published review benchmarks disagree so much?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Because they sample different things at different times. Figures range from 47 reviews to 2,084 depending on the study, trade and year. Benchmarks describe the leaders in a category, not the typical competitor in your city." }
+        }
+      ]
+    }
+  ]
+}
+</script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-5TB26Q273D"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-5TB26Q273D');
+</script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="/">Stanislav <em>Peev</em></a>
+    <nav class="site-nav" aria-label="Main">
+      <a href="/#geo">AI / GEO</a>
+      <a href="/services/">Services</a>
+      <a href="/research/" aria-current="page">Research</a>
+      <a href="/#clients">Clients</a>
+      <a href="/#experience" class="hide-m">Experience</a>
+      <a href="/#proof" class="hide-m">Publications</a>
+      <a class="cta" href="#contact">Write to me</a>
+    </nav>
+  </div>
+</header>
+
+<nav class="crumbs" aria-label="Breadcrumb">
+  <div class="wrap"><a href="/">Home</a> › Research › Google Review Concentration</div>
+</nav>
+
+<main>
+
+<section class="hero" style="padding:40px 0 8px">
+  <div class="wrap" style="display:block">
+    <span class="kicker">Research · Local Search Data</span>
+    <h1 style="max-width:26ch">Google review <span class="accent">concentration</span>: who really owns the reviews in a local market</h1>
+    <p class="article-meta">By <b>Stanislav Peev</b>, SEO consultant &amp; GEO specialist · Published <b>August 24, 2026</b> · Original dataset, 7,072 listings · 9 min read</p>
+  </div>
+</section>
+
+<section style="padding:0 0 72px">
+  <div class="wrap article">
+
+    <div class="hero-stat">
+      <span class="big">5.6%</span>
+      <p>Does having the most Google reviews get you into the Maps top 3? Almost never. Across 72 US home services markets, the most-reviewed company held a top-3 position in just 5.6% of them.</p>
+      <p class="src">Original analysis of 7,072 Google Business Profile listings, collected August 24, 2026. <a href="#methodology">Method and limitations</a>.</p>
+    </div>
+
+    <div class="takeaways">
+      <h2>Key findings</h2>
+      <ul>
+        <li>The review leader held a top-3 Maps position in <b>5.6%</b> of markets. Its median position was <b>#35</b>.</li>
+        <li>The median first-ranked listing had <b>121 reviews</b>. The median review leader had <b>4,447</b> - and usually lost to it.</li>
+        <li>Review count barely tracks position: median Spearman correlation <b>0.164</b>, with 11 of 72 markets running <b>negative</b>.</li>
+        <li>Reviews are still heavily concentrated: the top 5 listings hold a median <b>58.3%</b> of the top 20's review volume.</li>
+        <li>Trade decides difficulty, not city size. Top-5 share runs <b>48.0%</b> in roofing versus <b>73.8%</b> in electrical.</li>
+        <li>Metro size barely moves it: <b>60.2%</b> in large metros, <b>58.9%</b> in small ones.</li>
+        <li>The top-3 ranked listings carried only <b>1.96x</b> the market median - a threshold to clear, not a race to win.</li>
+      </ul>
+    </div>
+
+    <nav class="toc" aria-label="Table of contents">
+      <h2>What this page covers</h2>
+      <ol>
+        <li><a href="#rank">Does the most-reviewed company rank first?</a></li>
+        <li><a href="#concentration">How concentrated are reviews in a local trade?</a></li>
+        <li><a href="#trades">Which trades are hardest to break into?</a></li>
+        <li><a href="#citysize">Are smaller cities easier to compete in?</a></li>
+        <li><a href="#conglomerates">Why electricians look more locked up than they are</a></li>
+        <li><a href="#howmany">How many reviews do you actually need?</a></li>
+        <li><a href="#benchmarks">Why published benchmarks disagree by 40x</a></li>
+        <li><a href="#matrix">The full 72-market matrix</a></li>
+        <li><a href="#methodology">Methodology and limitations</a></li>
+        <li><a href="#faq">FAQ</a></li>
+      </ol>
+    </nav>
+
+    <p>Every guide on local search tells owners the same thing: collect more Google reviews and you will climb the map pack. The advice is everywhere, and the benchmark articles behind it are real research. But they all answer one question - how many reviews does a business in your category typically have - and then stop.</p>
+
+    <p>Nobody publishes the other half: how those reviews are <em>distributed</em> inside a single market. A benchmark tells you whether you are above average. It does not tell you whether the market is still winnable. The question is live: a business owner recently <a href="https://www.reddit.com/r/smallbusiness/comments/1vqy0f1/does_anyone_elses_trade_have_this_big_a_gap/" rel="noopener">pulled data on 136 contractors across three cities</a>, found the top 5 holding 69% of all reviews, asked whether that pattern generalises - and got no sourced answer. So I collected the data.</p>
+
+    <p>This is a companion piece to my earlier experiment on <a href="/research/ai-visibility-tracking-reliability/">how reliable AI visibility tracking actually is</a>. Both started the same way - a number that everyone quotes, and nobody has measured.</p>
+
+    <h2 id="rank">Does the most-reviewed company rank first on Google Maps?</h2>
+    <p class="capsule">No. Across 72 markets the company with the most reviews held a top-3 Maps position only 5.6% of the time, and its median position was #35. The median first-ranked listing had 121 reviews while the median review leader had 4,447.</p>
+
+    <div class="statcards">
+      <div class="statcard"><div class="v">5.6%</div><div class="l">Markets where the review leader ranked top 3</div></div>
+      <div class="statcard"><div class="v">#35</div><div class="l">Median Maps position of the review leader</div></div>
+      <div class="statcard"><div class="v">121</div><div class="l">Median reviews of the #1 ranked listing</div></div>
+      <div class="statcard"><div class="v">4,447</div><div class="l">Median reviews of the review leader</div></div>
+    </div>
+
+    <p>In 19.4% of markets the review leader did not even make the top 10. The rank correlation confirms it: the median Spearman coefficient between review count and position was 0.164, which is close to no relationship at all. In 44 of 72 markets the correlation sat below 0.2 in absolute terms, and in 11 markets it was outright negative - more reviews, worse position.</p>
+
+    <p>Phoenix roofing is a clean illustration. The listing in position one had 44 reviews. The company in position nine had 1,053. Both were visible; the smaller profile was more visible.</p>
+
+    <div class="verdict"><p><b>What this does not say.</b> This measures the ordering of the result set Google returns for a city-level query. It does not control for proximity to the search centroid, which is a major ranking input, so this is not a claim that reviews do not matter. Whitespark's ranking factors work puts reviews at roughly <a href="https://www.searchenginejournal.com/google-reviews-impact-rankings/429783/" rel="noopener">17% of map pack weight</a>, and that is consistent with what I found: meaningful, but one input among many. The narrower claim the data supports is that review volume on its own does not buy visible position, and the businesses winning these result sets are usually not the ones with the biggest review counts.</p></div>
+
+    <h2 id="concentration">How concentrated are Google reviews in a local trade?</h2>
+    <p class="capsule">Heavily. The five most-reviewed listings in a market hold a median 58.3% of the review volume of the top 20. The top three hold 44.9%, and the single leader alone holds 21.2%.</p>
+
+    <p>The gap between the leader and a typical competitor is the part that surprises people. Across all 72 markets, the most-reviewed listing had a median of 107.1 times the reviews of the median listing in the same market. Meanwhile the median listing itself sat at just 40 reviews, and about 5% of returned listings had none at all.</p>
+
+    <p>So both things are true at once: a handful of firms own most of the review volume, and the typical competitor you are actually up against has fewer than fifty reviews. Concentration at the top does not mean the field is strong.</p>
+
+    <h2 id="trades">Which home services trades are hardest to break into?</h2>
+    <p class="capsule">Electrical is the most concentrated trade, with the top 5 holding 73.8% of visible review volume and a leader carrying 634.5 times the median listing. Roofing is the most open at 48.0%.</p>
+
+    <div class="barchart">
+      <h3>Top-5 share of review volume, by trade (median across 12 cities)</h3>
+      <div class="bar-row"><span class="bar-label">Electrical</span><div class="bar-track"><div class="bar-fill" style="width:100%">73.8%</div></div></div>
+      <div class="bar-row"><span class="bar-label">HVAC</span><div class="bar-track"><div class="bar-fill" style="width:89%">65.8%</div></div></div>
+      <div class="bar-row"><span class="bar-label">Plumbing</span><div class="bar-track"><div class="bar-fill" style="width:85%">62.4%</div></div></div>
+      <div class="bar-row"><span class="bar-label">Landscaping</span><div class="bar-track"><div class="bar-fill" style="width:77%">56.6%</div></div></div>
+      <div class="bar-row"><span class="bar-label">Garage door</span><div class="bar-track"><div class="bar-fill" style="width:77%">56.5%</div></div></div>
+      <div class="bar-row"><span class="bar-label">Roofing</span><div class="bar-track"><div class="bar-fill" style="width:65%">48.0%</div></div></div>
+    </div>
+
+    <div class="dtable-wrap">
+    <table class="dtable">
+      <thead><tr><th>Trade</th><th>Top 5 share</th><th>Top 3 share</th><th>Gini</th><th>Leader reviews</th><th>Median reviews</th><th>Leader / median</th></tr></thead>
+      <tbody>
+      <tr><td>Electrical</td><td class="num">73.8%</td><td class="num">58.3%</td><td class="num">0.6</td><td class="num">8,734</td><td class="num">13.5</td><td class="num">634.5x</td></tr>
+      <tr><td>HVAC</td><td class="num">65.8%</td><td class="num">49.7%</td><td class="num">0.5</td><td class="num">9,659</td><td class="num">49.5</td><td class="num">328.5x</td></tr>
+      <tr><td>Plumbing</td><td class="num">62.4%</td><td class="num">46.3%</td><td class="num">0.5</td><td class="num">9,162</td><td class="num">70.5</td><td class="num">129.9x</td></tr>
+      <tr><td>Landscaping</td><td class="num">56.6%</td><td class="num">44.7%</td><td class="num">0.4</td><td class="num">1,030</td><td class="num">31.5</td><td class="num">34.1x</td></tr>
+      <tr><td>Garage door</td><td class="num">56.5%</td><td class="num">41.5%</td><td class="num">0.4</td><td class="num">3,943</td><td class="num">57.5</td><td class="num">76x</td></tr>
+      <tr><td>Roofing</td><td class="num">48.0%</td><td class="num">34.4%</td><td class="num">0.3</td><td class="num">1,135</td><td class="num">40</td><td class="num">29.6x</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <p class="tsource">Source: own analysis of 7,072 listings, August 24, 2026. Gini runs 0 (every listing equal) to 1 (one listing holds everything).</p>
+
+    <p>The spread is wide enough to change strategy. In roofing, the leader has about 30 times the median listing and the top five hold under half the volume - a market where a disciplined review programme can realistically move you into the visible set. In electrical the leader has over 600 times the median. No review programme closes that gap, which means the route in has to be something other than out-reviewing the leader.</p>
+
+    <h2 id="citysize">Are smaller cities easier to compete in?</h2>
+    <p class="capsule">Not on this measure. Median top-5 share was 60.2% in large metros, 57.8% in mid-sized ones and 58.9% in small ones. The differences are inside the noise.</p>
+
+    <div class="dtable-wrap">
+    <table class="dtable">
+      <thead><tr><th>Metro size</th><th>Top 5 share</th><th>Gini</th><th>Leader reviews</th><th>Median reviews</th></tr></thead>
+      <tbody>
+      <tr><td>Large metro</td><td class="num">60.2%</td><td class="num">0.5</td><td class="num">4,669</td><td class="num">39</td></tr>
+      <tr><td>Mid metro</td><td class="num">57.8%</td><td class="num">0.4</td><td class="num">5,373</td><td class="num">53</td></tr>
+      <tr><td>Small metro</td><td class="num">58.9%</td><td class="num">0.5</td><td class="num">3,483</td><td class="num">31.5</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <p class="tsource">Large: Phoenix, Atlanta, Dallas, Chicago. Mid: Denver, Nashville, Portland, Kansas City. Small: Boise, Des Moines, Chattanooga, Fort Wayne.</p>
+
+    <p>This one contradicts standard advice directly. "Go to a smaller market, it is less competitive" is repeated constantly, and on review concentration it is simply not true - Boise electrical is more concentrated than Chicago roofing by a wide margin. Absolute review counts are lower in small metros, so the numbers you need to hit are smaller, but the shape of the market is the same. If you are choosing where to expand, the trade you pick matters far more than the city.</p>
+
+    <h2 id="conglomerates">Why electricians look more locked up than they are</h2>
+    <p class="capsule">The leaders in electrician results are usually not electricians. They are multi-trade home services conglomerates that also appear in plumbing and HVAC searches, and they drag the concentration figure up with them.</p>
+
+    <p>I found 41 companies with 500 or more reviews appearing in three or more different trade searches in the same city. The clearest case is Parker &amp; Sons in Phoenix: one profile with 34,733 reviews that is simultaneously the review leader for HVAC, plumbing and electrical.</p>
+
+    <div class="dtable-wrap">
+    <table class="dtable">
+      <thead><tr><th>Company</th><th>City</th><th>Reviews</th><th>Trades appeared in</th></tr></thead>
+      <tbody>
+      <tr><td>Parker &amp; Sons</td><td>Phoenix, AZ</td><td class="num">34,733</td><td class="num">3</td></tr>
+      <tr><td>A.B. May Heating, A/C, Plumbing &amp; Electrical</td><td>Kansas City, MO</td><td class="num">19,572</td><td class="num">3</td></tr>
+      <tr><td>Applewood Plumbing Heating &amp; Electric</td><td>Denver, CO</td><td class="num">17,752</td><td class="num">3</td></tr>
+      <tr><td>Hiller Plumbing, Heating, Cooling &amp; Electrical</td><td>Nashville, TN</td><td class="num">9,841</td><td class="num">3</td></tr>
+      <tr><td>KB Complete Plumbing, Heating, Cooling &amp; Electrical Inc.</td><td>Kansas City, MO</td><td class="num">9,268</td><td class="num">3</td></tr>
+      <tr><td>Right Now Heating and Air Conditioning</td><td>Boise, ID</td><td class="num">8,869</td><td class="num">3</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <p class="tsource">Companies with 500+ reviews appearing in three or more trade searches in the same city. 41 found across the sample.</p>
+
+    <p>This explains the electrical anomaly. Actual electricians run a median of 13.5 reviews - the lowest of any trade measured. The category looks brutally concentrated because a handful of plumbing and HVAC groups with five-figure review counts appear in the same result set. If you are an electrician reading your category benchmark and despairing, the benchmark is describing a different business model to yours.</p>
+
+    <h2 id="howmany">How many Google reviews do you actually need?</h2>
+    <p class="capsule">Roughly double your local median. The top-3 ranked listings carried a median of 1.96x the market median, against a leader-to-median ratio of 107.1x. Reviews behave like a threshold to clear, not a race to win.</p>
+
+    <p>That single ratio is the most actionable number in the dataset. The businesses that actually hold visible positions are not the ones with the most reviews - they are the ones comfortably above the local middle. Going from 20 reviews to 80 in a market with a median of 40 changes your standing. Going from 800 to 3,000 appears to buy very little.</p>
+
+    <p>The practical move is to stop benchmarking against the category leader and start benchmarking against the median of the listings you actually compete with. That number is usually far smaller and far more reachable than the figure in a national benchmark report. It is the same logic I apply in a <a href="/services/seo-audit/">technical SEO audit</a>: measure the field you are in, not the field the industry writes about.</p>
+
+    <h2 id="benchmarks">Why published review benchmarks disagree by 40x</h2>
+    <p class="capsule">Because they sample different things in different years. Published figures for reaching the local top 3 range from 47 reviews to 2,084, and no source reconciles them.</p>
+
+    <p>The <a href="https://www.brightlocal.com/research/google-reviews-study/" rel="noopener">BrightLocal Google Reviews Study</a> covers 93,845 businesses and reports an average of 39 reviews, with top-3 businesses averaging 47 - but its data is from 2018. <a href="https://www.localfalcon.com/blog/whitepaper-google-reviews-ratings--location-what-50-million-search-results-reveal-about-ranking-in-the-local-3pack" rel="noopener">Local Falcon's whitepaper</a>, built on 50 million search results, reports category medians of 215 for plumbers and a 90th percentile above 2,000 for HVAC. Both are careful pieces of work. They are measuring different populations, at different times, with different definitions of "ranking".</p>
+
+    <p>My own figure - a median of 121 reviews for the first-ranked listing - sits between them, which is what you would expect from a third sampling frame. The lesson for an owner is not that one study is wrong. It is that a national benchmark cannot tell you what your market requires, because the variance between markets is larger than the variance between studies.</p>
+
+    <h2 id="matrix">The full 72-market matrix</h2>
+    <p class="capsule">Every market measured, sortable and filterable. Find your trade and the closest comparable city, then compare your own review count against that market's median rather than a national average.</p>
+
+    <div class="widget">
+      <h3>Review concentration by trade and city</h3>
+      <div class="wctl">
+        <div>
+          <label for="fTrade">Trade</label>
+          <select id="fTrade"><option value="">All trades</option>
+        <option value="roofing contractor">Roofing</option>
+        <option value="hvac contractor">HVAC</option>
+        <option value="plumber">Plumbing</option>
+        <option value="electrician">Electrical</option>
+        <option value="landscaping company">Landscaping</option>
+        <option value="garage door repair">Garage door</option>
+          </select>
+        </div>
+        <div>
+          <label for="fSize">Metro size</label>
+          <select id="fSize"><option value="">All sizes</option><option value="large">Large</option><option value="mid">Mid</option><option value="small">Small</option></select>
+        </div>
+      </div>
+      <div class="dtable-wrap">
+      <table class="dtable" id="mtable">
+        <thead><tr>
+          <th data-sort="string">Trade</th><th data-sort="string">City</th>
+          <th data-sort="number">Top 5 share</th><th data-sort="number">Gini</th>
+          <th data-sort="number">Leader reviews</th><th data-sort="number">Median reviews</th>
+          <th data-sort="number">Leader's rank</th>
+        </tr></thead>
+        <tbody>
+      <tr data-trade="electrician" data-size="large"><td>Electrical</td><td>Phoenix, AZ</td><td class="num">90.8%</td><td class="num">0.823</td><td class="num">34,733</td><td class="num">13</td><td class="num">81</td></tr>
+      <tr data-trade="electrician" data-size="mid"><td>Electrical</td><td>Kansas City, MO</td><td class="num">84.9%</td><td class="num">0.744</td><td class="num">19,572</td><td class="num">27</td><td class="num">68</td></tr>
+      <tr data-trade="hvac contractor" data-size="large"><td>HVAC</td><td>Chicago, IL</td><td class="num">82.7%</td><td class="num">0.744</td><td class="num">30,581</td><td class="num">44</td><td class="num">19</td></tr>
+      <tr data-trade="electrician" data-size="mid"><td>Electrical</td><td>Denver, CO</td><td class="num">80.8%</td><td class="num">0.693</td><td class="num">17,752</td><td class="num">28</td><td class="num">48</td></tr>
+      <tr data-trade="electrician" data-size="small"><td>Electrical</td><td>Boise, ID</td><td class="num">77.2%</td><td class="num">0.663</td><td class="num">8,869</td><td class="num">13</td><td class="num">53</td></tr>
+      <tr data-trade="electrician" data-size="small"><td>Electrical</td><td>Fort Wayne, IN</td><td class="num">76.5%</td><td class="num">0.657</td><td class="num">8,683</td><td class="num">7</td><td class="num">49</td></tr>
+      <tr data-trade="hvac contractor" data-size="large"><td>HVAC</td><td>Atlanta, GA</td><td class="num">76.2%</td><td class="num">0.614</td><td class="num">9,477</td><td class="num">24</td><td class="num">69</td></tr>
+      <tr data-trade="hvac contractor" data-size="large"><td>HVAC</td><td>Phoenix, AZ</td><td class="num">74.9%</td><td class="num">0.621</td><td class="num">34,733</td><td class="num">55</td><td class="num">29</td></tr>
+      <tr data-trade="electrician" data-size="mid"><td>Electrical</td><td>Nashville, TN</td><td class="num">74.3%</td><td class="num">0.635</td><td class="num">9,841</td><td class="num">15</td><td class="num">50</td></tr>
+      <tr data-trade="plumber" data-size="large"><td>Plumbing</td><td>Dallas, TX</td><td class="num">74.2%</td><td class="num">0.601</td><td class="num">24,538</td><td class="num">83</td><td class="num">30</td></tr>
+      <tr data-trade="electrician" data-size="small"><td>Electrical</td><td>Des Moines, IA</td><td class="num">73.2%</td><td class="num">0.637</td><td class="num">8,786</td><td class="num">10</td><td class="num">81</td></tr>
+      <tr data-trade="hvac contractor" data-size="mid"><td>HVAC</td><td>Kansas City, MO</td><td class="num">72.9%</td><td class="num">0.621</td><td class="num">19,572</td><td class="num">20</td><td class="num">12</td></tr>
+      <tr data-trade="plumber" data-size="large"><td>Plumbing</td><td>Phoenix, AZ</td><td class="num">71.6%</td><td class="num">0.598</td><td class="num">34,733</td><td class="num">122</td><td class="num">27</td></tr>
+      <tr data-trade="plumber" data-size="large"><td>Plumbing</td><td>Chicago, IL</td><td class="num">70.8%</td><td class="num">0.567</td><td class="num">8,544</td><td class="num">72</td><td class="num">1</td></tr>
+      <tr data-trade="landscaping company" data-size="large"><td>Landscaping</td><td>Atlanta, GA</td><td class="num">70.0%</td><td class="num">0.584</td><td class="num">4,727</td><td class="num">38</td><td class="num">76</td></tr>
+      <tr data-trade="garage door repair" data-size="large"><td>Garage door</td><td>Phoenix, AZ</td><td class="num">69.4%</td><td class="num">0.558</td><td class="num">13,280</td><td class="num">102</td><td class="num">7</td></tr>
+      <tr data-trade="hvac contractor" data-size="mid"><td>HVAC</td><td>Denver, CO</td><td class="num">68.3%</td><td class="num">0.568</td><td class="num">17,752</td><td class="num">89</td><td class="num">30</td></tr>
+      <tr data-trade="hvac contractor" data-size="large"><td>HVAC</td><td>Dallas, TX</td><td class="num">67.5%</td><td class="num">0.568</td><td class="num">24,538</td><td class="num">58</td><td class="num">62</td></tr>
+      <tr data-trade="garage door repair" data-size="small"><td>Garage door</td><td>Fort Wayne, IN</td><td class="num">66.7%</td><td class="num">0.545</td><td class="num">2,338</td><td class="num">122</td><td class="num">3</td></tr>
+      <tr data-trade="plumber" data-size="small"><td>Plumbing</td><td>Des Moines, IA</td><td class="num">65.5%</td><td class="num">0.549</td><td class="num">9,456</td><td class="num">49</td><td class="num">36</td></tr>
+      <tr data-trade="landscaping company" data-size="small"><td>Landscaping</td><td>Boise, ID</td><td class="num">65.5%</td><td class="num">0.517</td><td class="num">2,107</td><td class="num">39</td><td class="num">68</td></tr>
+      <tr data-trade="electrician" data-size="mid"><td>Electrical</td><td>Portland, OR</td><td class="num">64.8%</td><td class="num">0.533</td><td class="num">6,242</td><td class="num">40</td><td class="num">78</td></tr>
+      <tr data-trade="hvac contractor" data-size="mid"><td>HVAC</td><td>Nashville, TN</td><td class="num">64.1%</td><td class="num">0.48</td><td class="num">9,841</td><td class="num">55</td><td class="num">37</td></tr>
+      <tr data-trade="plumber" data-size="small"><td>Plumbing</td><td>Boise, ID</td><td class="num">64.1%</td><td class="num">0.509</td><td class="num">8,869</td><td class="num">69</td><td class="num">73</td></tr>
+      <tr data-trade="electrician" data-size="large"><td>Electrical</td><td>Dallas, TX</td><td class="num">63.8%</td><td class="num">0.533</td><td class="num">3,342</td><td class="num">14</td><td class="num">27</td></tr>
+      <tr data-trade="plumber" data-size="small"><td>Plumbing</td><td>Chattanooga, TN</td><td class="num">63.1%</td><td class="num">0.505</td><td class="num">4,447</td><td class="num">41</td><td class="num">14</td></tr>
+      <tr data-trade="electrician" data-size="large"><td>Electrical</td><td>Chicago, IL</td><td class="num">63.0%</td><td class="num">0.487</td><td class="num">1,080</td><td class="num">5</td><td class="num">73</td></tr>
+      <tr data-trade="landscaping company" data-size="mid"><td>Landscaping</td><td>Nashville, TN</td><td class="num">62.7%</td><td class="num">0.466</td><td class="num">1,179</td><td class="num">31</td><td class="num">70</td></tr>
+      <tr data-trade="plumber" data-size="mid"><td>Plumbing</td><td>Nashville, TN</td><td class="num">61.7%</td><td class="num">0.471</td><td class="num">9,841</td><td class="num">53</td><td class="num">21</td></tr>
+      <tr data-trade="hvac contractor" data-size="small"><td>HVAC</td><td>Des Moines, IA</td><td class="num">61.4%</td><td class="num">0.487</td><td class="num">9,456</td><td class="num">35</td><td class="num">99</td></tr>
+      <tr data-trade="garage door repair" data-size="small"><td>Garage door</td><td>Des Moines, IA</td><td class="num">61.0%</td><td class="num">0.463</td><td class="num">3,978</td><td class="num">42</td><td class="num">59</td></tr>
+      <tr data-trade="garage door repair" data-size="mid"><td>Garage door</td><td>Kansas City, MO</td><td class="num">60.8%</td><td class="num">0.448</td><td class="num">4,056</td><td class="num">55</td><td class="num">26</td></tr>
+      <tr data-trade="landscaping company" data-size="mid"><td>Landscaping</td><td>Kansas City, MO</td><td class="num">59.4%</td><td class="num">0.448</td><td class="num">1,544</td><td class="num">45</td><td class="num">46</td></tr>
+      <tr data-trade="plumber" data-size="small"><td>Plumbing</td><td>Fort Wayne, IN</td><td class="num">59.2%</td><td class="num">0.502</td><td class="num">8,683</td><td class="num">27</td><td class="num">27</td></tr>
+      <tr data-trade="landscaping company" data-size="small"><td>Landscaping</td><td>Fort Wayne, IN</td><td class="num">59.0%</td><td class="num">0.464</td><td class="num">1,444</td><td class="num">25</td><td class="num">100</td></tr>
+      <tr data-trade="roofing contractor" data-size="small"><td>Roofing</td><td>Chattanooga, TN</td><td class="num">58.8%</td><td class="num">0.44</td><td class="num">1,545</td><td class="num">22</td><td class="num">23</td></tr>
+      <tr data-trade="garage door repair" data-size="mid"><td>Garage door</td><td>Portland, OR</td><td class="num">57.8%</td><td class="num">0.47</td><td class="num">3,909</td><td class="num">50</td><td class="num">9</td></tr>
+      <tr data-trade="plumber" data-size="mid"><td>Plumbing</td><td>Kansas City, MO</td><td class="num">57.7%</td><td class="num">0.429</td><td class="num">19,572</td><td class="num">183</td><td class="num">15</td></tr>
+      <tr data-trade="plumber" data-size="large"><td>Plumbing</td><td>Atlanta, GA</td><td class="num">57.4%</td><td class="num">0.44</td><td class="num">7,203</td><td class="num">54</td><td class="num">83</td></tr>
+      <tr data-trade="electrician" data-size="small"><td>Electrical</td><td>Chattanooga, TN</td><td class="num">57.3%</td><td class="num">0.469</td><td class="num">1,491</td><td class="num">13</td><td class="num">68</td></tr>
+      <tr data-trade="roofing contractor" data-size="large"><td>Roofing</td><td>Atlanta, GA</td><td class="num">57.1%</td><td class="num">0.444</td><td class="num">2,489</td><td class="num">74</td><td class="num">81</td></tr>
+      <tr data-trade="landscaping company" data-size="small"><td>Landscaping</td><td>Des Moines, IA</td><td class="num">57.0%</td><td class="num">0.418</td><td class="num">1,627</td><td class="num">32</td><td class="num">11</td></tr>
+      <tr data-trade="roofing contractor" data-size="mid"><td>Roofing</td><td>Kansas City, MO</td><td class="num">56.9%</td><td class="num">0.427</td><td class="num">1,985</td><td class="num">40</td><td class="num">32</td></tr>
+      <tr data-trade="garage door repair" data-size="large"><td>Garage door</td><td>Atlanta, GA</td><td class="num">56.7%</td><td class="num">0.435</td><td class="num">2,686</td><td class="num">28</td><td class="num">22</td></tr>
+      <tr data-trade="roofing contractor" data-size="small"><td>Roofing</td><td>Boise, ID</td><td class="num">56.4%</td><td class="num">0.419</td><td class="num">1,017</td><td class="num">30</td><td class="num">92</td></tr>
+      <tr data-trade="garage door repair" data-size="large"><td>Garage door</td><td>Chicago, IL</td><td class="num">56.4%</td><td class="num">0.41</td><td class="num">4,611</td><td class="num">33</td><td class="num">96</td></tr>
+      <tr data-trade="landscaping company" data-size="small"><td>Landscaping</td><td>Chattanooga, TN</td><td class="num">56.2%</td><td class="num">0.388</td><td class="num">647</td><td class="num">24</td><td class="num">48</td></tr>
+      <tr data-trade="hvac contractor" data-size="small"><td>HVAC</td><td>Fort Wayne, IN</td><td class="num">55.7%</td><td class="num">0.455</td><td class="num">8,683</td><td class="num">22</td><td class="num">7</td></tr>
+      <tr data-trade="landscaping company" data-size="large"><td>Landscaping</td><td>Chicago, IL</td><td class="num">55.6%</td><td class="num">0.389</td><td class="num">631</td><td class="num">19</td><td class="num">16</td></tr>
+      <tr data-trade="roofing contractor" data-size="large"><td>Roofing</td><td>Dallas, TX</td><td class="num">55.0%</td><td class="num">0.384</td><td class="num">1,306</td><td class="num">40</td><td class="num">68</td></tr>
+      <tr data-trade="hvac contractor" data-size="small"><td>HVAC</td><td>Boise, ID</td><td class="num">55.0%</td><td class="num">0.393</td><td class="num">8,869</td><td class="num">55</td><td class="num">1</td></tr>
+      <tr data-trade="plumber" data-size="mid"><td>Plumbing</td><td>Portland, OR</td><td class="num">54.1%</td><td class="num">0.403</td><td class="num">6,164</td><td class="num">146</td><td class="num">10</td></tr>
+      <tr data-trade="landscaping company" data-size="mid"><td>Landscaping</td><td>Denver, CO</td><td class="num">53.3%</td><td class="num">0.361</td><td class="num">881</td><td class="num">26</td><td class="num">6</td></tr>
+      <tr data-trade="garage door repair" data-size="mid"><td>Garage door</td><td>Denver, CO</td><td class="num">52.9%</td><td class="num">0.399</td><td class="num">4,582</td><td class="num">62</td><td class="num">16</td></tr>
+      <tr data-trade="hvac contractor" data-size="mid"><td>HVAC</td><td>Portland, OR</td><td class="num">52.5%</td><td class="num">0.386</td><td class="num">6,242</td><td class="num">58</td><td class="num">2</td></tr>
+      <tr data-trade="garage door repair" data-size="large"><td>Garage door</td><td>Dallas, TX</td><td class="num">52.3%</td><td class="num">0.388</td><td class="num">5,424</td><td class="num">69</td><td class="num">56</td></tr>
+      <tr data-trade="hvac contractor" data-size="small"><td>HVAC</td><td>Chattanooga, TN</td><td class="num">52.1%</td><td class="num">0.376</td><td class="num">4,447</td><td class="num">33</td><td class="num">69</td></tr>
+      <tr data-trade="plumber" data-size="mid"><td>Plumbing</td><td>Denver, CO</td><td class="num">51.2%</td><td class="num">0.366</td><td class="num">17,752</td><td class="num">157</td><td class="num">4</td></tr>
+      <tr data-trade="electrician" data-size="large"><td>Electrical</td><td>Atlanta, GA</td><td class="num">50.8%</td><td class="num">0.362</td><td class="num">1,081</td><td class="num">31</td><td class="num">51</td></tr>
+      <tr data-trade="garage door repair" data-size="mid"><td>Garage door</td><td>Nashville, TN</td><td class="num">50.5%</td><td class="num">0.37</td><td class="num">1,940</td><td class="num">53</td><td class="num">68</td></tr>
+      <tr data-trade="garage door repair" data-size="small"><td>Garage door</td><td>Chattanooga, TN</td><td class="num">49.4%</td><td class="num">0.354</td><td class="num">2,197</td><td class="num">91</td><td class="num">4</td></tr>
+      <tr data-trade="garage door repair" data-size="small"><td>Garage door</td><td>Boise, ID</td><td class="num">49.0%</td><td class="num">0.332</td><td class="num">2,989</td><td class="num">60</td><td class="num">9</td></tr>
+      <tr data-trade="roofing contractor" data-size="large"><td>Roofing</td><td>Phoenix, AZ</td><td class="num">48.8%</td><td class="num">0.34</td><td class="num">1,595</td><td class="num">59</td><td class="num">34</td></tr>
+      <tr data-trade="roofing contractor" data-size="small"><td>Roofing</td><td>Fort Wayne, IN</td><td class="num">47.2%</td><td class="num">0.34</td><td class="num">1,182</td><td class="num">17</td><td class="num">39</td></tr>
+      <tr data-trade="roofing contractor" data-size="small"><td>Roofing</td><td>Des Moines, IA</td><td class="num">46.9%</td><td class="num">0.312</td><td class="num">690</td><td class="num">31</td><td class="num">8</td></tr>
+      <tr data-trade="landscaping company" data-size="large"><td>Landscaping</td><td>Phoenix, AZ</td><td class="num">46.9%</td><td class="num">0.306</td><td class="num">434</td><td class="num">20</td><td class="num">16</td></tr>
+      <tr data-trade="roofing contractor" data-size="mid"><td>Roofing</td><td>Nashville, TN</td><td class="num">46.5%</td><td class="num">0.323</td><td class="num">1,089</td><td class="num">57</td><td class="num">51</td></tr>
+      <tr data-trade="landscaping company" data-size="mid"><td>Landscaping</td><td>Portland, OR</td><td class="num">45.2%</td><td class="num">0.279</td><td class="num">425</td><td class="num">34</td><td class="num">15</td></tr>
+      <tr data-trade="roofing contractor" data-size="mid"><td>Roofing</td><td>Denver, CO</td><td class="num">44.2%</td><td class="num">0.293</td><td class="num">970</td><td class="num">61</td><td class="num">8</td></tr>
+      <tr data-trade="roofing contractor" data-size="mid"><td>Roofing</td><td>Portland, OR</td><td class="num">44.1%</td><td class="num">0.283</td><td class="num">870</td><td class="num">65</td><td class="num">60</td></tr>
+      <tr data-trade="landscaping company" data-size="large"><td>Landscaping</td><td>Dallas, TX</td><td class="num">42.9%</td><td class="num">0.234</td><td class="num">364</td><td class="num">33</td><td class="num">69</td></tr>
+      <tr data-trade="roofing contractor" data-size="large"><td>Roofing</td><td>Chicago, IL</td><td class="num">39.4%</td><td class="num">0.228</td><td class="num">255</td><td class="num">26</td><td class="num">13</td></tr>
+        </tbody>
+      </table>
+      </div>
+      <p class="wcount" id="wcount"></p>
+    </div>
+    <p class="tsource">"Leader's rank" is the Maps position of the most-reviewed listing in that market. Click any column to sort. Full data: <a href="data-summary.json">data-summary.json</a> and <a href="data-raw.jsonl">data-raw.jsonl</a> (CC BY 4.0).</p>
+
+    <h2 id="methodology">Methodology and limitations</h2>
+    <div class="methodology">
+      <p>Data was collected on August 24, 2026 through the DataForSEO Google Maps endpoint at depth 100, covering six home service trades across twelve US cities chosen to span three metro-size bands. All 72 queries returned successfully.</p>
+      <ul>
+        <li><b>Sample:</b> 7,072 listings, 2,215,490 reviews, 72 trade-and-city markets</li>
+        <li><b>Trades:</b> roofing, HVAC, plumbing, electrical, landscaping, garage door repair</li>
+        <li><b>Cities:</b> Phoenix, Atlanta, Dallas, Chicago, Denver, Nashville, Portland, Kansas City, Boise, Des Moines, Chattanooga, Fort Wayne</li>
+        <li><b>Concentration denominator:</b> the top 20 most-reviewed listings, held fixed so that markets returning fewer than 100 listings stay comparable. Full-set figures are in the published data</li>
+        <li><b>Collected:</b> August 24, 2026 · <b>Update schedule:</b> annually on the same grid</li>
+      </ul>
+      <p><b>Limitations, stated plainly.</b> The visible result set is not a census of every registered business in a city, so concentration is measured within the competitive set Google actually returns. The rank findings describe the ordering of that returned set for a city-level query and do not control for proximity to the search centroid, so they should not be read as a ranking-factor experiment. The sample is US-only, six trades, at a single point in time. Review counts include all reviews on a profile regardless of age. Four of the 72 markets returned fewer than 100 listings; the fixed top-20 denominator reduces but does not eliminate that effect.</p>
+      <p>The raw data is published so the analysis can be checked and rerun.</p>
+    </div>
+
+    <h2 id="faq">Frequently asked questions</h2>
+    <div class="faq">
+    <details>
+      <summary>Do you need the most reviews to rank first on Google Maps?</summary>
+      <div><p>No. Across 72 home services markets the most-reviewed company held a top-3 position only 5.6% of the time, and its median position was #35. The median first-ranked listing had 121 reviews while the median review leader had 4,447.</p></div>
+    </details>
+    <details>
+      <summary>How many Google reviews does a typical local contractor have?</summary>
+      <div><p>The median listing across 7,072 profiles was 40 reviews. It varies sharply by trade: plumbers ran a median of 70.5 and electricians just 13.5. Roughly 5% of listings had no reviews at all.</p></div>
+    </details>
+    <details>
+      <summary>Is it easier to compete in a smaller city?</summary>
+      <div><p>Not on review concentration. Median top-5 share was 60.2% in large metros, 57.8% in mid-sized and 58.9% in small ones. Which trade you are in matters far more than which city you are in.</p></div>
+    </details>
+    <details>
+      <summary>Which home services trade is hardest to break into on reviews?</summary>
+      <div><p>Electricians, where the top 5 hold 73.8% of the visible review volume and the leader has 634 times the reviews of the median listing. Much of that is driven by plumbing and HVAC conglomerates appearing in electrician results.</p></div>
+    </details>
+    <details>
+      <summary>How many reviews do I actually need to compete?</summary>
+      <div><p>The top-3 ranked listings carried a median of 1.96 times the market median, not hundreds of times. Reviews behave like a threshold to clear rather than a race to win, so roughly double your local median is a defensible target.</p></div>
+    </details>
+    <details>
+      <summary>Why do published review benchmarks disagree so much?</summary>
+      <div><p>Because they sample different things at different times. Figures range from 47 reviews to 2,084 depending on the study, trade and year. Benchmarks describe the leaders in a category, not the typical competitor in your city.</p></div>
+    </details>
+    </div>
+
+    <h2 id="sources">Sources</h2>
+    <ol class="srclist">
+      <li>Own dataset. "Google review concentration across 72 US home services markets." Collected August 24, 2026 via DataForSEO Google Maps. Published as <a href="data-summary.json">data-summary.json</a> and <a href="data-raw.jsonl">data-raw.jsonl</a>.</li>
+      <li>Local Falcon. "Google Reviews, Ratings &amp; Location: What 50 Million Search Results Reveal About Ranking in the Local 3-Pack." <a href="https://www.localfalcon.com/blog/whitepaper-google-reviews-ratings--location-what-50-million-search-results-reveal-about-ranking-in-the-local-3pack" rel="noopener">localfalcon.com</a>. Accessed August 24, 2026.</li>
+      <li>BrightLocal. "Google Reviews Study: How Many Reviews Do Businesses Need?" <a href="https://www.brightlocal.com/research/google-reviews-study/" rel="noopener">brightlocal.com</a>. Data from 2018. Accessed August 24, 2026.</li>
+      <li>Applause. "2026 State of Home Services Benchmark Report." <a href="https://www.applausehq.com/blog/2026-state-of-home-services-benchmark-report" rel="noopener">applausehq.com</a>. Accessed August 24, 2026.</li>
+      <li>Whitespark, via Search Engine Journal. "How Google Reviews Impact Map Pack &amp; Organic Search Rankings." <a href="https://www.searchenginejournal.com/google-reviews-impact-rankings/429783/" rel="noopener">searchenginejournal.com</a>. Accessed August 24, 2026.</li>
+      <li>r/smallbusiness. "Does anyone else's trade have this big a gap?" <a href="https://www.reddit.com/r/smallbusiness/comments/1vqy0f1/does_anyone_elses_trade_have_this_big_a_gap/" rel="noopener">reddit.com</a>. User-reported figures; cited as the question that prompted this study, not as verified data. Accessed August 24, 2026.</li>
+    </ol>
+
+    <p class="updated">Published: August 24, 2026. Original dataset by <a href="/">Stanislav Peev</a>. I will rerun this grid annually and update the page with the new figures. If the method or the numbers look wrong to you, <a href="mailto:info@stanislav-peev.com?subject=Review%20concentration%20study%20-%20feedback">email me</a> - the raw data is published so it can be checked. Related reading: <a href="/research/ai-wrong-business-information-statistics/">how often AI gets business information wrong</a> and my <a href="/services/small-business-seo/">small business SEO services</a>.</p>
+
+  </div>
+</section>
+
+<section class="contact-band" id="contact" style="padding:56px 0">
+  <div class="wrap contact-cols">
+    <div>
+      <h2>Want to know if your local market is actually winnable?</h2>
+      <p class="section-intro">I run the same analysis on your trade and your city, then tell you honestly whether reviews are your constraint or a distraction from the thing that is. You get the numbers, the comparable markets and a plan - not a dashboard. Describe your situation in a few sentences and I will reply personally with a first read. No calls, no meetings.</p>
+      <p><a class="btn btn-primary" href="/services/">See services</a> <a class="btn btn-ghost" href="mailto:info@stanislav-peev.com?subject=Local%20market%20review%20analysis" style="margin-left:10px">Email me</a></p>
+    </div>
+    <ul class="contact-list">
+      <li><b>Email</b><a class="link" href="mailto:info@stanislav-peev.com">info@stanislav-peev.com</a></li>
+      <li><b>LinkedIn</b><a class="link" href="https://www.linkedin.com/in/stanislav-peev-seo/" rel="noopener">in/stanislav-peev-seo</a></li>
+      <li><b>Based in</b>Bratislava, Slovakia - working worldwide (EN · RU)</li>
+    </ul>
+  </div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div>© 2026 Stanislav Peev · SEO Consultant &amp; AI Search (GEO) Specialist, Bratislava, Slovakia</div>
+    <nav class="footer-nav" aria-label="Footer">
+      <a href="/">Home</a>
+      <a href="/#geo">AI / GEO</a>
+      <a href="/services/">Services</a>
+      <a href="/services/seo-audit/">SEO Audit</a>
+      <a href="/services/small-business-seo/">Small Business SEO</a>
+      <a href="/research/">Research</a>
+      <a href="https://www.linkedin.com/in/stanislav-peev-seo/" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" style="width:1em;height:1em;vertical-align:-.15em;margin-right:.35em;fill:currentColor"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29ZM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13ZM7.12 20.45H3.56V9h3.56v11.45ZM22.22 0H1.77C.79 0 0 .77 0 1.72v20.55C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0Z"/></svg>LinkedIn</a>
+      <a href="https://www.youtube.com/@stanislav_peev" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" style="width:1em;height:1em;vertical-align:-.15em;margin-right:.35em;fill:currentColor"><path d="M23.5 6.2a3 3 0 0 0-2.11-2.12C19.5 3.55 12 3.55 12 3.55s-7.5 0-9.39.53A3 3 0 0 0 .5 6.2 31.3 31.3 0 0 0 0 12a31.3 31.3 0 0 0 .5 5.8 3 3 0 0 0 2.11 2.12c1.89.53 9.39.53 9.39.53s7.5 0 9.39-.53A3 3 0 0 0 23.5 17.8 31.3 31.3 0 0 0 24 12a31.3 31.3 0 0 0-.5-5.8ZM9.55 15.57V8.43L15.82 12l-6.27 3.57Z"/></svg>YouTube</a>
+    </nav>
+  </div>
+</footer>
+
+<button class="to-top" id="toTop" aria-label="Back to top" title="Back to top">↑</button>
+<script>
+(function () {
+  var t = document.getElementById('toTop');
+  addEventListener('scroll', function () {
+    t.classList.toggle('show', scrollY > 600);
+  }, { passive: true });
+  t.addEventListener('click', function () { scrollTo({ top: 0, behavior: 'smooth' }); });
+
+  var tbl = document.getElementById('mtable');
+  var body = tbl.querySelector('tbody');
+  var all = Array.prototype.slice.call(body.querySelectorAll('tr'));
+  var fT = document.getElementById('fTrade'), fS = document.getElementById('fSize');
+  var cnt = document.getElementById('wcount');
+
+  function apply() {
+    var tv = fT.value, sv = fS.value, n = 0;
+    all.forEach(function (r) {
+      var ok = (!tv || r.dataset.trade === tv) && (!sv || r.dataset.size === sv);
+      r.style.display = ok ? '' : 'none';
+      if (ok) n++;
+    });
+    cnt.textContent = 'Showing ' + n + ' of ' + all.length + ' markets.';
+  }
+  fT.addEventListener('change', apply);
+  fS.addEventListener('change', apply);
+  apply();
+
+  tbl.querySelectorAll('th[data-sort]').forEach(function (th) {
+    th.addEventListener('click', function () {
+      var idx = Array.prototype.indexOf.call(th.parentNode.children, th);
+      var type = th.dataset.sort;
+      var asc = th.dataset.dir !== 'asc';
+      th.parentNode.querySelectorAll('th').forEach(function (h) { delete h.dataset.dir; });
+      th.dataset.dir = asc ? 'asc' : 'desc';
+      var rows = all.slice();
+      rows.sort(function (a, b) {
+        var av = a.children[idx].textContent.trim(), bv = b.children[idx].textContent.trim();
+        if (type === 'number') {
+          av = parseFloat(av.replace(/[^0-9.-]/g, '')) || 0;
+          bv = parseFloat(bv.replace(/[^0-9.-]/g, '')) || 0;
+          return asc ? av - bv : bv - av;
+        }
+        return asc ? av.localeCompare(bv) : bv.localeCompare(av);
+      });
+      rows.forEach(function (r) { body.appendChild(r); });
+    });
+  });
+})();
+</script>
+
+</body>
+</html>
