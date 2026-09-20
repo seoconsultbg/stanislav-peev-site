@@ -1,0 +1,589 @@
+{
+  "generated_utc": "2026-09-07T13:33:57.175736+00:00",
+  "design": {
+    "categories": [
+      "project management software"
+    ],
+    "shapes": {
+      "best": [
+        "What is the best {cat} for a small business?",
+        "Best {cat} in 2026?"
+      ],
+      "alternatives": [
+        "What are the best alternatives to {A}?",
+        "{A} alternatives for a small team"
+      ],
+      "vs": [
+        "{A} vs {B}: which should I choose?",
+        "Is {A} or {B} better for a small business?"
+      ]
+    },
+    "models": [
+      "google/gemini-2.5-flash:online",
+      "openai/gpt-4o:online",
+      "perplexity/sonar"
+    ],
+    "repeats": 3,
+    "prompts": 30,
+    "calls": 18
+  },
+  "by_shape": {
+    "best": {
+      "answers": 6,
+      "citations": 57,
+      "citations_per_answer": 9.5,
+      "unique_urls": 42,
+      "share_by_page_shape": {
+        "listicle": 0.842,
+        "other": 0.14,
+        "comparison": 0.018
+      },
+      "share_by_source_type": {
+        "media-blog": 0.667,
+        "vendor": 0.175,
+        "directory": 0.088,
+        "community": 0.07
+      },
+      "share_shape_x_source": {
+        "listicle|media-blog": 0.614,
+        "listicle|vendor": 0.123,
+        "other|vendor": 0.053,
+        "listicle|directory": 0.053,
+        "listicle|community": 0.053,
+        "other|media-blog": 0.035,
+        "other|directory": 0.035,
+        "other|community": 0.018,
+        "comparison|media-blog": 0.018
+      },
+      "share_by_page_shape_path_only": {
+        "listicle": 0.614,
+        "other": 0.386
+      },
+      "vendor_owned_comparison_share": 0.0
+    },
+    "alternatives": {
+      "answers": 6,
+      "citations": 59,
+      "citations_per_answer": 9.83,
+      "unique_urls": 40,
+      "share_by_page_shape": {
+        "comparison": 0.864,
+        "other": 0.119,
+        "listicle": 0.017
+      },
+      "share_by_source_type": {
+        "media-blog": 0.644,
+        "vendor": 0.271,
+        "community": 0.068,
+        "directory": 0.017
+      },
+      "share_shape_x_source": {
+        "comparison|media-blog": 0.542,
+        "comparison|vendor": 0.237,
+        "other|media-blog": 0.102,
+        "comparison|community": 0.068,
+        "comparison|directory": 0.017,
+        "listicle|vendor": 0.017,
+        "other|vendor": 0.017
+      },
+      "share_by_page_shape_path_only": {
+        "comparison": 0.847,
+        "other": 0.136,
+        "listicle": 0.017
+      },
+      "vendor_owned_comparison_share": 0.237
+    },
+    "vs": {
+      "answers": 6,
+      "citations": 60,
+      "citations_per_answer": 10.0,
+      "unique_urls": 34,
+      "share_by_page_shape": {
+        "comparison": 0.983,
+        "other": 0.017
+      },
+      "share_by_source_type": {
+        "media-blog": 0.783,
+        "directory": 0.083,
+        "vendor": 0.083,
+        "community": 0.05
+      },
+      "share_shape_x_source": {
+        "comparison|media-blog": 0.783,
+        "comparison|directory": 0.083,
+        "comparison|vendor": 0.083,
+        "comparison|community": 0.033,
+        "other|community": 0.017
+      },
+      "share_by_page_shape_path_only": {
+        "comparison": 0.983,
+        "other": 0.017
+      },
+      "vendor_owned_comparison_share": 0.083
+    }
+  },
+  "by_shape_x_model": {
+    "best|perplexity/sonar": {
+      "answers": 2,
+      "citations": 37,
+      "citations_per_answer": 18.5,
+      "unique_urls": 36,
+      "share_by_page_shape": {
+        "listicle": 0.838,
+        "other": 0.162
+      },
+      "share_by_source_type": {
+        "media-blog": 0.595,
+        "vendor": 0.162,
+        "directory": 0.135,
+        "community": 0.108
+      },
+      "share_shape_x_source": {
+        "listicle|media-blog": 0.541,
+        "listicle|vendor": 0.135,
+        "listicle|directory": 0.081,
+        "listicle|community": 0.081,
+        "other|media-blog": 0.054,
+        "other|directory": 0.054,
+        "other|community": 0.027,
+        "other|vendor": 0.027
+      },
+      "share_by_page_shape_path_only": {
+        "listicle": 0.568,
+        "other": 0.432
+      },
+      "vendor_owned_comparison_share": 0.0
+    },
+    "best|openai/gpt-4o:online": {
+      "answers": 2,
+      "citations": 10,
+      "citations_per_answer": 5.0,
+      "unique_urls": 10,
+      "share_by_page_shape": {
+        "listicle": 0.8,
+        "other": 0.1,
+        "comparison": 0.1
+      },
+      "share_by_source_type": {
+        "media-blog": 0.8,
+        "vendor": 0.2
+      },
+      "share_shape_x_source": {
+        "listicle|media-blog": 0.7,
+        "other|vendor": 0.1,
+        "listicle|vendor": 0.1,
+        "comparison|media-blog": 0.1
+      },
+      "share_by_page_shape_path_only": {
+        "listicle": 0.7,
+        "other": 0.3
+      },
+      "vendor_owned_comparison_share": 0.0
+    },
+    "best|google/gemini-2.5-flash:online": {
+      "answers": 2,
+      "citations": 10,
+      "citations_per_answer": 5.0,
+      "unique_urls": 10,
+      "share_by_page_shape": {
+        "listicle": 0.9,
+        "other": 0.1
+      },
+      "share_by_source_type": {
+        "media-blog": 0.8,
+        "vendor": 0.2
+      },
+      "share_shape_x_source": {
+        "listicle|media-blog": 0.8,
+        "other|vendor": 0.1,
+        "listicle|vendor": 0.1
+      },
+      "share_by_page_shape_path_only": {
+        "listicle": 0.7,
+        "other": 0.3
+      },
+      "vendor_owned_comparison_share": 0.0
+    },
+    "alternatives|perplexity/sonar": {
+      "answers": 2,
+      "citations": 39,
+      "citations_per_answer": 19.5,
+      "unique_urls": 27,
+      "share_by_page_shape": {
+        "comparison": 0.974,
+        "listicle": 0.026
+      },
+      "share_by_source_type": {
+        "media-blog": 0.538,
+        "vendor": 0.333,
+        "community": 0.103,
+        "directory": 0.026
+      },
+      "share_shape_x_source": {
+        "comparison|media-blog": 0.538,
+        "comparison|vendor": 0.308,
+        "comparison|community": 0.103,
+        "comparison|directory": 0.026,
+        "listicle|vendor": 0.026
+      },
+      "share_by_page_shape_path_only": {
+        "comparison": 0.974,
+        "listicle": 0.026
+      },
+      "vendor_owned_comparison_share": 0.308
+    },
+    "alternatives|openai/gpt-4o:online": {
+      "answers": 2,
+      "citations": 10,
+      "citations_per_answer": 5.0,
+      "unique_urls": 10,
+      "share_by_page_shape": {
+        "comparison": 0.7,
+        "other": 0.3
+      },
+      "share_by_source_type": {
+        "media-blog": 0.8,
+        "vendor": 0.2
+      },
+      "share_shape_x_source": {
+        "comparison|media-blog": 0.6,
+        "other|media-blog": 0.2,
+        "comparison|vendor": 0.1,
+        "other|vendor": 0.1
+      },
+      "share_by_page_shape_path_only": {
+        "comparison": 0.6,
+        "other": 0.4
+      },
+      "vendor_owned_comparison_share": 0.1
+    },
+    "alternatives|google/gemini-2.5-flash:online": {
+      "answers": 2,
+      "citations": 10,
+      "citations_per_answer": 5.0,
+      "unique_urls": 10,
+      "share_by_page_shape": {
+        "comparison": 0.6,
+        "other": 0.4
+      },
+      "share_by_source_type": {
+        "media-blog": 0.9,
+        "vendor": 0.1
+      },
+      "share_shape_x_source": {
+        "comparison|media-blog": 0.5,
+        "other|media-blog": 0.4,
+        "comparison|vendor": 0.1
+      },
+      "share_by_page_shape_path_only": {
+        "comparison": 0.6,
+        "other": 0.4
+      },
+      "vendor_owned_comparison_share": 0.1
+    },
+    "vs|perplexity/sonar": {
+      "answers": 2,
+      "citations": 40,
+      "citations_per_answer": 20.0,
+      "unique_urls": 26,
+      "share_by_page_shape": {
+        "comparison": 0.975,
+        "other": 0.025
+      },
+      "share_by_source_type": {
+        "media-blog": 0.7,
+        "vendor": 0.125,
+        "directory": 0.1,
+        "community": 0.075
+      },
+      "share_shape_x_source": {
+        "comparison|media-blog": 0.7,
+        "comparison|vendor": 0.125,
+        "comparison|directory": 0.1,
+        "comparison|community": 0.05,
+        "other|community": 0.025
+      },
+      "share_by_page_shape_path_only": {
+        "comparison": 0.975,
+        "other": 0.025
+      },
+      "vendor_owned_comparison_share": 0.125
+    },
+    "vs|openai/gpt-4o:online": {
+      "answers": 2,
+      "citations": 10,
+      "citations_per_answer": 5.0,
+      "unique_urls": 9,
+      "share_by_page_shape": {
+        "comparison": 1.0
+      },
+      "share_by_source_type": {
+        "media-blog": 0.9,
+        "directory": 0.1
+      },
+      "share_shape_x_source": {
+        "comparison|media-blog": 0.9,
+        "comparison|directory": 0.1
+      },
+      "share_by_page_shape_path_only": {
+        "comparison": 1.0
+      },
+      "vendor_owned_comparison_share": 0.0
+    },
+    "vs|google/gemini-2.5-flash:online": {
+      "answers": 2,
+      "citations": 10,
+      "citations_per_answer": 5.0,
+      "unique_urls": 10,
+      "share_by_page_shape": {
+        "comparison": 1.0
+      },
+      "share_by_source_type": {
+        "media-blog": 1.0
+      },
+      "share_shape_x_source": {
+        "comparison|media-blog": 1.0
+      },
+      "share_by_page_shape_path_only": {
+        "comparison": 1.0
+      },
+      "vendor_owned_comparison_share": 0.0
+    }
+  },
+  "by_shape_x_category": {
+    "best|project management software": {
+      "answers": 6,
+      "citations": 57,
+      "citations_per_answer": 9.5,
+      "unique_urls": 42,
+      "share_by_page_shape": {
+        "listicle": 0.842,
+        "other": 0.14,
+        "comparison": 0.018
+      },
+      "share_by_source_type": {
+        "media-blog": 0.667,
+        "vendor": 0.175,
+        "directory": 0.088,
+        "community": 0.07
+      },
+      "share_shape_x_source": {
+        "listicle|media-blog": 0.614,
+        "listicle|vendor": 0.123,
+        "other|vendor": 0.053,
+        "listicle|directory": 0.053,
+        "listicle|community": 0.053,
+        "other|media-blog": 0.035,
+        "other|directory": 0.035,
+        "other|community": 0.018,
+        "comparison|media-blog": 0.018
+      },
+      "share_by_page_shape_path_only": {
+        "listicle": 0.614,
+        "other": 0.386
+      },
+      "vendor_owned_comparison_share": 0.0
+    },
+    "alternatives|project management software": {
+      "answers": 6,
+      "citations": 59,
+      "citations_per_answer": 9.83,
+      "unique_urls": 40,
+      "share_by_page_shape": {
+        "comparison": 0.864,
+        "other": 0.119,
+        "listicle": 0.017
+      },
+      "share_by_source_type": {
+        "media-blog": 0.644,
+        "vendor": 0.271,
+        "community": 0.068,
+        "directory": 0.017
+      },
+      "share_shape_x_source": {
+        "comparison|media-blog": 0.542,
+        "comparison|vendor": 0.237,
+        "other|media-blog": 0.102,
+        "comparison|community": 0.068,
+        "comparison|directory": 0.017,
+        "listicle|vendor": 0.017,
+        "other|vendor": 0.017
+      },
+      "share_by_page_shape_path_only": {
+        "comparison": 0.847,
+        "other": 0.136,
+        "listicle": 0.017
+      },
+      "vendor_owned_comparison_share": 0.237
+    },
+    "vs|project management software": {
+      "answers": 6,
+      "citations": 60,
+      "citations_per_answer": 10.0,
+      "unique_urls": 34,
+      "share_by_page_shape": {
+        "comparison": 0.983,
+        "other": 0.017
+      },
+      "share_by_source_type": {
+        "media-blog": 0.783,
+        "directory": 0.083,
+        "vendor": 0.083,
+        "community": 0.05
+      },
+      "share_shape_x_source": {
+        "comparison|media-blog": 0.783,
+        "comparison|directory": 0.083,
+        "comparison|vendor": 0.083,
+        "comparison|community": 0.033,
+        "other|community": 0.017
+      },
+      "share_by_page_shape_path_only": {
+        "comparison": 0.983,
+        "other": 0.017
+      },
+      "vendor_owned_comparison_share": 0.083
+    }
+  },
+  "by_model": {
+    "perplexity/sonar": {
+      "answers": 6,
+      "citations": 116,
+      "citations_per_answer": 19.33,
+      "unique_urls": 89,
+      "share_by_page_shape": {
+        "comparison": 0.664,
+        "listicle": 0.276,
+        "other": 0.06
+      },
+      "share_by_source_type": {
+        "media-blog": 0.612,
+        "vendor": 0.207,
+        "community": 0.095,
+        "directory": 0.086
+      },
+      "share_shape_x_source": {
+        "comparison|media-blog": 0.422,
+        "listicle|media-blog": 0.172,
+        "comparison|vendor": 0.147,
+        "listicle|vendor": 0.052,
+        "comparison|community": 0.052,
+        "comparison|directory": 0.043,
+        "listicle|directory": 0.026,
+        "listicle|community": 0.026,
+        "other|community": 0.017,
+        "other|media-blog": 0.017,
+        "other|directory": 0.017,
+        "other|vendor": 0.009
+      },
+      "share_by_page_shape_path_only": {
+        "comparison": 0.664,
+        "listicle": 0.19,
+        "other": 0.147
+      },
+      "vendor_owned_comparison_share": 0.147
+    },
+    "openai/gpt-4o:online": {
+      "answers": 6,
+      "citations": 30,
+      "citations_per_answer": 5.0,
+      "unique_urls": 29,
+      "share_by_page_shape": {
+        "comparison": 0.6,
+        "listicle": 0.267,
+        "other": 0.133
+      },
+      "share_by_source_type": {
+        "media-blog": 0.833,
+        "vendor": 0.133,
+        "directory": 0.033
+      },
+      "share_shape_x_source": {
+        "comparison|media-blog": 0.533,
+        "listicle|media-blog": 0.233,
+        "other|vendor": 0.067,
+        "other|media-blog": 0.067,
+        "listicle|vendor": 0.033,
+        "comparison|vendor": 0.033,
+        "comparison|directory": 0.033
+      },
+      "share_by_page_shape_path_only": {
+        "comparison": 0.533,
+        "listicle": 0.233,
+        "other": 0.233
+      },
+      "vendor_owned_comparison_share": 0.033
+    },
+    "google/gemini-2.5-flash:online": {
+      "answers": 6,
+      "citations": 30,
+      "citations_per_answer": 5.0,
+      "unique_urls": 30,
+      "share_by_page_shape": {
+        "comparison": 0.533,
+        "listicle": 0.3,
+        "other": 0.167
+      },
+      "share_by_source_type": {
+        "media-blog": 0.9,
+        "vendor": 0.1
+      },
+      "share_shape_x_source": {
+        "comparison|media-blog": 0.5,
+        "listicle|media-blog": 0.267,
+        "other|media-blog": 0.133,
+        "other|vendor": 0.033,
+        "listicle|vendor": 0.033,
+        "comparison|vendor": 0.033
+      },
+      "share_by_page_shape_path_only": {
+        "comparison": 0.533,
+        "listicle": 0.233,
+        "other": 0.233
+      },
+      "vendor_owned_comparison_share": 0.033
+    }
+  },
+  "overall": {
+    "all": {
+      "answers": 18,
+      "citations": 176,
+      "citations_per_answer": 9.78,
+      "unique_urls": 116,
+      "share_by_page_shape": {
+        "comparison": 0.631,
+        "listicle": 0.278,
+        "other": 0.091
+      },
+      "share_by_source_type": {
+        "media-blog": 0.699,
+        "vendor": 0.176,
+        "community": 0.062,
+        "directory": 0.062
+      },
+      "share_shape_x_source": {
+        "comparison|media-blog": 0.455,
+        "listicle|media-blog": 0.199,
+        "comparison|vendor": 0.108,
+        "other|media-blog": 0.045,
+        "listicle|vendor": 0.045,
+        "comparison|community": 0.034,
+        "comparison|directory": 0.034,
+        "other|vendor": 0.023,
+        "listicle|directory": 0.017,
+        "listicle|community": 0.017,
+        "other|community": 0.011,
+        "other|directory": 0.011
+      },
+      "share_by_page_shape_path_only": {
+        "comparison": 0.619,
+        "listicle": 0.205,
+        "other": 0.176
+      },
+      "vendor_owned_comparison_share": 0.108
+    }
+  },
+  "errors": [],
+  "license": "CC BY 4.0 - https://creativecommons.org/licenses/by/4.0/",
+  "citation": "Stanislav Peev, 'AI citations by question shape', stanislav-peev.com/research/ai-citations-by-query-shape/, 2026-09-07"
+}

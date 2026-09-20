@@ -5,8 +5,15 @@
     <link>https://stanislav-peev.com/</link>
     <description>Original research and data reports on AI search visibility, GEO (generative engine optimization) and SEO - by Stanislav Peev, independent SEO consultant and AI search specialist.</description>
     <language>en</language>
-    <lastBuildDate>Mon, 31 Aug 2026 12:00:00 GMT</lastBuildDate>
+    <lastBuildDate>Mon, 07 Sep 2026 12:00:00 GMT</lastBuildDate>
     <atom:link href="https://stanislav-peev.com/rss.xml" rel="self" type="application/rss+xml"/>
+    <item>
+      <title>AI citations by question shape: which pages ChatGPT, Gemini and Perplexity cite for "best X", "X alternatives" and "X vs Y"</title>
+      <link>https://stanislav-peev.com/research/ai-citations-by-query-shape/</link>
+      <guid isPermaLink="true">https://stanislav-peev.com/research/ai-citations-by-query-shape/</guid>
+      <pubDate>Mon, 07 Sep 2026 10:00:00 GMT</pubDate>
+      <description>Original pilot: 176 citations from three web-connected AI engines, every cited page labeled by shape and owner. "best X" questions cited listicles 84% of the time and comparison pages 2%; "X alternatives" questions cited comparison-shaped pages 86%, with 24% of citations going to comparison pages on competing vendors' own domains and a single citation to G2; "X vs Y" questions 98%. Explains why the published "under 3%" share for comparison pages is an average across question types. Method, limitations and raw data published under CC BY 4.0.</description>
+    </item>
     <item>
       <title>AI referral traffic vs organic search: how it converts for a small business</title>
       <link>https://stanislav-peev.com/research/ai-referral-traffic-conversion-vs-organic/</link>

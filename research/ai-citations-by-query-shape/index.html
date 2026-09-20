@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI citations by question shape: best X vs X alternatives - Stanislav Peev</title>
+<meta name="description" content="Which pages do AI answers cite? 176 citations logged: 'best X' questions cite listicles 84%, 'X alternatives' cite comparison pages 86%, a quarter on vendors' own sites.">
+<link rel="canonical" href="https://stanislav-peev.com/research/ai-citations-by-query-shape/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Stanislav Peev">
+<meta property="og:title" content="AI Citations by Question Shape: Best X vs X Alternatives vs X vs Y">
+<meta property="og:description" content="176 citations from ChatGPT, Gemini and Perplexity. Ask for 'best X' and 84% of cited pages are listicles. Ask for 'X alternatives' and 86% are comparison pages - 24% of them on a competing vendor's own domain. G2 got one citation.">
+<meta property="og:url" content="https://stanislav-peev.com/research/ai-citations-by-query-shape/">
+<meta property="og:image" content="https://stanislav-peev.com/research/ai-citations-by-query-shape/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="86% of pages AI cites for 'X alternatives' questions are comparison pages; for 'best X' questions 2%. Data card with bars: best X to listicles 84.2%, X alternatives to comparison 86.4%, X vs Y to comparison 98.3%">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:creator" content="@SeoPeev">
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="alternate" type="application/rss+xml" title="Stanislav Peev - SEO &amp; AI Search Research" href="/rss.xml">
+<link rel="stylesheet" href="/assets/site.css?v=6">
+<style>
+.article-meta { font-size: .9rem; color: var(--ink-soft); margin-bottom: 34px; }
+.article-meta b { color: var(--ink); }
+.hero-stat {
+  background: linear-gradient(135deg, var(--surface), var(--band));
+  border: 1px solid var(--green); border-radius: 18px;
+  padding: 36px 32px; text-align: center; margin: 0 0 40px;
+}
+.hero-stat .big {
+  font-family: var(--serif); font-size: clamp(3.2rem, 8vw, 5rem);
+  color: var(--green); font-weight: 700; line-height: 1; display: block; margin-bottom: 12px;
+}
+.hero-stat p { color: var(--ink); font-size: 1.1rem; max-width: 62ch; margin: 0 auto 8px; }
+.hero-stat .src { font-size: .85rem; color: var(--ink-soft); }
+.takeaways {
+  background: var(--surface); border: 1px solid var(--line); border-left: 4px solid var(--green);
+  border-radius: 12px; padding: 26px 28px; margin: 0 0 40px;
+}
+.takeaways h2 {
+  font-family: var(--sans); font-size: .8rem; font-weight: 700; letter-spacing: .12em;
+  text-transform: uppercase; color: var(--green); margin-bottom: 14px;
+}
+.takeaways ul { list-style: none; display: grid; gap: 10px; }
+.takeaways li { padding-left: 22px; position: relative; color: var(--ink-soft); font-size: .98rem; }
+.takeaways li::before { content: '→'; position: absolute; left: 0; color: var(--green); }
+.takeaways li b { color: var(--ink); font-family: var(--serif); }
+.toc {
+  border: 1px solid var(--line); border-radius: 12px; padding: 22px 26px; margin: 0 0 48px;
+  background: var(--bg-alt);
+}
+.toc h2 { font-family: var(--sans); font-size: .95rem; margin-bottom: 12px; }
+.toc ol { margin-left: 20px; color: var(--ink-soft); display: grid; gap: 6px; font-size: .95rem; }
+.toc a { color: var(--green); text-decoration: none; }
+.toc a:hover { text-decoration: underline; }
+.article h2 { margin-top: 56px; margin-bottom: 16px; scroll-margin-top: 90px; }
+.article h3 { margin-top: 30px; margin-bottom: 10px; font-size: 1.1rem; }
+.article .capsule { color: var(--ink); font-size: 1.08rem; margin-bottom: 18px; max-width: 70ch; }
+.article p { color: var(--ink-soft); margin-bottom: 18px; max-width: 72ch; }
+.article p strong { color: var(--ink); }
+.article a { color: var(--green); }
+.article ul.plain { margin: 0 0 18px 20px; color: var(--ink-soft); max-width: 72ch; display: grid; gap: 8px; }
+.metric-table { width: 100%; border-collapse: collapse; margin: 22px 0; font-size: .95rem; }
+.metric-table th {
+  background: var(--band); color: var(--ink); text-align: left;
+  padding: 11px 14px; text-transform: uppercase; font-size: .76rem; letter-spacing: .07em;
+  border-bottom: 2px solid var(--green);
+}
+.metric-table td { padding: 11px 14px; border-bottom: 1px solid var(--line); color: var(--ink-soft); }
+.metric-table td.v { font-family: var(--serif); font-weight: 700; color: var(--green); white-space: nowrap; }
+.metric-table td.hi { color: var(--green); font-weight: 700; }
+.metric-table td.lo { color: var(--ink-soft); }
+.table-wrap { overflow-x: auto; }
+.stat-callout {
+  display: flex; align-items: center; gap: 22px; background: var(--surface);
+  border: 1px solid var(--line); border-left: 4px solid var(--green); border-radius: 12px;
+  padding: 20px 24px; margin: 24px 0;
+}
+.stat-callout .val {
+  font-family: var(--serif); font-size: 2.1rem; font-weight: 700; color: var(--green);
+  white-space: nowrap; min-width: 90px; text-align: center;
+}
+.stat-callout div p { margin: 0; font-size: .96rem; }
+.stat-callout div .src { font-size: .82rem; color: var(--ink-soft); margin-top: 4px; }
+.bar-chart { margin: 24px 0; display: grid; gap: 10px; max-width: 680px; }
+.bar-row { display: grid; grid-template-columns: 230px 1fr; align-items: center; gap: 12px; }
+.bar-row .lbl { font-size: .9rem; color: var(--ink-soft); text-align: right; }
+.bar-track { background: var(--band); border-radius: 6px; overflow: hidden; height: 30px; position: relative; }
+.bar-fill {
+  height: 100%; background: var(--green); border-radius: 6px;
+  display: flex; align-items: center; padding-left: 10px;
+  font-family: var(--serif); font-weight: 700; font-size: .88rem; color: var(--btn-text);
+  min-width: fit-content; white-space: nowrap;
+}
+.bar-fill.dim { background: var(--ink-soft); }
+.bar-note { font-size: .82rem; color: var(--ink-soft); margin-top: 2px; }
+.explorer {
+  background: var(--surface); border: 1px solid var(--green); border-radius: 16px;
+  padding: 24px; margin: 26px 0;
+}
+.explorer .controls { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 14px; }
+.explorer select, .explorer input[type="search"] {
+  background: var(--bg-alt); color: var(--ink); border: 1px solid var(--line); border-radius: 8px;
+  padding: 8px 10px; font-size: .92rem;
+}
+.explorer input[type="search"] { flex: 1; min-width: 180px; }
+.explorer .count { font-size: .88rem; color: var(--ink-soft); margin-bottom: 10px; }
+.explorer table { width: 100%; border-collapse: collapse; font-size: .86rem; }
+.explorer th { text-align: left; padding: 8px 10px; border-bottom: 2px solid var(--green); color: var(--ink); font-size: .74rem; text-transform: uppercase; letter-spacing: .06em; cursor: pointer; white-space: nowrap; }
+.explorer td { padding: 7px 10px; border-bottom: 1px solid var(--line); color: var(--ink-soft); vertical-align: top; }
+.explorer td a { color: var(--green); word-break: break-all; }
+.explorer .tag { display: inline-block; padding: 1px 7px; border-radius: 999px; font-size: .74rem; border: 1px solid var(--line); color: var(--ink); white-space: nowrap; }
+.explorer .tag.cmp { border-color: var(--green); color: var(--green); }
+.explorer .scroll { max-height: 520px; overflow: auto; }
+.data-box {
+  background: var(--bg-alt); border: 1px solid var(--line); border-radius: 12px;
+  padding: 22px 26px; margin: 26px 0;
+}
+.data-box h3 { font-size: 1rem; margin: 0 0 8px; }
+.data-box p { font-size: .92rem; margin-bottom: 10px; }
+.sources-list { font-size: .92rem; color: var(--ink-soft); margin-left: 20px; display: grid; gap: 10px; }
+.sources-list a { color: var(--green); word-break: break-all; }
+.updated { font-size: .88rem; color: var(--ink-soft); border-top: 1px solid var(--line); padding-top: 20px; margin-top: 48px; }
+@media (max-width: 640px) {
+  .bar-row { grid-template-columns: 1fr; gap: 4px; }
+  .bar-row .lbl { text-align: left; }
+  .stat-callout { flex-direction: column; align-items: flex-start; gap: 10px; }
+}
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://stanislav-peev.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Research", "item": "https://stanislav-peev.com/research/" },
+        { "@type": "ListItem", "position": 3, "name": "AI Citations by Question Shape", "item": "https://stanislav-peev.com/research/ai-citations-by-query-shape/" }
+      ]
+    },
+    {
+      "@type": "Article",
+      "@id": "https://stanislav-peev.com/research/ai-citations-by-query-shape/#article",
+      "headline": "AI Citations by Question Shape: Best X vs X Alternatives vs X vs Y",
+      "description": "An original pilot logging every URL that ChatGPT, Gemini and Perplexity cited for 'best X', 'X alternatives' and 'X vs Y' questions, with each cited page labeled by shape (listicle, comparison, other) and by owner (vendor, review directory, community, media).",
+      "author": { "@id": "https://stanislav-peev.com/#person" },
+      "publisher": { "@id": "https://stanislav-peev.com/#person" },
+      "datePublished": "2026-09-07",
+      "dateModified": "2026-09-07",
+      "mainEntityOfPage": "https://stanislav-peev.com/research/ai-citations-by-query-shape/",
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": [".hero-stat", ".takeaways"] }
+    },
+    {
+      "@type": "Dataset",
+      "name": "AI Citations by Question Shape - Pilot Dataset 2026",
+      "description": "18 AI answers (3 question shapes x 2 phrasings x 3 web-connected engines: Perplexity Sonar, OpenAI GPT-4o, Google Gemini 2.5 Flash) in the project management software category, run on 2026-09-07. Records every cited URL (176 citations, 116 unique URLs), each labeled by page shape (comparison / listicle / review / other, from URL path and fetched title) and source type (vendor / review directory / community / media-blog). Raw answers included.",
+      "url": "https://stanislav-peev.com/research/ai-citations-by-query-shape/",
+      "creator": { "@id": "https://stanislav-peev.com/#person" },
+      "temporalCoverage": "2026-09-07",
+      "measurementTechnique": "Identical prompts sent through the OpenRouter API to three web-enabled models; url_citation annotations logged; rule-based labeling of each unique URL from its path and HTML title.",
+      "variableMeasured": ["cited URL", "page shape", "source type", "question shape", "engine"],
+      "distribution": [
+        { "@type": "DataDownload", "encodingFormat": "application/json", "contentUrl": "https://stanislav-peev.com/research/ai-citations-by-query-shape/data-summary.json" },
+        { "@type": "DataDownload", "encodingFormat": "application/json", "contentUrl": "https://stanislav-peev.com/research/ai-citations-by-query-shape/data-url-labels.json" },
+        { "@type": "DataDownload", "encodingFormat": "application/x-ndjson", "contentUrl": "https://stanislav-peev.com/research/ai-citations-by-query-shape/data-raw.jsonl" }
+      ],
+      "license": "https://creativecommons.org/licenses/by/4.0/"
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://stanislav-peev.com/research/ai-citations-by-query-shape/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Do AI answers cite comparison pages or listicles more?",
+          "acceptedAnswer": { "@type": "Answer", "text": "It depends on how the question is shaped. In this pilot, 'best X' questions cited listicles 84% of the time and comparison pages 2%. 'X alternatives' questions cited comparison-shaped pages 86%, and 'X vs Y' questions 98%. There is no single answer to 'which format wins' - the question decides the format." }
+        },
+        {
+          "@type": "Question",
+          "name": "Can my own /alternatives page get cited by AI, or does G2 own that slot?",
+          "acceptedAnswer": { "@type": "Answer", "text": "For 'X alternatives' questions, comparison pages hosted on competing vendors' own domains took 24% of all citations (14 of 59), and four of the six answers cited at least one. G2 got a single citation (2%). A vendor's own well-built alternatives page competed for the same answer slot as third-party lists." }
+        },
+        {
+          "@type": "Question",
+          "name": "Why do large studies say comparison pages get under 3% of AI citations?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Because they average over every question type. Most questions people ask are not shaped as 'X alternatives' or 'X vs Y', so comparison pages are a small share of all citations - while being the dominant format inside those two question shapes. The overall figure is correct and hides the switch." }
+        },
+        {
+          "@type": "Question",
+          "name": "Does it matter which AI engine you look at?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Yes. Perplexity cited about 19 URLs per answer; GPT-4o and Gemini with web search cited exactly 5. Perplexity's citation lists overlapped the other two by only 2 to 5 URLs per question shape, while GPT-4o and Gemini shared up to 9 of their 10 citations because both retrieve through the same web plugin." }
+        },
+        {
+          "@type": "Question",
+          "name": "Can a small tool get cited for 'X alternatives' questions?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Yes. For the phrasing 'Asana alternatives for a small team', GPT-4o and Gemini cited landing pages of little-known tools written for that exact phrase - kanbo.dev/for/small-teams, t0ggles.com/for/small-teams, pinrom.co - in 5 of their 10 citations, ahead of any mainstream roundup." }
+        },
+        {
+          "@type": "Question",
+          "name": "Is 18 queries enough to conclude anything?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Enough to show the direction, because the switch is near-total (2% vs 86% vs 98%) and consistent across all three engines. Not enough for a confidence interval per engine or per category. This is a directional pilot; the raw data is published so it can be recomputed or extended." }
+        }
+      ]
+    }
+  ]
+}
+</script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-5TB26Q273D"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-5TB26Q273D');
+</script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="/">Stanislav <em>Peev</em></a>
+    <nav class="site-nav" aria-label="Main">
+      <a href="/#geo">AI / GEO</a>
+      <a href="/services/">Services</a>
+      <a href="/research/" aria-current="page">Research</a>
+      <a href="/#clients">Clients</a>
+      <a href="/#experience" class="hide-m">Experience</a>
+      <a href="/#proof" class="hide-m">Publications</a>
+      <a class="cta" href="#contact">Write to me</a>
+    </nav>
+  </div>
+</header>
+
+<nav class="crumbs" aria-label="Breadcrumb">
+  <div class="wrap"><a href="/">Home</a> › <a href="/research/">Research</a> › AI Citations by Question Shape</div>
+</nav>
+
+<main>
+
+<section class="hero" style="padding:40px 0 8px">
+  <div class="wrap" style="display:block">
+    <span class="kicker">Research · AI Search Data</span>
+    <h1 style="max-width:26ch">Which pages do AI answers <span class="accent">cite</span>? Ask "best X" and it's listicles. Ask "X alternatives" and 86% switch to comparison pages</h1>
+    <p class="article-meta">By <b>Stanislav Peev</b>, SEO consultant &amp; GEO specialist · Published <b>September 7, 2026</b> · Original pilot data · 9 min read</p>
+  </div>
+</section>
+
+<section style="padding:0 0 72px">
+  <div class="wrap article">
+
+    <div class="hero-stat">
+      <span class="big">86%</span>
+      <p>Which pages do AI answers cite for "X alternatives" questions? In this pilot, 86% of the URLs ChatGPT, Gemini and Perplexity cited were comparison-shaped pages. For "best X" questions the same figure was 2%, and listicles took 84% instead. The shape of the question decided the shape of the page.</p>
+      <span class="src">Source: this pilot - 18 answers, 176 citations, 116 unique URLs, September 7, 2026</span>
+    </div>
+
+    <div class="takeaways">
+      <h2>Key takeaways</h2>
+      <ul>
+        <li><b>84% vs 2%</b> - "best X" questions cited listicles 84% of the time and comparison pages 2%; "X alternatives" flipped it to 86% comparison pages and 2% listicles; "X vs Y" went to 98% comparison pages</li>
+        <li><b>24%</b> - for "X alternatives" questions, a quarter of all citations went to comparison pages on a competing vendor's own domain (ClickUp, ProofHub, ProjectManager, Airtable and others), in 4 of 6 answers</li>
+        <li><b>1 of 59</b> - G2 earned a single citation for "X alternatives"; review directories were 2% of that slot, not the owners of it</li>
+        <li><b>5 vs 19</b> - GPT-4o and Gemini cited exactly 5 URLs per answer, Perplexity about 19; Perplexity's lists barely overlapped the other two</li>
+        <li><b>Small-tool landing pages</b> - for "Asana alternatives for a small team", GPT-4o and Gemini cited t0ggles, Kanbo and Pinrom pages written for that phrase in half of their citations</li>
+        <li><b>Why "under 3%" is also true</b> - published studies average comparison pages across every question type; inside the two question shapes that ask for a comparison, they dominate</li>
+        <li><b>18 answers</b>, 3 engines, 1 category, 1 day - a directional pilot, <a href="#data">raw data published</a> under CC BY 4.0</li>
+      </ul>
+    </div>
+
+    <div class="toc">
+      <h2>What's in this report</h2>
+      <ol>
+        <li><a href="#setup">What I measured, in one paragraph</a></li>
+        <li><a href="#best">Which pages get cited for "best X" questions?</a></li>
+        <li><a href="#alternatives">What changes when the question becomes "X alternatives"?</a></li>
+        <li><a href="#vs">Do "X vs Y" questions cite anything but comparison pages?</a></li>
+        <li><a href="#directories">Does G2 or Capterra own the "alternatives" slot?</a></li>
+        <li><a href="#engines">Do ChatGPT, Gemini and Perplexity cite the same pages?</a></li>
+        <li><a href="#studies">Why the published "under 3%" figure is not wrong, just averaged</a></li>
+        <li><a href="#what-to-do">What this means for a product or service site</a></li>
+        <li><a href="#explore">Explore all 116 cited pages</a></li>
+        <li><a href="#methodology">Methodology</a></li>
+        <li><a href="#limitations">Limitations</a></li>
+        <li><a href="#faq">FAQ</a></li>
+        <li><a href="#data">Get the data</a></li>
+      </ol>
+    </div>
+
+    <h2 id="setup">1. What I measured, in one paragraph</h2>
+    <p class="capsule">I took one software category, project management tools, and asked three web-connected AI engines the same buying question in three shapes: "best X" (what is the best project management software for a small business), "X alternatives" (what are the best alternatives to Asana), and "X vs Y" (Asana vs monday.com). Two phrasings per shape, one run each, on Perplexity Sonar, GPT-4o with web search and Gemini 2.5 Flash with web search. That is 18 answers. I logged every URL each answer cited, 176 in total, fetched each page's title, and labeled it two ways: by shape (a "best X" listicle, a comparison-shaped page, or something else) and by owner (a vendor's own domain, a review directory like G2, a community like Reddit, or a media site or blog).</p>
+    <p>The question behind it came from an r/SEO thread where an AI-visibility tool builder reported that "alternatives"-shaped queries cite comparison pages 34% to 43% of the time versus 2.8% for "best X" queries, and asked for anyone with publisher-side data to confirm or refute it. The thread got one comment, since removed. The large 2026 citation studies could not answer either, because they classify cited pages by type across all queries and never cross that with the shape of the question. This pilot is a first attempt at that crossing, small enough to run in an afternoon and published in full so it can be challenged or extended.</p>
+
+    <h2 id="best">2. Which pages get cited for "best X" questions?</h2>
+    <p class="capsule">Listicles, by a wide margin. For "what is the best project management software for a small business" and "best project management software in 2026", 84% of the 57 cited URLs were "best" or "top N" roundups. Comparison-shaped pages appeared once. The remaining 14% were category pages, a buyer's guide, a vendor's small-business page and two Reddit threads.</p>
+    <div class="bar-chart" role="img" aria-label="Share of cited URLs by page shape for best X questions: listicles 84.2 percent, other 14 percent, comparison 1.8 percent">
+      <div class="bar-row"><span class="lbl">Listicle ("best / top N")</span><div class="bar-track"><div class="bar-fill" style="width:84%">84.2%</div></div></div>
+      <div class="bar-row"><span class="lbl">Other (guides, category pages)</span><div class="bar-track"><div class="bar-fill dim" style="width:14%">14.0%</div></div></div>
+      <div class="bar-row"><span class="lbl">Comparison-shaped</span><div class="bar-track"><div class="bar-fill dim" style="width:2%">1.8%</div></div></div>
+      <p class="bar-note">"best X" questions, 6 answers, 57 citations, 42 unique URLs, 36 domains.</p>
+    </div>
+    <p>This matches what every large study has found and what most GEO advice repeats: for a "best" question, the engines reach for a page that already ranks the options. Two thirds of these citations came from media sites and blogs (Forbes Advisor, PCMag, ZDNET, Zapier, The Digital Project Manager); 18% came from vendors, and almost all of those were vendors' own "best project management software for small business" listicles; product pages barely appeared. Zero citations went to a vendor's comparison page. On this column alone, the standard advice (get into the roundups) looks complete.</p>
+
+    <h2 id="alternatives">3. What changes when the question becomes "X alternatives"?</h2>
+    <p class="capsule">The format flips. For "what are the best alternatives to Asana" and "Asana alternatives for a small team", 86% of the 59 cited URLs were comparison-shaped pages anchored on the brand: "Asana alternatives", "Asana competitors", "vs Asana". Generic "best project management software" listicles fell to 2%. And 24% of all citations went to comparison pages sitting on a competing vendor's own domain.</p>
+    <div class="bar-chart" role="img" aria-label="Share of cited URLs by page shape for X alternatives questions: comparison 86.4 percent, other 11.9 percent, listicle 1.7 percent">
+      <div class="bar-row"><span class="lbl">Comparison-shaped</span><div class="bar-track"><div class="bar-fill" style="width:86%">86.4%</div></div></div>
+      <div class="bar-row"><span class="lbl">Other (landing pages, homepages)</span><div class="bar-track"><div class="bar-fill dim" style="width:12%">11.9%</div></div></div>
+      <div class="bar-row"><span class="lbl">Listicle ("best / top N")</span><div class="bar-track"><div class="bar-fill dim" style="width:2%">1.7%</div></div></div>
+      <p class="bar-note">"X alternatives" questions, 6 answers, 59 citations, 40 unique URLs, 36 domains.</p>
+    </div>
+    <div class="stat-callout">
+      <span class="val">24%</span>
+      <div>
+        <p>Share of "X alternatives" citations that went to a comparison page on a competing vendor's own site: ClickUp's "Asana alternatives" guide, ProofHub, ProjectManager, ProProfs Project, Celoxis, Airtable, Teamwork, Planable. Four of the six answers cited at least one of them.</p>
+        <p class="src">This pilot, 14 of 59 citations, September 2026</p>
+      </div>
+    </div>
+    <p>I could not find that 24% published anywhere. ClickUp's "Asana alternatives" guide sat in the same answer as Zapier, Forbes and TechRepublic, for the same question, on the same afternoon. Vendors took 27% of all citations in this shape against 18% for "best X", and the whole difference is comparison pages. The thread that prompted this study treated "get listed on directories" and "build comparison pages" as one tactic when seen at the citation level; in this data the second half did the work (section 5 has the directory numbers).</p>
+    <p>The 12% "other" slice is its own finding. It came almost entirely from the second phrasing, "Asana alternatives for a small team", on GPT-4o and Gemini: instead of roundups, they cited landing pages built for exactly that phrase - kanbo.dev/for/small-teams, t0ggles.com/for/small-teams, pinrom.co, dailybuddy.net. Five of their ten citations for that phrasing were little-known tools with a page that matched the words. If t0ggles sounds familiar, it is the same tool that took over two of three engines for a "small remote team" recommendation in my <a href="/research/ai-visibility-tracking-reliability/">AI visibility stability experiment</a> three weeks earlier. One qualifier in the question ("for a small team") was enough for a small vendor with one matching page to get in.</p>
+
+    <h2 id="vs">4. Do "X vs Y" questions cite anything but comparison pages?</h2>
+    <p class="capsule">Almost never. For "Asana vs monday.com: which should I choose?" and "is Asana or monday.com better for a small business?", 59 of 60 cited URLs were head-to-head comparison pages. No listicle was cited at all. The one exception was a Reddit thread about which workflows justify the cost of a tool.</p>
+    <div class="table-wrap">
+    <table class="metric-table">
+      <thead><tr><th>Question shape</th><th>Comparison-shaped</th><th>Listicle</th><th>Other</th><th>Vendor-owned comparison</th></tr></thead>
+      <tbody>
+        <tr><td>"best X"</td><td class="lo">1.8%</td><td class="v">84.2%</td><td>14.0%</td><td class="lo">0%</td></tr>
+        <tr><td>"X alternatives"</td><td class="v">86.4%</td><td class="lo">1.7%</td><td>11.9%</td><td class="hi">23.7%</td></tr>
+        <tr><td>"X vs Y"</td><td class="v">98.3%</td><td class="lo">0%</td><td>1.7%</td><td>8.3%</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <p>The vendor-owned share here is lower than for "alternatives", at 8% (5 of 60), and it belongs to the two brands being compared: monday.com's own "Asana vs monday.com" post twice, Asana's compare page twice, Wrike's three-way comparison once. The rest went to media and blogs (78%), review directories (8%, G2's learning hub and Capterra's compare tool) and Reddit (5%). When your brand is one of the two names in the question, your own compare page has a shot (Asana and monday.com both got theirs cited). When it is a third name, the slot belongs to media comparisons, and no listicle appeared in it.</p>
+
+    <h2 id="directories">5. Does G2 or Capterra own the "alternatives" slot?</h2>
+    <p class="capsule">Not in this data. For "X alternatives" questions, review directories earned 1 of 59 citations - G2's own "Asana alternatives" page, once, on Perplexity. For "best X" they took 9% and for "X vs Y" 8%. The directories are present, but they are a small minority of what the engines cite, and they are least present exactly where comparison content matters most.</p>
+    <div class="table-wrap">
+    <table class="metric-table">
+      <thead><tr><th>Who owns the cited page</th><th>"best X"</th><th>"X alternatives"</th><th>"X vs Y"</th></tr></thead>
+      <tbody>
+        <tr><td>Media site or blog</td><td class="v">66.7%</td><td class="v">64.4%</td><td class="v">78.3%</td></tr>
+        <tr><td>Vendor's own domain</td><td>17.5%</td><td class="hi">27.1%</td><td>8.3%</td></tr>
+        <tr><td>Review directory (G2, Capterra, Software Advice)</td><td>8.8%</td><td class="lo">1.7%</td><td>8.3%</td></tr>
+        <tr><td>Community (Reddit, LinkedIn)</td><td>7.0%</td><td>6.8%</td><td>5.0%</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <p>A G2 or Capterra profile does a different job from a comparison page on your own site. When someone asked for alternatives, the engines went to pages whose title answers that question, and the directory page rarely does. The absence of an incumbent is also what leaves room for the 24% vendor share. The domains that recur across all three shapes are the usual editorial roundup publishers: Zapier and Forbes with 12 citations each, Reddit with 10.</p>
+
+    <h2 id="engines">6. Do ChatGPT, Gemini and Perplexity cite the same pages?</h2>
+    <p class="capsule">No, and they cite very different amounts. Perplexity cited about 19 URLs per answer (116 citations across 6 answers, 89 unique); GPT-4o and Gemini with web search cited exactly 5 each (30 citations each). The shape pattern held on all three, but the strength differed: for "X alternatives", comparison-shaped pages were 97% of Perplexity's citations, 70% of GPT-4o's and 60% of Gemini's.</p>
+    <div class="table-wrap">
+    <table class="metric-table">
+      <thead><tr><th>Engine</th><th>Citations / answer</th><th>"best X" listicle share</th><th>"X alternatives" comparison share</th><th>"X vs Y" comparison share</th><th>Vendor-owned comparison, "alternatives"</th></tr></thead>
+      <tbody>
+        <tr><td>Perplexity Sonar</td><td class="v">19.3</td><td>83.8%</td><td class="hi">97.4%</td><td>97.5%</td><td class="hi">30.8%</td></tr>
+        <tr><td>ChatGPT (GPT-4o, web)</td><td class="v">5.0</td><td>80.0%</td><td>70.0%</td><td>100%</td><td>10.0%</td></tr>
+        <tr><td>Gemini 2.5 Flash (web)</td><td class="v">5.0</td><td>90.0%</td><td>60.0%</td><td>100%</td><td>10.0%</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <p>Two things sit behind those numbers. The GPT-4o and Gemini gap on "alternatives" is the small-team landing-page effect from section 3: both spent citations on tools like t0ggles and Kanbo for the qualified phrasing, and those count as vendor homepages under my labels. The second is a caveat about the setup. Through OpenRouter, GPT-4o and Gemini share one web-search plugin, and the overlap shows it: for "best X" they cited 9 of the same 10 URLs, for "X vs Y" 8 of 10. Perplexity runs its own retrieval and overlapped with either of them by only 2 to 5 URLs per question shape; for "alternatives" every pairwise overlap was between 1 and 4 URLs. An "AI citation share of N%" quoted without the engine name averages over lists that barely intersect, which is the same problem I measured for brand mentions in the <a href="/research/ai-visibility-tracking-reliability/">60-query stability experiment</a>.</p>
+    <div class="stat-callout">
+      <span class="val">30.8%</span>
+      <div>
+        <p>On Perplexity, nearly a third of all "X alternatives" citations (12 of 39) were comparison pages on competing vendors' own domains. On GPT-4o and Gemini it was one citation in ten each.</p>
+        <p class="src">This pilot, September 2026</p>
+      </div>
+    </div>
+
+    <h2 id="studies">7. Why the published "under 3%" figure is not wrong, just averaged</h2>
+    <p class="capsule">Every large 2026 citation study reports comparison pages as a small slice: Wix Studio's AI Search Lab put "product alternative and comparison pages" under 3% of a million-plus citations, DeltaV Digital found 4.1%. Both are averages across every question people ask. Most questions are not shaped as "alternatives" or "vs", so the format is rare overall while being the default inside those two shapes.</p>
+    <div class="table-wrap">
+    <table class="metric-table">
+      <thead><tr><th>Study</th><th>Sample</th><th>What it found about comparison pages</th><th>Split by question shape?</th></tr></thead>
+      <tbody>
+        <tr><td>Wix Studio AI Search Lab, March 2026 <a href="https://searchengineland.com/ai-citations-favor-listicles-articles-product-pages-study-472364" rel="noopener">[1]</a></td><td>75,000 answers, 1M+ citations, ChatGPT + AI Mode + Perplexity</td><td>Listicles 21.9%, articles 16.7%, product pages 13.7%; alternative and comparison pages under 3% <a href="https://airops.com/blog/page-types-earn-ai-citations" rel="noopener">[2]</a></td><td class="lo">No (commercial vs informational only)</td></tr>
+        <tr><td>Evertune, May 2026 <a href="https://searchengineland.com/ai-search-loves-listicles-what-25000-urls-reveal-about-citations-477682" rel="noopener">[3]</a></td><td>~400M citations, 6 engines, 25,000 top URLs</td><td>63% of citations to listicles (40% Copilot to 65% Gemini); no comparison category</td><td class="lo">No</td></tr>
+        <tr><td>DeltaV Digital, April to July 2026 <a href="https://www.deltavdigital.com/resources/reports/ai-citation-study/" rel="noopener">[4]</a></td><td>21,075 responses, 25,337 citations, 5 engines</td><td>Comparison pages 4.1% of citations, but 1.87 citations per retrieval - 45% above average, highest of any type</td><td class="lo">No (by industry)</td></tr>
+        <tr><td>DerivateX, June 2026 <a href="https://derivatex.agency/blog/what-content-gets-cited-google-ai-overviews/" rel="noopener">[5]</a></td><td>1,259 AI Overview citations, 100 "best [category] software" queries</td><td>Third-party best-of lists 63%, vendor's own site 17% (12% for the recommended product), review sites 5%</td><td class="lo">"best X" only</td></tr>
+        <tr><td>This pilot, September 2026</td><td>176 citations, 3 engines, 1 category</td><td>Comparison-shaped: 2% for "best X", 86% for "X alternatives", 98% for "X vs Y"</td><td class="hi">Yes</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <p>DeltaV's pair of numbers already hinted at this. A page type with 4% of citations and the highest citations-per-retrieval of any type gets cited heavily whenever it is retrieved at all, which is how a format behaves when it owns a narrow set of questions and rarely appears elsewhere. DerivateX's 63% for third-party best-of lists and 12% for the recommended vendor is the "best X" column of this pilot, measured on Google AI Overviews instead of chat engines, and it agrees. What was missing was the other two columns.</p>
+
+    <h2 id="what-to-do">8. What this means for a product or service site</h2>
+    <p class="capsule">The useful question is which shapes your buyers' questions take when they put them to an AI engine, because each shape cited a different kind of page. Three shapes gave three different answers here, and the page to build follows from the shape.</p>
+    <ul class="plain">
+      <li><strong>If buyers ask "best [category]":</strong> your own site is a minority player (18% here, 12% to 17% in DerivateX's Google data). The slot belongs to third-party roundups. The work is earning a place in the roundups that already get cited - here that was Zapier, Forbes Advisor, PCMag, TechRepublic, The Digital Project Manager - and, secondarily, publishing your own category listicle, which did get cited (12% of "best X" citations were vendor listicles).</li>
+      <li><strong>If buyers ask "[leader] alternatives":</strong> this is the shape where your own domain competes. A brand-anchored page titled and structured as "[leader] alternatives" or "[leader] competitors" took 24% of citations for competing vendors in this pilot and G2 took 2%. Name the leader in the title and give the page real comparison content (pricing, fit, who should stay where they are). If your buyers add a qualifier ("for small teams", "for agencies"), a page built for that qualifier can beat every roundup - that is how t0ggles and Kanbo got cited, and it is the cheapest AI-search move a <a href="/services/small-business-seo/">small business</a> with one product can make.</li>
+      <li><strong>If buyers ask "[you] vs [rival]":</strong> your own compare page is in play (monday.com and Asana both got theirs cited), but the slot is mostly editorial. Publish the vs page, then make sure the media comparisons that exist are accurate about you, because they are 78% of what gets cited.</li>
+    </ul>
+    <p>Page shape is one layer of <a href="/#geo">generative engine optimization</a>, and it comes before schema or prose style. Underneath it sits accuracy: when the engines already describe a product wrongly, the format cannot repair that, a problem I measured separately in <a href="/research/ai-wrong-business-information-statistics/">how often AI gets business information wrong</a>. Around it sits measurement, per engine, before and after, which is the baseline I take in an <a href="/services/seo-audit/">SEO audit with an AI visibility baseline</a>; section 6 shows why one engine's citation list says little about another's. The visitors these citations send are also the ones that <a href="/research/ai-referral-traffic-conversion-vs-organic/">convert better than organic search traffic</a>, at least while volumes stay small. An <a href="/services/">AI search visibility program</a> built from this evidence maps the question shapes buyers use and the page shapes those questions cite, then measures the result on each engine.</p>
+
+    <h2 id="explore">9. Explore all 116 cited pages</h2>
+    <p class="capsule">Every URL the three engines cited, with its page shape, owner type, the question shape and engine that cited it, and the page title I fetched. Filter, search, sort. Comparison-shaped pages are marked in green.</p>
+    <div class="explorer" id="explorer">
+      <div class="controls">
+        <select id="fShape" aria-label="Question shape">
+          <option value="">All question shapes</option>
+          <option value="best">"best X"</option>
+          <option value="alternatives">"X alternatives"</option>
+          <option value="vs">"X vs Y"</option>
+        </select>
+        <select id="fPage" aria-label="Page shape">
+          <option value="">All page shapes</option>
+          <option value="comparison">Comparison-shaped</option>
+          <option value="listicle">Listicle</option>
+          <option value="other">Other</option>
+        </select>
+        <select id="fSrc" aria-label="Source type">
+          <option value="">All owners</option>
+          <option value="vendor">Vendor's own domain</option>
+          <option value="directory">Review directory</option>
+          <option value="community">Community</option>
+          <option value="media-blog">Media / blog</option>
+        </select>
+        <select id="fEng" aria-label="Engine">
+          <option value="">All engines</option>
+          <option value="Perplexity">Perplexity</option>
+          <option value="GPT-4o">ChatGPT (GPT-4o)</option>
+          <option value="Gemini">Gemini</option>
+        </select>
+        <input type="search" id="fQ" placeholder="Search domain or title" aria-label="Search">
+      </div>
+      <div class="count" id="exCount"></div>
+      <div class="scroll">
+        <table>
+          <thead><tr><th data-k="domain">Domain</th><th data-k="page_shape">Page shape</th><th data-k="source_type">Owner</th><th data-k="shapes">Cited for</th><th data-k="engines">By</th><th data-k="n">Times</th><th data-k="title">Title</th></tr></thead>
+          <tbody id="exBody"></tbody>
+        </table>
+      </div>
+    </div>
+
+    <h2 id="methodology">10. Methodology</h2>
+    <p>One category was used as a testbed: project management software, with Asana as the anchor brand and monday.com as the rival. Six prompts were fixed in advance, two per question shape. "best X": "What is the best project management software for a small business?" and "Best project management software in 2026?". "X alternatives": "What are the best alternatives to Asana?" and "Asana alternatives for a small team". "X vs Y": "Asana vs monday.com: which should I choose?" and "Is Asana or monday.com better for a small business?". Each prompt was sent once to three web-enabled models through the OpenRouter API on September 7, 2026: Perplexity Sonar, OpenAI GPT-4o with the web plugin, and Google Gemini 2.5 Flash with the web plugin. Every URL returned in the answer's citation annotations was logged in order: 176 citations, 116 unique URLs.</p>
+    <p>Each unique URL was labeled by <strong>page shape</strong> from its URL path plus its fetched HTML title: <em>comparison-shaped</em> if anchored on a named brand as "alternatives", "competitors", "vs" or "compare"; <em>listicle</em> if a "best" or "top N" roundup without a brand anchor; <em>other</em> for everything else (category pages, guides, homepages, forum threads). A third-party post titled "10 best Asana alternatives" is comparison-shaped, because the question it answers is anchored on Asana; a "best project management software 2026: tools compared" roundup is a listicle. Each URL was also labeled by <strong>owner</strong>: <em>vendor</em> if the domain belongs to a project management tool on a fixed list of 29, <em>directory</em> for review platforms (G2 including its learning hub, Capterra, Software Advice, GetApp and similar), <em>community</em> for Reddit, LinkedIn, YouTube and Quora, and <em>media-blog</em> for everything else. Shares are computed over citations, so a URL cited by two answers counts twice; answer-weighted means, where each answer counts equally, are reported in the data file and agree in direction (comparison-shaped: 3% for "best X", 76% for "X alternatives", 99% for "X vs Y"). A path-only labeling, the method used in the Reddit thread, is stored alongside for every URL: for "alternatives" it gives 84.7% instead of 86.4%, but for "best X" it finds only 61% listicles instead of 84%, because many roundups do not carry "best" in their slug.</p>
+
+    <h2 id="limitations">11. Limitations</h2>
+    <p class="capsule">This is a directional pilot. The effect is near-total and consistent across engines, which is why I am publishing it at this size, but the exact percentages are one category on one day and should be quoted as such.</p>
+    <p>Five honest caveats. First, scope: one category, one anchor pair, six prompts, one run each, 18 answers. Enough to show that the question shape switches the cited page shape; not enough to attach a confidence interval to any engine's number or to say how the vendor-owned share varies by market. Second, GPT-4o and Gemini were both queried through OpenRouter's web plugin, which means their candidate pages came from the same search backend - this is closer to two retrieval systems than three, and their high mutual overlap says so. Third, API answers are not the consumer ChatGPT, Gemini and Perplexity apps, which add personalization, memory and their own retrieval; treat these as the floor. Fourth, the labels are rule-based on path and title, and the vendor list is fixed, so a small tool not on the list counts as media-blog - the vendor share is a lower bound. Fifth, citation-weighted shares are dominated by Perplexity, which cites almost four times as many URLs per answer as the other two; that is why the answer-weighted means are reported next to them. I will extend this to more categories and repeated runs and update this page with the harder numbers.</p>
+
+    <h2 id="faq">12. Frequently asked questions</h2>
+    <div class="faq">
+      <details>
+        <summary>Do AI answers cite comparison pages or listicles more?</summary>
+        <p>It depends on how the question is shaped. "best X" questions cited listicles 84% of the time and comparison pages 2%; "X alternatives" questions cited comparison-shaped pages 86%; "X vs Y" questions 98%. There is no single answer to which format wins - the question decides the format.</p>
+      </details>
+      <details>
+        <summary>Can my own /alternatives page get cited, or does G2 own that slot?</summary>
+        <p>For "X alternatives" questions, comparison pages on competing vendors' own domains took 24% of citations (14 of 59), in four of six answers. G2 got one citation (2%). A vendor's own well-built alternatives page competed for the same slot as third-party lists.</p>
+      </details>
+      <details>
+        <summary>Why do large studies say comparison pages get under 3% of AI citations?</summary>
+        <p>Because they average over every question type. Most questions are not shaped as "alternatives" or "vs", so comparison pages are a small share of all citations while being the dominant format inside those two shapes. The overall figure is correct; it hides the switch.</p>
+      </details>
+      <details>
+        <summary>Does it matter which AI engine you look at?</summary>
+        <p>Yes. Perplexity cited about 19 URLs per answer, GPT-4o and Gemini exactly 5. Perplexity's lists overlapped the other two by only 2 to 5 URLs per question shape, while GPT-4o and Gemini shared up to 9 of their 10 citations because both retrieve through the same web plugin.</p>
+      </details>
+      <details>
+        <summary>Can a small tool get cited for "X alternatives" questions?</summary>
+        <p>Yes. For "Asana alternatives for a small team", GPT-4o and Gemini cited landing pages of little-known tools written for that phrase - kanbo.dev/for/small-teams, t0ggles.com/for/small-teams, pinrom.co - in 5 of their 10 citations, ahead of any mainstream roundup.</p>
+      </details>
+      <details>
+        <summary>Is 18 queries enough to conclude anything?</summary>
+        <p>Enough to show the direction, because the switch is near-total (2% vs 86% vs 98%) and consistent across all three engines. Not enough for a confidence interval per engine or category. Directional pilot; the raw data is published so it can be recomputed or extended.</p>
+      </details>
+    </div>
+
+    <h2 id="data">13. Get the data</h2>
+    <div class="data-box">
+      <h3>Full dataset, CC BY 4.0</h3>
+      <p>All 18 raw answers with their citation lists and timestamps, the label for every one of the 116 unique URLs (page shape, owner, fetched title, path-only label), and the computed shares by question shape, engine and category. Recompute the numbers, challenge the labels, or run the same six prompts on your own category.</p>
+      <p>
+        <a href="/research/ai-citations-by-query-shape/data-summary.json" rel="noopener">data-summary.json</a> - shares by question shape, engine, source type; design<br>
+        <a href="/research/ai-citations-by-query-shape/data-url-labels.json" rel="noopener">data-url-labels.json</a> - every cited URL with its labels and title<br>
+        <a href="/research/ai-citations-by-query-shape/data-raw.jsonl" rel="noopener">data-raw.jsonl</a> - every answer with its cited URLs, one JSON object per line
+      </p>
+      <p style="margin-bottom:0">Citing this page: link to this URL. If you replicate it on another category or with more runs, <a href="mailto:info@stanislav-peev.com?subject=AI%20citations%20by%20question%20shape%20-%20replication">email me</a> and I'll add it here.</p>
+    </div>
+
+    <h3 style="margin-top:40px">Sources</h3>
+    <ol class="sources-list">
+      <li>Search Engine Land (Danny Goodwin). "AI citations favor listicles, articles, product pages: Study" - Wix Studio AI Search Lab data. March 24, 2026. <a href="https://searchengineland.com/ai-citations-favor-listicles-articles-product-pages-study-472364" rel="noopener">searchengineland.com/ai-citations-favor-listicles-articles-product-pages-study-472364</a>. Accessed September 7, 2026.</li>
+      <li>AirOps. "Which page types earn AI citations" - summary of Wix AI Search Lab data. 2026. <a href="https://airops.com/blog/page-types-earn-ai-citations" rel="noopener">airops.com/blog/page-types-earn-ai-citations</a>. Accessed September 7, 2026.</li>
+      <li>Evertune, via Search Engine Land. "AI search loves listicles: What 25,000 URLs reveal about citations." May 19, 2026. <a href="https://searchengineland.com/ai-search-loves-listicles-what-25000-urls-reveal-about-citations-477682" rel="noopener">searchengineland.com/ai-search-loves-listicles-what-25000-urls-reveal-about-citations-477682</a>. Accessed September 7, 2026.</li>
+      <li>DeltaV Digital. "AI search citations study: what 25,000+ citations reveal." 2026. <a href="https://www.deltavdigital.com/resources/reports/ai-citation-study/" rel="noopener">deltavdigital.com/resources/reports/ai-citation-study/</a>. Accessed September 7, 2026.</li>
+      <li>DerivateX. "What content gets cited in Google AI Overviews: 2026 data." June 2026. <a href="https://derivatex.agency/blog/what-content-gets-cited-google-ai-overviews/" rel="noopener">derivatex.agency/blog/what-content-gets-cited-google-ai-overviews/</a>. Accessed September 7, 2026.</li>
+      <li>r/SEO. "Do your /vs and /alternatives pages get cited by AI answers far more than your 'best X' content?" September 1, 2026. <a href="https://www.reddit.com/r/SEO/comments/1w4e6s2/" rel="noopener">reddit.com/r/SEO/comments/1w4e6s2/</a>. Accessed September 7, 2026. The thread that prompted this pilot.</li>
+    </ol>
+
+    <p class="updated">Published: September 7, 2026. Original pilot by <a href="/">Stanislav Peev</a>. Directional first run; I will extend it to more categories and repeated runs and update this page. Method or figures look off? <a href="mailto:info@stanislav-peev.com?subject=AI%20citations%20by%20question%20shape%20-%20feedback">Email me</a> - the raw data is published so it can be checked.</p>
+
+  </div>
+</section>
+
+<section class="contact-band" id="contact" style="padding:56px 0">
+  <div class="wrap contact-cols">
+    <div>
+      <h2>Want to know which page shapes your buyers' questions cite?</h2>
+      <p class="section-intro">I map the questions your customers actually put to ChatGPT, Gemini and Perplexity, log what each engine cites for them, and build the page shapes that win those slots - measured per engine, before and after. Describe your situation in a few sentences and I'll reply personally with an honest first read. No calls, no meetings.</p>
+      <p><a class="btn btn-primary" href="/services/">See GEO services</a> <a class="btn btn-ghost" href="mailto:info@stanislav-peev.com?subject=AI%20citation%20page%20shapes%20inquiry" style="margin-left:10px">Email me</a></p>
+    </div>
+    <ul class="contact-list">
+      <li><b>Email</b><a class="link" href="mailto:info@stanislav-peev.com">info@stanislav-peev.com</a></li>
+      <li><b>LinkedIn</b><a class="link" href="https://www.linkedin.com/in/stanislav-peev-seo/" rel="noopener">in/stanislav-peev-seo</a></li>
+      <li><b>Based in</b>Bratislava, Slovakia - working worldwide (EN · RU)</li>
+    </ul>
+  </div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div>© 2026 Stanislav Peev · SEO Consultant &amp; AI Search (GEO) Specialist, Bratislava, Slovakia</div>
+    <nav class="footer-nav" aria-label="Footer">
+      <a href="/">Home</a>
+      <a href="/#geo">AI / GEO</a>
+      <a href="/services/">Services</a>
+      <a href="/services/seo-audit/">SEO Audit</a>
+      <a href="/services/small-business-seo/">Small Business SEO</a>
+      <a href="/research/">Research</a>
+      <a href="https://www.linkedin.com/in/stanislav-peev-seo/" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" style="width:1em;height:1em;vertical-align:-.15em;margin-right:.35em;fill:currentColor"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29ZM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13ZM7.12 20.45H3.56V9h3.56v11.45ZM22.22 0H1.77C.79 0 0 .77 0 1.72v20.55C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0Z"/></svg>LinkedIn</a>
+      <a href="https://www.youtube.com/@stanislav_peev" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" style="width:1em;height:1em;vertical-align:-.15em;margin-right:.35em;fill:currentColor"><path d="M23.5 6.2a3 3 0 0 0-2.11-2.12C19.5 3.55 12 3.55 12 3.55s-7.5 0-9.39.53A3 3 0 0 0 .5 6.2 31.3 31.3 0 0 0 0 12a31.3 31.3 0 0 0 .5 5.8 3 3 0 0 0 2.11 2.12c1.89.53 9.39.53 9.39.53s7.5 0 9.39-.53A3 3 0 0 0 23.5 17.8 31.3 31.3 0 0 0 24 12a31.3 31.3 0 0 0-.5-5.8ZM9.55 15.57V8.43L15.82 12l-6.27 3.57Z"/></svg>YouTube</a>
+    </nav>
+  </div>
+</footer>
+
+<button class="to-top" id="toTop" aria-label="Back to top" title="Back to top">↑</button>
+<script>
+var CITED = /*__CITATION_DATA__*/[{"url":"https://zapier.com/blog/monday-vs-asana/","domain":"zapier.com","title":"Asana vs. monday: Which is best? [2026]","page_shape":"comparison","source_type":"media-blog","shapes":["vs"],"engines":["Perplexity","GPT-4o","Gemini"],"n":5},{"url":"https://www.forbes.com/advisor/business/software/best-project-management-software/","domain":"forbes.com","title":null,"page_shape":"listicle","source_type":"media-blog","shapes":["best"],"engines":["Perplexity","GPT-4o","Gemini"],"n":4},{"url":"https://www.forbes.com/advisor/business/monday-vs-asana/","domain":"forbes.com","title":null,"page_shape":"comparison","source_type":"media-blog","shapes":["vs"],"engines":["Perplexity","GPT-4o","Gemini"],"n":4},{"url":"https://learn.g2.com/asana-vs-monday","domain":"learn.g2.com","title":"Asana vs. monday: I Built Projects and Picked a Side in 2026","page_shape":"comparison","source_type":"directory","shapes":["vs"],"engines":["Perplexity","GPT-4o"],"n":3},{"url":"https://monday.com/blog/project-management/project-management-software-for-small-business/","domain":"monday.com","title":"Best Project Management Software For Small Business In 2026","page_shape":"listicle","source_type":"vendor","shapes":["best"],"engines":["Perplexity","GPT-4o","Gemini"],"n":3},{"url":"https://www.pcmag.com/picks/the-best-project-management-software","domain":"pcmag.com","title":null,"page_shape":"listicle","source_type":"media-blog","shapes":["best"],"engines":["Perplexity","GPT-4o","Gemini"],"n":3},{"url":"https://www.pmworld360.com/best-project-management-software-2026-top-tools-compared-for-teams/","domain":"pmworld360.com","title":"Best Project Management Software 2026 - Ranked by Use Case","page_shape":"listicle","source_type":"media-blog","shapes":["best"],"engines":["Perplexity","GPT-4o","Gemini"],"n":3},{"url":"https://www.proprofsproject.com/blog/asana-alternatives/","domain":"proprofsproject.com","title":"13 Best Asana Alternatives & Competitors for 2026","page_shape":"comparison","source_type":"vendor","shapes":["alternatives"],"engines":["Perplexity","Gemini"],"n":3},{"url":"https://www.taskrhino.ca/blog/asana-alternatives/","domain":"taskrhino.ca","title":"Top Asana Alternatives: Discover Your Perfect Project Tool","page_shape":"comparison","source_type":"media-blog","shapes":["alternatives"],"engines":["Perplexity","Gemini"],"n":3},{"url":"https://thedigitalprojectmanager.com/tools/asana-alternative/","domain":"thedigitalprojectmanager.com","title":"10 Best Asana Alternatives Reviewed for 2026","page_shape":"comparison","source_type":"media-blog","shapes":["alternatives"],"engines":["Perplexity","Gemini"],"n":3},{"url":"https://zapier.com/blog/best-project-management-software-small-business/","domain":"zapier.com","title":"The best small business project management software in 2026","page_shape":"listicle","source_type":"media-blog","shapes":["best"],"engines":["Perplexity","GPT-4o","Gemini"],"n":3},{"url":"https://zapier.com/blog/asana-alternatives/","domain":"zapier.com","title":"The 9 best Asana alternatives | Zapier","page_shape":"comparison","source_type":"media-blog","shapes":["alternatives"],"engines":["Perplexity","Gemini"],"n":3},{"url":"https://asana.com/small-business","domain":"asana.com","title":"Asana for Small Businesses Features & Overview • Asana","page_shape":"other","source_type":"vendor","shapes":["best"],"engines":["GPT-4o","Gemini"],"n":2},{"url":"https://asana.com/compare/asana-vs-monday-com","domain":"asana.com","title":"Asana vs. Monday.com - See Monday Alternatives • Asana","page_shape":"comparison","source_type":"vendor","shapes":["vs"],"engines":["Perplexity"],"n":2},{"url":"https://bitsfrombytes.com/best-project-management-software-2026-tested/","domain":"bitsfrombytes.com","title":"The Best Project Management Software 2026 Buyer's Report - Tested - Bits From Bytes","page_shape":"listicle","source_type":"media-blog","shapes":["best"],"engines":["GPT-4o","Gemini"],"n":2},{"url":"https://www.capterra.com/compare/147657-184581/monday-com-vs-Asana-PM","domain":"capterra.com","title":null,"page_shape":"comparison","source_type":"directory","shapes":["vs"],"engines":["Perplexity"],"n":2},{"url":"https://clickup.com/learn/topic/project-management/tools/asana/alternatives/","domain":"clickup.com","title":"10 Best Asana Alternatives in 2026 (With Switching Guides)","page_shape":"comparison","source_type":"vendor","shapes":["alternatives"],"engines":["Perplexity"],"n":2},{"url":"https://www.experte.com/project-management/asana-vs-monday","domain":"experte.com","title":"Asana vs. monday: Which Project Management Tool Is Right for You? | EXPERTE.com","page_shape":"comparison","source_type":"media-blog","shapes":["vs"],"engines":["Perplexity"],"n":2},{"url":"https://fitsmallbusiness.com/asana-vs-monday/","domain":"fitsmallbusiness.com","title":"Asana vs Monday: Pricing, Features, and What's Best","page_shape":"comparison","source_type":"media-blog","shapes":["vs"],"engines":["GPT-4o","Gemini"],"n":2},{"url":"https://flowfam.co/asana-vs-monday-com-full-2026-platform-comparison/","domain":"flowfam.co","title":"Asana vs monday.com: 2026 Comparison Guide","page_shape":"comparison","source_type":"media-blog","shapes":["vs"],"engines":["GPT-4o","Gemini"],"n":2},{"url":"https://www.forbes.com/advisor/in/business/software/best-asana-alternatives/","domain":"forbes.com","title":null,"page_shape":"comparison","source_type":"media-blog","shapes":["alternatives"],"engines":["Perplexity"],"n":2},{"url":"https://www.forbes.com/advisor/business/software/best-asana-alternatives/","domain":"forbes.com","title":null,"page_shape":"comparison","source_type":"media-blog","shapes":["alternatives"],"engines":["Perplexity"],"n":2},{"url":"https://ittoolsguide.com/asana-vs-monday-com-for-small-business/","domain":"ittoolsguide.com","title":"Asana vs Monday.com for Small Business 2026","page_shape":"comparison","source_type":"media-blog","shapes":["vs"],"engines":["GPT-4o","Gemini"],"n":2},{"url":"https://www.kanbo.dev/for/small-teams","domain":"kanbo.dev","title":"Project Management for Small Teams - Simple Kanban That Scales | Kanbo","page_shape":"other","source_type":"media-blog","shapes":["alternatives"],"engines":["GPT-4o","Gemini"],"n":2},{"url":"https://monday.com/blog/project-management/asana-vs-monday-com-which-to-choose/","domain":"monday.com","title":"Asana vs. monday.com: Which Is Best for Your Team? [2026]","page_shape":"comparison","source_type":"vendor","shapes":["vs"],"engines":["Perplexity"],"n":2},{"url":"https://plaky.com/blog/asana-vs-monday/","domain":"plaky.com","title":"Asana vs. monday.com - Which to Choose in 2026?","page_shape":"comparison","source_type":"media-blog","shapes":["vs"],"engines":["Perplexity"],"n":2},{"url":"https://www.projectmanager.com/blog/asana-alternatives","domain":"projectmanager.com","title":"16 Best Asana Alternatives of 2026 (Free + Paid) - ProjectManager","page_shape":"comparison","source_type":"vendor","shapes":["alternatives"],"engines":["Perplexity"],"n":2},{"url":"https://www.proofhub.com/articles/asana-alternatives","domain":"proofhub.com","title":"18 Best Asana Alternatives for Teams in 2026","page_shape":"comparison","source_type":"vendor","shapes":["alternatives"],"engines":["Perplexity"],"n":2},{"url":"https://propicked.com/blog/best-project-management-tools-2026-linear-notion-clickup-asana","domain":"propicked.com","title":null,"page_shape":"listicle","source_type":"media-blog","shapes":["best"],"engines":["GPT-4o","Gemini"],"n":2},{"url":"https://rankedvendors.com/project-management","domain":"rankedvendors.com","title":"Top Project Management of 2026 - Ranked & Reviewed","page_shape":"listicle","source_type":"media-blog","shapes":["best"],"engines":["GPT-4o","Gemini"],"n":2},{"url":"https://www.reddit.com/r/Asana/comments/1hw68fn/asana_alternatives/","domain":"reddit.com","title":null,"page_shape":"comparison","source_type":"community","shapes":["alternatives"],"engines":["Perplexity"],"n":2},{"url":"https://www.reddit.com/r/startups/comments/14owggp/simple_work_management_platforms_alternatives_to/","domain":"reddit.com","title":null,"page_shape":"comparison","source_type":"community","shapes":["alternatives"],"engines":["Perplexity"],"n":2},{"url":"https://www.reddit.com/r/projectmanagement/comments/174v9yp/asana_vs_monday/","domain":"reddit.com","title":null,"page_shape":"comparison","source_type":"community","shapes":["vs"],"engines":["Perplexity"],"n":2},{"url":"https://resources.rework.com/tools/project-management/best-asana-alternatives","domain":"resources.rework.com","title":"\"Best Asana Alternatives in 2026: 11 Tools for Teams That Need More Than Project Management\"","page_shape":"comparison","source_type":"media-blog","shapes":["alternatives"],"engines":["Perplexity","GPT-4o"],"n":2},{"url":"https://saascrmreview.com/asana-vs-monday-com/","domain":"saascrmreview.com","title":"Asana vs. monday.com: Which One Should You Choose in 2026?","page_shape":"comparison","source_type":"media-blog","shapes":["vs"],"engines":["GPT-4o","Gemini"],"n":2},{"url":"https://tech-insider.org/asana-vs-monday-2026/","domain":"tech-insider.org","title":"Asana vs Monday.com 2026: 31% Price Gap and 22% Speed Divide [Tested]","page_shape":"comparison","source_type":"media-blog","shapes":["vs"],"engines":["Perplexity"],"n":2},{"url":"https://tech.co/project-management-software/asana-vs-monday","domain":"tech.co","title":"Asana vs monday work management 2026: Features & Pricing","page_shape":"comparison","source_type":"media-blog","shapes":["vs"],"engines":["Perplexity"],"n":2},{"url":"https://technologyadvice.com/blog/project-management/asana-vs-monday/","domain":"technologyadvice.com","title":"Asana vs monday.com: Which Is Better for Project Management in 2026?","page_shape":"comparison","source_type":"media-blog","shapes":["vs"],"engines":["Perplexity"],"n":2},{"url":"https://www.techrepublic.com/article/asana-alternatives/","domain":"techrepublic.com","title":"8 Best Asana Alternatives Ranked for 2026","page_shape":"comparison","source_type":"media-blog","shapes":["alternatives"],"engines":["Perplexity"],"n":2},{"url":"https://www.techrepublic.com/article/asana-vs-monday/","domain":"techrepublic.com","title":"Asana vs Monday: The Ultimate Project Management Showdown","page_shape":"comparison","source_type":"media-blog","shapes":["vs"],"engines":["GPT-4o","Gemini"],"n":2},{"url":"https://thebusinessdive.com/asana-vs-monday","domain":"thebusinessdive.com","title":"Asana Vs Monday: I Personally Tested Both (2026)","page_shape":"comparison","source_type":"media-blog","shapes":["vs"],"engines":["Perplexity"],"n":2},{"url":"https://thetoolchief.com/comparisons/monday-vs-asana/","domain":"thetoolchief.com","title":"We Ran 3 Teams for 9 Weeks - monday.com vs Asana (2026): Honest Verdict","page_shape":"comparison","source_type":"media-blog","shapes":["vs"],"engines":["GPT-4o","Gemini"],"n":2},{"url":"https://turnboards.app/free-asana-alternative","domain":"turnboards.app","title":"Free Asana Alternative for Small Hands-On Teams | Turnboards","page_shape":"comparison","source_type":"media-blog","shapes":["alternatives"],"engines":["GPT-4o","Gemini"],"n":2},{"url":"https://www.upflip.com/blog/asana-vs-monday","domain":"upflip.com","title":"Asana vs Monday: Detailed Comparison (2026) - UpFlip","page_shape":"comparison","source_type":"media-blog","shapes":["vs"],"engines":["Perplexity"],"n":2},{"url":"https://academy.smu.edu.sg/insights/project-management-software","domain":"academy.smu.edu.sg","title":null,"page_shape":"other","source_type":"media-blog","shapes":["best"],"engines":["Perplexity"],"n":1},{"url":"https://activecollab.com/blog/compare/best-asana-alternatives","domain":"activecollab.com","title":"These 9 Asana Alternatives Are 2026 Game-Changer For Agencies","page_shape":"comparison","source_type":"media-blog","shapes":["alternatives"],"engines":["Perplexity"],"n":1},{"url":"https://www.airtable.com/articles/asana-alternatives","domain":"airtable.com","title":"The 18 best Asana alternatives and competitors in 2026 | Airtable","page_shape":"comparison","source_type":"vendor","shapes":["alternatives"],"engines":["Perplexity"],"n":1},{"url":"https://www.artisangrowthstrategies.com/alternatives/asana","domain":"artisangrowthstrategies.com","title":"Asana Alternatives: Top 8+ Options (2026) | Artisan Strategies","page_shape":"comparison","source_type":"media-blog","shapes":["alternatives"],"engines":["GPT-4o"],"n":1},{"url":"https://asana.com/resources/best-project-management-software","domain":"asana.com","title":"Best Project Management Software: 11 Tools Compared [2026] • Asana","page_shape":"listicle","source_type":"vendor","shapes":["alternatives"],"engines":["Perplexity"],"n":1},{"url":"https://boardmix.com/articles/small-business-project-management-software/","domain":"boardmix.com","title":"15 Best Project Management Software for Small Business","page_shape":"listicle","source_type":"media-blog","shapes":["best"],"engines":["Perplexity"],"n":1},{"url":"https://www.breeze.pm/articles/project-management-software-small-business","domain":"breeze.pm","title":"Best project management software for small businesses in 2026","page_shape":"listicle","source_type":"media-blog","shapes":["best"],"engines":["Perplexity"],"n":1},{"url":"https://www.capterra.com/project-management-software/s/small-businesses/","domain":"capterra.com","title":"10 Best Project Management Software for Small Businesses 2026 | Capterra","page_shape":"listicle","source_type":"directory","shapes":["best"],"engines":["Perplexity"],"n":1},{"url":"https://www.celoxis.com/article/best-asana-alternatives","domain":"celoxis.com","title":"12 Best Asana Alternatives & Competitors (2026 Comparison) - Celoxis®","page_shape":"comparison","source_type":"vendor","shapes":["alternatives"],"engines":["Perplexity"],"n":1},{"url":"https://clickup.com/blog/project-management-software-for-small-business/","domain":"clickup.com","title":"10 Best Project Management Software for Small Businesses | The ClickUp Blog","page_shape":"listicle","source_type":"vendor","shapes":["best"],"engines":["Perplexity"],"n":1},{"url":"https://www.cloudwards.net/best-asana-alternatives/","domain":"cloudwards.net","title":"10 Best Asana Alternatives in 2026 [Free & Paid]","page_shape":"comparison","source_type":"media-blog","shapes":["alternatives"],"engines":["Perplexity"],"n":1},{"url":"https://dailybuddy.net/","domain":"dailybuddy.net","title":"All-in-One Productivity Apps for Teams - DailyBuddy","page_shape":"other","source_type":"media-blog","shapes":["alternatives"],"engines":["Gemini"],"n":1},{"url":"https://de.celoxis.com/article/best-asana-alternatives","domain":"de.celoxis.com","title":"12 Best Asana Alternatives & Competitors (2026 Comparison) - Celoxis®","page_shape":"comparison","source_type":"vendor","shapes":["alternatives"],"engines":["Perplexity"],"n":1},{"url":"https://efficient.app/alternatives/asana","domain":"efficient.app","title":"Asana Alternatives: 9 Better Options for 2026 | Efficient App","page_shape":"comparison","source_type":"media-blog","shapes":["alternatives"],"engines":["Perplexity"],"n":1},{"url":"https://www.expertmarket.com/project-management/best-project-management-software-for-small-business","domain":"expertmarket.com","title":"Best Project Management Software for Small Business","page_shape":"listicle","source_type":"media-blog","shapes":["best"],"engines":["Perplexity"],"n":1},{"url":"https://www.g2.com/categories/project-management/small-business","domain":"g2.com","title":null,"page_shape":"other","source_type":"directory","shapes":["best"],"engines":["Perplexity"],"n":1},{"url":"https://www.g2.com/best-software-companies/top-project-management","domain":"g2.com","title":null,"page_shape":"listicle","source_type":"directory","shapes":["best"],"engines":["Perplexity"],"n":1},{"url":"https://www.g2.com/products/asana/competitors/alternatives","domain":"g2.com","title":null,"page_shape":"comparison","source_type":"directory","shapes":["alternatives"],"engines":["Perplexity"],"n":1},{"url":"https://henksuite.com/blog/best-asana-alternatives-small-teams","domain":"henksuite.com","title":null,"page_shape":"comparison","source_type":"media-blog","shapes":["alternatives"],"engines":["Perplexity"],"n":1},{"url":"https://jennarainey.com/asana-vs-monday/","domain":"jennarainey.com","title":"Asana vs. Monday: Solid Systems as a Creative Entrepreneur","page_shape":"comparison","source_type":"media-blog","shapes":["vs"],"engines":["Perplexity"],"n":1},{"url":"https://kinja.com/software/best-project-management-software-2026","domain":"kinja.com","title":"Best Project Management Software (2026) | Kinja","page_shape":"listicle","source_type":"media-blog","shapes":["best"],"engines":["Gemini"],"n":1},{"url":"https://learn.g2.com/best-project-management-software","domain":"learn.g2.com","title":"9 Best Project Management Software: My Top Picks for 2026","page_shape":"listicle","source_type":"directory","shapes":["best"],"engines":["Perplexity"],"n":1},{"url":"https://www.linkedin.com/pulse/top-10-project-management-software-2026-the-orangescrum-sgu7f","domain":"linkedin.com","title":"Top 10 Project Management Software for 2026","page_shape":"listicle","source_type":"community","shapes":["best"],"engines":["Perplexity"],"n":1},{"url":"https://lovable.dev/guides/asana-alternatives-that-fit-your-team-workflow","domain":"lovable.dev","title":"Best Asana Alternatives 2026: 8 PM Tools Ranked by Workflow Fit | Lovable","page_shape":"comparison","source_type":"media-blog","shapes":["alternatives"],"engines":["Perplexity"],"n":1},{"url":"https://www.mattering.io/learn/project-management/asana-alternatives/","domain":"mattering.io","title":"7 Best Asana Alternatives for Small Teams in 2026","page_shape":"comparison","source_type":"media-blog","shapes":["alternatives"],"engines":["Perplexity"],"n":1},{"url":"https://www.mediavalet.com/blog/best-project-management-software","domain":"mediavalet.com","title":"The Best Project Management Software in 2026 - MediaValet","page_shape":"listicle","source_type":"media-blog","shapes":["best"],"engines":["Perplexity"],"n":1},{"url":"https://monday.com/blog/project-management/software-for-project-managers/","domain":"monday.com","title":"Software For Project Managers: Best Solutions To Use In 2026","page_shape":"listicle","source_type":"vendor","shapes":["best"],"engines":["Perplexity"],"n":1},{"url":"https://www.mursa.me/blog/asana-alternatives-small-teams","domain":"mursa.me","title":"Asana Alternatives: Simpler Tools for Small Teams","page_shape":"comparison","source_type":"media-blog","shapes":["alternatives"],"engines":["Perplexity"],"n":1},{"url":"https://myemma.com/blog/the-6-best-project-management-tools-for-small-businesses/","domain":"myemma.com","title":"Best project management tools for small businesses | Emma","page_shape":"listicle","source_type":"media-blog","shapes":["best"],"engines":["Perplexity"],"n":1},{"url":"https://www.paymoapp.com/blog/project-management-software/","domain":"paymoapp.com","title":"20+ Best Project Management Software for 2026 • Paymo","page_shape":"listicle","source_type":"media-blog","shapes":["best"],"engines":["Perplexity"],"n":1},{"url":"https://pinrom.co/","domain":"pinrom.co","title":"Pinrom - Run projects, freelancers & clients in one workspace, from $1/user","page_shape":"other","source_type":"media-blog","shapes":["alternatives"],"engines":["GPT-4o"],"n":1},{"url":"https://planable.io/blog/asana-alternatives/","domain":"planable.io","title":null,"page_shape":"comparison","source_type":"vendor","shapes":["alternatives"],"engines":["GPT-4o"],"n":1},{"url":"https://project-management.com/top-10-project-management-software/","domain":"project-management.com","title":"Top 10 Project Management Software I Tested & Recommend for 2026","page_shape":"listicle","source_type":"media-blog","shapes":["best"],"engines":["Perplexity"],"n":1},{"url":"https://www.projectmanager.com/blog/best-project-management-software-for-small-businesses","domain":"projectmanager.com","title":"8 Best Project Management Software for Small Businesses","page_shape":"listicle","source_type":"vendor","shapes":["best"],"engines":["Perplexity"],"n":1},{"url":"https://www.reddit.com/r/projectmanagement/comments/1iepygj/small_business_looking_for_project_management/","domain":"reddit.com","title":null,"page_shape":"other","source_type":"community","shapes":["best"],"engines":["Perplexity"],"n":1},{"url":"https://www.reddit.com/r/projectmanagement/comments/1r7dr5i/project_management_tools_ranked_comparison_table/","domain":"reddit.com","title":null,"page_shape":"listicle","source_type":"community","shapes":["best"],"engines":["Perplexity"],"n":1},{"url":"https://www.reddit.com/r/projectmanagers/comments/1q4ndn0/best_project_management_software_for_2026/","domain":"reddit.com","title":null,"page_shape":"listicle","source_type":"community","shapes":["best"],"engines":["Perplexity"],"n":1},{"url":"https://www.reddit.com/r/projectmanagement/comments/1qts8mu/what_workflows_actually_justify_the_cost_of/","domain":"reddit.com","title":null,"page_shape":"other","source_type":"community","shapes":["vs"],"engines":["Perplexity"],"n":1},{"url":"https://saasbinder.com/2026/08/05/asana-vs-monday-2026-pricing-ai-features/","domain":"saasbinder.com","title":"Asana vs Monday 2026: Pricing, AI & Features Compared","page_shape":"comparison","source_type":"media-blog","shapes":["vs"],"engines":["Gemini"],"n":1},{"url":"https://www.saner.ai/blogs/10-best-asana-alternatives","domain":"saner.ai","title":"The 10 Best Asana Alternatives [2026 Update] | Saner.AI","page_shape":"comparison","source_type":"media-blog","shapes":["alternatives"],"engines":["GPT-4o"],"n":1},{"url":"https://www.simplilearn.com/tutorials/asana-tutorial/asana-alternatives-for-project-management","domain":"simplilearn.com","title":"Powerful Asana Alternatives For Project Management In 2026 | Simplilearn","page_shape":"comparison","source_type":"media-blog","shapes":["alternatives"],"engines":["GPT-4o"],"n":1},{"url":"https://www.softbliq.com/project-management-software/","domain":"softbliq.com","title":"Best Project Management Software for Small Business 2026","page_shape":"listicle","source_type":"media-blog","shapes":["best"],"engines":["Perplexity"],"n":1},{"url":"https://www.softr.io/blog/asana-vs-monday","domain":"softr.io","title":"Asana vs monday.com: Which is right for your team in 2026?","page_shape":"comparison","source_type":"media-blog","shapes":["vs"],"engines":["Perplexity"],"n":1},{"url":"https://softverdict.com/best-project-management-asana-2026/","domain":"softverdict.com","title":"Top 10 Asana & Alternatives in 2026 (Tested) - SoftVerdict","page_shape":"comparison","source_type":"media-blog","shapes":["best"],"engines":["GPT-4o"],"n":1},{"url":"https://www.softwareadvice.com/category/3618-small-business-project-management/","domain":"softwareadvice.com","title":null,"page_shape":"other","source_type":"directory","shapes":["best"],"engines":["Perplexity"],"n":1},{"url":"https://somigo.io/","domain":"somigo.io","title":"SOMIGO - Affordable Alternative to Monday.com & Asana | Simple Task Management","page_shape":"comparison","source_type":"media-blog","shapes":["alternatives"],"engines":["GPT-4o"],"n":1},{"url":"https://t0ggles.com/for/small-teams","domain":"t0ggles.com","title":"Small Team Project Management | t0ggles","page_shape":"other","source_type":"vendor","shapes":["alternatives"],"engines":["GPT-4o"],"n":1},{"url":"https://taskfino.com/blog/asana-alternatives","domain":"taskfino.com","title":null,"page_shape":"comparison","source_type":"media-blog","shapes":["alternatives"],"engines":["Gemini"],"n":1},{"url":"https://www.taskrhino.ca/blog/asana-vs-monday-vs-clickup/","domain":"taskrhino.ca","title":"Asana vs monday vs ClickUp: In-Depth Comparison 2026","page_shape":"comparison","source_type":"media-blog","shapes":["vs"],"engines":["Perplexity"],"n":1},{"url":"https://www.taskrhino.ca/blog/monday-com-vs-asana/","domain":"taskrhino.ca","title":"monday vs Asana 2026: Expert Feature Comparison Guide","page_shape":"comparison","source_type":"media-blog","shapes":["vs"],"engines":["Perplexity"],"n":1},{"url":"https://teamhub.com/blog/asana-vs-monday-2026/","domain":"teamhub.com","title":"Asana vs monday: Which project management tool is best? [2026]","page_shape":"comparison","source_type":"media-blog","shapes":["vs"],"engines":["Perplexity"],"n":1},{"url":"https://teamhub.com/blog/asana-vs-monday-which-project-management-tool-is-best-2025/","domain":"teamhub.com","title":"Asana vs Monday: Which PM tool is best? [2025] Teamhub.com","page_shape":"comparison","source_type":"media-blog","shapes":["vs"],"engines":["Perplexity"],"n":1},{"url":"https://www.teamwork.com/blog/asana-alternatives/","domain":"teamwork.com","title":"9 Best Asana Alternatives for Client Work (2026)","page_shape":"comparison","source_type":"vendor","shapes":["alternatives"],"engines":["Perplexity"],"n":1},{"url":"https://www.techrepublic.com/article/project-management-software/","domain":"techrepublic.com","title":"Best Project Management Software: A Certified PM's Picks in 2026","page_shape":"listicle","source_type":"media-blog","shapes":["best"],"engines":["Perplexity"],"n":1},{"url":"https://techstackdaily.com/comparison/asana-vs-monday-com-marketing-teams-2026/","domain":"techstackdaily.com","title":"Asana vs Monday.com for Marketing Teams… | Tech Stack Daily","page_shape":"comparison","source_type":"media-blog","shapes":["vs"],"engines":["Perplexity"],"n":1},{"url":"https://thebusinessdive.com/best-project-management-software","domain":"thebusinessdive.com","title":"10 Best Project Management Software In 2026 | +25 Apps Tested","page_shape":"listicle","source_type":"media-blog","shapes":["best"],"engines":["Perplexity"],"n":1},{"url":"https://thebusinessdive.com/asana-alternatives","domain":"thebusinessdive.com","title":"6 Best Asana Alternatives in 2026 | 20+ Personally Tested Apps","page_shape":"comparison","source_type":"media-blog","shapes":["alternatives"],"engines":["Perplexity"],"n":1},{"url":"https://thedigitalprojectmanager.com/tools/best-project-management-software-for-small-business/","domain":"thedigitalprojectmanager.com","title":"10 Best Project Management Tools For Small Business 2026","page_shape":"listicle","source_type":"media-blog","shapes":["best"],"engines":["Perplexity"],"n":1},{"url":"https://thedigitalprojectmanager.com/tools/best-project-management-software/","domain":"thedigitalprojectmanager.com","title":"10 Best Project Management Software Picked For 2026","page_shape":"listicle","source_type":"media-blog","shapes":["best"],"engines":["Perplexity"],"n":1},{"url":"https://thedigitalprojectmanager.com/","domain":"thedigitalprojectmanager.com","title":null,"page_shape":"other","source_type":"media-blog","shapes":["alternatives"],"engines":["Gemini"],"n":1},{"url":"https://thedigitalprojectmanager.com/tools/monday-vs-asana/","domain":"thedigitalprojectmanager.com","title":"monday.com vs. Asana: Comparison & Expert Reviews For 2026","page_shape":"comparison","source_type":"media-blog","shapes":["vs"],"engines":["Perplexity"],"n":1},{"url":"https://till-freitag.com/en/blog/monday-vs-asana-project-management","domain":"till-freitag.com","title":"monday.com vs. Asana: Which Project… - Till Freitag","page_shape":"comparison","source_type":"media-blog","shapes":["vs"],"engines":["Perplexity"],"n":1},{"url":"https://toolradar.com/compare/asana-vs-monday","domain":"toolradar.com","title":"Asana vs monday.com: Which is Better in 2026? | Toolradar","page_shape":"comparison","source_type":"media-blog","shapes":["vs"],"engines":["Gemini"],"n":1},{"url":"https://www.trychaser.com/blog/asana-vs-monday","domain":"trychaser.com","title":"Asana vs monday.com (2026): Pricing & Best Fit","page_shape":"comparison","source_type":"media-blog","shapes":["vs"],"engines":["Perplexity"],"n":1},{"url":"https://www.uschamber.com/co/run/technology/project-management-tools-for-small-businesses","domain":"uschamber.com","title":"10 Types of Project Management Systems for Small Businesses | CO- by US Chamber of Commerce","page_shape":"other","source_type":"media-blog","shapes":["best"],"engines":["Perplexity"],"n":1},{"url":"https://worksection.com/en/blog/10-best-pm-software-for-small-business.html","domain":"worksection.com","title":"Best Small Business Project Management Software (2026)","page_shape":"listicle","source_type":"media-blog","shapes":["best"],"engines":["Perplexity"],"n":1},{"url":"https://www.workzone.com/blog/best-project-management-software-2026/","domain":"workzone.com","title":"Best Project Management Software in 2026: Comparison & Alternatives","page_shape":"listicle","source_type":"media-blog","shapes":["best"],"engines":["Perplexity"],"n":1},{"url":"https://www.wrike.com/blog/project-management-software-guide-small-businesses/","domain":"wrike.com","title":null,"page_shape":"other","source_type":"vendor","shapes":["best"],"engines":["Perplexity"],"n":1},{"url":"https://www.wrike.com/project-management-guide/faq/what-are-project-management-tools/","domain":"wrike.com","title":"Best project management tools and software: My 21 top picks for 2026","page_shape":"listicle","source_type":"vendor","shapes":["best"],"engines":["Perplexity"],"n":1},{"url":"https://www.wrike.com/blog/asana-vs-monday-vs-wrike/","domain":"wrike.com","title":null,"page_shape":"comparison","source_type":"vendor","shapes":["vs"],"engines":["Perplexity"],"n":1},{"url":"https://zapier.com/","domain":"zapier.com","title":"Zapier: Automate AI Workflows, Agents, and Apps","page_shape":"other","source_type":"media-blog","shapes":["alternatives"],"engines":["Gemini"],"n":1},{"url":"https://www.zdnet.com/article/best-project-management-software/","domain":"zdnet.com","title":"The best project management software of 2026: Expert tested - ZDNET","page_shape":"listicle","source_type":"media-blog","shapes":["best"],"engines":["Perplexity"],"n":1}];
+(function () {
+  var t = document.getElementById('toTop');
+  addEventListener('scroll', function () { t.classList.toggle('show', scrollY > 600); }, { passive: true });
+  t.addEventListener('click', function () { scrollTo({ top: 0, behavior: 'smooth' }); });
+
+  var body = document.getElementById('exBody'), count = document.getElementById('exCount');
+  if (!body) return;
+  var fShape = document.getElementById('fShape'), fPage = document.getElementById('fPage'),
+      fSrc = document.getElementById('fSrc'), fEng = document.getElementById('fEng'), fQ = document.getElementById('fQ');
+  var sortKey = 'n', sortDir = -1;
+  var LBL = { comparison: 'Comparison', listicle: 'Listicle', other: 'Other', review: 'Review',
+              vendor: 'Vendor', directory: 'Directory', community: 'Community', 'media-blog': 'Media / blog',
+              best: '"best X"', alternatives: '"X alternatives"', vs: '"X vs Y"' };
+  function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
+  function render() {
+    var q = (fQ.value || '').toLowerCase();
+    var rows = CITED.filter(function (r) {
+      return (!fShape.value || r.shapes.indexOf(fShape.value) > -1) &&
+             (!fPage.value || r.page_shape === fPage.value) &&
+             (!fSrc.value || r.source_type === fSrc.value) &&
+             (!fEng.value || r.engines.indexOf(fEng.value) > -1) &&
+             (!q || (r.domain + ' ' + (r.title || '') + ' ' + r.url).toLowerCase().indexOf(q) > -1);
+    });
+    rows.sort(function (a, b) {
+      var x = a[sortKey], y = b[sortKey];
+      if (Array.isArray(x)) { x = x.join(','); y = y.join(','); }
+      if (typeof x === 'number') return (x - y) * sortDir;
+      return String(x || '').localeCompare(String(y || '')) * sortDir;
+    });
+    var cites = rows.reduce(function (s, r) { return s + r.n; }, 0);
+    count.textContent = rows.length + ' pages, ' + cites + ' citations shown (of 116 pages, 176 citations)';
+    body.innerHTML = rows.map(function (r) {
+      return '<tr><td><a href="' + esc(r.url) + '" rel="noopener nofollow">' + esc(r.domain) + '</a></td>' +
+        '<td><span class="tag' + (r.page_shape === 'comparison' ? ' cmp' : '') + '">' + esc(LBL[r.page_shape] || r.page_shape) + '</span></td>' +
+        '<td>' + esc(LBL[r.source_type] || r.source_type) + '</td>' +
+        '<td>' + r.shapes.map(function (s) { return esc(LBL[s] || s); }).join(', ') + '</td>' +
+        '<td>' + r.engines.join(', ') + '</td>' +
+        '<td>' + r.n + '</td>' +
+        '<td>' + esc(r.title || '(no title fetched)') + '</td></tr>';
+    }).join('');
+  }
+  [fShape, fPage, fSrc, fEng].forEach(function (el) { el.addEventListener('change', render); });
+  fQ.addEventListener('input', render);
+  document.querySelectorAll('#explorer th[data-k]').forEach(function (th) {
+    th.addEventListener('click', function () {
+      var k = th.getAttribute('data-k');
+      if (sortKey === k) sortDir = -sortDir; else { sortKey = k; sortDir = k === 'n' ? -1 : 1; }
+      render();
+    });
+  });
+  render();
+})();
+</script>
+
+</body>
+</html>
