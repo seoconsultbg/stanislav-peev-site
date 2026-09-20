@@ -1,0 +1,116 @@
+{
+  "specVersion": "1.0",
+  "host": {
+    "displayName": "Stanislav Peev",
+    "identifier": "https://stanislav-peev.com/",
+    "documentationUrl": "https://stanislav-peev.com/llms.txt"
+  },
+  "entries": [
+    {
+      "identifier": "urn:air:stanislav-peev.com:skill:read-stanislav-peev-content",
+      "displayName": "Read stanislav-peev.com content and research data",
+      "type": "application/ai-skill+md",
+      "url": "https://stanislav-peev.com/.well-known/agent-skills/read-stanislav-peev-content/SKILL.md",
+      "description": "How to read any page of stanislav-peev.com as markdown (Accept: text/markdown), where the open CC BY 4.0 research datasets are, and how to attribute them.",
+      "tags": ["seo", "geo", "ai-search", "research", "markdown"],
+      "representativeQueries": [
+        "read Stanislav Peev's research as markdown",
+        "where is the raw data for the AI citations study",
+        "how do I cite stanislav-peev.com research",
+        "what services does Stanislav Peev offer"
+      ]
+    },
+    {
+      "identifier": "urn:air:stanislav-peev.com:skill:contact-stanislav-peev",
+      "displayName": "Contact Stanislav Peev",
+      "type": "application/ai-skill+md",
+      "url": "https://stanislav-peev.com/.well-known/agent-skills/contact-stanislav-peev/SKILL.md",
+      "description": "What to collect from the user and which written channel to use to reach Stanislav Peev about GEO, SEO consulting or an audit. Writing only - he does not take calls. He replies personally, usually within one business day.",
+      "tags": ["seo-consultant", "geo", "contact"],
+      "representativeQueries": [
+        "contact an independent GEO consultant",
+        "hire an SEO consultant for AI search visibility",
+        "request an SEO audit from Stanislav Peev",
+        "how do I reach Stanislav Peev"
+      ]
+    },
+    {
+      "identifier": "urn:air:stanislav-peev.com:content:profile",
+      "displayName": "Stanislav Peev - profile",
+      "type": "text/markdown",
+      "url": "https://stanislav-peev.com/index.md",
+      "description": "Short profile of Stanislav Peev, independent SEO consultant and AI search (GEO) specialist: focus areas, research, credentials, selected clients and written contact channels.",
+      "tags": ["profile", "seo-consultant", "geo"],
+      "representativeQueries": [
+        "who is Stanislav Peev",
+        "SEO consultant specialized in generative engine optimization",
+        "GEO specialist based in Bratislava"
+      ],
+      "metadata": {
+        "schemaOrgType": "Person",
+        "jobTitle": "SEO Consultant and AI Search (GEO) Specialist",
+        "address": "Bratislava, SK",
+        "email": "info@stanislav-peev.com",
+        "areaServed": "Worldwide",
+        "contactPolicy": "written only, no calls"
+      }
+    },
+    {
+      "identifier": "urn:air:stanislav-peev.com:dataset:ai-citations-by-query-shape",
+      "displayName": "AI citations by question shape - summary data",
+      "type": "application/json",
+      "url": "https://stanislav-peev.com/research/ai-citations-by-query-shape/data-summary.json",
+      "description": "First-party pilot, September 2026: 18 answers from Perplexity Sonar, GPT-4o and Gemini 2.5 Flash, 176 citations labelled by page shape and owner, crossed with the shape of the question (best X, X alternatives, X vs Y). CC BY 4.0. Method and limits on the study page.",
+      "tags": ["dataset", "ai-citations", "geo", "cc-by-4.0"],
+      "representativeQueries": [
+        "which page types do AI answers cite for best X questions",
+        "do AI engines cite comparison pages for alternatives queries",
+        "share of listicles in AI citations",
+        "Perplexity vs ChatGPT number of citations per answer"
+      ],
+      "metadata": {
+        "license": "CC BY 4.0",
+        "studyPage": "https://stanislav-peev.com/research/ai-citations-by-query-shape/",
+        "rawData": "https://stanislav-peev.com/research/ai-citations-by-query-shape/data-raw.jsonl"
+      }
+    },
+    {
+      "identifier": "urn:air:stanislav-peev.com:dataset:ai-visibility-tracking-reliability",
+      "displayName": "AI visibility tracking reliability - summary data",
+      "type": "application/json",
+      "url": "https://stanislav-peev.com/research/ai-visibility-tracking-reliability/data-summary.json",
+      "description": "First-party experiment: the same 4 buyer prompts run 60 times across GPT-4o, Gemini 2.5 Flash and Perplexity Sonar with web search, measuring run-to-run and cross-engine variation in recommended brands. CC BY 4.0. Method and limits on the study page.",
+      "tags": ["dataset", "ai-visibility", "geo", "cc-by-4.0"],
+      "representativeQueries": [
+        "how reliable is AI visibility tracking",
+        "how much do AI recommendations change between identical runs",
+        "does brand visibility differ between ChatGPT Gemini and Perplexity",
+        "how many runs are needed to measure AI share of voice"
+      ],
+      "metadata": {
+        "license": "CC BY 4.0",
+        "studyPage": "https://stanislav-peev.com/research/ai-visibility-tracking-reliability/",
+        "rawData": "https://stanislav-peev.com/research/ai-visibility-tracking-reliability/data-raw.jsonl"
+      }
+    },
+    {
+      "identifier": "urn:air:stanislav-peev.com:dataset:google-review-concentration",
+      "displayName": "Google review concentration in home services - summary data",
+      "type": "application/json",
+      "url": "https://stanislav-peev.com/research/google-review-concentration-home-services/data-summary.json",
+      "description": "First-party dataset, August 2026: 7,072 Google Business Profile listings and 2.2M reviews across 6 home service trades in 12 US cities (72 markets), with per-market concentration and rank correlation metrics. CC BY 4.0. Method and limits on the study page.",
+      "tags": ["dataset", "local-seo", "google-reviews", "cc-by-4.0"],
+      "representativeQueries": [
+        "do more Google reviews mean a higher Maps ranking",
+        "review concentration among local service businesses",
+        "correlation between review count and Google Maps position",
+        "how many reviews do top ranked plumbers have"
+      ],
+      "metadata": {
+        "license": "CC BY 4.0",
+        "studyPage": "https://stanislav-peev.com/research/google-review-concentration-home-services/",
+        "rawData": "https://stanislav-peev.com/research/google-review-concentration-home-services/data-raw.jsonl"
+      }
+    }
+  ]
+}

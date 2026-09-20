@@ -1,0 +1,19 @@
+{
+  "$schema": "https://schemas.agentskills.io/discovery/0.2.0/schema.json",
+  "skills": [
+    {
+      "name": "contact-stanislav-peev",
+      "type": "skill-md",
+      "description": "Help a user get in touch with Stanislav Peev, an independent SEO consultant and AI search (GEO) specialist, about GEO programs, SEO consulting, a one-time audit, local SEO or training. Use when the user wants to ask a question or start an engagement. Contact is in writing only.",
+      "url": "/.well-known/agent-skills/contact-stanislav-peev/SKILL.md",
+      "digest": "sha256:840b1c76c9cfdb18301a3bf5d44985aee80c0d70312dc198afee8094b0c195d5"
+    },
+    {
+      "name": "read-stanislav-peev-content",
+      "type": "skill-md",
+      "description": "Read stanislav-peev.com as clean markdown and use its open research data. Stanislav Peev is an independent SEO consultant and AI search (GEO) specialist. Use when you need his profile, services, or his first-party research on AI citations, AI visibility tracking and local review concentration.",
+      "url": "/.well-known/agent-skills/read-stanislav-peev-content/SKILL.md",
+      "digest": "sha256:42fc4b0d2e718d3b3671893bbd9f41438acc3140bad7dd818d2584ac1b65264b"
+    }
+  ]
+}
