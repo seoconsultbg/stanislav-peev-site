@@ -1,0 +1,330 @@
+{
+  "title": "AI lead attribution gap - checked figures",
+  "url": "https://stanislav-peev.com/research/ai-lead-attribution-gap/",
+  "compiled": "2026-09-21",
+  "license": "CC BY 4.0",
+  "layers": {
+    "1-usage": "buyer surveys",
+    "2-disclosed": "asked or disclosed by the company",
+    "3-tracked": "tracked by analytics",
+    "4-why": "explains the gap"
+  },
+  "facts": [
+    {
+      "fact_id": "F01",
+      "layer": "1-usage",
+      "claim": "Share of US consumers who used an AI tool for local business recommendations",
+      "value": "45% (up from 6% in 2025)",
+      "source_name": "BrightLocal Local Consumer Review Survey 2026",
+      "source_url": "https://www.brightlocal.com/research/lcrs-ai-trust/",
+      "source_type": "Industry report (primary, survey n=1,002 US adults)",
+      "date_of_data": "early 2026",
+      "source_publication_year": 2026,
+      "verification_status": "verified",
+      "cross_verified_by": [],
+      "accessed": "2026-09-21"
+    },
+    {
+      "fact_id": "F02",
+      "layer": "4-why",
+      "claim": "AI users who fact-check the sources behind an AI recommendation",
+      "value": "88% (51% check the review is legitimate, 37% check the source), n=455 AI users",
+      "source_name": "BrightLocal LCRS 2026",
+      "source_url": "https://www.brightlocal.com/research/lcrs-ai-trust/",
+      "source_type": "Industry report (primary)",
+      "date_of_data": "early 2026",
+      "source_publication_year": 2026,
+      "verification_status": "verified",
+      "cross_verified_by": [],
+      "accessed": "2026-09-21"
+    },
+    {
+      "fact_id": "F03",
+      "layer": "1-usage",
+      "claim": "B2B software buyers who start vendor research in an AI chatbot",
+      "value": "51%; AI chatbots 37% vs review sites 38% as most influential source",
+      "source_name": "G2 2026 Buyer Behavior Report (via Demand Gen Report and MarketScale)",
+      "source_url": "https://www.demandgenreport.com/industry-news/news-brief/half-of-b2b-software-buyers-now-start-their-research-with-ai-chatbots-g2/52737/",
+      "source_type": "Industry report, accessed through secondary coverage",
+      "date_of_data": "2026",
+      "source_publication_year": 2026,
+      "verification_status": "cross-verified",
+      "cross_verified_by": [
+        "https://www.marketscale.com/industries/marketing-tech/ai-is-where-b2b-software-discovery-starts-in-2026-but-buyers-still-close-deals-on-demos-and-reviews"
+      ],
+      "accessed": "2026-09-21",
+      "note": "Original G2 report page not retrievable on 2026-09-21; two independent secondary reports agree."
+    },
+    {
+      "fact_id": "F04",
+      "layer": "1-usage",
+      "claim": "Business buyers who use AI in their buying process",
+      "value": "94% (89% a year earlier)",
+      "source_name": "Forrester blog, John Buten, 'B2B Buyers Make Zero-Click Buying Number One'",
+      "source_url": "https://www.forrester.com/blogs/b2b_buyers_make_zero_click_buying_number_one/",
+      "source_type": "Industry analyst (primary)",
+      "date_of_data": "2025 survey",
+      "source_publication_year": 2026,
+      "verification_status": "verified",
+      "cross_verified_by": [],
+      "accessed": "2026-09-21",
+      "note": "The 94% in Forrester's 21 Jan 2026 press release refers to buying-group benefits, not AI use. The AI-use 94% is in the analyst blog of 22 Jan 2026. The ~18,000 sample is reported by secondary sources only."
+    },
+    {
+      "fact_id": "F05",
+      "layer": "2-disclosed",
+      "claim": "Self-reported lead source 'ChatGPT / AI' on a 'How did you hear about us?' field",
+      "value": "0.75% (H1 2024) -> 7.29% (H1 2025); Google search 19.57% -> 17.25%",
+      "source_name": "Outfunnel lead source data",
+      "source_url": "https://outfunnel.com/b2b-lead-sources-the-rise-of-ai/",
+      "source_type": "Company first-party data (primary, self-reported, n not disclosed)",
+      "date_of_data": "H1 2025",
+      "source_publication_year": 2025,
+      "verification_status": "verified",
+      "cross_verified_by": [],
+      "accessed": "2026-09-21",
+      "note": "Single B2B SaaS vendor; sample size not published."
+    },
+    {
+      "fact_id": "F06",
+      "layer": "2-disclosed",
+      "claim": "Share of new Vercel signups referred by ChatGPT",
+      "value": "<1% (about Sep 2024) -> 4.8% (Mar 2025) -> 10% (Apr 2025)",
+      "source_name": "Guillermo Rauch, Vercel CEO, on X",
+      "source_url": "https://x.com/rauchg/status/1910093634445422639",
+      "source_type": "Company first-party disclosure (primary, referral-tracked)",
+      "date_of_data": "Apr 2025",
+      "source_publication_year": 2025,
+      "verification_status": "single-source",
+      "cross_verified_by": [
+        "https://x.com/rauchg/status/1898122330653835656"
+      ],
+      "accessed": "2026-09-21",
+      "note": "Developer-tool audience, heavy ChatGPT users; an upper bound rather than typical."
+    },
+    {
+      "fact_id": "F07",
+      "layer": "2-disclosed",
+      "claim": "Share of Webflow new signups coming from AI",
+      "value": "2% (Oct 2024) -> 8% (Jun 2025); signup conversion 24% from LLM traffic vs 4% non-brand SEO",
+      "source_name": "Webflow blog, 'How we're optimizing for AI search at Webflow'",
+      "source_url": "https://webflow.com/blog/inside-aeo-strategy",
+      "source_type": "Company first-party disclosure (primary)",
+      "date_of_data": "Jun 2025",
+      "source_publication_year": 2025,
+      "verification_status": "cross-verified",
+      "cross_verified_by": [
+        "https://graphite.io/five-percent/case-studies/webflow-llm-signups"
+      ],
+      "accessed": "2026-09-21"
+    },
+    {
+      "fact_id": "F08",
+      "layer": "2-disclosed",
+      "claim": "Share of Tally new signups facilitated by ChatGPT",
+      "value": "25% (late Apr - early May 2025)",
+      "source_name": "Foundation Inc, quoting co-founder Marie Martens",
+      "source_url": "https://foundationinc.co/lab/tally-geo/",
+      "source_type": "Reputable trade coverage of founder disclosure",
+      "date_of_data": "Apr-May 2025",
+      "source_publication_year": 2026,
+      "verification_status": "single-source",
+      "cross_verified_by": [
+        "https://x.com/MarieMartens/status/1932355206550851903"
+      ],
+      "accessed": "2026-09-21",
+      "note": "Free form builder with a maker audience; an upper bound."
+    },
+    {
+      "fact_id": "F09",
+      "layer": "2-disclosed",
+      "claim": "Cognism inbound data: LLMs as last-touch MQL source and self-reported AI attribution",
+      "value": "+345% YoY as last-touch source for MQLs; self-reported AI/LLM attribution +9.25% YoY; organic traffic -33.6% YoY while direct MQLs +6%",
+      "source_name": "Cognism, Inside Inbound 2026",
+      "source_url": "https://www.cognism.com/reports/inside-inbound-2026",
+      "source_type": "Company first-party data (primary)",
+      "date_of_data": "2025",
+      "source_publication_year": 2026,
+      "verification_status": "verified",
+      "cross_verified_by": [],
+      "accessed": "2026-09-21",
+      "note": "Report does not state whether +9.25% is relative or percentage points; present as stated."
+    },
+    {
+      "fact_id": "F10",
+      "layer": "2-disclosed",
+      "claim": "Ahrefs: AI search share of visitors vs share of signups",
+      "value": "0.5% of visitors drove 12.1% of signups",
+      "source_name": "Ahrefs blog, Patrick Stox",
+      "source_url": "https://ahrefs.com/blog/ai-search-traffic-conversions-ahrefs/",
+      "source_type": "Company first-party data (primary)",
+      "date_of_data": "Jun 2025",
+      "source_publication_year": 2025,
+      "verification_status": "verified",
+      "cross_verified_by": [],
+      "accessed": "2026-09-21"
+    },
+    {
+      "fact_id": "F11",
+      "layer": "3-tracked",
+      "claim": "Share of inbound calls that originate from AI search, small and mid-sized businesses",
+      "value": "0.073% across ~20M inbound leads; legal 0.175%, manufacturing 0.093%, marketing agencies 0.091%; ChatGPT 90.1%, Perplexity 6.3%, Gemini 2.4%, Claude 1.2% of AI-sourced leads",
+      "source_name": "CallRail, 'What 20M calls reveal about the future of customer discovery'",
+      "source_url": "https://www.prnewswire.com/news-releases/analysis-of-20m-leads-reveals-how-ai-search-is-driving-customer-discovery-302671219.html",
+      "source_type": "Vendor first-party data (primary, call tracking)",
+      "date_of_data": "Jan 2026",
+      "source_publication_year": 2026,
+      "verification_status": "cross-verified",
+      "cross_verified_by": [
+        "https://www.citybiz.co/article/831096/qa-with-emily-popson-vp-of-marketing-at-callrail-analysis-of-20m-leads-reveals-how-ai-search-is-driving-customer-discovery/",
+        "https://www.searchenginejournal.com/lead-gen-seo-ppc-callrail-spcs/570572/"
+      ],
+      "accessed": "2026-09-21"
+    },
+    {
+      "fact_id": "F12",
+      "layer": "3-tracked",
+      "claim": "Average website's share of traffic from AI chatbots",
+      "value": "0.17%; 63% of 3,000 sites receive some AI traffic",
+      "source_name": "Ahrefs study of 3,000 websites",
+      "source_url": "https://ahrefs.com/blog/ai-traffic-study/",
+      "source_type": "Industry study (primary)",
+      "date_of_data": "Feb 2025",
+      "source_publication_year": 2025,
+      "verification_status": "verified",
+      "cross_verified_by": [],
+      "accessed": "2026-09-21",
+      "note": "Feb 2025 - the oldest tracked figure here; kept as the baseline the later numbers grow from."
+    },
+    {
+      "fact_id": "F13",
+      "layer": "3-tracked",
+      "claim": "AI search share of B2B search sessions",
+      "value": "under 2% of 25M sessions (Sep 2025 - Mar 2026); ChatGPT share of AI referrals 86% (Oct 2025) -> 72% (Feb 2026); Gemini 4.5% -> 13.0%",
+      "source_name": "Octane11 State of B2B AI Search, Vol. 1",
+      "source_url": "https://www.octane11.com/insights/insights-state-of-b2b-ai-search/",
+      "source_type": "Vendor first-party data (primary)",
+      "date_of_data": "Sep 2025 - Mar 2026",
+      "source_publication_year": 2026,
+      "verification_status": "verified",
+      "cross_verified_by": [],
+      "accessed": "2026-09-21"
+    },
+    {
+      "fact_id": "F14",
+      "layer": "3-tracked",
+      "claim": "LLM-session funnel across 118 B2B accounts",
+      "value": "median visit -> hand-raiser 5.24%; hand-raiser -> qualified pipeline 2.66%; pipeline -> closed-won median 0%; 86% of hand-raisers high intent; ChatGPT 82% of LLM sessions",
+      "source_name": "HockeyStack Labs, 'LLM Traffic in 2025'",
+      "source_url": "https://www.hockeystack.com/lab-blog-posts/llm-traffic-in-2025-early-performance-real-intent-uneven-results",
+      "source_type": "Vendor first-party data (primary)",
+      "date_of_data": "2025",
+      "source_publication_year": 2026,
+      "verification_status": "verified",
+      "cross_verified_by": [],
+      "accessed": "2026-09-21"
+    },
+    {
+      "fact_id": "F15",
+      "layer": "3-tracked",
+      "claim": "Dreamdata own instance: LLM-surfaced content influence",
+      "value": "1.1% of MQLs vs 6.2% of new business closed, last 12 months",
+      "source_name": "Dreamdata recipe 'Tracking LLM influence on pipeline and revenue'",
+      "source_url": "https://dreamdata.io/recipe/tracking-llm-influence-on-pipeline-and-revenue",
+      "source_type": "Vendor first-party worked example (primary, n=1 company)",
+      "date_of_data": "2025",
+      "source_publication_year": 2025,
+      "verification_status": "single-source",
+      "cross_verified_by": [],
+      "accessed": "2026-09-21",
+      "note": "Publication date not shown on page; data window is 'last 12 months' with LLM traffic rising since early 2025."
+    },
+    {
+      "fact_id": "F16",
+      "layer": "3-tracked",
+      "claim": "Monthly ChatGPT referral visits to B2B properties measured by Demandbase",
+      "value": "~645,000 (Jun 2025) -> 2.6M (Jun 2026), +303%, sharp jump in May 2026",
+      "source_name": "Labs by Demandbase, via PPC Land",
+      "source_url": "https://ppc.land/chatgpt-referrals-to-b2b-sites-gain-303-in-a-year-demandbase-finds/",
+      "source_type": "Reputable trade coverage of vendor release",
+      "date_of_data": "Jun 2026",
+      "source_publication_year": 2026,
+      "verification_status": "single-source",
+      "cross_verified_by": [],
+      "accessed": "2026-09-21"
+    },
+    {
+      "fact_id": "F17",
+      "layer": "4-why",
+      "claim": "What happens after ChatGPT recommends a brand",
+      "value": "2.5x more likely to get a site visit within 7 days; 55.9% of that downstream traffic arrives via branded search; 12.0 pages / 11.8 min vs 6.5 pages / 5.6 min",
+      "source_name": "Similarweb, 'The Downstream Impact of AI Visibility' (US desktop panel, Jul 2025 - Jan 2026, finance / travel / beauty)",
+      "source_url": "https://ppc.land/your-analytics-are-lying-similarweb-traces-ai-recommendations-to-real-traffic/",
+      "source_type": "Panel study, accessed through secondary coverage",
+      "date_of_data": "2026",
+      "source_publication_year": 2026,
+      "verification_status": "cross-verified",
+      "cross_verified_by": [
+        "https://www.searchenginejournal.com/ai-recommended-brands-saw-2-5x-more-site-visits-similarweb/580241/"
+      ],
+      "accessed": "2026-09-21",
+      "note": "Similarweb's own report URL returned 404 on 2026-09-21."
+    },
+    {
+      "fact_id": "F18",
+      "layer": "4-why",
+      "claim": "Modelled value of an AI search visitor vs a traditional organic visitor",
+      "value": "4.4x, based on conversion rate",
+      "source_name": "Semrush AI search study",
+      "source_url": "https://www.semrush.com/blog/ai-search-seo-traffic-study/",
+      "source_type": "Industry study (primary, modelled)",
+      "date_of_data": "Jun 2025",
+      "source_publication_year": 2025,
+      "verification_status": "verified",
+      "cross_verified_by": [],
+      "accessed": "2026-09-21",
+      "note": "A model estimate, not a measured conversion rate."
+    },
+    {
+      "fact_id": "F19",
+      "layer": "4-why",
+      "claim": "Why AI-created demand is invisible to last-click",
+      "value": "copy-paste becomes Direct, branded re-search becomes Organic, a no-link mention becomes no event",
+      "source_name": "Radyant guide to AI search attribution",
+      "source_url": "https://www.radyant.io/guides/ai-search-attribution",
+      "source_type": "Quality blog (secondary, agency)",
+      "date_of_data": "2026",
+      "source_publication_year": 2026,
+      "verification_status": "single-source",
+      "cross_verified_by": [],
+      "accessed": "2026-09-21"
+    }
+  ],
+  "claims_not_traced": [
+    {
+      "claim": "Radyant 2026 client data: up to 30% of leads self-report AI discovery",
+      "status": "commonly-claimed",
+      "finding": "Repeated by derivatex.agency and several other blogs. Not present in Radyant's own attribution guide, which uses 20% of closed-won deals as a hypothetical. No primary source located on 2026-09-21. Usable only as an explicitly untraced claim."
+    },
+    {
+      "claim": "CallRail: AI search traffic converts at 14.2% vs Google 2.8%",
+      "status": "misattributed",
+      "finding": "Not in the CallRail press release, the citybiz Q&A or the SEJ piece. The 14.2% vs 2.8% figure belongs to Opollo's B2B tech data (cited on stanislav-peev.com/research/ai-referral-traffic-conversion-vs-organic/). Kept out of the CallRail row."
+    },
+    {
+      "claim": "Docebo: 12.7% of leads from LLMs",
+      "status": "insufficient",
+      "finding": "No source found. Dropped."
+    },
+    {
+      "claim": "Tally: 44% of ~40,000 weekly signups via AI assistants",
+      "status": "insufficient",
+      "finding": "Seen only in a search snippet. Dropped unless a primary post is located."
+    },
+    {
+      "claim": "Forrester sample of nearly 18,000 buyers",
+      "status": "single-source secondary",
+      "finding": "Sample size is not in the Forrester blog or press release that were read; omit or attribute to secondary coverage."
+    }
+  ]
+}

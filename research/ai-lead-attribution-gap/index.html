@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>What percentage of leads come from ChatGPT? 2026 data - Stanislav Peev</title>
+<meta name="description" content="What percentage of leads come from ChatGPT? Analytics tracks under 2% (0.073% of calls). Companies that ask report 7-25%. 18 sources checked.">
+<link rel="canonical" href="https://stanislav-peev.com/research/ai-lead-attribution-gap/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Stanislav Peev">
+<meta property="og:title" content="What Percentage of Leads Come From ChatGPT? Tracked vs Self-Reported (2026)">
+<meta property="og:description" content="Analytics puts AI assistants under 2% of tracked leads - 0.073% of 20M inbound calls. Companies that ask their customers report 7% to 25%. 55.9% of post-recommendation visits arrive as branded search. 17 figures in three layers, each checked against its original source.">
+<meta property="og:url" content="https://stanislav-peev.com/research/ai-lead-attribution-gap/">
+<meta property="og:image" content="https://stanislav-peev.com/research/ai-lead-attribution-gap/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Under 2% of leads are tracked to AI assistants while companies that ask report 7% to 25%. Data card with three layers: tracked 0.073% to under 2%, disclosed 7.3% to 25%, buyer surveys 45% to 94%">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:creator" content="@SeoPeev">
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="alternate" type="application/rss+xml" title="Stanislav Peev - SEO &amp; AI Search Research" href="/rss.xml">
+<link rel="stylesheet" href="/assets/site.css?v=6">
+<style>
+.article-meta { font-size: .9rem; color: var(--ink-soft); margin-bottom: 34px; }
+.article-meta b { color: var(--ink); }
+.hero-stat {
+  background: linear-gradient(135deg, var(--surface), var(--band));
+  border: 1px solid var(--green); border-radius: 18px;
+  padding: 36px 32px; text-align: center; margin: 0 0 40px;
+}
+.hero-stat .big {
+  font-family: var(--serif); font-size: clamp(3.2rem, 8vw, 5rem);
+  color: var(--green); font-weight: 700; line-height: 1; display: block; margin-bottom: 12px;
+}
+.hero-stat p { color: var(--ink); font-size: 1.1rem; max-width: 62ch; margin: 0 auto 8px; }
+.hero-stat .src { font-size: .85rem; color: var(--ink-soft); }
+.takeaways {
+  background: var(--surface); border: 1px solid var(--line); border-left: 4px solid var(--green);
+  border-radius: 12px; padding: 26px 28px; margin: 0 0 40px;
+}
+.takeaways h2 {
+  font-family: var(--sans); font-size: .8rem; font-weight: 700; letter-spacing: .12em;
+  text-transform: uppercase; color: var(--green); margin-bottom: 14px;
+}
+.takeaways ul { list-style: none; display: grid; gap: 10px; }
+.takeaways li { padding-left: 22px; position: relative; color: var(--ink-soft); font-size: .98rem; }
+.takeaways li::before { content: '→'; position: absolute; left: 0; color: var(--green); }
+.takeaways li b { color: var(--ink); font-family: var(--serif); }
+.toc {
+  border: 1px solid var(--line); border-radius: 12px; padding: 22px 26px; margin: 0 0 48px;
+  background: var(--bg-alt);
+}
+.toc h2 { font-family: var(--sans); font-size: .95rem; margin-bottom: 12px; }
+.toc ol { margin-left: 20px; color: var(--ink-soft); display: grid; gap: 6px; font-size: .95rem; }
+.toc a { color: var(--green); text-decoration: none; }
+.toc a:hover { text-decoration: underline; }
+.article h2 { margin-top: 56px; margin-bottom: 16px; scroll-margin-top: 90px; }
+.article h3 { margin-top: 30px; margin-bottom: 10px; font-size: 1.1rem; }
+.article .capsule { color: var(--ink); font-size: 1.08rem; margin-bottom: 18px; max-width: 70ch; }
+.article p { color: var(--ink-soft); margin-bottom: 18px; max-width: 72ch; }
+.article p strong { color: var(--ink); }
+.article a { color: var(--green); }
+.article ul.plain { margin: 0 0 18px 20px; color: var(--ink-soft); max-width: 72ch; display: grid; gap: 8px; }
+.metric-table { width: 100%; border-collapse: collapse; margin: 22px 0; font-size: .95rem; }
+.metric-table th {
+  background: var(--band); color: var(--ink); text-align: left;
+  padding: 11px 14px; text-transform: uppercase; font-size: .76rem; letter-spacing: .07em;
+  border-bottom: 2px solid var(--green);
+}
+.metric-table td { padding: 11px 14px; border-bottom: 1px solid var(--line); color: var(--ink-soft); }
+.metric-table td.v { font-family: var(--serif); font-weight: 700; color: var(--green); white-space: nowrap; }
+.metric-table td.hi { color: var(--green); font-weight: 700; }
+.metric-table td.lo { color: var(--ink-soft); }
+.table-wrap { overflow-x: auto; }
+.stat-callout {
+  display: flex; align-items: center; gap: 22px; background: var(--surface);
+  border: 1px solid var(--line); border-left: 4px solid var(--green); border-radius: 12px;
+  padding: 20px 24px; margin: 24px 0;
+}
+.stat-callout .val {
+  font-family: var(--serif); font-size: 2.1rem; font-weight: 700; color: var(--green);
+  white-space: nowrap; min-width: 90px; text-align: center;
+}
+.stat-callout div p { margin: 0; font-size: .96rem; }
+.stat-callout div .src { font-size: .82rem; color: var(--ink-soft); margin-top: 4px; }
+.bar-chart { margin: 24px 0; display: grid; gap: 10px; max-width: 680px; }
+.bar-row { display: grid; grid-template-columns: 230px 1fr; align-items: center; gap: 12px; }
+.bar-row .lbl { font-size: .9rem; color: var(--ink-soft); text-align: right; }
+.bar-track { background: var(--band); border-radius: 6px; overflow: hidden; height: 30px; position: relative; }
+.bar-fill {
+  height: 100%; background: var(--green); border-radius: 6px;
+  display: flex; align-items: center; padding-left: 10px;
+  font-family: var(--serif); font-weight: 700; font-size: .88rem; color: var(--btn-text);
+  min-width: fit-content; white-space: nowrap;
+}
+.bar-fill.dim { background: var(--ink-soft); }
+.bar-note { font-size: .82rem; color: var(--ink-soft); margin-top: 2px; }
+.explorer {
+  background: var(--surface); border: 1px solid var(--green); border-radius: 16px;
+  padding: 24px; margin: 26px 0;
+}
+.explorer .controls { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 14px; }
+.explorer select, .explorer input[type="search"] {
+  background: var(--bg-alt); color: var(--ink); border: 1px solid var(--line); border-radius: 8px;
+  padding: 8px 10px; font-size: .92rem;
+}
+.explorer input[type="search"] { flex: 1; min-width: 180px; }
+.explorer .count { font-size: .88rem; color: var(--ink-soft); margin-bottom: 10px; }
+.explorer table { width: 100%; border-collapse: collapse; font-size: .86rem; }
+.explorer th { text-align: left; padding: 8px 10px; border-bottom: 2px solid var(--green); color: var(--ink); font-size: .74rem; text-transform: uppercase; letter-spacing: .06em; cursor: pointer; white-space: nowrap; }
+.explorer td { padding: 7px 10px; border-bottom: 1px solid var(--line); color: var(--ink-soft); vertical-align: top; }
+.explorer td a { color: var(--green); word-break: break-all; }
+.explorer .tag { display: inline-block; padding: 1px 7px; border-radius: 999px; font-size: .74rem; border: 1px solid var(--line); color: var(--ink); white-space: nowrap; }
+.explorer .tag.cmp { border-color: var(--green); color: var(--green); }
+.explorer .scroll { max-height: 520px; overflow: auto; }
+.data-box {
+  background: var(--bg-alt); border: 1px solid var(--line); border-radius: 12px;
+  padding: 22px 26px; margin: 26px 0;
+}
+.data-box h3 { font-size: 1rem; margin: 0 0 8px; }
+.data-box p { font-size: .92rem; margin-bottom: 10px; }
+.sources-list { font-size: .92rem; color: var(--ink-soft); margin-left: 20px; display: grid; gap: 10px; }
+.sources-list a { color: var(--green); word-break: break-all; }
+.updated { font-size: .88rem; color: var(--ink-soft); border-top: 1px solid var(--line); padding-top: 20px; margin-top: 48px; }
+@media (max-width: 640px) {
+  .bar-row { grid-template-columns: 1fr; gap: 4px; }
+  .bar-row .lbl { text-align: left; }
+  .stat-callout { flex-direction: column; align-items: flex-start; gap: 10px; }
+}
+.explorer.calc .calc-grid { display: grid; gap: 14px; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); margin-bottom: 18px; }
+.explorer.calc label { display: grid; gap: 6px; font-size: .88rem; color: var(--ink-soft); }
+.explorer.calc input { background: var(--bg-alt); color: var(--ink); border: 1px solid var(--line); border-radius: 8px; padding: 10px 12px; font-size: 1rem; font-variant-numeric: tabular-nums; }
+.calc-out { display: grid; gap: 10px; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); margin-bottom: 12px; }
+.calc-out .cell { background: var(--bg-alt); border: 1px solid var(--line); border-radius: 10px; padding: 14px 16px; }
+.calc-out .cell b { display: block; font-family: var(--serif); font-size: 1.6rem; color: var(--green); font-variant-numeric: tabular-nums; }
+.calc-out .cell span { font-size: .84rem; color: var(--ink-soft); }
+.explorer td.fig { font-family: var(--serif); font-weight: 700; color: var(--ink); font-variant-numeric: tabular-nums; }
+.explorer .tag.tracked { border-color: var(--green); color: var(--green); }
+.hero-stat .src a { color: var(--green); }
+.hero-stat .big { white-space: nowrap; font-size: clamp(2.1rem, 9.5vw, 5rem); }
+.viz { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 22px 22px 16px; margin: 28px 0; }
+.viz h3 { font-family: var(--sans); font-size: 1rem; font-weight: 700; color: var(--ink); margin: 0 0 4px; }
+.viz .sub { font-size: .88rem; color: var(--ink-soft); margin: 0 0 14px; max-width: 70ch; }
+.viz .plot { overflow-x: auto; }
+.viz svg { display: block; width: 100%; min-width: 620px; height: auto; font-family: var(--sans); }
+.viz svg text { fill: var(--ink-soft); font-size: 12px; }
+.viz svg text.strong { fill: var(--ink); font-weight: 600; }
+.viz svg text.row { fill: var(--ink); font-size: 13px; font-weight: 600; }
+.viz svg .grid { stroke: var(--line); stroke-width: 1; }
+.viz svg .ring { stroke: var(--surface); stroke-width: 2; }
+.viz svg [data-tip] { cursor: default; }
+.viz svg [data-tip]:hover { filter: brightness(1.25); }
+.viz .legend { display: flex; flex-wrap: wrap; gap: 6px 18px; font-size: .84rem; color: var(--ink-soft); margin: 0 0 10px; }
+.viz .legend i { display: inline-block; width: 10px; height: 10px; border-radius: 3px; margin-right: 7px; vertical-align: -1px; }
+.viz .legend i.ln { width: 16px; height: 2px; border-radius: 1px; vertical-align: 3px; }
+.viz .legend b { color: var(--ink); font-weight: 600; font-variant-numeric: tabular-nums; }
+.viz .cap { font-size: .82rem; color: var(--ink-soft); margin: 10px 0 0; }
+.viz .cap a { color: var(--green); }
+.viz details { margin-top: 10px; font-size: .84rem; color: var(--ink-soft); }
+.viz details summary { cursor: pointer; color: var(--green); }
+.viz details table { border-collapse: collapse; margin-top: 8px; font-variant-numeric: tabular-nums; }
+.viz details th, .viz details td { text-align: left; padding: 4px 14px 4px 0; border-bottom: 1px solid var(--line); }
+.viz details th { color: var(--ink); font-weight: 600; }
+.kpi-row { display: grid; grid-template-columns: 1fr auto 1fr auto 1fr; gap: 10px; align-items: stretch; margin: 6px 0 4px; }
+.kpi { background: var(--bg-alt); border: 1px solid var(--line); border-radius: 10px; padding: 14px 16px; }
+.kpi b { display: block; font-family: var(--sans); font-size: 1.9rem; font-weight: 700; color: var(--ink); line-height: 1.1; }
+.kpi span { font-size: .84rem; color: var(--ink-soft); }
+.kpi-arrow { align-self: center; color: var(--ink-soft); font-size: 1.2rem; }
+#vizTip { position: fixed; z-index: 50; pointer-events: none; background: var(--band); border: 1px solid var(--line); border-radius: 8px; padding: 8px 11px; font-size: .84rem; color: var(--ink-soft); max-width: 280px; box-shadow: 0 6px 20px rgba(0,0,0,.45); display: none; }
+#vizTip b { display: block; color: var(--ink); font-size: .98rem; font-variant-numeric: tabular-nums; }
+@media (max-width: 640px) {
+  .kpi-row { grid-template-columns: 1fr; }
+  .kpi-arrow { transform: rotate(90deg); justify-self: center; }
+}
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://stanislav-peev.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Research",
+          "item": "https://stanislav-peev.com/research/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "AI Lead Attribution Gap",
+          "item": "https://stanislav-peev.com/research/ai-lead-attribution-gap/"
+        }
+      ]
+    },
+    {
+      "@type": "Article",
+      "@id": "https://stanislav-peev.com/research/ai-lead-attribution-gap/#article",
+      "headline": "What Percentage of Leads Come From ChatGPT? Tracked vs Self-Reported (2026)",
+      "description": "Published figures on the share of leads, signups, calls and sessions that come from AI assistants, sorted into three layers - buyer surveys, company-disclosed or self-reported share, and analytics-tracked share - with each figure checked against its original source.",
+      "author": {
+        "@id": "https://stanislav-peev.com/#person"
+      },
+      "publisher": {
+        "@id": "https://stanislav-peev.com/#person"
+      },
+      "datePublished": "2026-09-21",
+      "dateModified": "2026-09-21",
+      "mainEntityOfPage": "https://stanislav-peev.com/research/ai-lead-attribution-gap/",
+      "image": "https://stanislav-peev.com/research/ai-lead-attribution-gap/og.png",
+      "speakable": {
+        "@type": "SpeakableSpecification",
+        "cssSelector": [
+          ".hero-stat",
+          ".takeaways"
+        ]
+      }
+    },
+    {
+      "@type": "Dataset",
+      "name": "AI Lead Attribution Gap - Checked Figures 2025-2026",
+      "description": "19 published figures on AI assistants as a source of leads, signups, inbound calls and sessions (CallRail, Octane11, Ahrefs, HockeyStack, Dreamdata, Demandbase, Outfunnel, Webflow, Vercel, Tally, Cognism, BrightLocal, G2, Forrester, Similarweb, Semrush, Radyant), each with measurement layer, source type, date of data, verification status and cross-verification URLs, plus claims that could not be traced to their credited source.",
+      "url": "https://stanislav-peev.com/research/ai-lead-attribution-gap/",
+      "creator": {
+        "@id": "https://stanislav-peev.com/#person"
+      },
+      "temporalCoverage": "2025-02/2026-06",
+      "measurementTechnique": "Desk research; each figure checked against the full text of the publication it is credited to on 2026-09-21.",
+      "variableMeasured": [
+        "AI share of leads",
+        "AI share of signups",
+        "AI share of inbound calls",
+        "AI share of sessions",
+        "verification status"
+      ],
+      "distribution": [
+        {
+          "@type": "DataDownload",
+          "encodingFormat": "application/json",
+          "contentUrl": "https://stanislav-peev.com/research/ai-lead-attribution-gap/data-studies.json"
+        }
+      ],
+      "license": "https://creativecommons.org/licenses/by/4.0/"
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://stanislav-peev.com/research/ai-lead-attribution-gap/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What percentage of leads come from ChatGPT?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "It depends on how you count. Tracked by analytics, under 2%: CallRail attributes 0.073% of about 20 million inbound calls to AI search, and Octane11 puts AI search under 2% of 25 million B2B sessions. Asked directly, companies report far more: 7.29% of Outfunnel's leads named ChatGPT or AI in the first half of 2025, and Webflow, Vercel and Tally disclosed 8%, 10% and 25% of new signups."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Why does GA4 show almost no AI traffic when customers say they found us on ChatGPT?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Because most people do not click the link in the chat. In Similarweb's US panel, 55.9% of the visits that followed a ChatGPT recommendation arrived through a branded search, which analytics files under organic or paid brand. Copied URLs and mobile app clicks land as Direct. BrightLocal found 88% of AI users check the source before acting, so a second touch is the normal path."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Which AI assistant sends the most leads?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "ChatGPT, by a wide margin, though its share is falling. It accounted for 90.1% of AI-sourced calls in CallRail's January 2026 data, with Perplexity at 6.3%, Gemini 2.4% and Claude 1.2%. In Octane11's B2B sessions ChatGPT's share of AI referrals fell from 86% in October 2025 to 72% in February 2026, while Gemini grew from 4.5% to 13.0%."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How many local customers use AI to pick a business?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "45% of US consumers said they had used an AI tool for local business recommendations in BrightLocal's 2026 survey of 1,002 adults, up from 6% a year earlier. Tracked calls tell a smaller story: 0.073% of inbound calls in CallRail's data, highest in legal at 0.175%. The difference is mostly people who asked an assistant and then looked the business up on Google."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do AI-referred leads close?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Some do, most accounts cannot show it yet. Across 118 B2B accounts HockeyStack found a median 5.24% of LLM visits became hand-raisers and 2.66% of those reached qualified pipeline, but the median for pipeline to closed-won was 0%. Dreamdata's own data shows LLM-surfaced content influencing 1.1% of MQLs and 6.2% of new business closed over twelve months."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How should I measure AI-sourced leads?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Ask. Add a free-text \"How did you first hear about us?\" to every form and first call, then read it next to AI referral sessions and branded search impressions. Outfunnel's figure of 0.75% rising to 7.29% comes from exactly that field. Cognism saw LLMs grow 345% as a last-touch MQL source while direct MQLs rose 6% and organic traffic fell 33.6%."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-5TB26Q273D"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-5TB26Q273D');
+</script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="/">Stanislav <em>Peev</em></a>
+    <nav class="site-nav" aria-label="Main">
+      <a href="/#geo">AI / GEO</a>
+      <a href="/services/">Services</a>
+      <a href="/research/" aria-current="page">Research</a>
+      <a href="/#clients">Clients</a>
+      <a href="/#experience" class="hide-m">Experience</a>
+      <a href="/#proof" class="hide-m">Publications</a>
+      <a class="cta" href="#contact">Write to me</a>
+    </nav>
+  </div>
+</header>
+
+<nav class="crumbs" aria-label="Breadcrumb">
+  <div class="wrap"><a href="/">Home</a> › <a href="/research/">Research</a> › AI Lead Attribution Gap</div>
+</nav>
+
+<main>
+
+<section class="hero" style="padding:40px 0 8px">
+  <div class="wrap" style="display:block">
+    <span class="kicker">Research · AI Search Data</span>
+    <h1 style="max-width:27ch">What percentage of leads really come from <span class="accent">ChatGPT</span>? Analytics says under 2%. Companies that ask say 7% to 25%</h1>
+    <p class="article-meta">By <b>Stanislav Peev</b>, SEO consultant &amp; GEO specialist · Published <b>September 21, 2026</b> · 18 sources checked against the original · 10 min read</p>
+  </div>
+</section>
+
+<section style="padding:0 0 72px">
+  <div class="wrap article">
+
+    <div class="hero-stat">
+      <span class="big">&lt;2% vs 7-25%</span>
+      <p>What percentage of leads come from ChatGPT and other AI assistants? Every large analytics dataset puts them under 2% of tracked traffic and leads, and as low as 0.073% of inbound calls. Companies that ask new customers, or publish their own signup data, report 7% to 25%. Both are measured correctly. They measure different things.</p>
+      <span class="src">Tracked layer confirmed by 3 independent datasets: <a href="#src-11">CallRail</a> (about 20M leads), <a href="#src-13">Octane11</a> (25M sessions), <a href="#src-12">Ahrefs</a> (3,000 sites). Disclosed layer: <a href="#src-5">Outfunnel</a>, <a href="#src-7">Webflow</a>, <a href="#src-6">Vercel</a>, <a href="#src-8">Tally</a>.</span>
+    </div>
+
+    <div class="takeaways">
+      <h2>Key takeaways</h2>
+      <ul>
+        <li><b>0.073%</b> - the share of inbound calls to small and mid-sized businesses that CallRail could trace to AI search across about 20 million leads. Legal was highest at 0.175% (CallRail, January 2026)</li>
+        <li><b>Under 2%</b> - AI search as a share of 25 million B2B search sessions, September 2025 to March 2026 (Octane11). The average website got 0.17% of its traffic from AI chatbots in early 2025 (Ahrefs)</li>
+        <li><b>0.75% to 7.29%</b> - leads naming "ChatGPT / AI" in Outfunnel's "How did you hear about us?" field, first half of 2024 against first half of 2025. The only published self-reported series I could find</li>
+        <li><b>8%, 10%, 25%</b> - share of new signups from AI disclosed by Webflow (June 2025), Vercel (April 2025) and Tally (spring 2025). All three sell to people who live in ChatGPT, so read them as the ceiling</li>
+        <li><b>55.9%</b> - of the visits that follow a ChatGPT recommendation arrive through a branded search, not a click from the chat (Similarweb panel). That is where most of the gap goes</li>
+        <li><b>45% to 94%</b> - buyers who say they use AI to research: 45% of US consumers for local businesses (BrightLocal), 51% of B2B software buyers start there (G2), 94% of business buyers use it somewhere in the process (Forrester)</li>
+        <li><b>4 popular figures</b> did not survive a check against their stated source, including the "up to 30% of leads" number that circulates in agency posts. <a href="#untraced">Listed below</a></li>
+      </ul>
+    </div>
+
+    <div class="toc">
+      <h2>What's in this report</h2>
+      <ol>
+        <li><a href="#short-answer">The short answer</a></li>
+        <li><a href="#usage">How many buyers say they use AI to research?</a></li>
+        <li><a href="#disclosed">What do companies that ask their customers report?</a></li>
+        <li><a href="#tracked">What does analytics actually record?</a></li>
+        <li><a href="#why">Why is the tracked number 10 to 100 times smaller?</a></li>
+        <li><a href="#all-studies">All 17 figures in one table</a></li>
+        <li><a href="#calculator">Estimate your own attribution gap</a></li>
+        <li><a href="#untraced">Four numbers I could not trace</a></li>
+        <li><a href="#what-to-do">What to do on Monday</a></li>
+        <li><a href="#methodology">Methodology</a></li>
+        <li><a href="#limitations">Limitations</a></li>
+        <li><a href="#faq">FAQ</a></li>
+        <li><a href="#data">Get the data</a></li>
+      </ol>
+    </div>
+
+    <h2 id="short-answer">1. The short answer</h2>
+    <p class="capsule">It depends on who is counting. Analytics and call tracking count a lead as AI-sourced only when the visitor clicked a link inside the chat, and on that definition the answer is under 2% everywhere and under 0.2% for local service businesses. Ask the customer instead and the answer is several times higher, because most people read the recommendation, close the chat and search for the brand by name.</p>
+    <p>I started pulling these numbers together after an r/SEO thread in September 2026 where a B2B marketer asked whether anyone had traced a real lead back to ChatGPT or Perplexity. He was explicit that he did not want mention counts or visibility scores. Twenty replies later he had a handful of anecdotes, one of them worth "nearly $10k MRR", and no figure he could put in front of a CFO. The week before, a small-business owner asking the same question on r/smallbusiness collected 82 comments and the same result.</p>
+    <p>The figures exist. They are scattered across vendor reports, founder posts and consumer surveys, and the statistics roundups that collect them drop all of them into one flat list, so "94% of buyers use AI" sits next to "0.17% of traffic" with no explanation of why both can be true. Below they are sorted into three layers, each checked against the original publication.</p>
+
+<figure class="viz"><h3>The same question, three ways of counting</h3><p class="sub">Eleven published figures on one axis. The layers sit one to three orders of magnitude apart.</p><div class="plot"><svg viewBox="0 0 760 300" role="img" aria-labelledby="alag-layers-title alag-layers-desc"><title id="alag-layers-title">The same question, three ways of counting</title><desc id="alag-layers-desc">Dot plot on a logarithmic axis from 0.01 to 100 percent. Tracked by analytics: CallRail 0.073, Ahrefs 0.17, Octane11 under 2 percent. Asked or disclosed by the company: Outfunnel 7.29, Webflow 8, Vercel 10, Ahrefs 12.1, Tally 25 percent. Buyer surveys: BrightLocal 45, G2 51, Forrester 94 percent. The three groups do not overlap.</desc><line class="grid" x1="150.0" y1="30" x2="150.0" y2="262"/><text x="150.0" y="282" text-anchor="middle">0.01%</text><line class="grid" x1="295.0" y1="30" x2="295.0" y2="262"/><text x="295.0" y="282" text-anchor="middle">0.1%</text><line class="grid" x1="440.0" y1="30" x2="440.0" y2="262"/><text x="440.0" y="282" text-anchor="middle">1%</text><line class="grid" x1="585.0" y1="30" x2="585.0" y2="262"/><text x="585.0" y="282" text-anchor="middle">10%</text><line class="grid" x1="730.0" y1="30" x2="730.0" y2="262"/><text x="730.0" y="282" text-anchor="middle">100%</text><text x="730" y="298" text-anchor="end">share attributed to AI assistants, log scale - each gridline is 10 times the previous</text><text class="row" x="0" y="74">Tracked by analytics</text><rect x="275.2" y="67" width="208.5" height="6" rx="3" fill="#199e70" opacity=".28"/><circle class="ring" cx="275.2" cy="70" r="6" fill="#199e70" data-tip="0.073%|CallRail - of inbound calls, about 20M leads"/><circle cx="275.2" cy="70" r="13" fill="transparent" data-tip="0.073%|CallRail - of inbound calls, about 20M leads"/><circle class="ring" cx="328.4" cy="70" r="6" fill="#199e70" data-tip="0.17%|Ahrefs - of the average site&#x27;s traffic, 3,000 sites"/><circle cx="328.4" cy="70" r="13" fill="transparent" data-tip="0.17%|Ahrefs - of the average site&#x27;s traffic, 3,000 sites"/><circle class="ring" cx="483.6" cy="70" r="6" fill="#199e70" data-tip="under 2%|Octane11 - of 25M B2B search sessions"/><circle cx="483.6" cy="70" r="13" fill="transparent" data-tip="under 2%|Octane11 - of 25M B2B search sessions"/><text class="strong" x="275.2" y="56" text-anchor="middle">CallRail 0.073%</text><text class="strong" x="328.4" y="94" text-anchor="middle">Ahrefs 0.17%</text><text class="strong" x="483.6" y="56" text-anchor="middle">Octane11 &lt;2%</text><text class="row" x="0" y="150">Asked or disclosed</text><rect x="565.1" y="143" width="77.6" height="6" rx="3" fill="#3987e5" opacity=".28"/><circle class="ring" cx="565.1" cy="146" r="6" fill="#3987e5" data-tip="7.29%|Outfunnel - of leads named ChatGPT / AI on the form"/><circle cx="565.1" cy="146" r="13" fill="transparent" data-tip="7.29%|Outfunnel - of leads named ChatGPT / AI on the form"/><circle class="ring" cx="570.9" cy="146" r="6" fill="#3987e5" data-tip="8%|Webflow - of new signups"/><circle cx="570.9" cy="146" r="13" fill="transparent" data-tip="8%|Webflow - of new signups"/><circle class="ring" cx="585.0" cy="146" r="6" fill="#3987e5" data-tip="10%|Vercel - of new signups"/><circle cx="585.0" cy="146" r="13" fill="transparent" data-tip="10%|Vercel - of new signups"/><circle class="ring" cx="597.0" cy="146" r="6" fill="#3987e5" data-tip="12.1%|Ahrefs - of signups, from 0.5% of visitors"/><circle cx="597.0" cy="146" r="13" fill="transparent" data-tip="12.1%|Ahrefs - of signups, from 0.5% of visitors"/><circle class="ring" cx="642.7" cy="146" r="6" fill="#3987e5" data-tip="25%|Tally - of new signups"/><circle cx="642.7" cy="146" r="13" fill="transparent" data-tip="25%|Tally - of new signups"/><text class="strong" x="581.1" y="132" text-anchor="middle">Outfunnel, Webflow, Vercel, Ahrefs 7-12%</text><text class="strong" x="642.7" y="170" text-anchor="middle">Tally 25%</text><text class="row" x="0" y="226">Buyer surveys</text><rect x="679.7" y="219" width="46.4" height="6" rx="3" fill="#d95926" opacity=".28"/><circle class="ring" cx="679.7" cy="222" r="6" fill="#d95926" data-tip="45%|BrightLocal - of US consumers used AI for local recommendations"/><circle cx="679.7" cy="222" r="13" fill="transparent" data-tip="45%|BrightLocal - of US consumers used AI for local recommendations"/><circle class="ring" cx="687.6" cy="222" r="6" fill="#d95926" data-tip="51%|G2 - of B2B software buyers start in a chatbot"/><circle cx="687.6" cy="222" r="13" fill="transparent" data-tip="51%|G2 - of B2B software buyers start in a chatbot"/><circle class="ring" cx="726.1" cy="222" r="6" fill="#d95926" data-tip="94%|Forrester - of business buyers use AI in the process"/><circle cx="726.1" cy="222" r="13" fill="transparent" data-tip="94%|Forrester - of business buyers use AI in the process"/><text class="strong" x="683.8" y="208" text-anchor="middle">BrightLocal 45%, G2 51%</text><text class="strong" x="730.0" y="246" text-anchor="end">Forrester 94%</text></svg></div><figcaption class="cap">The three rows answer different questions and cover different populations, so read the distance between them, not a trend along the axis. Sources for every dot are in <a href="#all-studies">the table in section 6</a>.</figcaption><details><summary>View as table</summary><table><thead><tr><th>Layer</th><th>Study</th><th>Figure</th></tr></thead><tbody><tr><td>Tracked by analytics</td><td>CallRail</td><td>0.073%</td></tr><tr><td>Tracked by analytics</td><td>Ahrefs</td><td>0.17%</td></tr><tr><td>Tracked by analytics</td><td>Octane11</td><td>under 2%</td></tr><tr><td>Asked or disclosed</td><td>Outfunnel</td><td>7.29%</td></tr><tr><td>Asked or disclosed</td><td>Webflow</td><td>8%</td></tr><tr><td>Asked or disclosed</td><td>Vercel</td><td>10%</td></tr><tr><td>Asked or disclosed</td><td>Ahrefs</td><td>12.1%</td></tr><tr><td>Asked or disclosed</td><td>Tally</td><td>25%</td></tr><tr><td>Buyer surveys</td><td>BrightLocal</td><td>45%</td></tr><tr><td>Buyer surveys</td><td>G2</td><td>51%</td></tr><tr><td>Buyer surveys</td><td>Forrester</td><td>94%</td></tr></tbody></table></details></figure>
+
+    <h2 id="usage">2. How many buyers say they use AI to research?</h2>
+    <p class="capsule">Between 45% and 94%, depending on the audience and how loosely "use" is defined. These are the numbers that open most conference talks, and they are real. They describe behaviour before a purchase. None of them says a lead arrived.</p>
+    <div class="table-wrap"><table class="metric-table">
+      <thead><tr><th>Survey</th><th>Figure</th><th>Who was asked</th><th>Source</th></tr></thead>
+      <tbody>
+        <tr><td>Used an AI tool for local business recommendations</td><td class="v">45%</td><td>1,002 US adults, up from 6% a year earlier</td><td><a href="#src-1">BrightLocal, March 2026</a></td></tr>
+        <tr><td>Start vendor research in an AI chatbot</td><td class="v">51%</td><td>B2B software buyers</td><td><a href="#src-3">G2 Buyer Behavior Report 2026</a></td></tr>
+        <tr><td>Use AI somewhere in the buying process</td><td class="v">94%</td><td>Business buyers, 89% a year earlier</td><td><a href="#src-4">Forrester, January 2026</a></td></tr>
+      </tbody>
+    </table></div>
+    <p>The BrightLocal jump from 6% to 45% in a single year is the one I would show a local business owner, because it comes with a second number. Of the 455 respondents who had used AI for a recommendation, 88% said they go and check the sources behind it. They look the business up. For a plumber or a dental clinic that check usually ends on a Google Business Profile, which is why <a href="/research/google-review-concentration-home-services/">the state of your reviews</a> still decides whether the AI recommendation turns into a call.</p>
+
+    <h2 id="disclosed">3. What do companies that ask their customers report?</h2>
+    <p class="capsule">Between 7% and 25% of new leads or signups, from the few companies that have published a number. The cleanest of them is Outfunnel, because it is a plain "How did you hear about us?" field compared year over year: 0.75% of leads named ChatGPT or AI in the first half of 2024, 7.29% in the first half of 2025.</p>
+    <div class="table-wrap"><table class="metric-table">
+      <thead><tr><th>Company</th><th>AI share</th><th>How it was measured</th><th>Source</th></tr></thead>
+      <tbody>
+        <tr><td>Outfunnel (B2B SaaS)</td><td class="v">0.75% to 7.29%</td><td>Self-reported form field, H1 2024 vs H1 2025</td><td><a href="#src-5">Outfunnel, June 2025</a></td></tr>
+        <tr><td>Webflow</td><td class="v">2% to 8%</td><td>Share of new signups, October 2024 vs June 2025</td><td><a href="#src-7">Webflow blog</a></td></tr>
+        <tr><td>Vercel</td><td class="v">under 1% to 10%</td><td>New signups referred by ChatGPT, about 6 months</td><td><a href="#src-6">Guillermo Rauch, April 2025</a></td></tr>
+        <tr><td>Tally</td><td class="v">25%</td><td>New signups via ChatGPT, late April to early May 2025</td><td><a href="#src-8">Foundation, quoting the co-founder</a></td></tr>
+        <tr><td>Ahrefs</td><td class="v">12.1% of signups</td><td>From 0.5% of visitors</td><td><a href="#src-10">Ahrefs, June 2025</a></td></tr>
+      </tbody>
+    </table></div>
+<figure class="viz"><h3>Three companies, the same climb in about a year</h3><p class="sub">Share of new leads or signups attributed to AI assistants, as published by each company.</p><div class="legend"><span><i class="ln" style="background:#3987e5"></i>Outfunnel (self-reported leads)</span><span><i class="ln" style="background:#199e70"></i>Webflow (new signups)</span><span><i class="ln" style="background:#d95926"></i>Vercel (new signups)</span></div><div class="plot"><svg viewBox="0 0 760 300" role="img" aria-labelledby="alag-growth-title alag-growth-desc"><title id="alag-growth-title">Three companies, the same climb in about a year</title><desc id="alag-growth-desc">Line chart from January 2024 to June 2025 on a 0 to 12 percent axis. Outfunnel&#x27;s self-reported lead share rose from 0.75 percent in the first half of 2024 to 7.29 percent in the first half of 2025. Webflow&#x27;s share of new signups from AI rose from 2 percent in October 2024 to 8 percent in June 2025. Vercel&#x27;s share of signups referred by ChatGPT rose from under 1 percent around September 2024 to 4.8 percent in March 2025 and 10 percent in April 2025.</desc><line class="grid" x1="44" y1="260.0" x2="640" y2="260.0"/><text x="36" y="264.0" text-anchor="end">0%</text><line class="grid" x1="44" y1="178.7" x2="640" y2="178.7"/><text x="36" y="182.7" text-anchor="end">4%</text><line class="grid" x1="44" y1="97.3" x2="640" y2="97.3"/><text x="36" y="101.3" text-anchor="end">8%</text><line class="grid" x1="44" y1="16.0" x2="640" y2="16.0"/><text x="36" y="20.0" text-anchor="end">12%</text><text x="44.0" y="286" text-anchor="middle">Jan 2024</text><text x="248.3" y="286" text-anchor="middle">Jul 2024</text><text x="452.7" y="286" text-anchor="middle">Jan 2025</text><text x="623.0" y="286" text-anchor="middle">Jun 2025</text><path d="M146.2,244.8 L554.9,111.8" fill="none" stroke="#3987e5" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/><circle class="ring" cx="146.2" cy="244.8" r="5" fill="#3987e5"/><circle cx="146.2" cy="244.8" r="13" fill="transparent" data-tip="0.75%|Outfunnel (self-reported leads), H1 2024"/><circle class="ring" cx="554.9" cy="111.8" r="5" fill="#3987e5"/><circle cx="554.9" cy="111.8" r="13" fill="transparent" data-tip="7.29%|Outfunnel (self-reported leads), H1 2025"/><text class="strong" x="528.9" y="101.8" text-anchor="end">Outfunnel 7.3%</text><path d="M350.5,219.3 L623.0,97.3" fill="none" stroke="#199e70" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/><circle class="ring" cx="350.5" cy="219.3" r="5" fill="#199e70"/><circle cx="350.5" cy="219.3" r="13" fill="transparent" data-tip="2%|Webflow (new signups), October 2024"/><circle class="ring" cx="623.0" cy="97.3" r="5" fill="#199e70"/><circle cx="623.0" cy="97.3" r="13" fill="transparent" data-tip="8%|Webflow (new signups), June 2025"/><text class="strong" x="635.0" y="105.3">Webflow 8%</text><path d="M316.5,241.7 L520.8,162.4 L554.9,56.7" fill="none" stroke="#d95926" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/><circle class="ring" cx="316.5" cy="241.7" r="5" fill="#d95926"/><circle cx="316.5" cy="241.7" r="13" fill="transparent" data-tip="under 1%|Vercel (new signups), about September 2024"/><circle class="ring" cx="520.8" cy="162.4" r="5" fill="#d95926"/><circle cx="520.8" cy="162.4" r="13" fill="transparent" data-tip="4.8%|Vercel (new signups), March 2025"/><circle class="ring" cx="554.9" cy="56.7" r="5" fill="#d95926"/><circle cx="554.9" cy="56.7" r="13" fill="transparent" data-tip="10%|Vercel (new signups), April 2025"/><text class="strong" x="566.9" y="58.7">Vercel 10%</text></svg></div><figcaption class="cap">Outfunnel reports half-year totals, plotted at the middle of each half. Vercel's starting point was published only as "less than 1%". Tally's 25% (spring 2025) is a single reading and sits off this scale.</figcaption><details><summary>View as table</summary><table><thead><tr><th>Company</th><th>When</th><th>AI share</th></tr></thead><tbody><tr><td>Outfunnel</td><td>H1 2024</td><td>0.75%</td></tr><tr><td>Outfunnel</td><td>H1 2025</td><td>7.29%</td></tr><tr><td>Webflow</td><td>October 2024</td><td>2%</td></tr><tr><td>Webflow</td><td>June 2025</td><td>8%</td></tr><tr><td>Vercel</td><td>about September 2024</td><td>under 1%</td></tr><tr><td>Vercel</td><td>March 2025</td><td>4.8%</td></tr><tr><td>Vercel</td><td>April 2025</td><td>10%</td></tr></tbody></table></details></figure>
+    <p>Two cautions before anyone pastes 25% into a pitch deck. These are self-serve software products whose buyers are developers, designers and marketers, the heaviest ChatGPT users there are. And companies publish a figure like this when it flatters them, so the sample is selected for good news. I read the range as a ceiling for a business with a technical audience. A roofing company should not expect it.</p>
+    <p>Outfunnel's table has a detail that gets less attention than the headline. Google search fell only from 19.57% to 17.25% over the same year, and "can't remember" dropped from 8.5% to 4.2%. AI did not replace search in their funnel. It took some of the answers people used to be vague about.</p>
+    <p>Cognism's 2026 inbound report points the same way from the other side: LLMs grew 345% year over year as a last-touch source for its MQLs, organic traffic fell 33.6%, and direct MQLs rose 6%. People research somewhere the site never sees and come back by typing the name.</p>
+
+    <h2 id="tracked">4. What does analytics actually record?</h2>
+    <p class="capsule">Almost nothing. CallRail attributes 0.073% of inbound calls to AI search across about 20 million leads for small and mid-sized businesses. Octane11 puts AI search under 2% of 25 million B2B search sessions. Ahrefs found the average site gets 0.17% of its traffic from AI chatbots.</p>
+    <div class="stat-callout">
+      <span class="val">0.073%</span>
+      <div>
+        <p>of inbound calls to small and mid-sized businesses originate from AI search. By industry: legal 0.175%, manufacturing 0.093%, marketing agencies 0.091%. ChatGPT accounts for 90.1% of those calls, Perplexity 6.3%, Gemini 2.4%, Claude 1.2%.</p>
+        <p class="src">Source: <a href="#src-11">CallRail, analysis of about 20M inbound leads, January 27, 2026</a></p>
+      </div>
+    </div>
+    <p>That is roughly seven calls in every ten thousand. If you run a local service business and someone shows you a dashboard with AI referrals as a line item, this is the scale to expect on it today.</p>
+    <p>The B2B funnel data is thin in a different way. HockeyStack followed LLM sessions through 118 accounts, and most of them had not closed a single deal they could trace to an LLM session.</p>
+<figure class="viz"><h3>The LLM funnel in the median B2B account</h3><p class="sub">Stage-by-stage conversion across 118 accounts. Each rate is the median for that stage on its own, so they do not multiply into one end-to-end figure.</p><div class="kpi-row"><div class="kpi"><b>5.24%</b><span>of LLM visits become a hand-raiser</span></div><div class="kpi-arrow" aria-hidden="true">→</div><div class="kpi"><b>2.66%</b><span>of hand-raisers reach qualified pipeline</span></div><div class="kpi-arrow" aria-hidden="true">→</div><div class="kpi"><b>0%</b><span>of that pipeline closed, in the median account</span></div></div><figcaption class="cap">Source: <a href="#src-14">HockeyStack Labs, 118 accounts</a>. A quarter of accounts convert under 0.49% of LLM visits. Companies with 501 to 1,000 employees were the exception: about 17% of sessions to hand-raiser and 2.8% to closed-won.</figcaption></figure>
+    <p>Nine in ten of those calls came from ChatGPT. That lead is real and it is shrinking: in Octane11's B2B sessions its share of AI referrals fell 14 points in five months while Gemini roughly tripled.</p>
+<figure class="viz"><h3>Which assistant the calls came from</h3><p class="sub">Inbound calls to small and mid-sized businesses that CallRail traced to AI search, by assistant.</p><div class="legend"><span><i style="background:#199e70"></i>ChatGPT <b>90.1%</b></span><span><i style="background:#3987e5"></i>Perplexity <b>6.3%</b></span><span><i style="background:#c98500"></i>Gemini <b>2.4%</b></span><span><i style="background:#d55181"></i>Claude <b>1.2%</b></span></div><div class="plot"><svg viewBox="0 0 760 66" role="img" aria-labelledby="alag-callrail-engines-title alag-callrail-engines-desc"><title id="alag-callrail-engines-title">Which assistant the calls came from</title><desc id="alag-callrail-engines-desc">Stacked bar of AI-sourced inbound calls by assistant: ChatGPT 90.1 percent, Perplexity 6.3 percent, Gemini 2.4 percent, Claude 1.2 percent.</desc><rect x="0.0" y="10" width="682.8" height="24" rx="4" fill="#199e70" data-tip="90.1%|ChatGPT, share of AI-sourced inbound calls"/><rect x="685.8" y="10" width="45.9" height="24" rx="4" fill="#3987e5" data-tip="6.3%|Perplexity, share of AI-sourced inbound calls"/><rect x="733.6" y="10" width="16.2" height="24" rx="4" fill="#c98500" data-tip="2.4%|Gemini, share of AI-sourced inbound calls"/><rect x="751.9" y="10" width="7.1" height="24" rx="4" fill="#d55181" data-tip="1.2%|Claude, share of AI-sourced inbound calls"/><text class="strong" x="12" y="27" style="fill:#fff">ChatGPT 90.1%</text><text x="0" y="58">0%</text><text x="760" y="58" text-anchor="end">100% of AI-sourced calls</text></svg></div><figcaption class="cap">Source: <a href="#src-11">CallRail, about 20M inbound leads, January 2026</a>. In travel, hospitality and manufacturing nearly one in ten AI-sourced leads came from Perplexity.</figcaption></figure>
+<figure class="viz"><h3>ChatGPT still sends most AI referrals, and its share is sliding</h3><p class="sub">ChatGPT as a share of all AI referrals to B2B sites, by month. The axis starts at 60% to make the six readings legible.</p><div class="plot"><svg viewBox="0 0 760 260" role="img" aria-labelledby="alag-chatgpt-share-title alag-chatgpt-share-desc"><title id="alag-chatgpt-share-title">ChatGPT still sends most AI referrals, and its share is sliding</title><desc id="alag-chatgpt-share-desc">Line chart of ChatGPT&#x27;s share of AI referrals to B2B websites: 81 percent in September 2025, a peak of 86 percent in October, then 83, 80, 76 and 72 percent in February 2026. Over the same period Gemini grew from 4.5 to 13.0 percent.</desc><line class="grid" x1="44" y1="220.0" x2="690" y2="220.0"/><text x="36" y="224.0" text-anchor="end">60%</text><line class="grid" x1="44" y1="154.0" x2="690" y2="154.0"/><text x="36" y="158.0" text-anchor="end">70%</text><line class="grid" x1="44" y1="88.0" x2="690" y2="88.0"/><text x="36" y="92.0" text-anchor="end">80%</text><line class="grid" x1="44" y1="22.0" x2="690" y2="22.0"/><text x="36" y="26.0" text-anchor="end">90%</text><path d="M44.0,81.4 L173.2,48.4 L302.4,68.2 L431.6,88.0 L560.8,114.4 L690.0,140.8 L690.0,220.0 L44.0,220.0 Z" fill="#199e70" opacity=".10"/><path d="M44.0,81.4 L173.2,48.4 L302.4,68.2 L431.6,88.0 L560.8,114.4 L690.0,140.8" fill="none" stroke="#199e70" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/><text x="44.0" y="246" text-anchor="middle">Sep 2025</text><circle class="ring" cx="44.0" cy="81.4" r="5" fill="#199e70"/><circle cx="44.0" cy="81.4" r="16" fill="transparent" data-tip="81%|ChatGPT share of AI referrals, Sep 2025"/><text x="173.2" y="246" text-anchor="middle">Oct 2025</text><circle class="ring" cx="173.2" cy="48.4" r="5" fill="#199e70"/><circle cx="173.2" cy="48.4" r="16" fill="transparent" data-tip="86%|ChatGPT share of AI referrals, Oct 2025"/><text x="302.4" y="246" text-anchor="middle">Nov 2025</text><circle class="ring" cx="302.4" cy="68.2" r="5" fill="#199e70"/><circle cx="302.4" cy="68.2" r="16" fill="transparent" data-tip="83%|ChatGPT share of AI referrals, Nov 2025"/><text x="431.6" y="246" text-anchor="middle">Dec 2025</text><circle class="ring" cx="431.6" cy="88.0" r="5" fill="#199e70"/><circle cx="431.6" cy="88.0" r="16" fill="transparent" data-tip="80%|ChatGPT share of AI referrals, Dec 2025"/><text x="560.8" y="246" text-anchor="middle">Jan 2026</text><circle class="ring" cx="560.8" cy="114.4" r="5" fill="#199e70"/><circle cx="560.8" cy="114.4" r="16" fill="transparent" data-tip="76%|ChatGPT share of AI referrals, Jan 2026"/><text x="690.0" y="246" text-anchor="middle">Feb 2026</text><circle class="ring" cx="690.0" cy="140.8" r="5" fill="#199e70"/><circle cx="690.0" cy="140.8" r="16" fill="transparent" data-tip="72%|ChatGPT share of AI referrals, Feb 2026"/><text class="strong" x="173.2" y="36.4" text-anchor="middle">peak 86%</text><text class="strong" x="702.0" y="144.8">72%</text></svg></div><figcaption class="cap">Source: <a href="#src-13">Octane11, State of B2B AI Search, 25M sessions</a>. Over the same months Gemini went from 4.5% to 13.0% and Claude from 2.1% to 6.2%.</figcaption><details><summary>View as table</summary><table><thead><tr><th>Month</th><th>ChatGPT share of AI referrals</th></tr></thead><tbody><tr><td>Sep 2025</td><td>81%</td></tr><tr><td>Oct 2025</td><td>86%</td></tr><tr><td>Nov 2025</td><td>83%</td></tr><tr><td>Dec 2025</td><td>80%</td></tr><tr><td>Jan 2026</td><td>76%</td></tr><tr><td>Feb 2026</td><td>72%</td></tr></tbody></table></details></figure>
+    <p>Tracked volume is growing fast from that small base. Demandbase measured ChatGPT referral visits to the B2B sites it tracks going from about 645,000 a month in June 2025 to 2.6 million in June 2026, up 303%. Whether those visitors convert better than organic ones is a separate question with its own data, which I covered in <a href="/research/ai-referral-traffic-conversion-vs-organic/">AI referral traffic vs organic search</a>.</p>
+
+    <h2 id="why">5. Why is the tracked number 10 to 100 times smaller?</h2>
+    <p class="capsule">Because most people do not click the link in the chat. Similarweb followed real users in a US desktop panel after ChatGPT recommended a brand: they were 2.5 times more likely to visit that brand's site within seven days, and 55.9% of those visits came through a branded search. Analytics files every one of them under organic or paid brand.</p>
+<figure class="viz"><h3>Where the visit shows up after ChatGPT recommends a brand</h3><p class="sub">More than half of the follow-up visits carry no trace of the assistant that caused them.</p><div class="plot"><svg viewBox="0 0 760 66" role="img" aria-labelledby="alag-branded-split-title alag-branded-split-desc"><title id="alag-branded-split-title">Where the visit shows up after ChatGPT recommends a brand</title><desc id="alag-branded-split-desc">Single bar split in two: 55.9 percent of visits that follow a ChatGPT recommendation arrive through a branded search, 44.1 percent by every other route.</desc><rect x="0" y="10" width="423.8" height="24" rx="4" fill="#199e70" data-tip="55.9%|arrive via a branded search - analytics files them under organic or paid brand"/><rect x="425.8" y="10" width="334.2" height="24" rx="4" fill="#3d4d45" data-tip="44.1%|arrive by any other route, including a click from the chat"/><text class="strong" x="12" y="27" style="fill:#fff">55.9% search the brand name</text><text class="strong" x="437.8" y="27">44.1% every other route</text><text x="0" y="58">Visits to the recommended brand within 7 days of a ChatGPT recommendation</text></svg></div><figcaption class="cap">Source: <a href="#src-17">Similarweb, US desktop panel, July 2025 to January 2026; finance, travel and beauty</a>.</figcaption></figure>
+    <p>The visitors who do arrive that way are not casual. In the same panel they viewed 12.0 pages over 11.8 minutes, against 6.5 pages and 5.6 minutes for everyone else.</p>
+    <p>There are three ways an AI-created lead loses its label, and Radyant's attribution guide names them well. A copied URL or a click from the mobile app carries no referrer and lands as Direct. A buyer who reads the answer and then searches the brand lands as Organic or Paid Brand. And a recommendation with no link at all produces no event of any kind until the person shows up days later from somewhere else.</p>
+    <p>The BrightLocal finding from section 2 belongs here too. If 88% of AI users check the source before acting, then a second touch is the normal path and last-click will credit that second touch. What they find when they check matters as well. I collected the published figures on how often assistants get basic business facts wrong in <a href="/research/ai-wrong-business-information-statistics/">a separate report</a>, and a wrong phone number ends the journey before any attribution model gets a say.</p>
+    <p>Dreamdata's own instance shows the same leak from inside one company: LLM-surfaced content influenced 1.1% of its MQLs over twelve months and 6.2% of new business closed. The influence shows up late in the deal record, long after the session that would have carried the referrer.</p>
+
+    <h2 id="all-studies">6. All 17 figures in one table</h2>
+    <p>Filter by layer to see like with like. Every row links to its source below, with the date I read it.</p>
+    <div class="explorer">
+      <div class="controls">
+        <select id="fLayer" aria-label="Filter by measurement layer">
+          <option value="">All layers</option>
+          <option value="usage">Buyer surveys (usage)</option>
+          <option value="disclosed">Asked or disclosed by the company</option>
+          <option value="tracked">Tracked by analytics</option>
+          <option value="why">Explains the gap</option>
+        </select>
+        <select id="fSeg" aria-label="Filter by segment">
+          <option value="">All segments</option>
+          <option value="b2b">B2B</option>
+          <option value="local">Local / small business</option>
+          <option value="mixed">Mixed / consumer</option>
+        </select>
+      </div>
+      <div class="count" id="exCount"></div>
+      <div class="scroll table-wrap">
+        <table>
+          <thead><tr><th>Study</th><th>What it measures</th><th>Figure</th><th>Sample and segment</th><th>Data from</th><th>Layer</th></tr></thead>
+          <tbody id="exBody">
+            <tr data-layer="usage" data-seg="local"><td><a href="#src-1">BrightLocal LCRS 2026</a></td><td>Used an AI tool for local business recommendations</td><td class="fig">45% (6% a year earlier)</td><td>1,002 US adults</td><td>Early 2026</td><td><span class="tag">Buyer survey</span></td></tr>
+            <tr data-layer="usage" data-seg="b2b"><td><a href="#src-3">G2 Buyer Behavior Report 2026</a></td><td>Start vendor research in an AI chatbot</td><td class="fig">51%</td><td>B2B software buyers</td><td>2026</td><td><span class="tag">Buyer survey</span></td></tr>
+            <tr data-layer="usage" data-seg="b2b"><td><a href="#src-4">Forrester Buyers&#x27; Journey Survey</a></td><td>Use AI somewhere in the buying process</td><td class="fig">94% (89% a year earlier)</td><td>Business buyers</td><td>2025</td><td><span class="tag">Buyer survey</span></td></tr>
+            <tr data-layer="disclosed" data-seg="b2b"><td><a href="#src-5">Outfunnel</a></td><td>Leads naming ChatGPT / AI in a free form field</td><td class="fig">0.75% to 7.29%</td><td>One B2B SaaS, sample not stated</td><td>H1 2024 vs H1 2025</td><td><span class="tag">Asked / disclosed</span></td></tr>
+            <tr data-layer="disclosed" data-seg="b2b"><td><a href="#src-7">Webflow</a></td><td>Share of new signups from AI</td><td class="fig">2% to 8%</td><td>One website builder</td><td>Oct 2024 vs Jun 2025</td><td><span class="tag">Asked / disclosed</span></td></tr>
+            <tr data-layer="disclosed" data-seg="b2b"><td><a href="#src-6">Vercel</a></td><td>New signups referred by ChatGPT</td><td class="fig">under 1% to 4.8% to 10%</td><td>One developer platform</td><td>Sep 2024 to Apr 2025</td><td><span class="tag">Asked / disclosed</span></td></tr>
+            <tr data-layer="disclosed" data-seg="b2b"><td><a href="#src-8">Tally</a></td><td>New signups via ChatGPT</td><td class="fig">25%</td><td>One free form builder</td><td>Apr to May 2025</td><td><span class="tag">Asked / disclosed</span></td></tr>
+            <tr data-layer="disclosed" data-seg="b2b"><td><a href="#src-10">Ahrefs</a></td><td>Share of signups from AI search visitors</td><td class="fig">12.1% of signups from 0.5% of visitors</td><td>One SEO software company</td><td>Jun 2025</td><td><span class="tag">Asked / disclosed</span></td></tr>
+            <tr data-layer="disclosed" data-seg="b2b"><td><a href="#src-9">Cognism Inside Inbound 2026</a></td><td>LLMs as last-touch source for MQLs, year over year</td><td class="fig">+345%; organic traffic -33.6%, direct MQLs +6%</td><td>One B2B data company</td><td>2025</td><td><span class="tag">Asked / disclosed</span></td></tr>
+            <tr data-layer="tracked" data-seg="local"><td><a href="#src-11">CallRail</a></td><td>Inbound calls originating from AI search</td><td class="fig">0.073% (legal 0.175%)</td><td>About 20M leads, small and mid-sized businesses</td><td>Jan 2026</td><td><span class="tag tracked">Tracked</span></td></tr>
+            <tr data-layer="tracked" data-seg="mixed"><td><a href="#src-12">Ahrefs</a></td><td>Average site&#x27;s traffic from AI chatbots</td><td class="fig">0.17%</td><td>3,000 websites</td><td>Feb 2025</td><td><span class="tag tracked">Tracked</span></td></tr>
+            <tr data-layer="tracked" data-seg="b2b"><td><a href="#src-13">Octane11</a></td><td>AI search share of B2B search sessions</td><td class="fig">under 2%</td><td>25M B2B sessions</td><td>Sep 2025 to Mar 2026</td><td><span class="tag tracked">Tracked</span></td></tr>
+            <tr data-layer="tracked" data-seg="b2b"><td><a href="#src-14">HockeyStack Labs</a></td><td>LLM visit to hand-raiser, median account</td><td class="fig">5.24%; pipeline to closed-won median 0%</td><td>118 B2B accounts</td><td>2025</td><td><span class="tag tracked">Tracked</span></td></tr>
+            <tr data-layer="tracked" data-seg="b2b"><td><a href="#src-15">Dreamdata</a></td><td>Deals influenced by LLM-surfaced content</td><td class="fig">1.1% of MQLs, 6.2% of new business closed</td><td>Dreamdata&#x27;s own instance, 12 months</td><td>2025</td><td><span class="tag tracked">Tracked</span></td></tr>
+            <tr data-layer="tracked" data-seg="b2b"><td><a href="#src-16">Demandbase</a></td><td>Monthly ChatGPT referral visits to tracked B2B sites</td><td class="fig">645,000 to 2.6M (+303%)</td><td>B2B properties measured by Demandbase</td><td>Jun 2025 vs Jun 2026</td><td><span class="tag tracked">Tracked</span></td></tr>
+            <tr data-layer="why" data-seg="mixed"><td><a href="#src-17">Similarweb</a></td><td>Visits after a ChatGPT recommendation that arrive via branded search</td><td class="fig">55.9% (2.5x more likely to visit in 7 days)</td><td>US desktop panel; finance, travel, beauty</td><td>Jul 2025 to Jan 2026</td><td><span class="tag">Explains the gap</span></td></tr>
+            <tr data-layer="why" data-seg="local"><td><a href="#src-1">BrightLocal LCRS 2026</a></td><td>AI users who check the sources before acting</td><td class="fig">88%</td><td>455 AI users</td><td>Early 2026</td><td><span class="tag">Explains the gap</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <h2 id="calculator">7. Estimate your own attribution gap</h2>
+    <p>Two ways to size what your analytics is missing. The first uses your own form data if you already ask new leads how they found you. The second applies Similarweb's visit split, which is cruder: it assumes your AI-influenced visitors behave like that panel, where only 44.1% arrived by a route other than branded search. Treat the result as a rough floor and replace it with your own form data as soon as you have a month of it.</p>
+    <div class="explorer calc">
+      <div class="calc-grid">
+        <label>Leads per month (all sources)<input type="number" id="cTotal" min="1" value="120" inputmode="numeric"></label>
+        <label>Leads your analytics tags as AI referral<input type="number" id="cTracked" min="0" value="1" inputmode="numeric"></label>
+        <label>% of "How did you hear about us?" answers naming AI (leave empty if you don't ask)<input type="number" id="cSelf" min="0" max="100" step="0.1" placeholder="e.g. 7.3" inputmode="decimal"></label>
+      </div>
+      <div class="calc-out" id="cOut" aria-live="polite"></div>
+      <p class="bar-note">Benchmarks used: tracked share under 2% (CallRail, Octane11, Ahrefs); asked or disclosed share 7.3% to 25% (Outfunnel, Webflow, Vercel, Tally); 55.9% of post-recommendation visits arrive via branded search (Similarweb). Nothing you type leaves this page.</p>
+    </div>
+
+    <h2 id="untraced">8. Four numbers I could not trace</h2>
+    <p class="capsule">While checking each figure against the publication it is credited to, four of the most repeated ones did not hold as credited. I have left them out of the table and list them here so nobody has to repeat the search.</p>
+    <ul class="plain">
+      <li><strong>"Up to 30% of leads self-report AI discovery" (credited to Radyant's 2026 client data).</strong> It appears in several agency posts with that credit. Radyant's own attribution guide, as I read it on September 21, 2026, does not contain it. The guide uses "20% of your closed-won deals" as a hypothetical example. If there is a primary publication I will add it here.</li>
+      <li><strong>"Forrester: 94% of buyers use AI" linked to the press release.</strong> The figure is real, but the 94% in Forrester's press release of January 21, 2026 is about buyers in groups of six or more reporting benefits from the group. The AI-use 94% is in an analyst blog post published a day later. Many roundups link the wrong page.</li>
+      <li><strong>"CallRail: AI search converts at 14.2% against 2.8% for Google."</strong> The figure is real but belongs to someone else. It comes from Opollo's B2B tech data, which I cite in <a href="/research/ai-referral-traffic-conversion-vs-organic/">my conversion report</a>. It is not in CallRail's press release, its marketing VP's published Q&amp;A, or the Search Engine Journal write-up, yet at least one agency post credits it to the CallRail study.</li>
+      <li><strong>A weekly figure for Tally of 44% of signups from AI assistants.</strong> I found it only in search snippets. The 25% in the table comes from trade coverage quoting the co-founder directly.</li>
+    </ul>
+
+    <h2 id="what-to-do">9. What to do on Monday</h2>
+    <p class="capsule">Add one free-text question to every form and every first call: "How did you first hear about us?" It costs nothing and is the only signal that survives a closed tab. Outfunnel's series exists because they have asked it for years.</p>
+    <ul class="plain">
+      <li><strong>Make it free text, not a dropdown.</strong> People write "chat", "ChatGpt", "asked AI" and "Perplexity then Google". A dropdown with no AI option is how the answer ends up under "Other".</li>
+      <li><strong>Ask about the first touch.</strong> "How did you <em>first</em> hear" and "what made you contact us today" get different answers, and you want the first.</li>
+      <li><strong>Read three signals side by side:</strong> the form field, AI referral sessions in analytics, and branded search impressions in Search Console. A rise in the first and third with a flat second is the pattern the Similarweb data predicts.</li>
+      <li><strong>Treat visibility scores as the leading indicator only.</strong> They move before leads do, and they are noisy. In <a href="/research/ai-visibility-tracking-reliability/">my 60-query reliability test</a>, the same prompt gave a different top brand in about one run out of five.</li>
+      <li><strong>Work on being the recommended name, since the click is rare.</strong> Which pages get cited depends on how the buyer phrases the question. I measured that split in <a href="/research/ai-citations-by-query-shape/">AI citations by question shape</a>.</li>
+    </ul>
+    <p>For a local business the realistic reading is this. Tracked AI leads will stay a rounding error for a while, a growing share of the people calling you consulted an assistant first, and they verified you on Google before dialling. So the work still sits in the things they verify, which is what <a href="/services/small-business-seo/">small business SEO</a> has always covered. If you want to know whether assistants can name you at all, that is one of the checks in an <a href="/services/seo-audit/">SEO audit</a>. The rest of my <a href="/research/">research</a> is on the same theme, and how I work with clients is on the <a href="/services/">services page</a>.</p>
+
+    <h2 id="methodology">10. Methodology</h2>
+    <p>I looked for every published figure that answers some version of "what share of leads, signups, calls or sessions comes from AI assistants", plus the survey figures usually quoted next to them. Searches ran on September 21, 2026 across Google, an academic index (OpenAlex, which returned nothing relevant - this question lives in industry data) and Perplexity, to see which sources assistants already cite for it. I read 31 pages and kept 18 sources.</p>
+    <p>Each figure was checked against the full text of the page it is credited to, not against the article quoting it. A figure is marked <em>verified</em> when the original states it with its method, <em>cross-verified</em> when the original was not retrievable and two independent reports agree (G2, Similarweb), and <em>single-source</em> when it rests on one disclosure (the Vercel and Tally founder posts, Dreamdata's worked example, Demandbase through trade coverage). Of 19 facts, 10 are verified, 4 cross-verified and 5 single-source. Twelve were published in 2026 and seven in 2025. Figures that could not be found at their credited source were dropped and are listed in section 8.</p>
+
+    <h2 id="limitations">11. Limitations</h2>
+    <p class="capsule">The three layers measure different populations as well as different things, so the distance between them is not purely attribution loss. Part of it is that Tally's customers are not CallRail's customers.</p>
+    <p>Four more. Every source in the tracked layer sells attribution, call tracking or SEO software, and there is no government or academic dataset on this question. The disclosed layer is five software companies that chose to publish, so it is biased toward good news and toward technical audiences. Outfunnel does not state its sample size. And the figures span February 2025 to June 2026 in a channel where Demandbase saw monthly volume double in a single month, so the older ones are already low. I will re-check every row quarterly and date the changes.</p>
+
+    <h2 id="faq">12. Frequently asked questions</h2>
+    <div class="faq">
+      <details>
+        <summary>What percentage of leads come from ChatGPT?</summary>
+        <p>It depends on how you count. Tracked by analytics, under 2%: CallRail attributes 0.073% of about 20 million inbound calls to AI search, and Octane11 puts AI search under 2% of 25 million B2B sessions. Asked directly, companies report far more: 7.29% of Outfunnel's leads named ChatGPT or AI in the first half of 2025, and Webflow, Vercel and Tally disclosed 8%, 10% and 25% of new signups.</p>
+      </details>
+      <details>
+        <summary>Why does GA4 show almost no AI traffic when customers say they found us on ChatGPT?</summary>
+        <p>Because most people do not click the link in the chat. In Similarweb's US panel, 55.9% of the visits that followed a ChatGPT recommendation arrived through a branded search, which analytics files under organic or paid brand. Copied URLs and mobile app clicks land as Direct. BrightLocal found 88% of AI users check the source before acting, so a second touch is the normal path.</p>
+      </details>
+      <details>
+        <summary>Which AI assistant sends the most leads?</summary>
+        <p>ChatGPT, by a wide margin, though its share is falling. It accounted for 90.1% of AI-sourced calls in CallRail's January 2026 data, with Perplexity at 6.3%, Gemini 2.4% and Claude 1.2%. In Octane11's B2B sessions ChatGPT's share of AI referrals fell from 86% in October 2025 to 72% in February 2026, while Gemini grew from 4.5% to 13.0%.</p>
+      </details>
+      <details>
+        <summary>How many local customers use AI to pick a business?</summary>
+        <p>45% of US consumers said they had used an AI tool for local business recommendations in BrightLocal's 2026 survey of 1,002 adults, up from 6% a year earlier. Tracked calls tell a smaller story: 0.073% of inbound calls in CallRail's data, highest in legal at 0.175%. The difference is mostly people who asked an assistant and then looked the business up on Google.</p>
+      </details>
+      <details>
+        <summary>Do AI-referred leads close?</summary>
+        <p>Some do, most accounts cannot show it yet. Across 118 B2B accounts HockeyStack found a median 5.24% of LLM visits became hand-raisers and 2.66% of those reached qualified pipeline, but the median for pipeline to closed-won was 0%. Dreamdata's own data shows LLM-surfaced content influencing 1.1% of MQLs and 6.2% of new business closed over twelve months.</p>
+      </details>
+      <details>
+        <summary>How should I measure AI-sourced leads?</summary>
+        <p>Ask. Add a free-text "How did you first hear about us?" to every form and first call, then read it next to AI referral sessions and branded search impressions. Outfunnel's figure of 0.75% rising to 7.29% comes from exactly that field. Cognism saw LLMs grow 345% as a last-touch MQL source while direct MQLs rose 6% and organic traffic fell 33.6%.</p>
+      </details>
+    </div>
+
+    <h2 id="data">13. Get the data</h2>
+    <div class="data-box">
+      <h3>All 19 checked facts, CC BY 4.0</h3>
+      <p>Every figure on this page with its layer, exact wording, source URL, source type, date of the data, verification status, cross-verification URLs and my notes, plus the dropped claims and why they were dropped.</p>
+      <p><a href="/research/ai-lead-attribution-gap/data-studies.json" rel="noopener">data-studies.json</a> - one object per fact, machine readable</p>
+      <p style="margin-bottom:0">Citing this page: link to this URL. If you have a self-reported lead-source series of your own and are willing to share the percentages, <a href="mailto:info@stanislav-peev.com?subject=AI%20lead%20attribution%20-%20our%20numbers">email me</a> and I will add it with credit. That layer needs more than five companies.</p>
+    </div>
+
+    <h3 style="margin-top:40px">Sources</h3>
+    <ol class="sources-list">
+      <li id="src-1" value="1">BrightLocal (Rosie Murphy). "Half of consumers are asking AI for business recommendations" - Local Consumer Review Survey 2026, 1,002 US adults. March 10, 2026. <a href="https://www.brightlocal.com/research/lcrs-ai-trust/" rel="noopener">brightlocal.com/research/lcrs-ai-trust/</a>. Accessed September 21, 2026.</li>
+      <li id="src-3" value="3">Demand Gen Report. "Half of B2B software buyers now start their research with AI chatbots: G2" - G2 2026 Buyer Behavior Report. 2026. Second report: MarketScale, August 19, 2026. <a href="https://www.demandgenreport.com/industry-news/news-brief/half-of-b2b-software-buyers-now-start-their-research-with-ai-chatbots-g2/52737/" rel="noopener">demandgenreport.com/industry-news/news-brief/half-of-b2b-software-buyers-now-start-their-research-with-ai-chatbots-g2/52737/</a>. Accessed September 21, 2026.</li>
+      <li id="src-4" value="4">Forrester (John Buten). "B2B buyers make zero-click buying number one." January 22, 2026. <a href="https://www.forrester.com/blogs/b2b_buyers_make_zero_click_buying_number_one/" rel="noopener">forrester.com/blogs/b2b_buyers_make_zero_click_buying_number_one/</a>. Accessed September 21, 2026.</li>
+      <li id="src-5" value="5">Outfunnel (Andrus Purde). "The rise of AI in B2B discovery: what our latest lead source data reveals." June 17, 2025. <a href="https://outfunnel.com/b2b-lead-sources-the-rise-of-ai/" rel="noopener">outfunnel.com/b2b-lead-sources-the-rise-of-ai/</a>. Accessed September 21, 2026.</li>
+      <li id="src-6" value="6">Guillermo Rauch, CEO of Vercel, on X. "ChatGPT now refers 10% of new Vercel signups." April 2025. Earlier post, March 2025: 4.8%. <a href="https://x.com/rauchg/status/1910093634445422639" rel="noopener">x.com/rauchg/status/1910093634445422639</a>. Accessed September 21, 2026.</li>
+      <li id="src-7" value="7">Webflow blog. "How we're optimizing for AI search at Webflow (and what we've learned so far)." 2025. Cross-check: Graphite case study, "Webflow 2x'd sign-ups from LLMs". <a href="https://webflow.com/blog/inside-aeo-strategy" rel="noopener">webflow.com/blog/inside-aeo-strategy</a>. Accessed September 21, 2026.</li>
+      <li id="src-8" value="8">Foundation Inc (Ethan Crump). "How Tally tapped into GEO to drive 25% of new users" - quoting co-founder Marie Martens. Updated February 3, 2026. <a href="https://foundationinc.co/lab/tally-geo/" rel="noopener">foundationinc.co/lab/tally-geo/</a>. Accessed September 21, 2026.</li>
+      <li id="src-9" value="9">Cognism. "Inside Inbound 2026: the truth about what's driving growth." 2026. <a href="https://www.cognism.com/reports/inside-inbound-2026" rel="noopener">cognism.com/reports/inside-inbound-2026</a>. Accessed September 21, 2026.</li>
+      <li id="src-10" value="10">Ahrefs (Patrick Stox). "Does AI search traffic convert better than traditional search? For Ahrefs, yes: 0.5% of visitors drove 12.1% of signups." June 16, 2025. <a href="https://ahrefs.com/blog/ai-search-traffic-conversions-ahrefs/" rel="noopener">ahrefs.com/blog/ai-search-traffic-conversions-ahrefs/</a>. Accessed September 21, 2026.</li>
+      <li id="src-11" value="11">CallRail. "Analysis of 20M leads reveals how AI search is driving customer discovery." Press release, January 27, 2026. Industry breakdown: citybiz Q&amp;A with Emily Popson, VP of Marketing. <a href="https://www.prnewswire.com/news-releases/analysis-of-20m-leads-reveals-how-ai-search-is-driving-customer-discovery-302671219.html" rel="noopener">prnewswire.com/news-releases/analysis-of-20m-leads-reveals-how-ai-search-is-driving-customer-discovery-302671219.html</a>. Accessed September 21, 2026.</li>
+      <li id="src-12" value="12">Ahrefs (Xibeijia Guan). "63% of websites receive AI traffic (new study of 3,000 sites)." February 6, 2025. <a href="https://ahrefs.com/blog/ai-traffic-study/" rel="noopener">ahrefs.com/blog/ai-traffic-study/</a>. Accessed September 21, 2026.</li>
+      <li id="src-13" value="13">Octane11. "State of B2B AI Search", Vol. 1, Q1 2026 - 25 million sessions, September 2025 to March 2026. April 8, 2026. <a href="https://www.octane11.com/insights/insights-state-of-b2b-ai-search/" rel="noopener">octane11.com/insights/insights-state-of-b2b-ai-search/</a>. Accessed September 21, 2026.</li>
+      <li id="src-14" value="14">HockeyStack Labs (Amulya Vadrevu). "LLM traffic in 2025: early performance, real intent, uneven results" - 118 accounts. <a href="https://www.hockeystack.com/lab-blog-posts/llm-traffic-in-2025-early-performance-real-intent-uneven-results" rel="noopener">hockeystack.com/lab-blog-posts/llm-traffic-in-2025-early-performance-real-intent-uneven-results</a>. Accessed September 21, 2026.</li>
+      <li id="src-15" value="15">Dreamdata. "Tracking LLM influence on pipeline and revenue" - worked example on Dreamdata's own data. <a href="https://dreamdata.io/recipe/tracking-llm-influence-on-pipeline-and-revenue" rel="noopener">dreamdata.io/recipe/tracking-llm-influence-on-pipeline-and-revenue</a>. Accessed September 21, 2026.</li>
+      <li id="src-16" value="16">PPC Land. "ChatGPT referrals to B2B sites gain 303% in a year, Demandbase finds" - Labs by Demandbase release of August 12, 2026. <a href="https://ppc.land/chatgpt-referrals-to-b2b-sites-gain-303-in-a-year-demandbase-finds/" rel="noopener">ppc.land/chatgpt-referrals-to-b2b-sites-gain-303-in-a-year-demandbase-finds/</a>. Accessed September 21, 2026.</li>
+      <li id="src-17" value="17">PPC Land. "Your analytics are lying: Similarweb traces AI recommendations to real traffic" - Similarweb, "The Downstream Impact of AI Visibility", June 21, 2026. Second report: Search Engine Journal. <a href="https://ppc.land/your-analytics-are-lying-similarweb-traces-ai-recommendations-to-real-traffic/" rel="noopener">ppc.land/your-analytics-are-lying-similarweb-traces-ai-recommendations-to-real-traffic/</a>. Accessed September 21, 2026.</li>
+      <li id="src-19" value="19">Radyant. "How to get attribution right in AI search." 2026. <a href="https://www.radyant.io/guides/ai-search-attribution" rel="noopener">radyant.io/guides/ai-search-attribution</a>. Accessed September 21, 2026.</li>
+      <li id="src-20" value="20">r/SEO. "Has anyone traced a real B2B lead back to ChatGPT or Perplexity recommending them?" September 17, 2026. The thread that prompted this report. <a href="https://www.reddit.com/r/SEO/comments/1wixtkm/" rel="noopener">reddit.com/r/SEO/comments/1wixtkm/</a>. Accessed September 21, 2026.</li>
+    </ol>
+
+    <p class="updated">Published: September 21, 2026. Compiled and checked by <a href="/">Stanislav Peev</a>. Next scheduled re-check: December 2026. A figure looks wrong or you know a primary source I missed? <a href="mailto:info@stanislav-peev.com?subject=AI%20lead%20attribution%20-%20correction">Email me</a> and I will fix it and date the fix.</p>
+
+  </div>
+</section>
+
+<section class="contact-band" id="contact" style="padding:56px 0">
+  <div class="wrap contact-cols">
+    <div>
+      <h2>Want to know how many of your leads started in an AI answer?</h2>
+      <p class="section-intro">I set up the three signals from this report on your own data - the form field, AI referral sessions and branded search - and check what ChatGPT, Gemini and Perplexity say when your customers ask for a business like yours. Describe your situation in a few sentences and I'll reply personally with an honest first read. No calls, no meetings.</p>
+      <p><a class="btn btn-primary" href="/services/">See GEO services</a> <a class="btn btn-ghost" href="mailto:info@stanislav-peev.com?subject=AI%20lead%20attribution%20inquiry" style="margin-left:10px">Email me</a></p>
+    </div>
+    <ul class="contact-list">
+      <li><b>Email</b><a class="link" href="mailto:info@stanislav-peev.com">info@stanislav-peev.com</a></li>
+      <li><b>LinkedIn</b><a class="link" href="https://www.linkedin.com/in/stanislav-peev-seo/" rel="noopener">in/stanislav-peev-seo</a></li>
+      <li><b>Based in</b>Bratislava, Slovakia - working worldwide</li>
+    </ul>
+  </div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div>© 2026 Stanislav Peev · SEO Consultant &amp; AI Search (GEO) Specialist, Bratislava, Slovakia</div>
+    <nav class="footer-nav" aria-label="Footer">
+      <a href="/">Home</a>
+      <a href="/#geo">AI / GEO</a>
+      <a href="/services/">Services</a>
+      <a href="/services/seo-audit/">SEO Audit</a>
+      <a href="/services/small-business-seo/">Small Business SEO</a>
+      <a href="/research/">Research</a>
+      <a href="https://www.linkedin.com/in/stanislav-peev-seo/" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" style="width:1em;height:1em;vertical-align:-.15em;margin-right:.35em;fill:currentColor"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29ZM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13ZM7.12 20.45H3.56V9h3.56v11.45ZM22.22 0H1.77C.79 0 0 .77 0 1.72v20.55C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0Z"/></svg>LinkedIn</a>
+      <a href="https://www.youtube.com/@stanislav_peev" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" style="width:1em;height:1em;vertical-align:-.15em;margin-right:.35em;fill:currentColor"><path d="M23.5 6.2a3 3 0 0 0-2.11-2.12C19.5 3.55 12 3.55 12 3.55s-7.5 0-9.39.53A3 3 0 0 0 .5 6.2 31.3 31.3 0 0 0 0 12a31.3 31.3 0 0 0 .5 5.8 3 3 0 0 0 2.11 2.12c1.89.53 9.39.53 9.39.53s7.5 0 9.39-.53A3 3 0 0 0 23.5 17.8 31.3 31.3 0 0 0 24 12a31.3 31.3 0 0 0-.5-5.8ZM9.55 15.57V8.43L15.82 12l-6.27 3.57Z"/></svg>YouTube</a>
+    </nav>
+  </div>
+</footer>
+
+<button class="to-top" id="toTop" aria-label="Back to top" title="Back to top">↑</button>
+<script>
+(function () {
+  var t = document.getElementById('toTop');
+  addEventListener('scroll', function () { t.classList.toggle('show', scrollY > 600); }, { passive: true });
+  t.addEventListener('click', function () { scrollTo({ top: 0, behavior: 'smooth' }); });
+
+  var fL = document.getElementById('fLayer'), fS = document.getElementById('fSeg'), cnt = document.getElementById('exCount');
+  var rows = [].slice.call(document.querySelectorAll('#exBody tr'));
+  function filter() {
+    var n = 0;
+    rows.forEach(function (r) {
+      var ok = (!fL.value || r.getAttribute('data-layer') === fL.value) && (!fS.value || r.getAttribute('data-seg') === fS.value);
+      r.style.display = ok ? '' : 'none'; if (ok) n++;
+    });
+    cnt.textContent = n + ' of ' + rows.length + ' figures';
+  }
+  fL.addEventListener('change', filter); fS.addEventListener('change', filter); filter();
+
+  var cT = document.getElementById('cTotal'), cA = document.getElementById('cTracked'), cS = document.getElementById('cSelf'), out = document.getElementById('cOut');
+  function pct(x) { return (x < 1 ? x.toFixed(2) : x.toFixed(1)) + '%'; }
+  function cell(v, l) { return '<div class="cell"><b>' + v + '</b><span>' + l + '</span></div>'; }
+  function calc() {
+    var total = parseFloat(cT.value), tr = parseFloat(cA.value) || 0, self = parseFloat(cS.value);
+    if (!(total > 0) || tr > total) { out.innerHTML = cell('-', 'Enter your monthly leads'); return; }
+    var h = cell(pct(tr / total * 100), 'tracked AI share. Benchmarks: 0.073% calls, under 2% B2B sessions');
+    if (self >= 0 && self <= 100) {
+      var s = total * self / 100;
+      h += cell(s.toFixed(1), 'leads a month that say AI (' + pct(self) + '). Published range: 7.3% to 25%');
+      h += cell(tr > 0 ? (s / tr).toFixed(1) + 'x' : 'all of them', tr > 0 ? 'self-reported against tracked' : 'are invisible to analytics');
+      h += cell(Math.max(0, s - tr).toFixed(1), 'AI-influenced leads a month credited to another channel');
+    } else {
+      var est = tr / 0.441;
+      h += cell(est.toFixed(1), 'rough floor for AI-influenced leads, if 55.9% arrive via branded search');
+      h += cell((est - tr).toFixed(1), 'of them filed under organic, paid brand or direct');
+      h += cell('?', 'add the form question to replace this estimate with your own number');
+    }
+    out.innerHTML = h;
+  }
+  [cT, cA, cS].forEach(function (e) { e.addEventListener('input', calc); }); calc();
+})();
+
+(function () {
+  var tip = document.createElement('div'); tip.id = 'vizTip';
+  var tv = document.createElement('b'), tl = document.createElement('span');
+  tip.appendChild(tv); tip.appendChild(tl); document.body.appendChild(tip);
+  function show(e) {
+    var el = e.target.closest('[data-tip]'); if (!el) { tip.style.display = 'none'; return; }
+    var p = el.getAttribute('data-tip').split('|');
+    tv.textContent = p[0]; tl.textContent = p[1] || '';
+    tip.style.display = 'block';
+    var x = e.clientX + 14, y = e.clientY + 14, w = tip.offsetWidth, h = tip.offsetHeight;
+    if (x + w > innerWidth - 8) x = e.clientX - w - 14;
+    if (y + h > innerHeight - 8) y = e.clientY - h - 14;
+    tip.style.left = Math.max(8, x) + 'px'; tip.style.top = Math.max(8, y) + 'px';
+  }
+  [].forEach.call(document.querySelectorAll('.viz svg'), function (s) {
+    s.addEventListener('pointermove', show);
+    s.addEventListener('pointerleave', function () { tip.style.display = 'none'; });
+  });
+})();
+</script>
+</body>
+</html>
