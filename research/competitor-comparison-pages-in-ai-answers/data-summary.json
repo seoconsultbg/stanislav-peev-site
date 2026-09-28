@@ -1,0 +1,2209 @@
+{
+ "title": "Do vendors' own comparison pages steer AI verdicts? Experiment data",
+ "url": "https://stanislav-peev.com/research/competitor-comparison-pages-in-ai-answers/",
+ "collected": "2026-09-28",
+ "license": "CC BY 4.0",
+ "author": "Stanislav Peev",
+ "design": {
+  "pairs": 12,
+  "orders": 2,
+  "engines": [
+   "perplexity/sonar",
+   "openai/gpt-4o:online",
+   "google/gemini-2.5-flash:online"
+  ],
+  "repeats": 2,
+  "answers": 144,
+  "prompt": "{X} vs {Y}: which is better for a small business? Give a clear recommendation.",
+  "judge": "google/gemini-2.5-flash, temperature 0, labels A / B / NEUTRAL",
+  "vendor_page": "cited URL on either vendor's own domain (subdomains included)"
+ },
+ "summary": {
+  "answers_citing_a_vendor_page": 109,
+  "citations_total": 1412,
+  "citations_on_vendor_domains": 261,
+  "verdicts": {
+   "A": 74,
+   "NEUTRAL": 48,
+   "B": 22
+  },
+  "side_level": {
+   "page_cited_any": {
+    "self": 68,
+    "rival": 66,
+    "neutral": 41
+   },
+   "only_own_page_cited": {
+    "neutral": 19,
+    "self": 13,
+    "rival": 11
+   },
+   "both_pages_cited": {
+    "self": 55,
+    "rival": 55,
+    "neutral": 22
+   },
+   "no_vendor_page_cited": {
+    "self": 17,
+    "rival": 17,
+    "neutral": 36
+   }
+  }
+ },
+ "per_pair": [
+  {
+   "pair": "Asana vs Monday.com",
+   "A": "Asana",
+   "B": "Monday.com",
+   "answers": 12,
+   "favors_A": 6,
+   "favors_B": 0,
+   "neutral": 6,
+   "A_page_cited": 4,
+   "B_page_cited": 5
+  },
+  {
+   "pair": "ClickUp vs Asana",
+   "A": "ClickUp",
+   "B": "Asana",
+   "answers": 12,
+   "favors_A": 7,
+   "favors_B": 0,
+   "neutral": 5,
+   "A_page_cited": 12,
+   "B_page_cited": 4
+  },
+  {
+   "pair": "Notion vs Confluence",
+   "A": "Notion",
+   "B": "Confluence",
+   "answers": 12,
+   "favors_A": 12,
+   "favors_B": 0,
+   "neutral": 0,
+   "A_page_cited": 6,
+   "B_page_cited": 7
+  },
+  {
+   "pair": "HubSpot vs Salesforce",
+   "A": "HubSpot",
+   "B": "Salesforce",
+   "answers": 12,
+   "favors_A": 11,
+   "favors_B": 0,
+   "neutral": 1,
+   "A_page_cited": 9,
+   "B_page_cited": 10
+  },
+  {
+   "pair": "Pipedrive vs HubSpot",
+   "A": "Pipedrive",
+   "B": "HubSpot",
+   "answers": 12,
+   "favors_A": 7,
+   "favors_B": 0,
+   "neutral": 5,
+   "A_page_cited": 4,
+   "B_page_cited": 10
+  },
+  {
+   "pair": "Mailchimp vs Klaviyo",
+   "A": "Mailchimp",
+   "B": "Klaviyo",
+   "answers": 12,
+   "favors_A": 1,
+   "favors_B": 0,
+   "neutral": 11,
+   "A_page_cited": 7,
+   "B_page_cited": 9
+  },
+  {
+   "pair": "Shopify vs WooCommerce",
+   "A": "Shopify",
+   "B": "WooCommerce",
+   "answers": 12,
+   "favors_A": 8,
+   "favors_B": 0,
+   "neutral": 4,
+   "A_page_cited": 8,
+   "B_page_cited": 11
+  },
+  {
+   "pair": "Webflow vs Wix",
+   "A": "Webflow",
+   "B": "Wix",
+   "answers": 12,
+   "favors_A": 0,
+   "favors_B": 10,
+   "neutral": 2,
+   "A_page_cited": 4,
+   "B_page_cited": 4
+  },
+  {
+   "pair": "Semrush vs Ahrefs",
+   "A": "Semrush",
+   "B": "Ahrefs",
+   "answers": 12,
+   "favors_A": 5,
+   "favors_B": 0,
+   "neutral": 7,
+   "A_page_cited": 5,
+   "B_page_cited": 4
+  },
+  {
+   "pair": "Zendesk vs Freshdesk",
+   "A": "Zendesk",
+   "B": "Freshdesk",
+   "answers": 12,
+   "favors_A": 0,
+   "favors_B": 10,
+   "neutral": 2,
+   "A_page_cited": 10,
+   "B_page_cited": 9
+  },
+  {
+   "pair": "1Password vs Bitwarden",
+   "A": "1Password",
+   "B": "Bitwarden",
+   "answers": 12,
+   "favors_A": 10,
+   "favors_B": 0,
+   "neutral": 2,
+   "A_page_cited": 11,
+   "B_page_cited": 4
+  },
+  {
+   "pair": "QuickBooks vs Xero",
+   "A": "QuickBooks",
+   "B": "Xero",
+   "answers": 12,
+   "favors_A": 7,
+   "favors_B": 2,
+   "neutral": 3,
+   "A_page_cited": 10,
+   "B_page_cited": 8
+  }
+ ],
+ "answers": [
+  {
+   "pair": "Asana vs Monday.com",
+   "order": "as listed",
+   "prompt": "Asana vs Monday.com: which is better for a small business? Give a clear recommendation.",
+   "engine": "perplexity/sonar",
+   "run": 1,
+   "verdict": "Asana",
+   "n_citations": 20,
+   "vendor_urls_A": [
+    "https://asana.com/compare/asana-vs-monday-com"
+   ],
+   "vendor_urls_B": [
+    "https://monday.com/blog/project-management/asana-vs-monday-com-which-to-choose/",
+    "https://monday.com/blog/project-management/clickup-vs-asana-vs-monday-work-management/",
+    "https://monday.com/blog/project-management/asana-vs-basecamp/",
+    "https://monday.com/blog/project-management/notion-vs-asana-vs-monday-work-management/",
+    "https://monday.com/blog/project-management/trello-vs-asana-vs-monday-work-management/"
+   ]
+  },
+  {
+   "pair": "Asana vs Monday.com",
+   "order": "as listed",
+   "prompt": "Asana vs Monday.com: which is better for a small business? Give a clear recommendation.",
+   "engine": "perplexity/sonar",
+   "run": 2,
+   "verdict": "neutral",
+   "n_citations": 20,
+   "vendor_urls_A": [
+    "https://asana.com/compare/asana-vs-monday-com"
+   ],
+   "vendor_urls_B": [
+    "https://monday.com/blog/project-management/asana-vs-monday-com-which-to-choose/",
+    "https://monday.com/blog/project-management/clickup-vs-asana-vs-monday-work-management/",
+    "https://monday.com/blog/project-management/asana-vs-basecamp/",
+    "https://monday.com/blog/project-management/notion-vs-asana-vs-monday-work-management/",
+    "https://monday.com/blog/project-management/trello-vs-asana-vs-monday-work-management/"
+   ]
+  },
+  {
+   "pair": "Asana vs Monday.com",
+   "order": "as listed",
+   "prompt": "Asana vs Monday.com: which is better for a small business? Give a clear recommendation.",
+   "engine": "openai/gpt-4o:online",
+   "run": 1,
+   "verdict": "Asana",
+   "n_citations": 5,
+   "vendor_urls_A": [],
+   "vendor_urls_B": []
+  },
+  {
+   "pair": "Asana vs Monday.com",
+   "order": "as listed",
+   "prompt": "Asana vs Monday.com: which is better for a small business? Give a clear recommendation.",
+   "engine": "openai/gpt-4o:online",
+   "run": 2,
+   "verdict": "neutral",
+   "n_citations": 5,
+   "vendor_urls_A": [],
+   "vendor_urls_B": [
+    "https://monday.com/blog/project-management/asana-vs-monday-com-which-to-choose/"
+   ]
+  },
+  {
+   "pair": "Asana vs Monday.com",
+   "order": "as listed",
+   "prompt": "Asana vs Monday.com: which is better for a small business? Give a clear recommendation.",
+   "engine": "google/gemini-2.5-flash:online",
+   "run": 1,
+   "verdict": "neutral",
+   "n_citations": 5,
+   "vendor_urls_A": [],
+   "vendor_urls_B": []
+  },
+  {
+   "pair": "Asana vs Monday.com",
+   "order": "as listed",
+   "prompt": "Asana vs Monday.com: which is better for a small business? Give a clear recommendation.",
+   "engine": "google/gemini-2.5-flash:online",
+   "run": 2,
+   "verdict": "neutral",
+   "n_citations": 5,
+   "vendor_urls_A": [],
+   "vendor_urls_B": []
+  },
+  {
+   "pair": "Asana vs Monday.com",
+   "order": "reversed",
+   "prompt": "Monday.com vs Asana: which is better for a small business? Give a clear recommendation.",
+   "engine": "perplexity/sonar",
+   "run": 1,
+   "verdict": "Asana",
+   "n_citations": 20,
+   "vendor_urls_A": [
+    "https://asana.com/compare/asana-vs-monday-com"
+   ],
+   "vendor_urls_B": [
+    "https://monday.com/blog/project-management/asana-vs-monday-com-which-to-choose/",
+    "https://monday.com/blog/project-management/clickup-vs-asana-vs-monday-work-management/",
+    "https://monday.com/blog/project-management/asana-vs-basecamp/",
+    "https://monday.com/blog/project-management/trello-vs-asana-vs-monday-work-management/",
+    "https://monday.com/blog/project-management/notion-vs-asana-vs-monday-work-management/"
+   ]
+  },
+  {
+   "pair": "Asana vs Monday.com",
+   "order": "reversed",
+   "prompt": "Monday.com vs Asana: which is better for a small business? Give a clear recommendation.",
+   "engine": "perplexity/sonar",
+   "run": 2,
+   "verdict": "Asana",
+   "n_citations": 20,
+   "vendor_urls_A": [
+    "https://asana.com/compare/asana-vs-monday-com"
+   ],
+   "vendor_urls_B": [
+    "https://monday.com/blog/project-management/asana-vs-monday-com-which-to-choose/",
+    "https://monday.com/blog/project-management/clickup-vs-asana-vs-monday-work-management/",
+    "https://monday.com/blog/project-management/asana-vs-basecamp/",
+    "https://monday.com/blog/project-management/trello-vs-asana-vs-monday-work-management/",
+    "https://monday.com/blog/project-management/notion-vs-asana-vs-monday-work-management/"
+   ]
+  },
+  {
+   "pair": "Asana vs Monday.com",
+   "order": "reversed",
+   "prompt": "Monday.com vs Asana: which is better for a small business? Give a clear recommendation.",
+   "engine": "openai/gpt-4o:online",
+   "run": 1,
+   "verdict": "neutral",
+   "n_citations": 5,
+   "vendor_urls_A": [],
+   "vendor_urls_B": []
+  },
+  {
+   "pair": "Asana vs Monday.com",
+   "order": "reversed",
+   "prompt": "Monday.com vs Asana: which is better for a small business? Give a clear recommendation.",
+   "engine": "openai/gpt-4o:online",
+   "run": 2,
+   "verdict": "neutral",
+   "n_citations": 5,
+   "vendor_urls_A": [],
+   "vendor_urls_B": []
+  },
+  {
+   "pair": "Asana vs Monday.com",
+   "order": "reversed",
+   "prompt": "Monday.com vs Asana: which is better for a small business? Give a clear recommendation.",
+   "engine": "google/gemini-2.5-flash:online",
+   "run": 1,
+   "verdict": "Asana",
+   "n_citations": 5,
+   "vendor_urls_A": [],
+   "vendor_urls_B": []
+  },
+  {
+   "pair": "Asana vs Monday.com",
+   "order": "reversed",
+   "prompt": "Monday.com vs Asana: which is better for a small business? Give a clear recommendation.",
+   "engine": "google/gemini-2.5-flash:online",
+   "run": 2,
+   "verdict": "Asana",
+   "n_citations": 5,
+   "vendor_urls_A": [],
+   "vendor_urls_B": []
+  },
+  {
+   "pair": "ClickUp vs Asana",
+   "order": "as listed",
+   "prompt": "ClickUp vs Asana: which is better for a small business? Give a clear recommendation.",
+   "engine": "perplexity/sonar",
+   "run": 1,
+   "verdict": "ClickUp",
+   "n_citations": 18,
+   "vendor_urls_A": [
+    "https://clickup.com/blog/asana-vs-clickup/",
+    "https://clickup.com/blog/asana-vs-clickup-small-business/",
+    "https://clickup.com/blog/switch-from-asana-to-clickup/",
+    "https://clickup.com/blog/monday-vs-asana-vs-clickup-small-business-pricing/"
+   ],
+   "vendor_urls_B": [
+    "https://asana.com/compare/asana-vs-clickup"
+   ]
+  },
+  {
+   "pair": "ClickUp vs Asana",
+   "order": "as listed",
+   "prompt": "ClickUp vs Asana: which is better for a small business? Give a clear recommendation.",
+   "engine": "perplexity/sonar",
+   "run": 2,
+   "verdict": "ClickUp",
+   "n_citations": 18,
+   "vendor_urls_A": [
+    "https://clickup.com/blog/asana-vs-clickup/",
+    "https://clickup.com/blog/asana-vs-clickup-small-business/",
+    "https://clickup.com/blog/switch-from-asana-to-clickup/",
+    "https://clickup.com/blog/monday-vs-asana-vs-clickup-small-business-pricing/"
+   ],
+   "vendor_urls_B": [
+    "https://asana.com/compare/asana-vs-clickup"
+   ]
+  },
+  {
+   "pair": "ClickUp vs Asana",
+   "order": "as listed",
+   "prompt": "ClickUp vs Asana: which is better for a small business? Give a clear recommendation.",
+   "engine": "openai/gpt-4o:online",
+   "run": 1,
+   "verdict": "neutral",
+   "n_citations": 5,
+   "vendor_urls_A": [
+    "https://clickup.com/blog/asana-vs-clickup-small-business/"
+   ],
+   "vendor_urls_B": []
+  },
+  {
+   "pair": "ClickUp vs Asana",
+   "order": "as listed",
+   "prompt": "ClickUp vs Asana: which is better for a small business? Give a clear recommendation.",
+   "engine": "openai/gpt-4o:online",
+   "run": 2,
+   "verdict": "neutral",
+   "n_citations": 5,
+   "vendor_urls_A": [
+    "https://clickup.com/blog/asana-vs-clickup-small-business/",
+    "https://help.clickup.com/hc/en-us/articles/40976728236951-ClickUp-vs-Asana-Features-pricing-and-use-cases"
+   ],
+   "vendor_urls_B": []
+  },
+  {
+   "pair": "ClickUp vs Asana",
+   "order": "as listed",
+   "prompt": "ClickUp vs Asana: which is better for a small business? Give a clear recommendation.",
+   "engine": "google/gemini-2.5-flash:online",
+   "run": 1,
+   "verdict": "ClickUp",
+   "n_citations": 5,
+   "vendor_urls_A": [
+    "https://clickup.com/blog/asana-vs-clickup-small-business/",
+    "https://help.clickup.com/hc/en-us/articles/40976728236951-ClickUp-vs-Asana-Features-pricing-and-use-cases"
+   ],
+   "vendor_urls_B": []
+  },
+  {
+   "pair": "ClickUp vs Asana",
+   "order": "as listed",
+   "prompt": "ClickUp vs Asana: which is better for a small business? Give a clear recommendation.",
+   "engine": "google/gemini-2.5-flash:online",
+   "run": 2,
+   "verdict": "ClickUp",
+   "n_citations": 5,
+   "vendor_urls_A": [
+    "https://clickup.com/blog/asana-vs-clickup-small-business/",
+    "https://help.clickup.com/hc/en-us/articles/40976728236951-ClickUp-vs-Asana-Features-pricing-and-use-cases"
+   ],
+   "vendor_urls_B": []
+  },
+  {
+   "pair": "ClickUp vs Asana",
+   "order": "reversed",
+   "prompt": "Asana vs ClickUp: which is better for a small business? Give a clear recommendation.",
+   "engine": "perplexity/sonar",
+   "run": 1,
+   "verdict": "ClickUp",
+   "n_citations": 19,
+   "vendor_urls_A": [
+    "https://clickup.com/blog/asana-vs-clickup/",
+    "https://clickup.com/blog/asana-vs-clickup-small-business/",
+    "https://clickup.com/blog/switch-from-asana-to-clickup/",
+    "https://clickup.com/blog/monday-vs-asana-vs-clickup-small-business-pricing/"
+   ],
+   "vendor_urls_B": [
+    "https://asana.com/compare/asana-vs-clickup"
+   ]
+  },
+  {
+   "pair": "ClickUp vs Asana",
+   "order": "reversed",
+   "prompt": "Asana vs ClickUp: which is better for a small business? Give a clear recommendation.",
+   "engine": "perplexity/sonar",
+   "run": 2,
+   "verdict": "ClickUp",
+   "n_citations": 19,
+   "vendor_urls_A": [
+    "https://clickup.com/blog/asana-vs-clickup/",
+    "https://clickup.com/blog/asana-vs-clickup-small-business/",
+    "https://clickup.com/blog/switch-from-asana-to-clickup/",
+    "https://clickup.com/blog/monday-vs-asana-vs-clickup-small-business-pricing/"
+   ],
+   "vendor_urls_B": [
+    "https://asana.com/compare/asana-vs-clickup"
+   ]
+  },
+  {
+   "pair": "ClickUp vs Asana",
+   "order": "reversed",
+   "prompt": "Asana vs ClickUp: which is better for a small business? Give a clear recommendation.",
+   "engine": "openai/gpt-4o:online",
+   "run": 1,
+   "verdict": "neutral",
+   "n_citations": 5,
+   "vendor_urls_A": [
+    "https://clickup.com/blog/asana-vs-clickup-small-business/"
+   ],
+   "vendor_urls_B": []
+  },
+  {
+   "pair": "ClickUp vs Asana",
+   "order": "reversed",
+   "prompt": "Asana vs ClickUp: which is better for a small business? Give a clear recommendation.",
+   "engine": "openai/gpt-4o:online",
+   "run": 2,
+   "verdict": "neutral",
+   "n_citations": 5,
+   "vendor_urls_A": [
+    "https://clickup.com/blog/asana-vs-clickup-small-business/"
+   ],
+   "vendor_urls_B": []
+  },
+  {
+   "pair": "ClickUp vs Asana",
+   "order": "reversed",
+   "prompt": "Asana vs ClickUp: which is better for a small business? Give a clear recommendation.",
+   "engine": "google/gemini-2.5-flash:online",
+   "run": 1,
+   "verdict": "ClickUp",
+   "n_citations": 5,
+   "vendor_urls_A": [
+    "https://clickup.com/blog/asana-vs-clickup-small-business/"
+   ],
+   "vendor_urls_B": []
+  },
+  {
+   "pair": "ClickUp vs Asana",
+   "order": "reversed",
+   "prompt": "Asana vs ClickUp: which is better for a small business? Give a clear recommendation.",
+   "engine": "google/gemini-2.5-flash:online",
+   "run": 2,
+   "verdict": "neutral",
+   "n_citations": 5,
+   "vendor_urls_A": [
+    "https://clickup.com/blog/asana-vs-clickup-small-business/",
+    "https://help.clickup.com/hc/en-us/articles/40976728236951-ClickUp-vs-Asana-Features-pricing-and-use-cases"
+   ],
+   "vendor_urls_B": []
+  },
+  {
+   "pair": "Notion vs Confluence",
+   "order": "as listed",
+   "prompt": "Notion vs Confluence: which is better for a small business? Give a clear recommendation.",
+   "engine": "perplexity/sonar",
+   "run": 1,
+   "verdict": "Notion",
+   "n_citations": 20,
+   "vendor_urls_A": [
+    "https://www.notion.com/compare-against/confluence"
+   ],
+   "vendor_urls_B": [
+    "https://www.atlassian.com/blog/confluence/v-notion",
+    "https://www.atlassian.com/software/confluence/comparison/confluence-vs-notion"
+   ]
+  },
+  {
+   "pair": "Notion vs Confluence",
+   "order": "as listed",
+   "prompt": "Notion vs Confluence: which is better for a small business? Give a clear recommendation.",
+   "engine": "perplexity/sonar",
+   "run": 2,
+   "verdict": "Notion",
+   "n_citations": 20,
+   "vendor_urls_A": [
+    "https://www.notion.com/compare-against/confluence"
+   ],
+   "vendor_urls_B": [
+    "https://www.atlassian.com/blog/confluence/v-notion",
+    "https://www.atlassian.com/software/confluence/comparison/confluence-vs-notion"
+   ]
+  },
+  {
+   "pair": "Notion vs Confluence",
+   "order": "as listed",
+   "prompt": "Notion vs Confluence: which is better for a small business? Give a clear recommendation.",
+   "engine": "openai/gpt-4o:online",
+   "run": 1,
+   "verdict": "Notion",
+   "n_citations": 5,
+   "vendor_urls_A": [
+    "https://www.notion.com/compare-against/confluence"
+   ],
+   "vendor_urls_B": [
+    "https://www.atlassian.com/blog/confluence/v-notion",
+    "https://www.atlassian.com/software/confluence/comparison/confluence-vs-notion"
+   ]
+  },
+  {
+   "pair": "Notion vs Confluence",
+   "order": "as listed",
+   "prompt": "Notion vs Confluence: which is better for a small business? Give a clear recommendation.",
+   "engine": "openai/gpt-4o:online",
+   "run": 2,
+   "verdict": "Notion",
+   "n_citations": 5,
+   "vendor_urls_A": [],
+   "vendor_urls_B": [
+    "https://www.atlassian.com/blog/confluence/v-notion",
+    "https://www.atlassian.com/software/confluence/comparison/confluence-vs-notion"
+   ]
+  },
+  {
+   "pair": "Notion vs Confluence",
+   "order": "as listed",
+   "prompt": "Notion vs Confluence: which is better for a small business? Give a clear recommendation.",
+   "engine": "google/gemini-2.5-flash:online",
+   "run": 1,
+   "verdict": "Notion",
+   "n_citations": 5,
+   "vendor_urls_A": [],
+   "vendor_urls_B": []
+  },
+  {
+   "pair": "Notion vs Confluence",
+   "order": "as listed",
+   "prompt": "Notion vs Confluence: which is better for a small business? Give a clear recommendation.",
+   "engine": "google/gemini-2.5-flash:online",
+   "run": 2,
+   "verdict": "Notion",
+   "n_citations": 5,
+   "vendor_urls_A": [
+    "https://www.notion.com/compare-against/confluence"
+   ],
+   "vendor_urls_B": [
+    "https://www.atlassian.com/software/confluence/comparison/confluence-vs-notion"
+   ]
+  },
+  {
+   "pair": "Notion vs Confluence",
+   "order": "reversed",
+   "prompt": "Confluence vs Notion: which is better for a small business? Give a clear recommendation.",
+   "engine": "perplexity/sonar",
+   "run": 1,
+   "verdict": "Notion",
+   "n_citations": 20,
+   "vendor_urls_A": [
+    "https://www.notion.com/compare-against/confluence"
+   ],
+   "vendor_urls_B": [
+    "https://www.atlassian.com/blog/confluence/v-notion",
+    "https://www.atlassian.com/software/confluence/comparison/confluence-vs-notion"
+   ]
+  },
+  {
+   "pair": "Notion vs Confluence",
+   "order": "reversed",
+   "prompt": "Confluence vs Notion: which is better for a small business? Give a clear recommendation.",
+   "engine": "perplexity/sonar",
+   "run": 2,
+   "verdict": "Notion",
+   "n_citations": 20,
+   "vendor_urls_A": [
+    "https://www.notion.com/compare-against/confluence"
+   ],
+   "vendor_urls_B": [
+    "https://www.atlassian.com/blog/confluence/v-notion",
+    "https://www.atlassian.com/software/confluence/comparison/confluence-vs-notion"
+   ]
+  },
+  {
+   "pair": "Notion vs Confluence",
+   "order": "reversed",
+   "prompt": "Confluence vs Notion: which is better for a small business? Give a clear recommendation.",
+   "engine": "openai/gpt-4o:online",
+   "run": 1,
+   "verdict": "Notion",
+   "n_citations": 5,
+   "vendor_urls_A": [],
+   "vendor_urls_B": []
+  },
+  {
+   "pair": "Notion vs Confluence",
+   "order": "reversed",
+   "prompt": "Confluence vs Notion: which is better for a small business? Give a clear recommendation.",
+   "engine": "openai/gpt-4o:online",
+   "run": 2,
+   "verdict": "Notion",
+   "n_citations": 5,
+   "vendor_urls_A": [],
+   "vendor_urls_B": []
+  },
+  {
+   "pair": "Notion vs Confluence",
+   "order": "reversed",
+   "prompt": "Confluence vs Notion: which is better for a small business? Give a clear recommendation.",
+   "engine": "google/gemini-2.5-flash:online",
+   "run": 1,
+   "verdict": "Notion",
+   "n_citations": 5,
+   "vendor_urls_A": [],
+   "vendor_urls_B": []
+  },
+  {
+   "pair": "Notion vs Confluence",
+   "order": "reversed",
+   "prompt": "Confluence vs Notion: which is better for a small business? Give a clear recommendation.",
+   "engine": "google/gemini-2.5-flash:online",
+   "run": 2,
+   "verdict": "Notion",
+   "n_citations": 5,
+   "vendor_urls_A": [],
+   "vendor_urls_B": []
+  },
+  {
+   "pair": "HubSpot vs Salesforce",
+   "order": "as listed",
+   "prompt": "HubSpot vs Salesforce: which is better for a small business? Give a clear recommendation.",
+   "engine": "perplexity/sonar",
+   "run": 1,
+   "verdict": "HubSpot",
+   "n_citations": 20,
+   "vendor_urls_A": [
+    "https://www.hubspot.com/comparisons/salesforce-vs-hubspot"
+   ],
+   "vendor_urls_B": [
+    "https://www.salesforce.com/compare/salesforce-vs-hubspot/"
+   ]
+  },
+  {
+   "pair": "HubSpot vs Salesforce",
+   "order": "as listed",
+   "prompt": "HubSpot vs Salesforce: which is better for a small business? Give a clear recommendation.",
+   "engine": "perplexity/sonar",
+   "run": 2,
+   "verdict": "HubSpot",
+   "n_citations": 20,
+   "vendor_urls_A": [
+    "https://www.hubspot.com/comparisons/salesforce-vs-hubspot"
+   ],
+   "vendor_urls_B": [
+    "https://www.salesforce.com/compare/salesforce-vs-hubspot/"
+   ]
+  },
+  {
+   "pair": "HubSpot vs Salesforce",
+   "order": "as listed",
+   "prompt": "HubSpot vs Salesforce: which is better for a small business? Give a clear recommendation.",
+   "engine": "openai/gpt-4o:online",
+   "run": 1,
+   "verdict": "HubSpot",
+   "n_citations": 5,
+   "vendor_urls_A": [],
+   "vendor_urls_B": [
+    "https://www.salesforce.com/compare/salesforce-vs-hubspot/"
+   ]
+  },
+  {
+   "pair": "HubSpot vs Salesforce",
+   "order": "as listed",
+   "prompt": "HubSpot vs Salesforce: which is better for a small business? Give a clear recommendation.",
+   "engine": "openai/gpt-4o:online",
+   "run": 2,
+   "verdict": "HubSpot",
+   "n_citations": 5,
+   "vendor_urls_A": [
+    "https://www.hubspot.com/comparisons/salesforce-vs-hubspot"
+   ],
+   "vendor_urls_B": [
+    "https://www.salesforce.com/compare/salesforce-vs-hubspot/"
+   ]
+  },
+  {
+   "pair": "HubSpot vs Salesforce",
+   "order": "as listed",
+   "prompt": "HubSpot vs Salesforce: which is better for a small business? Give a clear recommendation.",
+   "engine": "google/gemini-2.5-flash:online",
+   "run": 1,
+   "verdict": "HubSpot",
+   "n_citations": 5,
+   "vendor_urls_A": [
+    "https://www.hubspot.com/comparisons/salesforce-vs-hubspot"
+   ],
+   "vendor_urls_B": [
+    "https://www.salesforce.com/compare/salesforce-vs-hubspot/"
+   ]
+  },
+  {
+   "pair": "HubSpot vs Salesforce",
+   "order": "as listed",
+   "prompt": "HubSpot vs Salesforce: which is better for a small business? Give a clear recommendation.",
+   "engine": "google/gemini-2.5-flash:online",
+   "run": 2,
+   "verdict": "HubSpot",
+   "n_citations": 5,
+   "vendor_urls_A": [
+    "https://www.hubspot.com/comparisons/salesforce-vs-hubspot"
+   ],
+   "vendor_urls_B": [
+    "https://www.salesforce.com/compare/salesforce-vs-hubspot/"
+   ]
+  },
+  {
+   "pair": "HubSpot vs Salesforce",
+   "order": "reversed",
+   "prompt": "Salesforce vs HubSpot: which is better for a small business? Give a clear recommendation.",
+   "engine": "perplexity/sonar",
+   "run": 1,
+   "verdict": "HubSpot",
+   "n_citations": 20,
+   "vendor_urls_A": [
+    "https://www.hubspot.com/comparisons/salesforce-vs-hubspot"
+   ],
+   "vendor_urls_B": [
+    "https://www.salesforce.com/compare/salesforce-vs-hubspot/"
+   ]
+  },
+  {
+   "pair": "HubSpot vs Salesforce",
+   "order": "reversed",
+   "prompt": "Salesforce vs HubSpot: which is better for a small business? Give a clear recommendation.",
+   "engine": "perplexity/sonar",
+   "run": 2,
+   "verdict": "HubSpot",
+   "n_citations": 20,
+   "vendor_urls_A": [
+    "https://www.hubspot.com/comparisons/salesforce-vs-hubspot"
+   ],
+   "vendor_urls_B": [
+    "https://www.salesforce.com/compare/salesforce-vs-hubspot/"
+   ]
+  },
+  {
+   "pair": "HubSpot vs Salesforce",
+   "order": "reversed",
+   "prompt": "Salesforce vs HubSpot: which is better for a small business? Give a clear recommendation.",
+   "engine": "openai/gpt-4o:online",
+   "run": 1,
+   "verdict": "neutral",
+   "n_citations": 5,
+   "vendor_urls_A": [
+    "https://www.hubspot.com/comparisons/salesforce-vs-hubspot"
+   ],
+   "vendor_urls_B": [
+    "https://www.salesforce.com/compare/salesforce-vs-hubspot/"
+   ]
+  },
+  {
+   "pair": "HubSpot vs Salesforce",
+   "order": "reversed",
+   "prompt": "Salesforce vs HubSpot: which is better for a small business? Give a clear recommendation.",
+   "engine": "openai/gpt-4o:online",
+   "run": 2,
+   "verdict": "HubSpot",
+   "n_citations": 5,
+   "vendor_urls_A": [
+    "https://www.hubspot.com/comparisons/salesforce-vs-hubspot"
+   ],
+   "vendor_urls_B": [
+    "https://www.salesforce.com/compare/salesforce-vs-hubspot/"
+   ]
+  },
+  {
+   "pair": "HubSpot vs Salesforce",
+   "order": "reversed",
+   "prompt": "Salesforce vs HubSpot: which is better for a small business? Give a clear recommendation.",
+   "engine": "google/gemini-2.5-flash:online",
+   "run": 1,
+   "verdict": "HubSpot",
+   "n_citations": 5,
+   "vendor_urls_A": [],
+   "vendor_urls_B": []
+  },
+  {
+   "pair": "HubSpot vs Salesforce",
+   "order": "reversed",
+   "prompt": "Salesforce vs HubSpot: which is better for a small business? Give a clear recommendation.",
+   "engine": "google/gemini-2.5-flash:online",
+   "run": 2,
+   "verdict": "HubSpot",
+   "n_citations": 5,
+   "vendor_urls_A": [],
+   "vendor_urls_B": []
+  },
+  {
+   "pair": "Pipedrive vs HubSpot",
+   "order": "as listed",
+   "prompt": "Pipedrive vs HubSpot: which is better for a small business? Give a clear recommendation.",
+   "engine": "perplexity/sonar",
+   "run": 1,
+   "verdict": "Pipedrive",
+   "n_citations": 17,
+   "vendor_urls_A": [
+    "https://www.pipedrive.com/en/crm-comparison/pipedrive-vs-hubspot",
+    "https://www.pipedrive.com/en/blog/hubspot-vs-salesforce-vs-pipedrive"
+   ],
+   "vendor_urls_B": [
+    "https://www.hubspot.com/comparisons/pipedrive-vs-hubspot"
+   ]
+  },
+  {
+   "pair": "Pipedrive vs HubSpot",
+   "order": "as listed",
+   "prompt": "Pipedrive vs HubSpot: which is better for a small business? Give a clear recommendation.",
+   "engine": "perplexity/sonar",
+   "run": 2,
+   "verdict": "Pipedrive",
+   "n_citations": 17,
+   "vendor_urls_A": [
+    "https://www.pipedrive.com/en/crm-comparison/pipedrive-vs-hubspot",
+    "https://www.pipedrive.com/en/blog/hubspot-vs-salesforce-vs-pipedrive"
+   ],
+   "vendor_urls_B": [
+    "https://www.hubspot.com/comparisons/pipedrive-vs-hubspot"
+   ]
+  },
+  {
+   "pair": "Pipedrive vs HubSpot",
+   "order": "as listed",
+   "prompt": "Pipedrive vs HubSpot: which is better for a small business? Give a clear recommendation.",
+   "engine": "openai/gpt-4o:online",
+   "run": 1,
+   "verdict": "Pipedrive",
+   "n_citations": 5,
+   "vendor_urls_A": [],
+   "vendor_urls_B": [
+    "https://www.hubspot.com/comparisons/pipedrive-vs-hubspot"
+   ]
+  },
+  {
+   "pair": "Pipedrive vs HubSpot",
+   "order": "as listed",
+   "prompt": "Pipedrive vs HubSpot: which is better for a small business? Give a clear recommendation.",
+   "engine": "openai/gpt-4o:online",
+   "run": 2,
+   "verdict": "neutral",
+   "n_citations": 5,
+   "vendor_urls_A": [],
+   "vendor_urls_B": [
+    "https://www.hubspot.com/comparisons/pipedrive-vs-hubspot"
+   ]
+  },
+  {
+   "pair": "Pipedrive vs HubSpot",
+   "order": "as listed",
+   "prompt": "Pipedrive vs HubSpot: which is better for a small business? Give a clear recommendation.",
+   "engine": "google/gemini-2.5-flash:online",
+   "run": 1,
+   "verdict": "Pipedrive",
+   "n_citations": 5,
+   "vendor_urls_A": [],
+   "vendor_urls_B": [
+    "https://www.hubspot.com/comparisons/pipedrive-vs-hubspot"
+   ]
+  },
+  {
+   "pair": "Pipedrive vs HubSpot",
+   "order": "as listed",
+   "prompt": "Pipedrive vs HubSpot: which is better for a small business? Give a clear recommendation.",
+   "engine": "google/gemini-2.5-flash:online",
+   "run": 2,
+   "verdict": "neutral",
+   "n_citations": 5,
+   "vendor_urls_A": [],
+   "vendor_urls_B": [
+    "https://www.hubspot.com/comparisons/pipedrive-vs-hubspot"
+   ]
+  },
+  {
+   "pair": "Pipedrive vs HubSpot",
+   "order": "reversed",
+   "prompt": "HubSpot vs Pipedrive: which is better for a small business? Give a clear recommendation.",
+   "engine": "perplexity/sonar",
+   "run": 1,
+   "verdict": "Pipedrive",
+   "n_citations": 16,
+   "vendor_urls_A": [
+    "https://www.pipedrive.com/en/crm-comparison/pipedrive-vs-hubspot",
+    "https://www.pipedrive.com/en/blog/hubspot-vs-salesforce-vs-pipedrive"
+   ],
+   "vendor_urls_B": [
+    "https://www.hubspot.com/comparisons/pipedrive-vs-hubspot"
+   ]
+  },
+  {
+   "pair": "Pipedrive vs HubSpot",
+   "order": "reversed",
+   "prompt": "HubSpot vs Pipedrive: which is better for a small business? Give a clear recommendation.",
+   "engine": "perplexity/sonar",
+   "run": 2,
+   "verdict": "Pipedrive",
+   "n_citations": 16,
+   "vendor_urls_A": [
+    "https://www.pipedrive.com/en/crm-comparison/pipedrive-vs-hubspot",
+    "https://www.pipedrive.com/en/blog/hubspot-vs-salesforce-vs-pipedrive"
+   ],
+   "vendor_urls_B": [
+    "https://www.hubspot.com/comparisons/pipedrive-vs-hubspot"
+   ]
+  },
+  {
+   "pair": "Pipedrive vs HubSpot",
+   "order": "reversed",
+   "prompt": "HubSpot vs Pipedrive: which is better for a small business? Give a clear recommendation.",
+   "engine": "openai/gpt-4o:online",
+   "run": 1,
+   "verdict": "neutral",
+   "n_citations": 5,
+   "vendor_urls_A": [],
+   "vendor_urls_B": []
+  },
+  {
+   "pair": "Pipedrive vs HubSpot",
+   "order": "reversed",
+   "prompt": "HubSpot vs Pipedrive: which is better for a small business? Give a clear recommendation.",
+   "engine": "openai/gpt-4o:online",
+   "run": 2,
+   "verdict": "Pipedrive",
+   "n_citations": 5,
+   "vendor_urls_A": [],
+   "vendor_urls_B": [
+    "https://www.hubspot.com/comparisons/pipedrive-vs-hubspot"
+   ]
+  },
+  {
+   "pair": "Pipedrive vs HubSpot",
+   "order": "reversed",
+   "prompt": "HubSpot vs Pipedrive: which is better for a small business? Give a clear recommendation.",
+   "engine": "google/gemini-2.5-flash:online",
+   "run": 1,
+   "verdict": "neutral",
+   "n_citations": 5,
+   "vendor_urls_A": [],
+   "vendor_urls_B": [
+    "https://www.hubspot.com/comparisons/pipedrive-vs-hubspot"
+   ]
+  },
+  {
+   "pair": "Pipedrive vs HubSpot",
+   "order": "reversed",
+   "prompt": "HubSpot vs Pipedrive: which is better for a small business? Give a clear recommendation.",
+   "engine": "google/gemini-2.5-flash:online",
+   "run": 2,
+   "verdict": "neutral",
+   "n_citations": 5,
+   "vendor_urls_A": [],
+   "vendor_urls_B": []
+  },
+  {
+   "pair": "Mailchimp vs Klaviyo",
+   "order": "as listed",
+   "prompt": "Mailchimp vs Klaviyo: which is better for a small business? Give a clear recommendation.",
+   "engine": "perplexity/sonar",
+   "run": 1,
+   "verdict": "neutral",
+   "n_citations": 20,
+   "vendor_urls_A": [
+    "https://mailchimp.com/resources/mailchimp-vs-klaviyo/",
+    "https://mailchimp.com/resources/mailchimp-comparisons/"
+   ],
+   "vendor_urls_B": [
+    "https://www.klaviyo.com/compare/klaviyo-vs-mailchimp"
+   ]
+  },
+  {
+   "pair": "Mailchimp vs Klaviyo",
+   "order": "as listed",
+   "prompt": "Mailchimp vs Klaviyo: which is better for a small business? Give a clear recommendation.",
+   "engine": "perplexity/sonar",
+   "run": 2,
+   "verdict": "neutral",
+   "n_citations": 20,
+   "vendor_urls_A": [
+    "https://mailchimp.com/resources/mailchimp-vs-klaviyo/",
+    "https://mailchimp.com/resources/mailchimp-comparisons/"
+   ],
+   "vendor_urls_B": [
+    "https://www.klaviyo.com/compare/klaviyo-vs-mailchimp"
+   ]
+  },
+  {
+   "pair": "Mailchimp vs Klaviyo",
+   "order": "as listed",
+   "prompt": "Mailchimp vs Klaviyo: which is better for a small business? Give a clear recommendation.",
+   "engine": "openai/gpt-4o:online",
+   "run": 1,
+   "verdict": "neutral",
+   "n_citations": 5,
+   "vendor_urls_A": [],
+   "vendor_urls_B": []
+  },
+  {
+   "pair": "Mailchimp vs Klaviyo",
+   "order": "as listed",
+   "prompt": "Mailchimp vs Klaviyo: which is better for a small business? Give a clear recommendation.",
+   "engine": "openai/gpt-4o:online",
+   "run": 2,
+   "verdict": "neutral",
+   "n_citations": 5,
+   "vendor_urls_A": [
+    "https://mailchimp.com/resources/mailchimp-vs-klaviyo/"
+   ],
+   "vendor_urls_B": [
+    "https://www.klaviyo.com/compare/klaviyo-vs-mailchimp"
+   ]
+  },
+  {
+   "pair": "Mailchimp vs Klaviyo",
+   "order": "as listed",
+   "prompt": "Mailchimp vs Klaviyo: which is better for a small business? Give a clear recommendation.",
+   "engine": "google/gemini-2.5-flash:online",
+   "run": 1,
+   "verdict": "neutral",
+   "n_citations": 5,
+   "vendor_urls_A": [
+    "https://mailchimp.com/resources/mailchimp-vs-klaviyo/"
+   ],
+   "vendor_urls_B": [
+    "https://www.klaviyo.com/compare/klaviyo-vs-mailchimp"
+   ]
+  },
+  {
+   "pair": "Mailchimp vs Klaviyo",
+   "order": "as listed",
+   "prompt": "Mailchimp vs Klaviyo: which is better for a small business? Give a clear recommendation.",
+   "engine": "google/gemini-2.5-flash:online",
+   "run": 2,
+   "verdict": "neutral",
+   "n_citations": 5,
+   "vendor_urls_A": [
+    "https://mailchimp.com/resources/mailchimp-vs-klaviyo/"
+   ],
+   "vendor_urls_B": [
+    "https://www.klaviyo.com/compare/klaviyo-vs-mailchimp"
+   ]
+  },
+  {
+   "pair": "Mailchimp vs Klaviyo",
+   "order": "reversed",
+   "prompt": "Klaviyo vs Mailchimp: which is better for a small business? Give a clear recommendation.",
+   "engine": "perplexity/sonar",
+   "run": 1,
+   "verdict": "Mailchimp",
+   "n_citations": 19,
+   "vendor_urls_A": [
+    "https://mailchimp.com/resources/mailchimp-vs-klaviyo/",
+    "https://mailchimp.com/resources/mailchimp-comparisons/"
+   ],
+   "vendor_urls_B": [
+    "https://www.klaviyo.com/compare/klaviyo-vs-mailchimp"
+   ]
+  },
+  {
+   "pair": "Mailchimp vs Klaviyo",
+   "order": "reversed",
+   "prompt": "Klaviyo vs Mailchimp: which is better for a small business? Give a clear recommendation.",
+   "engine": "perplexity/sonar",
+   "run": 2,
+   "verdict": "neutral",
+   "n_citations": 19,
+   "vendor_urls_A": [
+    "https://mailchimp.com/resources/mailchimp-vs-klaviyo/",
+    "https://mailchimp.com/resources/mailchimp-comparisons/"
+   ],
+   "vendor_urls_B": [
+    "https://www.klaviyo.com/compare/klaviyo-vs-mailchimp"
+   ]
+  },
+  {
+   "pair": "Mailchimp vs Klaviyo",
+   "order": "reversed",
+   "prompt": "Klaviyo vs Mailchimp: which is better for a small business? Give a clear recommendation.",
+   "engine": "openai/gpt-4o:online",
+   "run": 1,
+   "verdict": "neutral",
+   "n_citations": 5,
+   "vendor_urls_A": [],
+   "vendor_urls_B": []
+  },
+  {
+   "pair": "Mailchimp vs Klaviyo",
+   "order": "reversed",
+   "prompt": "Klaviyo vs Mailchimp: which is better for a small business? Give a clear recommendation.",
+   "engine": "openai/gpt-4o:online",
+   "run": 2,
+   "verdict": "neutral",
+   "n_citations": 5,
+   "vendor_urls_A": [],
+   "vendor_urls_B": [
+    "https://www.klaviyo.com/compare/klaviyo-vs-mailchimp"
+   ]
+  },
+  {
+   "pair": "Mailchimp vs Klaviyo",
+   "order": "reversed",
+   "prompt": "Klaviyo vs Mailchimp: which is better for a small business? Give a clear recommendation.",
+   "engine": "google/gemini-2.5-flash:online",
+   "run": 1,
+   "verdict": "neutral",
+   "n_citations": 5,
+   "vendor_urls_A": [],
+   "vendor_urls_B": []
+  },
+  {
+   "pair": "Mailchimp vs Klaviyo",
+   "order": "reversed",
+   "prompt": "Klaviyo vs Mailchimp: which is better for a small business? Give a clear recommendation.",
+   "engine": "google/gemini-2.5-flash:online",
+   "run": 2,
+   "verdict": "neutral",
+   "n_citations": 5,
+   "vendor_urls_A": [],
+   "vendor_urls_B": [
+    "https://www.klaviyo.com/compare/klaviyo-vs-mailchimp"
+   ]
+  },
+  {
+   "pair": "Shopify vs WooCommerce",
+   "order": "as listed",
+   "prompt": "Shopify vs WooCommerce: which is better for a small business? Give a clear recommendation.",
+   "engine": "perplexity/sonar",
+   "run": 1,
+   "verdict": "Shopify",
+   "n_citations": 20,
+   "vendor_urls_A": [
+    "https://www.shopify.com/compare/shopify-vs-woocommerce"
+   ],
+   "vendor_urls_B": [
+    "https://woocommerce.com/posts/woocommerce-vs-shopify/",
+    "https://woocommerce.com/woocommerce-vs-shopify/"
+   ]
+  },
+  {
+   "pair": "Shopify vs WooCommerce",
+   "order": "as listed",
+   "prompt": "Shopify vs WooCommerce: which is better for a small business? Give a clear recommendation.",
+   "engine": "perplexity/sonar",
+   "run": 2,
+   "verdict": "Shopify",
+   "n_citations": 20,
+   "vendor_urls_A": [
+    "https://www.shopify.com/compare/shopify-vs-woocommerce"
+   ],
+   "vendor_urls_B": [
+    "https://woocommerce.com/posts/woocommerce-vs-shopify/",
+    "https://woocommerce.com/woocommerce-vs-shopify/"
+   ]
+  },
+  {
+   "pair": "Shopify vs WooCommerce",
+   "order": "as listed",
+   "prompt": "Shopify vs WooCommerce: which is better for a small business? Give a clear recommendation.",
+   "engine": "openai/gpt-4o:online",
+   "run": 1,
+   "verdict": "neutral",
+   "n_citations": 5,
+   "vendor_urls_A": [
+    "https://www.shopify.com/compare/shopify-vs-woocommerce"
+   ],
+   "vendor_urls_B": [
+    "https://woocommerce.com/posts/woocommerce-vs-shopify/"
+   ]
+  },
+  {
+   "pair": "Shopify vs WooCommerce",
+   "order": "as listed",
+   "prompt": "Shopify vs WooCommerce: which is better for a small business? Give a clear recommendation.",
+   "engine": "openai/gpt-4o:online",
+   "run": 2,
+   "verdict": "neutral",
+   "n_citations": 5,
+   "vendor_urls_A": [
+    "https://www.shopify.com/compare/shopify-vs-woocommerce"
+   ],
+   "vendor_urls_B": [
+    "https://woocommerce.com/posts/woocommerce-vs-shopify/"
+   ]
+  },
+  {
+   "pair": "Shopify vs WooCommerce",
+   "order": "as listed",
+   "prompt": "Shopify vs WooCommerce: which is better for a small business? Give a clear recommendation.",
+   "engine": "google/gemini-2.5-flash:online",
+   "run": 1,
+   "verdict": "neutral",
+   "n_citations": 5,
+   "vendor_urls_A": [
+    "https://www.shopify.com/compare/shopify-vs-woocommerce"
+   ],
+   "vendor_urls_B": []
+  },
+  {
+   "pair": "Shopify vs WooCommerce",
+   "order": "as listed",
+   "prompt": "Shopify vs WooCommerce: which is better for a small business? Give a clear recommendation.",
+   "engine": "google/gemini-2.5-flash:online",
+   "run": 2,
+   "verdict": "Shopify",
+   "n_citations": 5,
+   "vendor_urls_A": [
+    "https://www.shopify.com/compare/shopify-vs-woocommerce"
+   ],
+   "vendor_urls_B": [
+    "https://woocommerce.com/posts/woocommerce-vs-shopify/"
+   ]
+  },
+  {
+   "pair": "Shopify vs WooCommerce",
+   "order": "reversed",
+   "prompt": "WooCommerce vs Shopify: which is better for a small business? Give a clear recommendation.",
+   "engine": "perplexity/sonar",
+   "run": 1,
+   "verdict": "Shopify",
+   "n_citations": 20,
+   "vendor_urls_A": [
+    "https://www.shopify.com/compare/shopify-vs-woocommerce"
+   ],
+   "vendor_urls_B": [
+    "https://woocommerce.com/posts/woocommerce-vs-shopify/",
+    "https://woocommerce.com/woocommerce-vs-shopify/"
+   ]
+  },
+  {
+   "pair": "Shopify vs WooCommerce",
+   "order": "reversed",
+   "prompt": "WooCommerce vs Shopify: which is better for a small business? Give a clear recommendation.",
+   "engine": "perplexity/sonar",
+   "run": 2,
+   "verdict": "Shopify",
+   "n_citations": 20,
+   "vendor_urls_A": [
+    "https://www.shopify.com/compare/shopify-vs-woocommerce"
+   ],
+   "vendor_urls_B": [
+    "https://woocommerce.com/posts/woocommerce-vs-shopify/",
+    "https://woocommerce.com/woocommerce-vs-shopify/"
+   ]
+  },
+  {
+   "pair": "Shopify vs WooCommerce",
+   "order": "reversed",
+   "prompt": "WooCommerce vs Shopify: which is better for a small business? Give a clear recommendation.",
+   "engine": "openai/gpt-4o:online",
+   "run": 1,
+   "verdict": "neutral",
+   "n_citations": 5,
+   "vendor_urls_A": [],
+   "vendor_urls_B": [
+    "https://woocommerce.com/posts/woocommerce-vs-shopify/"
+   ]
+  },
+  {
+   "pair": "Shopify vs WooCommerce",
+   "order": "reversed",
+   "prompt": "WooCommerce vs Shopify: which is better for a small business? Give a clear recommendation.",
+   "engine": "openai/gpt-4o:online",
+   "run": 2,
+   "verdict": "Shopify",
+   "n_citations": 5,
+   "vendor_urls_A": [],
+   "vendor_urls_B": [
+    "https://woocommerce.com/posts/woocommerce-vs-shopify/"
+   ]
+  },
+  {
+   "pair": "Shopify vs WooCommerce",
+   "order": "reversed",
+   "prompt": "WooCommerce vs Shopify: which is better for a small business? Give a clear recommendation.",
+   "engine": "google/gemini-2.5-flash:online",
+   "run": 1,
+   "verdict": "Shopify",
+   "n_citations": 5,
+   "vendor_urls_A": [],
+   "vendor_urls_B": [
+    "https://woocommerce.com/posts/woocommerce-vs-shopify/"
+   ]
+  },
+  {
+   "pair": "Shopify vs WooCommerce",
+   "order": "reversed",
+   "prompt": "WooCommerce vs Shopify: which is better for a small business? Give a clear recommendation.",
+   "engine": "google/gemini-2.5-flash:online",
+   "run": 2,
+   "verdict": "Shopify",
+   "n_citations": 5,
+   "vendor_urls_A": [],
+   "vendor_urls_B": [
+    "https://woocommerce.com/posts/woocommerce-vs-shopify/"
+   ]
+  },
+  {
+   "pair": "Webflow vs Wix",
+   "order": "as listed",
+   "prompt": "Webflow vs Wix: which is better for a small business? Give a clear recommendation.",
+   "engine": "perplexity/sonar",
+   "run": 1,
+   "verdict": "Wix",
+   "n_citations": 17,
+   "vendor_urls_A": [
+    "https://webflow.com/vs/wix",
+    "https://webflow.com/blog/wix-vs-wordpress"
+   ],
+   "vendor_urls_B": [
+    "https://www.wix.com/blog/webflow-alternatives",
+    "https://www.wix.com/blog/best-no-code-website-builders",
+    "https://www.wix.com/blog/wix-studio-vs-webflow",
+    "https://www.wix.com/blog/wix-alternatives"
+   ]
+  },
+  {
+   "pair": "Webflow vs Wix",
+   "order": "as listed",
+   "prompt": "Webflow vs Wix: which is better for a small business? Give a clear recommendation.",
+   "engine": "perplexity/sonar",
+   "run": 2,
+   "verdict": "Wix",
+   "n_citations": 20,
+   "vendor_urls_A": [
+    "https://webflow.com/vs/wix",
+    "https://webflow.com/blog/wix-vs-wordpress"
+   ],
+   "vendor_urls_B": [
+    "https://www.wix.com/blog/webflow-alternatives",
+    "https://www.wix.com/blog/best-no-code-website-builders",
+    "https://www.wix.com/blog/wix-studio-vs-webflow",
+    "https://www.wix.com/blog/wix-alternatives"
+   ]
+  },
+  {
+   "pair": "Webflow vs Wix",
+   "order": "as listed",
+   "prompt": "Webflow vs Wix: which is better for a small business? Give a clear recommendation.",
+   "engine": "openai/gpt-4o:online",
+   "run": 1,
+   "verdict": "Wix",
+   "n_citations": 5,
+   "vendor_urls_A": [],
+   "vendor_urls_B": []
+  },
+  {
+   "pair": "Webflow vs Wix",
+   "order": "as listed",
+   "prompt": "Webflow vs Wix: which is better for a small business? Give a clear recommendation.",
+   "engine": "openai/gpt-4o:online",
+   "run": 2,
+   "verdict": "Wix",
+   "n_citations": 5,
+   "vendor_urls_A": [],
+   "vendor_urls_B": []
+  },
+  {
+   "pair": "Webflow vs Wix",
+   "order": "as listed",
+   "prompt": "Webflow vs Wix: which is better for a small business? Give a clear recommendation.",
+   "engine": "google/gemini-2.5-flash:online",
+   "run": 1,
+   "verdict": "Wix",
+   "n_citations": 5,
+   "vendor_urls_A": [],
+   "vendor_urls_B": []
+  },
+  {
+   "pair": "Webflow vs Wix",
+   "order": "as listed",
+   "prompt": "Webflow vs Wix: which is better for a small business? Give a clear recommendation.",
+   "engine": "google/gemini-2.5-flash:online",
+   "run": 2,
+   "verdict": "Wix",
+   "n_citations": 5,
+   "vendor_urls_A": [],
+   "vendor_urls_B": []
+  },
+  {
+   "pair": "Webflow vs Wix",
+   "order": "reversed",
+   "prompt": "Wix vs Webflow: which is better for a small business? Give a clear recommendation.",
+   "engine": "perplexity/sonar",
+   "run": 1,
+   "verdict": "Wix",
+   "n_citations": 20,
+   "vendor_urls_A": [
+    "https://webflow.com/vs/wix"
+   ],
+   "vendor_urls_B": [
+    "https://www.wix.com/blog/webflow-alternatives",
+    "https://www.wix.com/blog/wix-studio-vs-webflow"
+   ]
+  },
+  {
+   "pair": "Webflow vs Wix",
+   "order": "reversed",
+   "prompt": "Wix vs Webflow: which is better for a small business? Give a clear recommendation.",
+   "engine": "perplexity/sonar",
+   "run": 2,
+   "verdict": "Wix",
+   "n_citations": 20,
+   "vendor_urls_A": [
+    "https://webflow.com/vs/wix"
+   ],
+   "vendor_urls_B": [
+    "https://www.wix.com/blog/webflow-alternatives",
+    "https://www.wix.com/blog/wix-studio-vs-webflow",
+    "https://www.wix.com/blog/wix-alternatives"
+   ]
+  },
+  {
+   "pair": "Webflow vs Wix",
+   "order": "reversed",
+   "prompt": "Wix vs Webflow: which is better for a small business? Give a clear recommendation.",
+   "engine": "openai/gpt-4o:online",
+   "run": 1,
+   "verdict": "neutral",
+   "n_citations": 5,
+   "vendor_urls_A": [],
+   "vendor_urls_B": []
+  },
+  {
+   "pair": "Webflow vs Wix",
+   "order": "reversed",
+   "prompt": "Wix vs Webflow: which is better for a small business? Give a clear recommendation.",
+   "engine": "openai/gpt-4o:online",
+   "run": 2,
+   "verdict": "neutral",
+   "n_citations": 5,
+   "vendor_urls_A": [],
+   "vendor_urls_B": []
+  },
+  {
+   "pair": "Webflow vs Wix",
+   "order": "reversed",
+   "prompt": "Wix vs Webflow: which is better for a small business? Give a clear recommendation.",
+   "engine": "google/gemini-2.5-flash:online",
+   "run": 1,
+   "verdict": "Wix",
+   "n_citations": 5,
+   "vendor_urls_A": [],
+   "vendor_urls_B": []
+  },
+  {
+   "pair": "Webflow vs Wix",
+   "order": "reversed",
+   "prompt": "Wix vs Webflow: which is better for a small business? Give a clear recommendation.",
+   "engine": "google/gemini-2.5-flash:online",
+   "run": 2,
+   "verdict": "Wix",
+   "n_citations": 5,
+   "vendor_urls_A": [],
+   "vendor_urls_B": []
+  },
+  {
+   "pair": "Semrush vs Ahrefs",
+   "order": "as listed",
+   "prompt": "Semrush vs Ahrefs: which is better for a small business? Give a clear recommendation.",
+   "engine": "perplexity/sonar",
+   "run": 1,
+   "verdict": "Semrush",
+   "n_citations": 20,
+   "vendor_urls_A": [
+    "https://www.semrush.com/vs/semrush-vs-ahrefs/"
+   ],
+   "vendor_urls_B": [
+    "https://ahrefs.com/vs/semrush"
+   ]
+  },
+  {
+   "pair": "Semrush vs Ahrefs",
+   "order": "as listed",
+   "prompt": "Semrush vs Ahrefs: which is better for a small business? Give a clear recommendation.",
+   "engine": "perplexity/sonar",
+   "run": 2,
+   "verdict": "Semrush",
+   "n_citations": 20,
+   "vendor_urls_A": [
+    "https://www.semrush.com/vs/semrush-vs-ahrefs/"
+   ],
+   "vendor_urls_B": [
+    "https://ahrefs.com/vs/semrush"
+   ]
+  },
+  {
+   "pair": "Semrush vs Ahrefs",
+   "order": "as listed",
+   "prompt": "Semrush vs Ahrefs: which is better for a small business? Give a clear recommendation.",
+   "engine": "openai/gpt-4o:online",
+   "run": 1,
+   "verdict": "neutral",
+   "n_citations": 5,
+   "vendor_urls_A": [],
+   "vendor_urls_B": []
+  },
+  {
+   "pair": "Semrush vs Ahrefs",
+   "order": "as listed",
+   "prompt": "Semrush vs Ahrefs: which is better for a small business? Give a clear recommendation.",
+   "engine": "openai/gpt-4o:online",
+   "run": 2,
+   "verdict": "neutral",
+   "n_citations": 5,
+   "vendor_urls_A": [],
+   "vendor_urls_B": []
+  },
+  {
+   "pair": "Semrush vs Ahrefs",
+   "order": "as listed",
+   "prompt": "Semrush vs Ahrefs: which is better for a small business? Give a clear recommendation.",
+   "engine": "google/gemini-2.5-flash:online",
+   "run": 1,
+   "verdict": "neutral",
+   "n_citations": 5,
+   "vendor_urls_A": [
+    "https://www.semrush.com/vs/semrush-vs-ahrefs/"
+   ],
+   "vendor_urls_B": []
+  },
+  {
+   "pair": "Semrush vs Ahrefs",
+   "order": "as listed",
+   "prompt": "Semrush vs Ahrefs: which is better for a small business? Give a clear recommendation.",
+   "engine": "google/gemini-2.5-flash:online",
+   "run": 2,
+   "verdict": "neutral",
+   "n_citations": 5,
+   "vendor_urls_A": [],
+   "vendor_urls_B": []
+  },
+  {
+   "pair": "Semrush vs Ahrefs",
+   "order": "reversed",
+   "prompt": "Ahrefs vs Semrush: which is better for a small business? Give a clear recommendation.",
+   "engine": "perplexity/sonar",
+   "run": 1,
+   "verdict": "Semrush",
+   "n_citations": 19,
+   "vendor_urls_A": [
+    "https://www.semrush.com/vs/semrush-vs-ahrefs/"
+   ],
+   "vendor_urls_B": [
+    "https://ahrefs.com/vs/semrush"
+   ]
+  },
+  {
+   "pair": "Semrush vs Ahrefs",
+   "order": "reversed",
+   "prompt": "Ahrefs vs Semrush: which is better for a small business? Give a clear recommendation.",
+   "engine": "perplexity/sonar",
+   "run": 2,
+   "verdict": "Semrush",
+   "n_citations": 19,
+   "vendor_urls_A": [
+    "https://www.semrush.com/vs/semrush-vs-ahrefs/"
+   ],
+   "vendor_urls_B": [
+    "https://ahrefs.com/vs/semrush"
+   ]
+  },
+  {
+   "pair": "Semrush vs Ahrefs",
+   "order": "reversed",
+   "prompt": "Ahrefs vs Semrush: which is better for a small business? Give a clear recommendation.",
+   "engine": "openai/gpt-4o:online",
+   "run": 1,
+   "verdict": "neutral",
+   "n_citations": 5,
+   "vendor_urls_A": [],
+   "vendor_urls_B": []
+  },
+  {
+   "pair": "Semrush vs Ahrefs",
+   "order": "reversed",
+   "prompt": "Ahrefs vs Semrush: which is better for a small business? Give a clear recommendation.",
+   "engine": "openai/gpt-4o:online",
+   "run": 2,
+   "verdict": "Semrush",
+   "n_citations": 5,
+   "vendor_urls_A": [],
+   "vendor_urls_B": []
+  },
+  {
+   "pair": "Semrush vs Ahrefs",
+   "order": "reversed",
+   "prompt": "Ahrefs vs Semrush: which is better for a small business? Give a clear recommendation.",
+   "engine": "google/gemini-2.5-flash:online",
+   "run": 1,
+   "verdict": "neutral",
+   "n_citations": 5,
+   "vendor_urls_A": [],
+   "vendor_urls_B": []
+  },
+  {
+   "pair": "Semrush vs Ahrefs",
+   "order": "reversed",
+   "prompt": "Ahrefs vs Semrush: which is better for a small business? Give a clear recommendation.",
+   "engine": "google/gemini-2.5-flash:online",
+   "run": 2,
+   "verdict": "neutral",
+   "n_citations": 5,
+   "vendor_urls_A": [],
+   "vendor_urls_B": []
+  },
+  {
+   "pair": "Zendesk vs Freshdesk",
+   "order": "as listed",
+   "prompt": "Zendesk vs Freshdesk: which is better for a small business? Give a clear recommendation.",
+   "engine": "perplexity/sonar",
+   "run": 1,
+   "verdict": "Freshdesk",
+   "n_citations": 20,
+   "vendor_urls_A": [
+    "https://www.zendesk.com/why-zendesk/zendesk-vs-freshdesk/",
+    "https://www.zendesk.com/service/ticketing-system/customer-service-management-software/"
+   ],
+   "vendor_urls_B": [
+    "https://www.freshworks.com/freshdesk/compare-helpdesks/zendesk-vs-freshdesk/",
+    "https://www.freshworks.com/helpdesk/software/small-business/",
+    "https://www.freshworks.com/freshdesk/compare-helpdesks/intercom-vs-freshdesk/clone/"
+   ]
+  },
+  {
+   "pair": "Zendesk vs Freshdesk",
+   "order": "as listed",
+   "prompt": "Zendesk vs Freshdesk: which is better for a small business? Give a clear recommendation.",
+   "engine": "perplexity/sonar",
+   "run": 2,
+   "verdict": "neutral",
+   "n_citations": 20,
+   "vendor_urls_A": [
+    "https://www.zendesk.com/why-zendesk/zendesk-vs-freshdesk/",
+    "https://www.zendesk.com/service/ticketing-system/customer-service-management-software/"
+   ],
+   "vendor_urls_B": [
+    "https://www.freshworks.com/freshdesk/compare-helpdesks/zendesk-vs-freshdesk/",
+    "https://www.freshworks.com/helpdesk/software/small-business/",
+    "https://www.freshworks.com/freshdesk/compare-helpdesks/intercom-vs-freshdesk/clone/"
+   ]
+  },
+  {
+   "pair": "Zendesk vs Freshdesk",
+   "order": "as listed",
+   "prompt": "Zendesk vs Freshdesk: which is better for a small business? Give a clear recommendation.",
+   "engine": "openai/gpt-4o:online",
+   "run": 1,
+   "verdict": "Freshdesk",
+   "n_citations": 5,
+   "vendor_urls_A": [
+    "https://www.zendesk.com/why-zendesk/zendesk-vs-freshdesk/"
+   ],
+   "vendor_urls_B": [
+    "https://www.freshworks.com/freshdesk/compare-helpdesks/zendesk-vs-freshdesk/"
+   ]
+  },
+  {
+   "pair": "Zendesk vs Freshdesk",
+   "order": "as listed",
+   "prompt": "Zendesk vs Freshdesk: which is better for a small business? Give a clear recommendation.",
+   "engine": "openai/gpt-4o:online",
+   "run": 2,
+   "verdict": "Freshdesk",
+   "n_citations": 5,
+   "vendor_urls_A": [
+    "https://www.zendesk.com/why-zendesk/zendesk-vs-freshdesk/"
+   ],
+   "vendor_urls_B": [
+    "https://www.freshworks.com/freshdesk/compare-helpdesks/zendesk-vs-freshdesk/"
+   ]
+  },
+  {
+   "pair": "Zendesk vs Freshdesk",
+   "order": "as listed",
+   "prompt": "Zendesk vs Freshdesk: which is better for a small business? Give a clear recommendation.",
+   "engine": "google/gemini-2.5-flash:online",
+   "run": 1,
+   "verdict": "Freshdesk",
+   "n_citations": 5,
+   "vendor_urls_A": [],
+   "vendor_urls_B": [
+    "https://www.freshworks.com/freshdesk/compare-helpdesks/zendesk-vs-freshdesk/"
+   ]
+  },
+  {
+   "pair": "Zendesk vs Freshdesk",
+   "order": "as listed",
+   "prompt": "Zendesk vs Freshdesk: which is better for a small business? Give a clear recommendation.",
+   "engine": "google/gemini-2.5-flash:online",
+   "run": 2,
+   "verdict": "Freshdesk",
+   "n_citations": 5,
+   "vendor_urls_A": [
+    "https://www.zendesk.com/why-zendesk/zendesk-vs-freshdesk/"
+   ],
+   "vendor_urls_B": [
+    "https://www.freshworks.com/freshdesk/compare-helpdesks/zendesk-vs-freshdesk/"
+   ]
+  },
+  {
+   "pair": "Zendesk vs Freshdesk",
+   "order": "reversed",
+   "prompt": "Freshdesk vs Zendesk: which is better for a small business? Give a clear recommendation.",
+   "engine": "perplexity/sonar",
+   "run": 1,
+   "verdict": "Freshdesk",
+   "n_citations": 19,
+   "vendor_urls_A": [
+    "https://www.zendesk.com/why-zendesk/zendesk-vs-freshdesk/",
+    "https://www.zendesk.com/service/ticketing-system/customer-service-management-software/",
+    "https://www.zendesk.com/why-zendesk/freshdesk-alternative/"
+   ],
+   "vendor_urls_B": [
+    "https://www.freshworks.com/helpdesk/software/small-business/",
+    "https://www.freshworks.com/freshdesk/compare-helpdesks/zendesk-vs-freshdesk/",
+    "https://www.freshworks.com/freshdesk/compare-helpdesks/intercom-vs-freshdesk/clone/"
+   ]
+  },
+  {
+   "pair": "Zendesk vs Freshdesk",
+   "order": "reversed",
+   "prompt": "Freshdesk vs Zendesk: which is better for a small business? Give a clear recommendation.",
+   "engine": "perplexity/sonar",
+   "run": 2,
+   "verdict": "Freshdesk",
+   "n_citations": 20,
+   "vendor_urls_A": [
+    "https://www.zendesk.com/why-zendesk/zendesk-vs-freshdesk/",
+    "https://www.zendesk.com/service/ticketing-system/customer-service-management-software/"
+   ],
+   "vendor_urls_B": [
+    "https://www.freshworks.com/freshdesk/compare-helpdesks/zendesk-vs-freshdesk/",
+    "https://www.freshworks.com/helpdesk/software/small-business/",
+    "https://www.freshworks.com/freshdesk/compare-helpdesks/intercom-vs-freshdesk/clone/"
+   ]
+  },
+  {
+   "pair": "Zendesk vs Freshdesk",
+   "order": "reversed",
+   "prompt": "Freshdesk vs Zendesk: which is better for a small business? Give a clear recommendation.",
+   "engine": "openai/gpt-4o:online",
+   "run": 1,
+   "verdict": "Freshdesk",
+   "n_citations": 5,
+   "vendor_urls_A": [],
+   "vendor_urls_B": [
+    "https://www.freshworks.com/freshdesk/compare-helpdesks/zendesk-vs-freshdesk/"
+   ]
+  },
+  {
+   "pair": "Zendesk vs Freshdesk",
+   "order": "reversed",
+   "prompt": "Freshdesk vs Zendesk: which is better for a small business? Give a clear recommendation.",
+   "engine": "openai/gpt-4o:online",
+   "run": 2,
+   "verdict": "neutral",
+   "n_citations": 5,
+   "vendor_urls_A": [
+    "https://www.zendesk.com/why-zendesk/zendesk-vs-freshdesk/"
+   ],
+   "vendor_urls_B": []
+  },
+  {
+   "pair": "Zendesk vs Freshdesk",
+   "order": "reversed",
+   "prompt": "Freshdesk vs Zendesk: which is better for a small business? Give a clear recommendation.",
+   "engine": "google/gemini-2.5-flash:online",
+   "run": 1,
+   "verdict": "Freshdesk",
+   "n_citations": 5,
+   "vendor_urls_A": [
+    "https://www.zendesk.com/why-zendesk/zendesk-vs-freshdesk/"
+   ],
+   "vendor_urls_B": []
+  },
+  {
+   "pair": "Zendesk vs Freshdesk",
+   "order": "reversed",
+   "prompt": "Freshdesk vs Zendesk: which is better for a small business? Give a clear recommendation.",
+   "engine": "google/gemini-2.5-flash:online",
+   "run": 2,
+   "verdict": "Freshdesk",
+   "n_citations": 5,
+   "vendor_urls_A": [
+    "https://www.zendesk.com/why-zendesk/zendesk-vs-freshdesk/"
+   ],
+   "vendor_urls_B": []
+  },
+  {
+   "pair": "1Password vs Bitwarden",
+   "order": "as listed",
+   "prompt": "1Password vs Bitwarden: which is better for a small business? Give a clear recommendation.",
+   "engine": "perplexity/sonar",
+   "run": 1,
+   "verdict": "1Password",
+   "n_citations": 20,
+   "vendor_urls_A": [
+    "https://1password.com/compare/bitwarden-vs-1password",
+    "https://1password.com/blog/bitwarden-vs-1password"
+   ],
+   "vendor_urls_B": [
+    "https://bitwarden.com/bitwarden-vs-1password/"
+   ]
+  },
+  {
+   "pair": "1Password vs Bitwarden",
+   "order": "as listed",
+   "prompt": "1Password vs Bitwarden: which is better for a small business? Give a clear recommendation.",
+   "engine": "perplexity/sonar",
+   "run": 2,
+   "verdict": "1Password",
+   "n_citations": 20,
+   "vendor_urls_A": [
+    "https://1password.com/compare/bitwarden-vs-1password",
+    "https://1password.com/blog/bitwarden-vs-1password"
+   ],
+   "vendor_urls_B": [
+    "https://bitwarden.com/bitwarden-vs-1password/"
+   ]
+  },
+  {
+   "pair": "1Password vs Bitwarden",
+   "order": "as listed",
+   "prompt": "1Password vs Bitwarden: which is better for a small business? Give a clear recommendation.",
+   "engine": "openai/gpt-4o:online",
+   "run": 1,
+   "verdict": "1Password",
+   "n_citations": 5,
+   "vendor_urls_A": [
+    "https://1password.com/blog/bitwarden-vs-1password"
+   ],
+   "vendor_urls_B": []
+  },
+  {
+   "pair": "1Password vs Bitwarden",
+   "order": "as listed",
+   "prompt": "1Password vs Bitwarden: which is better for a small business? Give a clear recommendation.",
+   "engine": "openai/gpt-4o:online",
+   "run": 2,
+   "verdict": "neutral",
+   "n_citations": 5,
+   "vendor_urls_A": [
+    "https://1password.com/blog/bitwarden-vs-1password"
+   ],
+   "vendor_urls_B": []
+  },
+  {
+   "pair": "1Password vs Bitwarden",
+   "order": "as listed",
+   "prompt": "1Password vs Bitwarden: which is better for a small business? Give a clear recommendation.",
+   "engine": "google/gemini-2.5-flash:online",
+   "run": 1,
+   "verdict": "1Password",
+   "n_citations": 5,
+   "vendor_urls_A": [
+    "https://1password.com/blog/bitwarden-vs-1password"
+   ],
+   "vendor_urls_B": []
+  },
+  {
+   "pair": "1Password vs Bitwarden",
+   "order": "as listed",
+   "prompt": "1Password vs Bitwarden: which is better for a small business? Give a clear recommendation.",
+   "engine": "google/gemini-2.5-flash:online",
+   "run": 2,
+   "verdict": "1Password",
+   "n_citations": 5,
+   "vendor_urls_A": [
+    "https://1password.com/blog/bitwarden-vs-1password"
+   ],
+   "vendor_urls_B": []
+  },
+  {
+   "pair": "1Password vs Bitwarden",
+   "order": "reversed",
+   "prompt": "Bitwarden vs 1Password: which is better for a small business? Give a clear recommendation.",
+   "engine": "perplexity/sonar",
+   "run": 1,
+   "verdict": "1Password",
+   "n_citations": 20,
+   "vendor_urls_A": [
+    "https://1password.com/compare/bitwarden-vs-1password",
+    "https://1password.com/blog/bitwarden-vs-1password"
+   ],
+   "vendor_urls_B": [
+    "https://bitwarden.com/bitwarden-vs-1password/"
+   ]
+  },
+  {
+   "pair": "1Password vs Bitwarden",
+   "order": "reversed",
+   "prompt": "Bitwarden vs 1Password: which is better for a small business? Give a clear recommendation.",
+   "engine": "perplexity/sonar",
+   "run": 2,
+   "verdict": "1Password",
+   "n_citations": 20,
+   "vendor_urls_A": [
+    "https://1password.com/compare/bitwarden-vs-1password",
+    "https://1password.com/blog/bitwarden-vs-1password"
+   ],
+   "vendor_urls_B": [
+    "https://bitwarden.com/bitwarden-vs-1password/"
+   ]
+  },
+  {
+   "pair": "1Password vs Bitwarden",
+   "order": "reversed",
+   "prompt": "Bitwarden vs 1Password: which is better for a small business? Give a clear recommendation.",
+   "engine": "openai/gpt-4o:online",
+   "run": 1,
+   "verdict": "neutral",
+   "n_citations": 5,
+   "vendor_urls_A": [],
+   "vendor_urls_B": []
+  },
+  {
+   "pair": "1Password vs Bitwarden",
+   "order": "reversed",
+   "prompt": "Bitwarden vs 1Password: which is better for a small business? Give a clear recommendation.",
+   "engine": "openai/gpt-4o:online",
+   "run": 2,
+   "verdict": "1Password",
+   "n_citations": 5,
+   "vendor_urls_A": [
+    "https://1password.com/blog/bitwarden-vs-1password"
+   ],
+   "vendor_urls_B": []
+  },
+  {
+   "pair": "1Password vs Bitwarden",
+   "order": "reversed",
+   "prompt": "Bitwarden vs 1Password: which is better for a small business? Give a clear recommendation.",
+   "engine": "google/gemini-2.5-flash:online",
+   "run": 1,
+   "verdict": "1Password",
+   "n_citations": 5,
+   "vendor_urls_A": [
+    "https://1password.com/blog/bitwarden-vs-1password"
+   ],
+   "vendor_urls_B": []
+  },
+  {
+   "pair": "1Password vs Bitwarden",
+   "order": "reversed",
+   "prompt": "Bitwarden vs 1Password: which is better for a small business? Give a clear recommendation.",
+   "engine": "google/gemini-2.5-flash:online",
+   "run": 2,
+   "verdict": "1Password",
+   "n_citations": 5,
+   "vendor_urls_A": [
+    "https://1password.com/blog/bitwarden-vs-1password"
+   ],
+   "vendor_urls_B": []
+  },
+  {
+   "pair": "QuickBooks vs Xero",
+   "order": "as listed",
+   "prompt": "QuickBooks vs Xero: which is better for a small business? Give a clear recommendation.",
+   "engine": "perplexity/sonar",
+   "run": 1,
+   "verdict": "QuickBooks",
+   "n_citations": 20,
+   "vendor_urls_A": [
+    "https://quickbooks.intuit.com/compare/xero-vs-quickbooks/",
+    "https://quickbooks.intuit.com/ca/compare/quickbooks-vs-xero/",
+    "https://quickbooks.intuit.com/au/quickbooks-vs-xero-comparison/"
+   ],
+   "vendor_urls_B": [
+    "https://www.xero.com/us/versus/quickbooks-alternative/"
+   ]
+  },
+  {
+   "pair": "QuickBooks vs Xero",
+   "order": "as listed",
+   "prompt": "QuickBooks vs Xero: which is better for a small business? Give a clear recommendation.",
+   "engine": "perplexity/sonar",
+   "run": 2,
+   "verdict": "QuickBooks",
+   "n_citations": 20,
+   "vendor_urls_A": [
+    "https://quickbooks.intuit.com/compare/xero-vs-quickbooks/",
+    "https://quickbooks.intuit.com/ca/compare/quickbooks-vs-xero/",
+    "https://quickbooks.intuit.com/au/quickbooks-vs-xero-comparison/"
+   ],
+   "vendor_urls_B": [
+    "https://www.xero.com/us/versus/quickbooks-alternative/"
+   ]
+  },
+  {
+   "pair": "QuickBooks vs Xero",
+   "order": "as listed",
+   "prompt": "QuickBooks vs Xero: which is better for a small business? Give a clear recommendation.",
+   "engine": "openai/gpt-4o:online",
+   "run": 1,
+   "verdict": "neutral",
+   "n_citations": 5,
+   "vendor_urls_A": [
+    "https://quickbooks.intuit.com/compare/xero-vs-quickbooks/"
+   ],
+   "vendor_urls_B": []
+  },
+  {
+   "pair": "QuickBooks vs Xero",
+   "order": "as listed",
+   "prompt": "QuickBooks vs Xero: which is better for a small business? Give a clear recommendation.",
+   "engine": "openai/gpt-4o:online",
+   "run": 2,
+   "verdict": "neutral",
+   "n_citations": 5,
+   "vendor_urls_A": [
+    "https://quickbooks.intuit.com/compare/xero-vs-quickbooks/"
+   ],
+   "vendor_urls_B": []
+  },
+  {
+   "pair": "QuickBooks vs Xero",
+   "order": "as listed",
+   "prompt": "QuickBooks vs Xero: which is better for a small business? Give a clear recommendation.",
+   "engine": "google/gemini-2.5-flash:online",
+   "run": 1,
+   "verdict": "QuickBooks",
+   "n_citations": 5,
+   "vendor_urls_A": [
+    "https://quickbooks.intuit.com/compare/xero-vs-quickbooks/"
+   ],
+   "vendor_urls_B": []
+  },
+  {
+   "pair": "QuickBooks vs Xero",
+   "order": "as listed",
+   "prompt": "QuickBooks vs Xero: which is better for a small business? Give a clear recommendation.",
+   "engine": "google/gemini-2.5-flash:online",
+   "run": 2,
+   "verdict": "QuickBooks",
+   "n_citations": 5,
+   "vendor_urls_A": [],
+   "vendor_urls_B": [
+    "https://www.xero.com/us/versus/quickbooks-alternative/"
+   ]
+  },
+  {
+   "pair": "QuickBooks vs Xero",
+   "order": "reversed",
+   "prompt": "Xero vs QuickBooks: which is better for a small business? Give a clear recommendation.",
+   "engine": "perplexity/sonar",
+   "run": 1,
+   "verdict": "Xero",
+   "n_citations": 20,
+   "vendor_urls_A": [
+    "https://quickbooks.intuit.com/compare/xero-vs-quickbooks/",
+    "https://quickbooks.intuit.com/ca/compare/quickbooks-vs-xero/",
+    "https://quickbooks.intuit.com/au/quickbooks-vs-xero-comparison/"
+   ],
+   "vendor_urls_B": [
+    "https://www.xero.com/us/versus/quickbooks-alternative/"
+   ]
+  },
+  {
+   "pair": "QuickBooks vs Xero",
+   "order": "reversed",
+   "prompt": "Xero vs QuickBooks: which is better for a small business? Give a clear recommendation.",
+   "engine": "perplexity/sonar",
+   "run": 2,
+   "verdict": "Xero",
+   "n_citations": 20,
+   "vendor_urls_A": [
+    "https://quickbooks.intuit.com/compare/xero-vs-quickbooks/",
+    "https://quickbooks.intuit.com/ca/compare/quickbooks-vs-xero/",
+    "https://quickbooks.intuit.com/au/quickbooks-vs-xero-comparison/"
+   ],
+   "vendor_urls_B": [
+    "https://www.xero.com/us/versus/quickbooks-alternative/"
+   ]
+  },
+  {
+   "pair": "QuickBooks vs Xero",
+   "order": "reversed",
+   "prompt": "Xero vs QuickBooks: which is better for a small business? Give a clear recommendation.",
+   "engine": "openai/gpt-4o:online",
+   "run": 1,
+   "verdict": "QuickBooks",
+   "n_citations": 5,
+   "vendor_urls_A": [
+    "https://quickbooks.intuit.com/compare/xero-vs-quickbooks/"
+   ],
+   "vendor_urls_B": []
+  },
+  {
+   "pair": "QuickBooks vs Xero",
+   "order": "reversed",
+   "prompt": "Xero vs QuickBooks: which is better for a small business? Give a clear recommendation.",
+   "engine": "openai/gpt-4o:online",
+   "run": 2,
+   "verdict": "neutral",
+   "n_citations": 5,
+   "vendor_urls_A": [],
+   "vendor_urls_B": [
+    "https://www.xero.com/us/versus/quickbooks-alternative/"
+   ]
+  },
+  {
+   "pair": "QuickBooks vs Xero",
+   "order": "reversed",
+   "prompt": "Xero vs QuickBooks: which is better for a small business? Give a clear recommendation.",
+   "engine": "google/gemini-2.5-flash:online",
+   "run": 1,
+   "verdict": "QuickBooks",
+   "n_citations": 5,
+   "vendor_urls_A": [
+    "https://quickbooks.intuit.com/compare/xero-vs-quickbooks/"
+   ],
+   "vendor_urls_B": [
+    "https://www.xero.com/us/versus/quickbooks-alternative/"
+   ]
+  },
+  {
+   "pair": "QuickBooks vs Xero",
+   "order": "reversed",
+   "prompt": "Xero vs QuickBooks: which is better for a small business? Give a clear recommendation.",
+   "engine": "google/gemini-2.5-flash:online",
+   "run": 2,
+   "verdict": "QuickBooks",
+   "n_citations": 5,
+   "vendor_urls_A": [
+    "https://quickbooks.intuit.com/compare/xero-vs-quickbooks/"
+   ],
+   "vendor_urls_B": [
+    "https://www.xero.com/us/versus/quickbooks-alternative/"
+   ]
+  }
+ ]
+}

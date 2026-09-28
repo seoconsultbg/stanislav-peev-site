@@ -38,8 +38,13 @@ use shorter hand-written summaries without front matter.
 
 ## Open research data
 
-Three studies publish their data under CC BY 4.0. Each study folder holds
-`data-summary.json` (aggregates) and `data-raw.jsonl` (one record per line):
+Four studies publish their data under CC BY 4.0. Each study folder holds
+`data-summary.json` (aggregates) and, for the first three, `data-raw.jsonl`
+(one record per line). The comparison-pages experiment keeps its per-answer
+records inside `data-summary.json`:
+
+- Competitor comparison pages in AI answers, a 144-answer experiment:
+  https://stanislav-peev.com/research/competitor-comparison-pages-in-ai-answers/
 
 - AI citations by question shape:
   https://stanislav-peev.com/research/ai-citations-by-query-shape/

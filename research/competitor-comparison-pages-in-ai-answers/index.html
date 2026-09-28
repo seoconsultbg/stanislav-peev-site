@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Do competitor comparison pages sway AI answers? 144-answer test</title>
+<meta name="description" content="76% of AI answers to &#x27;X vs Y&#x27; cite a vendor&#x27;s own comparison page, yet the cited vendor won 68 times and lost 66. What to do when AI repeats a competitor&#x27;s claim.">
+<link rel="canonical" href="https://stanislav-peev.com/research/competitor-comparison-pages-in-ai-answers/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Stanislav Peev">
+<meta property="og:title" content="Your Competitor&#x27;s Comparison Page Is in the AI Answer. What It Moves, and What to Do">
+<meta property="og:description" content="An experiment with 144 answers from Perplexity, GPT-4o and Gemini: vendors&#x27; own &#x27;vs&#x27; pages are cited in 76% of comparison answers but do not decide the verdict. They feed the facts. A step-by-step fix for false claims.">
+<meta property="og:url" content="https://stanislav-peev.com/research/competitor-comparison-pages-in-ai-answers/">
+<meta property="og:image" content="https://stanislav-peev.com/research/competitor-comparison-pages-in-ai-answers/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="76% of AI answers to X vs Y cite a vendor's own comparison page. When cited, that vendor won 68 times and lost 66">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:creator" content="@SeoPeev">
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="alternate" type="application/rss+xml" title="Stanislav Peev - SEO &amp; AI Search Research" href="/rss.xml">
+<link rel="stylesheet" href="/assets/site.css?v=6">
+<style>
+.article-meta { font-size: .9rem; color: var(--ink-soft); margin-bottom: 34px; }
+.article-meta b { color: var(--ink); }
+.hero-stat {
+  background: linear-gradient(135deg, var(--surface), var(--band));
+  border: 1px solid var(--green); border-radius: 18px;
+  padding: 36px 32px; text-align: center; margin: 0 0 40px;
+}
+.hero-stat .big {
+  font-family: var(--serif); font-size: clamp(3.2rem, 8vw, 5rem);
+  color: var(--green); font-weight: 700; line-height: 1; display: block; margin-bottom: 12px;
+}
+.hero-stat p { color: var(--ink); font-size: 1.1rem; max-width: 62ch; margin: 0 auto 8px; }
+.hero-stat .src { font-size: .85rem; color: var(--ink-soft); }
+.takeaways {
+  background: var(--surface); border: 1px solid var(--line); border-left: 4px solid var(--green);
+  border-radius: 12px; padding: 26px 28px; margin: 0 0 40px;
+}
+.takeaways h2 {
+  font-family: var(--sans); font-size: .8rem; font-weight: 700; letter-spacing: .12em;
+  text-transform: uppercase; color: var(--green); margin-bottom: 14px;
+}
+.takeaways ul { list-style: none; display: grid; gap: 10px; }
+.takeaways li { padding-left: 22px; position: relative; color: var(--ink-soft); font-size: .98rem; }
+.takeaways li::before { content: '→'; position: absolute; left: 0; color: var(--green); }
+.takeaways li b { color: var(--ink); font-family: var(--serif); }
+.toc {
+  border: 1px solid var(--line); border-radius: 12px; padding: 22px 26px; margin: 0 0 48px;
+  background: var(--bg-alt);
+}
+.toc h2 { font-family: var(--sans); font-size: .95rem; margin-bottom: 12px; }
+.toc ol { margin-left: 20px; color: var(--ink-soft); display: grid; gap: 6px; font-size: .95rem; }
+.toc a { color: var(--green); text-decoration: none; }
+.toc a:hover { text-decoration: underline; }
+.article h2 { margin-top: 56px; margin-bottom: 16px; scroll-margin-top: 90px; }
+.article h3 { margin-top: 30px; margin-bottom: 10px; font-size: 1.1rem; }
+.article .capsule { color: var(--ink); font-size: 1.08rem; margin-bottom: 18px; max-width: 70ch; }
+.article p { color: var(--ink-soft); margin-bottom: 18px; max-width: 72ch; }
+.article p strong { color: var(--ink); }
+.article a { color: var(--green); }
+.article ul.plain { margin: 0 0 18px 20px; color: var(--ink-soft); max-width: 72ch; display: grid; gap: 8px; }
+.metric-table { width: 100%; border-collapse: collapse; margin: 22px 0; font-size: .95rem; }
+.metric-table th {
+  background: var(--band); color: var(--ink); text-align: left;
+  padding: 11px 14px; text-transform: uppercase; font-size: .76rem; letter-spacing: .07em;
+  border-bottom: 2px solid var(--green);
+}
+.metric-table td { padding: 11px 14px; border-bottom: 1px solid var(--line); color: var(--ink-soft); }
+.metric-table td.v { font-family: var(--serif); font-weight: 700; color: var(--green); white-space: nowrap; }
+.metric-table td.hi { color: var(--green); font-weight: 700; }
+.metric-table td.lo { color: var(--ink-soft); }
+.table-wrap { overflow-x: auto; }
+.stat-callout {
+  display: flex; align-items: center; gap: 22px; background: var(--surface);
+  border: 1px solid var(--line); border-left: 4px solid var(--green); border-radius: 12px;
+  padding: 20px 24px; margin: 24px 0;
+}
+.stat-callout .val {
+  font-family: var(--serif); font-size: 2.1rem; font-weight: 700; color: var(--green);
+  white-space: nowrap; min-width: 90px; text-align: center;
+}
+.stat-callout div p { margin: 0; font-size: .96rem; }
+.stat-callout div .src { font-size: .82rem; color: var(--ink-soft); margin-top: 4px; }
+.bar-chart { margin: 24px 0; display: grid; gap: 10px; max-width: 680px; }
+.bar-row { display: grid; grid-template-columns: 230px 1fr; align-items: center; gap: 12px; }
+.bar-row .lbl { font-size: .9rem; color: var(--ink-soft); text-align: right; }
+.bar-track { background: var(--band); border-radius: 6px; overflow: hidden; height: 30px; position: relative; }
+.bar-fill {
+  height: 100%; background: var(--green); border-radius: 6px;
+  display: flex; align-items: center; padding-left: 10px;
+  font-family: var(--serif); font-weight: 700; font-size: .88rem; color: var(--btn-text);
+  min-width: fit-content; white-space: nowrap;
+}
+.bar-fill.dim { background: var(--ink-soft); }
+.bar-note { font-size: .82rem; color: var(--ink-soft); margin-top: 2px; }
+.explorer {
+  background: var(--surface); border: 1px solid var(--green); border-radius: 16px;
+  padding: 24px; margin: 26px 0;
+}
+.explorer .controls { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 14px; }
+.explorer select, .explorer input[type="search"] {
+  background: var(--bg-alt); color: var(--ink); border: 1px solid var(--line); border-radius: 8px;
+  padding: 8px 10px; font-size: .92rem;
+}
+.explorer input[type="search"] { flex: 1; min-width: 180px; }
+.explorer .count { font-size: .88rem; color: var(--ink-soft); margin-bottom: 10px; }
+.explorer table { width: 100%; border-collapse: collapse; font-size: .86rem; }
+.explorer th { text-align: left; padding: 8px 10px; border-bottom: 2px solid var(--green); color: var(--ink); font-size: .74rem; text-transform: uppercase; letter-spacing: .06em; cursor: pointer; white-space: nowrap; }
+.explorer td { padding: 7px 10px; border-bottom: 1px solid var(--line); color: var(--ink-soft); vertical-align: top; }
+.explorer td a { color: var(--green); word-break: break-all; }
+.explorer .tag { display: inline-block; padding: 1px 7px; border-radius: 999px; font-size: .74rem; border: 1px solid var(--line); color: var(--ink); white-space: nowrap; }
+.explorer .tag.cmp { border-color: var(--green); color: var(--green); }
+.explorer .scroll { max-height: 520px; overflow: auto; }
+.data-box {
+  background: var(--bg-alt); border: 1px solid var(--line); border-radius: 12px;
+  padding: 22px 26px; margin: 26px 0;
+}
+.data-box h3 { font-size: 1rem; margin: 0 0 8px; }
+.data-box p { font-size: .92rem; margin-bottom: 10px; }
+.sources-list { font-size: .92rem; color: var(--ink-soft); margin-left: 20px; display: grid; gap: 10px; }
+.sources-list a { color: var(--green); word-break: break-all; }
+.updated { font-size: .88rem; color: var(--ink-soft); border-top: 1px solid var(--line); padding-top: 20px; margin-top: 48px; }
+@media (max-width: 640px) {
+  .bar-row { grid-template-columns: 1fr; gap: 4px; }
+  .bar-row .lbl { text-align: left; }
+  .stat-callout { flex-direction: column; align-items: flex-start; gap: 10px; }
+}
+.explorer.calc .calc-grid { display: grid; gap: 14px; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); margin-bottom: 18px; }
+.explorer.calc label { display: grid; gap: 6px; font-size: .88rem; color: var(--ink-soft); }
+.explorer.calc input { background: var(--bg-alt); color: var(--ink); border: 1px solid var(--line); border-radius: 8px; padding: 10px 12px; font-size: 1rem; font-variant-numeric: tabular-nums; }
+.calc-out { display: grid; gap: 10px; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); margin-bottom: 12px; }
+.calc-out .cell { background: var(--bg-alt); border: 1px solid var(--line); border-radius: 10px; padding: 14px 16px; }
+.calc-out .cell b { display: block; font-family: var(--serif); font-size: 1.6rem; color: var(--green); font-variant-numeric: tabular-nums; }
+.calc-out .cell span { font-size: .84rem; color: var(--ink-soft); }
+.explorer td.fig { font-family: var(--serif); font-weight: 700; color: var(--ink); font-variant-numeric: tabular-nums; }
+.explorer .tag.tracked { border-color: var(--green); color: var(--green); }
+.hero-stat .src a { color: var(--green); }
+.hero-stat .big { white-space: nowrap; font-size: clamp(2.1rem, 9.5vw, 5rem); }
+.viz { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 22px 22px 16px; margin: 28px 0; }
+.viz h3 { font-family: var(--sans); font-size: 1rem; font-weight: 700; color: var(--ink); margin: 0 0 4px; }
+.viz .sub { font-size: .88rem; color: var(--ink-soft); margin: 0 0 14px; max-width: 70ch; }
+.viz .plot { overflow-x: auto; }
+.viz svg { display: block; width: 100%; min-width: 620px; height: auto; font-family: var(--sans); }
+.viz svg text { fill: var(--ink-soft); font-size: 12px; }
+.viz svg text.strong { fill: var(--ink); font-weight: 600; }
+.viz svg text.row { fill: var(--ink); font-size: 13px; font-weight: 600; }
+.viz svg .grid { stroke: var(--line); stroke-width: 1; }
+.viz svg .ring { stroke: var(--surface); stroke-width: 2; }
+.viz svg [data-tip] { cursor: default; }
+.viz svg [data-tip]:hover { filter: brightness(1.25); }
+.viz .legend { display: flex; flex-wrap: wrap; gap: 6px 18px; font-size: .84rem; color: var(--ink-soft); margin: 0 0 10px; }
+.viz .legend i { display: inline-block; width: 10px; height: 10px; border-radius: 3px; margin-right: 7px; vertical-align: -1px; }
+.viz .legend i.ln { width: 16px; height: 2px; border-radius: 1px; vertical-align: 3px; }
+.viz .legend b { color: var(--ink); font-weight: 600; font-variant-numeric: tabular-nums; }
+.viz .cap { font-size: .82rem; color: var(--ink-soft); margin: 10px 0 0; }
+.viz .cap a { color: var(--green); }
+.viz details { margin-top: 10px; font-size: .84rem; color: var(--ink-soft); }
+.viz details summary { cursor: pointer; color: var(--green); }
+.viz details table { border-collapse: collapse; margin-top: 8px; font-variant-numeric: tabular-nums; }
+.viz details th, .viz details td { text-align: left; padding: 4px 14px 4px 0; border-bottom: 1px solid var(--line); }
+.viz details th { color: var(--ink); font-weight: 600; }
+.kpi-row { display: grid; grid-template-columns: 1fr auto 1fr auto 1fr; gap: 10px; align-items: stretch; margin: 6px 0 4px; }
+.kpi { background: var(--bg-alt); border: 1px solid var(--line); border-radius: 10px; padding: 14px 16px; }
+.kpi b { display: block; font-family: var(--sans); font-size: 1.9rem; font-weight: 700; color: var(--ink); line-height: 1.1; }
+.kpi span { font-size: .84rem; color: var(--ink-soft); }
+.kpi-arrow { align-self: center; color: var(--ink-soft); font-size: 1.2rem; }
+#vizTip { position: fixed; z-index: 50; pointer-events: none; background: var(--band); border: 1px solid var(--line); border-radius: 8px; padding: 8px 11px; font-size: .84rem; color: var(--ink-soft); max-width: 280px; box-shadow: 0 6px 20px rgba(0,0,0,.45); display: none; }
+#vizTip b { display: block; color: var(--ink); font-size: .98rem; font-variant-numeric: tabular-nums; }
+@media (max-width: 640px) {
+  .kpi-row { grid-template-columns: 1fr; }
+  .kpi-arrow { transform: rotate(90deg); justify-self: center; }
+}
+.explorer td.fig { font-family: var(--serif); font-weight: 700; color: var(--ink); font-variant-numeric: tabular-nums; white-space: nowrap; }
+ol.plain > li { margin-bottom: 12px; }
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://stanislav-peev.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Research",
+          "item": "https://stanislav-peev.com/research/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Competitor Comparison Pages in AI Answers",
+          "item": "https://stanislav-peev.com/research/competitor-comparison-pages-in-ai-answers/"
+        }
+      ]
+    },
+    {
+      "@type": "Article",
+      "@id": "https://stanislav-peev.com/research/competitor-comparison-pages-in-ai-answers/#article",
+      "headline": "Your Competitor's Comparison Page Is in the AI Answer. What It Moves, and What to Do",
+      "description": "An experiment on whether vendors' own comparison pages steer AI answers to 'X vs Y' questions, with a step-by-step playbook for correcting false claims from a competitor's page and for answers dominated by one negative review.",
+      "author": {
+        "@id": "https://stanislav-peev.com/#person"
+      },
+      "publisher": {
+        "@id": "https://stanislav-peev.com/#person"
+      },
+      "datePublished": "2026-09-28",
+      "dateModified": "2026-09-28",
+      "mainEntityOfPage": "https://stanislav-peev.com/research/competitor-comparison-pages-in-ai-answers/",
+      "image": "https://stanislav-peev.com/research/competitor-comparison-pages-in-ai-answers/og.png",
+      "speakable": {
+        "@type": "SpeakableSpecification",
+        "cssSelector": [
+          ".hero-stat",
+          ".takeaways"
+        ]
+      }
+    },
+    {
+      "@type": "Dataset",
+      "name": "Vendor comparison pages in AI answers - 144-answer experiment",
+      "description": "144 answers from Perplexity Sonar, GPT-4o with web search and Gemini 2.5 Flash with web search to 'X vs Y: which is better for a small business?' for 12 software vendor pairs in both name orders, with the judged verdict, number of citations and every cited URL on either vendor's own domain.",
+      "url": "https://stanislav-peev.com/research/competitor-comparison-pages-in-ai-answers/",
+      "creator": {
+        "@id": "https://stanislav-peev.com/#person"
+      },
+      "temporalCoverage": "2026-09-28",
+      "measurementTechnique": "Prompts sent through OpenRouter to three web-connected engines, 2 runs each; cited URLs classified by domain ownership; verdict labelled by Gemini 2.5 Flash at temperature 0 with a hand-checked sample.",
+      "variableMeasured": [
+        "vendor page cited",
+        "verdict",
+        "citations per answer"
+      ],
+      "distribution": [
+        {
+          "@type": "DataDownload",
+          "encodingFormat": "application/json",
+          "contentUrl": "https://stanislav-peev.com/research/competitor-comparison-pages-in-ai-answers/data-summary.json"
+        }
+      ],
+      "license": "https://creativecommons.org/licenses/by/4.0/"
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://stanislav-peev.com/research/competitor-comparison-pages-in-ai-answers/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Do AI assistants cite a competitor's comparison page when someone compares you?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Usually. In a test of 144 answers to \"X vs Y: which is better for a small business?\" across Perplexity, GPT-4o and Gemini, 109 answers cited at least one page on either vendor's own domain, almost always a vs, compare or alternatives page. Those pages were 18.5% of all 1,412 citations. Perplexity cited both vendors in all 48 of its answers."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does a competitor's comparison page make AI recommend them over you?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Not in this test. When one vendor's page was among the sources, the answer favored that vendor 68 times and its rival 66 times. In 11 of 12 pairs every clear verdict went the same way regardless of which page was cited or which name came first. Zendesk's own Zendesk vs Freshdesk page was cited in 10 answers and none recommended Zendesk."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I stop ChatGPT repeating a false claim from a competitor's article?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Trace the claim to the page it comes from, then decide whether it is a checkable fact or an opinion. Publish the correct fact with a date on your pricing, feature and FAQ pages, get the same fact stated on review sites, directories and partner pages, and ask the competitor to correct it. Report the answer through the platform's feedback button, then re-run the same prompts weekly for six weeks."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I take legal action over a competitor's comparison page?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sometimes, if it makes a false statement of fact rather than an opinion. In the US, false or misleading statements of fact in commercial advertising can be challenged under section 43(a) of the Lanham Act, and competitors can file a challenge with the National Advertising Division. In the EU, Directive 2006/114/EC only permits comparative advertising that is not misleading, compares verifiable features and does not discredit the competitor. Get advice from a lawyer in your jurisdiction first."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Should I publish my own comparison page to answer theirs?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Publish facts, not a rebuttal. In this test the engines gave no advantage to a vendor for writing about its rival, so a hostile counter page is unlikely to change the verdict and can create legal exposure. A factual comparison that is fair to the competitor is fine. The priority is a dated block of your own facts that an engine can quote."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How long does it take for AI answers to change after I fix the facts?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "It depends on the engine. Perplexity searches the live web on every query, so a new or corrected source can show up within days. Answers that come from a model's training data change only when the model is updated, which can take months. Measure with a fixed prompt set rather than one screenshot, because the same prompt can give a different answer from run to run."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-5TB26Q273D"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-5TB26Q273D');
+</script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="/">Stanislav <em>Peev</em></a>
+    <nav class="site-nav" aria-label="Main">
+      <a href="/#geo">AI / GEO</a>
+      <a href="/services/">Services</a>
+      <a href="/research/" aria-current="page">Research</a>
+      <a href="/#clients">Clients</a>
+      <a href="/#experience" class="hide-m">Experience</a>
+      <a href="/#proof" class="hide-m">Publications</a>
+      <a class="cta" href="#contact">Write to me</a>
+    </nav>
+  </div>
+</header>
+
+<nav class="crumbs" aria-label="Breadcrumb">
+  <div class="wrap"><a href="/">Home</a> › <a href="/research/">Research</a> › Competitor Comparison Pages in AI Answers</div>
+</nav>
+
+<main>
+
+<section class="hero" style="padding:40px 0 8px">
+  <div class="wrap" style="display:block">
+    <span class="kicker">Research · AI Search Data</span>
+    <h1 style="max-width:28ch">Your competitor's comparison page is probably in the <span class="accent">AI answer</span> about you. What it moves, and what to do when it gets you wrong</h1>
+    <p class="article-meta">By <b>Stanislav Peev</b>, SEO consultant &amp; GEO specialist · Published <b>September 28, 2026</b> · Original experiment, 144 AI answers · 11 min read</p>
+  </div>
+</section>
+
+<section style="padding:0 0 72px">
+  <div class="wrap article">
+
+    <div class="hero-stat">
+      <span class="big">76%</span>
+      <p>of AI answers to "X vs Y: which is better?" cited a page written by one of the two vendors being compared. In 144 answers from Perplexity, GPT-4o and Gemini, the vendors' own pages made up 18.5% of all citations. Those pages did not decide who won. When a vendor's page was cited, the answer sided with that vendor 68 times and with its rival 66 times.</p>
+      <span class="src">Source: my own test, 12 vendor pairs x 2 name orders x 3 engines x 2 runs, September 28, 2026. <a href="#data">Raw data, CC BY 4.0</a>.</span>
+    </div>
+
+    <div class="takeaways">
+      <h2>Key takeaways</h2>
+      <ul>
+        <li><b>109 of 144</b> answers cited at least one of the two vendors' own pages. 96% of those vendor citations were "vs", "compare", "alternatives" or "switch from" pages. Perplexity cited both vendors in 48 answers out of 48</li>
+        <li><b>68 vs 66</b> - when a vendor's own page was among the sources, the answer favored that vendor 68 times and its rival 66 times. Being cited is not the same as winning</li>
+        <li><b>94 of 96</b> clear verdicts went to the same winner within each pair, whichever page was cited and whichever name came first in the question. The verdict looks settled by the wider web, not by one page</li>
+        <li><b>10 answers</b> cited Zendesk's own "Zendesk vs Freshdesk" page. Eight of them recommended Freshdesk and two called it a draw. Atlassian's Confluence comparison pages were cited 7 times, and Notion won all 7</li>
+        <li><b>The risk sits in the facts, not the verdict.</b> A cited page is a source the answer can lift prices, features and limits from. That is how a wrong claim about you travels, and it is the part you can fix</li>
+        <li><b>The fix is a fact page, not a counter hit piece.</b> Publish each disputed fact in a checkable form, get it repeated on sites you do not own, and use the legal route only for false statements of fact</li>
+      </ul>
+    </div>
+
+    <div class="toc">
+      <h2>What's in this report</h2>
+      <ol>
+        <li><a href="#short-answer">The short answer</a></li>
+        <li><a href="#cited">How often do AI answers cite the vendors' own comparison pages?</a></li>
+        <li><a href="#verdict">Does the vendor's page tilt the verdict?</a></li>
+        <li><a href="#damage">Where does a competitor's page actually hurt you?</a></li>
+        <li><a href="#playbook">What to do when AI repeats a competitor's false claim</a></li>
+        <li><a href="#one-review">When one negative review drives the whole answer</a></li>
+        <li><a href="#pairs">All 12 pairs in one table</a></li>
+        <li><a href="#methodology">Methodology</a></li>
+        <li><a href="#limitations">Limitations</a></li>
+        <li><a href="#faq">FAQ</a></li>
+        <li><a href="#data">Get the data</a></li>
+      </ol>
+    </div>
+
+    <h2 id="short-answer">1. The short answer</h2>
+    <p class="capsule">If a competitor publishes a "them vs you" page, there is a good chance AI assistants read it when someone compares the two of you. In my test, three answers in four cited a page owned by one of the two vendors. What those pages did not do was flip the recommendation. That came out the same for each pair almost every time. The damage a competitor's page can do is narrower and more practical. It supplies the facts the answer repeats about you.</p>
+    <p>This started with <a href="#src-5">an r/SEO thread</a> in September 2026. The poster works for a brand that has led its category for more than 25 years. A competitor had published an "us vs them" article with facts they said were wrong, and AI answers were leaning on it heavily. They did not want to answer with the same kind of article, and they could not find advice beyond "build more mentions". The best reply in the thread was one paragraph long. It said to put each disputed fact on your own site as a plain, checkable statement and to get the same facts said on sites you do not own.</p>
+    <p>I went looking for the rest. The guides on fixing what AI says about a brand are good on the general case. <a href="#src-1">Semrush's guide</a>, for example, names competitor comparison pages as a source of "competitive misattribution". The legal material on false comparative advertising is also solid. But nothing I found joins the two for the case where the source is a named competitor's page. And nobody had measured how much such a page moves an answer. So I measured it first.</p>
+
+    <h2 id="cited">2. How often do AI answers cite the vendors' own comparison pages?</h2>
+    <p class="capsule">Most of the time. I asked "X vs Y: which is better for a small business? Give a clear recommendation." for 12 pairs of software vendors, in both name orders, on Perplexity, GPT-4o with web search and Gemini with web search. 109 of the 144 answers cited at least one page on either vendor's domain. That was 261 of the 1,412 citations, or 18.5%.</p>
+<figure class="viz"><h3>Answers that cited a vendor&#x27;s own page, by engine</h3><p class="sub">Share of the 48 answers per engine that cited a page on either vendor's domain. The figure on the right is the average number of sources per answer.</p><div class="legend"><span><i style="background:#199e70"></i>Both vendors&#x27; pages cited</span><span><i style="background:#3987e5"></i>One vendor&#x27;s page cited</span><span><i style="background:#3d4d45"></i>No vendor page</span></div><div class="plot"><svg viewBox="0 0 760 186" role="img" aria-labelledby="alag-engines-title alag-engines-desc"><title id="alag-engines-title">Answers that cited a vendor&#x27;s own page, by engine</title><desc id="alag-engines-desc">Horizontal bars for three engines. Perplexity Sonar: 48 of 48 answers cited both vendors&#x27; own pages, 19.4 sources per answer. GPT-4o with web search: 31 of 48 cited at least one vendor page, 9 of them both. Gemini 2.5 Flash with web search: 30 of 48, 9 of them both. GPT-4o and Gemini average 5 sources per answer.</desc><line class="grid" x1="190.0" y1="14" x2="190.0" y2="156"/><text x="190.0" y="174" text-anchor="middle">0%</text><line class="grid" x1="295.0" y1="14" x2="295.0" y2="156"/><text x="295.0" y="174" text-anchor="middle">25%</text><line class="grid" x1="400.0" y1="14" x2="400.0" y2="156"/><text x="400.0" y="174" text-anchor="middle">50%</text><line class="grid" x1="505.0" y1="14" x2="505.0" y2="156"/><text x="505.0" y="174" text-anchor="middle">75%</text><line class="grid" x1="610.0" y1="14" x2="610.0" y2="156"/><text x="610.0" y="174" text-anchor="middle">100%</text><text class="row" x="0" y="39">Perplexity Sonar</text><rect x="190" y="22" width="420" height="24" rx="4" fill="#3d4d45" opacity=".45"/><rect x="190" y="22" width="420.0" height="24" rx="4" fill="#199e70" data-tip="48 of 48|answers citing both vendors' own pages"/><text class="strong" x="622" y="39">48/48 · 19.4 sources</text><text class="row" x="0" y="85">GPT-4o + web</text><rect x="190" y="68" width="420" height="24" rx="4" fill="#3d4d45" opacity=".45"/><rect x="190" y="68" width="78.8" height="24" rx="4" fill="#199e70" data-tip="9 of 48|answers citing both vendors' own pages"/><rect x="270.8" y="68" width="190.5" height="24" rx="4" fill="#3987e5" data-tip="22 of 48|answers citing one vendor's own page"/><text class="strong" x="622" y="85">31/48 · 5.0 sources</text><text class="row" x="0" y="131">Gemini 2.5 Flash + web</text><rect x="190" y="114" width="420" height="24" rx="4" fill="#3d4d45" opacity=".45"/><rect x="190" y="114" width="78.8" height="24" rx="4" fill="#199e70" data-tip="9 of 48|answers citing both vendors' own pages"/><rect x="270.8" y="114" width="181.8" height="24" rx="4" fill="#3987e5" data-tip="21 of 48|answers citing one vendor's own page"/><text class="strong" x="622" y="131">30/48 · 5.0 sources</text></svg></div><figcaption class="cap">12 vendor pairs x 2 name orders x 2 runs = 48 answers per engine, September 28, 2026.</figcaption><details><summary>View as table</summary><table><thead><tr><th>Engine</th><th>Answers</th><th>Both vendors cited</th><th>One vendor cited</th><th>Neither</th><th>Sources per answer</th></tr></thead><tbody><tr><td>Perplexity Sonar</td><td>48</td><td>48</td><td>0</td><td>0</td><td>19.4</td></tr><tr><td>GPT-4o + web</td><td>48</td><td>9</td><td>22</td><td>17</td><td>5.0</td></tr><tr><td>Gemini 2.5 Flash + web</td><td>48</td><td>9</td><td>21</td><td>18</td><td>5.0</td></tr></tbody></table></details></figure>
+    <p>The pages being cited are exactly the ones this report is about. The most cited vendor URLs were ClickUp's "Asana vs ClickUp" post (12 answers), WooCommerce's "WooCommerce vs Shopify" page (11), 1Password's "Bitwarden vs 1Password" post (11), Salesforce's "Salesforce vs HubSpot" page and HubSpot's "Pipedrive vs HubSpot" page (10 each). Each is a page one vendor wrote about a direct rival.</p>
+    <p>The engines differ in a way that matters for anyone doing a fix. Perplexity cites about 19 sources per answer and pulled in both vendors' pages in every one of its 48 answers. GPT-4o and Gemini cite about five, and cited a vendor page in 31 and 30 answers respectively, usually only one side's. So on those two engines the competitor's page is more often the only vendor voice in the answer. I saw the same gap in citation density when I looked at <a href="/research/ai-citations-by-query-shape/">which page types get cited for "best X", "X alternatives" and "X vs Y" questions</a>. In that study 98.3% of citations for "X vs Y" questions went to comparison pages.</p>
+
+    <h2 id="verdict">3. Does the vendor's page tilt the verdict?</h2>
+    <p class="capsule">Not in this sample. When only one vendor's page was cited, the answer favored that vendor 30% of the time and its rival 26%. With no vendor page cited, it was 24% and 24%. Across every answer that cited a vendor's page, that vendor won 68 times and lost 66.</p>
+<figure class="viz"><h3>Being cited did not make a vendor win</h3><p class="sub">Verdicts from each vendor's point of view, grouped by whose pages the answer cited.</p><div class="legend"><span><i style="background:#199e70"></i>Favored this vendor</span><span><i style="background:#3d4d45"></i>Neutral</span><span><i style="background:#d95926"></i>Favored the rival</span></div><div class="plot"><svg viewBox="0 0 760 186" role="img" aria-labelledby="alag-verdict-title alag-verdict-desc"><title id="alag-verdict-title">Being cited did not make a vendor win</title><desc id="alag-verdict-desc">Stacked bars. Only this vendor&#x27;s page cited, 43 cases: favored this vendor 30 percent, neutral 44 percent, favored the rival 26 percent. Both vendors&#x27; pages cited, 132 cases: 42, 17 and 42 percent. No vendor page cited, 70 cases: 24, 51 and 24 percent.</desc><text class="row" x="0" y="39">Only this vendor&#x27;s page cited</text><rect x="231.0" y="22" width="152.2" height="24" rx="4" fill="#199e70" data-tip="30% (13 of 43)|Favored this vendor"/><text class="strong" x="238.0" y="39" style="fill:#fff">30%</text><rect x="385.2" y="22" width="223.3" height="24" rx="4" fill="#3d4d45" data-tip="44% (19 of 43)|Neutral"/><text class="strong" x="392.2" y="39">44%</text><rect x="610.5" y="22" width="128.5" height="24" rx="4" fill="#d95926" data-tip="26% (11 of 43)|Favored the rival"/><text class="strong" x="617.5" y="39" style="fill:#fff">26%</text><text class="row" x="0" y="85">Both vendors&#x27; pages cited</text><rect x="231.0" y="68" width="210.5" height="24" rx="4" fill="#199e70" data-tip="42% (55 of 132)|Favored this vendor"/><text class="strong" x="238.0" y="85" style="fill:#fff">42%</text><rect x="443.5" y="68" width="83.0" height="24" rx="4" fill="#3d4d45" data-tip="17% (22 of 132)|Neutral"/><text class="strong" x="450.5" y="85">17%</text><rect x="528.5" y="68" width="210.5" height="24" rx="4" fill="#d95926" data-tip="42% (55 of 132)|Favored the rival"/><text class="strong" x="535.5" y="85" style="fill:#fff">42%</text><text class="row" x="0" y="131">No vendor page cited</text><rect x="231.0" y="114" width="121.9" height="24" rx="4" fill="#199e70" data-tip="24% (17 of 70)|Favored this vendor"/><text class="strong" x="238.0" y="131" style="fill:#fff">24%</text><rect x="354.9" y="114" width="260.3" height="24" rx="4" fill="#3d4d45" data-tip="51% (36 of 70)|Neutral"/><text class="strong" x="361.9" y="131">51%</text><rect x="617.1" y="114" width="121.9" height="24" rx="4" fill="#d95926" data-tip="24% (17 of 70)|Favored the rival"/><text class="strong" x="624.1" y="131" style="fill:#fff">24%</text><text x="230" y="176">each answer counted once from each vendor's side</text></svg></div><figcaption class="cap">With no effect, the self and rival shares in each bar would be about equal, and they are. The "both cited" bar is symmetric by construction, because every answer counts once for each side.</figcaption><details><summary>View as table</summary><table><thead><tr><th>Condition</th><th>Cases</th><th>Favored this vendor</th><th>Neutral</th><th>Favored the rival</th></tr></thead><tbody><tr><td>Only this vendor&#x27;s page cited</td><td>43</td><td>13</td><td>19</td><td>11</td></tr><tr><td>Both vendors&#x27; pages cited</td><td>132</td><td>55</td><td>22</td><td>55</td></tr><tr><td>No vendor page cited</td><td>70</td><td>17</td><td>36</td><td>17</td></tr></tbody></table></details></figure>
+    <p>The clearer pattern is how fixed each verdict was. In 11 of the 12 pairs every clear recommendation went the same way. That held across all three engines, both name orders and both runs. Notion beat Confluence in 12 answers out of 12. Freshdesk beat Zendesk in 10 and the other 2 were draws. The only split was QuickBooks against Xero, 7 to 2. Overall, 94 of the 96 answers that picked a side picked the pair's usual winner. Name order made no difference either: the product named first won 47 times, the one named second 49.</p>
+    <div class="stat-callout">
+      <span class="val">10 / 0</span>
+      <div>
+        <p>Zendesk's own "Zendesk vs Freshdesk" page was cited in 10 answers. Not one of them recommended Zendesk. Eight recommended Freshdesk and two called it a draw. The same happened to Atlassian: its Confluence comparison pages were cited 7 times, and Notion won all 7.</p>
+        <p class="src">Source: this experiment, <a href="#pairs">per-pair results below</a></p>
+      </div>
+    </div>
+    <p>My reading is that the verdict comes from the consensus across all the sources: review sites, "best of" lists, Reddit threads, the model's own prior. A vendor's comparison page is one voice among five or nineteen, and the engine seems to discount it as the interested party. That is reassuring if you are the brand on the receiving end. You are unlikely to lose the recommendation because of one hostile page, unless that page is the only detailed source on the topic.</p>
+
+    <h2 id="damage">4. Where does a competitor's page actually hurt you?</h2>
+    <p class="capsule">In the details the answer repeats: your price, your limits, which features you have, who you are for. A verdict needs consensus. A fact only needs one source that states it clearly and nobody contradicting it. If the competitor's page is the clearest place on the web that states your price, a stale or wrong price becomes the answer.</p>
+    <p>This part I did not measure. Checking whether an answer repeats a specific claim from a specific page needs claim-by-claim work that my test was not built for. The mechanism, though, is well documented. Semrush lists "competitive misattribution" among the common AI errors about brands: a competitor's product, feature or positioning attached to your brand, often sourced from comparison articles. It also notes that old pricing lives on in comparison pages long after the vendor changes it, and that those pages can outrank your own pricing page in the sources AI draws on. In my own <a href="/research/ai-wrong-business-information-statistics/">collection of figures on how often AI gets business information wrong</a>, basic facts were where the errors clustered.</p>
+    <p>The r/SEO poster's complaint fits this pattern. They did not say AI recommended the competitor. They said AI kept repeating the competitor's incorrect statements. The facts were wrong, and those are the part you can correct.</p>
+
+    <h2 id="playbook">5. What to do when AI repeats a competitor's false claim</h2>
+    <p class="capsule">Find out which page the claim comes from. Decide whether it is a false fact or just an opinion. Publish the correct fact in a form an engine can quote, and get it repeated where the competitor has no control. Escalate legally only if the claim is a checkable falsehood. Then measure the same prompts again.</p>
+    <ol class="plain">
+      <li><strong>Reproduce it with a fixed prompt set.</strong> Write 10 to 20 prompts a buyer would type: "[you] vs [them]", "is [you] worth it", "[you] pricing", "[you] alternatives". Run each on ChatGPT, Gemini, Perplexity and Google AI Mode, twice, and save the full answer with its sources. One screenshot proves nothing. In <a href="/research/ai-visibility-tracking-reliability/">my 60-query reliability test</a> the same prompt changed its top brand in about one run in five.</li>
+      <li><strong>Trace the claim to a page.</strong> Open the cited sources and find the sentence the answer is paraphrasing. If an answer has no sources, ask the engine to search the web and cite them. If it still cannot, the claim is coming from training data, which is slower to change. Your server log is a second check. A ChatGPT-User or PerplexityBot request for the competitor's page, or for yours, at the time of the answer shows the engine read it live.</li>
+      <li><strong>Sort the claim into one of two boxes.</strong> "Better for small teams" or "more intuitive" is an opinion. You answer it with evidence and reviews, not lawyers. "Has no API", "costs $49 per user", "not GDPR compliant" are statements of fact that can be checked. Only these give you leverage with the competitor, the platforms and, if needed, a regulator.</li>
+      <li><strong>Publish a fact page, not a rebuttal.</strong> The engine discounts interested parties, and a rebuttal is the most interested page there is. What it can quote is a plain block of dated facts. Current price with the date. What the product does and does not do. Who it is for. Compliance status with a link to the certificate. Put it on the pages the engine already looks at, such as pricing, the feature page and FAQ, in text rather than images or scripts. Add Organization and Product structured data so the facts have a machine-readable copy. If you want your own comparison page, keep it factual about the competitor too. Your credibility is the asset here.</li>
+      <li><strong>Get the same facts said elsewhere.</strong> The competitor's page is one source. You need the correct version to be the consensus. Update your profiles on G2, Capterra and the directories in your category. Brief your distributors and partners and ask them to state current pricing and specs. Answer the question where it is being asked, including on Reddit, under your own name. On Perplexity a new source can change the answer within days. On models answering from memory it takes longer.</li>
+      <li><strong>Ask, then escalate, for false statements of fact.</strong> Start with a short, factual email to the competitor that names the claim, gives the correct fact and links the evidence. Comparison pages go stale more often than they are malicious. If that fails, the options depend on where you are. In the US, a false or misleading statement of fact in commercial advertising can be challenged under <a href="#src-3">section 43(a) of the Lanham Act</a>. Puffery and opinion are generally not actionable. The cheaper forum between competitors is <a href="#src-2">BBB National Programs' National Advertising Division</a>, which reviews truth-in-advertising challenges from competitors on standard, fast-track and complex tracks. In the EU, <a href="#src-4">Directive 2006/114/EC</a> allows comparative advertising only if it is not misleading, compares material, relevant, verifiable and representative features, and does not discredit the competitor. This is not legal advice. Talk to a lawyer in your jurisdiction before you send anything with the word "false" in it.</li>
+      <li><strong>Report the answer, and do not count on it.</strong> ChatGPT, Google AI Overviews and Perplexity each have a thumbs-down and report option. It costs a minute and leaves a record. There is no guaranteed turnaround, so treat it as a supplement to steps 4 to 6.</li>
+      <li><strong>Measure with the same prompts.</strong> Re-run the prompt set from step 1 every week for six weeks, then monthly. Count how many answers repeat the wrong claim and how many state the correct one, per engine. Expect Perplexity to move first, because it reads the live web on every query.</li>
+    </ol>
+    <p>If you want the diagnosis and the prompt set done for you, that is the core of the GEO work on my <a href="/services/">services page</a>, and an <a href="/services/seo-audit/">SEO audit</a> includes a check of what the main assistants say about you.</p>
+    <p>One thing to avoid: answering the competitor's page with a page of your own that attacks them. My data suggests the engines do not reward a vendor for writing about its rival. It also hands the competitor a legal argument against you.</p>
+
+    <h2 id="one-review">6. When one negative review drives the whole answer</h2>
+    <p class="capsule">The same mechanism works through a single hostile post as well as a competitor's page. One clear negative source can dominate the answer, while many scattered positive ones barely register. The fix is also the same: find the exact source, make the positive evidence findable, and correct facts rather than fight opinions.</p>
+    <p><a href="#src-6">An August 2026 r/SEO thread</a> described the pattern well. A client had built up about 15 positive Reddit reviews over two years and 1 negative comment. ChatGPT's answer about the company focused on the single negative comment and told users to be cautious. The poster got the same answer from five devices. Gemini mentioned the complaint but said most feedback was positive. The top reply suggested paying the commenter $25 to delete it, which tells you how poorly this question is served.</p>
+    <ul class="plain">
+      <li><strong>Check which index the engine uses.</strong> ChatGPT's web search leans on Bing and Gemini on Google, which is one likely reason the two answers differed. Look up whether the positive threads are indexed in Bing at all. If they are not, the engine never saw them.</li>
+      <li><strong>Find the page it actually cites.</strong> Sometimes it is the thread itself. Often it is a scraper or review aggregator that copied the negative comment and ranks for your brand name. Fixing or answering that page does more than arguing with the model.</li>
+      <li><strong>Answer the complaint in public, once, with facts.</strong> A calm reply under the original post turns a one-sided source into a two-sided one, and engines quote both sides.</li>
+      <li><strong>Make real positive evidence easy to find.</strong> Link to the positive threads and reviews from pages that are crawled often. Keep collecting recent, genuine reviews on the platforms your buyers check. Do not pay for deletions or post fake reviews. Both are the kind of signal that ends up in the next answer about you.</li>
+    </ul>
+
+    <h2 id="pairs">7. All 12 pairs in one table</h2>
+    <p>Each pair was asked 12 times: 2 name orders, 3 engines, 2 runs. "Page cited" counts the answers that cited at least one page on that vendor's domain.</p>
+    <div class="explorer">
+      <div class="scroll table-wrap">
+        <table>
+          <thead><tr><th>Pair</th><th>Favored first</th><th>Favored second</th><th>Neutral</th><th>First vendor's page cited</th><th>Second vendor's page cited</th></tr></thead>
+          <tbody>
+            <tr><td>Asana vs Monday.com</td><td class="fig">Asana 6</td><td class="fig">Monday.com 0</td><td>6</td><td>4 / 12</td><td>5 / 12</td></tr>
+            <tr><td>ClickUp vs Asana</td><td class="fig">ClickUp 7</td><td class="fig">Asana 0</td><td>5</td><td>12 / 12</td><td>4 / 12</td></tr>
+            <tr><td>Notion vs Confluence</td><td class="fig">Notion 12</td><td class="fig">Confluence 0</td><td>0</td><td>6 / 12</td><td>7 / 12</td></tr>
+            <tr><td>HubSpot vs Salesforce</td><td class="fig">HubSpot 11</td><td class="fig">Salesforce 0</td><td>1</td><td>9 / 12</td><td>10 / 12</td></tr>
+            <tr><td>Pipedrive vs HubSpot</td><td class="fig">Pipedrive 7</td><td class="fig">HubSpot 0</td><td>5</td><td>4 / 12</td><td>10 / 12</td></tr>
+            <tr><td>Mailchimp vs Klaviyo</td><td class="fig">Mailchimp 1</td><td class="fig">Klaviyo 0</td><td>11</td><td>7 / 12</td><td>9 / 12</td></tr>
+            <tr><td>Shopify vs WooCommerce</td><td class="fig">Shopify 8</td><td class="fig">WooCommerce 0</td><td>4</td><td>8 / 12</td><td>11 / 12</td></tr>
+            <tr><td>Webflow vs Wix</td><td class="fig">Webflow 0</td><td class="fig">Wix 10</td><td>2</td><td>4 / 12</td><td>4 / 12</td></tr>
+            <tr><td>Semrush vs Ahrefs</td><td class="fig">Semrush 5</td><td class="fig">Ahrefs 0</td><td>7</td><td>5 / 12</td><td>4 / 12</td></tr>
+            <tr><td>Zendesk vs Freshdesk</td><td class="fig">Zendesk 0</td><td class="fig">Freshdesk 10</td><td>2</td><td>10 / 12</td><td>9 / 12</td></tr>
+            <tr><td>1Password vs Bitwarden</td><td class="fig">1Password 10</td><td class="fig">Bitwarden 0</td><td>2</td><td>11 / 12</td><td>4 / 12</td></tr>
+            <tr><td>QuickBooks vs Xero</td><td class="fig">QuickBooks 7</td><td class="fig">Xero 2</td><td>3</td><td>10 / 12</td><td>8 / 12</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <h2 id="methodology">8. Methodology</h2>
+    <p>Twelve pairs of software vendors that compete head-on and publish comparison pages: project management (Asana, Monday.com, ClickUp), docs (Notion, Confluence), CRM (HubSpot, Salesforce, Pipedrive), email marketing (Mailchimp, Klaviyo), e-commerce (Shopify, WooCommerce), site builders (Webflow, Wix), SEO tools (Semrush, Ahrefs), help desk (Zendesk, Freshdesk), password managers (1Password, Bitwarden) and accounting (QuickBooks, Xero). Each pair was asked with one prompt, "{X} vs {Y}: which is better for a small business? Give a clear recommendation.", in both name orders. I ran it twice on each of three engines through OpenRouter on September 28, 2026: Perplexity Sonar, GPT-4o with OpenRouter's web search and Gemini 2.5 Flash with web search. That gave 144 answers and no errors.</p>
+    <p>A cited URL counts as a vendor page when its domain belongs to either vendor, subdomains included (quickbooks.intuit.com counts for QuickBooks, freshworks.com for Freshdesk). The verdict was labelled by a separate model, Gemini 2.5 Flash at temperature 0. It read each answer and replied with the favored product or "neutral". I read 10 randomly picked labels by hand. Eight matched my own reading. Two were borderline: one "neutral" I would have scored as a Wix win, and one QuickBooks win I would have called neutral. I kept the model's labels as they were, so the judging stays the same for every answer. The per-side analysis treats each answer twice, once from each vendor's point of view, and puts it in one of three groups: only this vendor's page cited, both cited, or neither cited. The script, the prompts and every answer's citation list are in <a href="#data">the data file</a>.</p>
+
+    <h2 id="limitations">9. Limitations</h2>
+    <p class="capsule">This is a small test of large software brands. The verdicts may be settled for them in a way they are not for a small company that only one or two pages ever describe. The steering effect I did not find could still exist where the competitor's page is the only detailed source.</p>
+    <p>Four more. 144 answers is enough to see a 68 to 66 split as "no clear effect" and not enough to rule out a small one. One prompt wording was used, aimed at a small business. The models were reached through OpenRouter's web search, not the consumer apps, which may search and cite differently. And an LLM labelled the verdicts, so an "it depends, but..." answer could have landed either side of neutral. The claim that competitor pages spread wrong facts rests on the published mechanism and on the cases above, not on my own measurement. That is the next test to run.</p>
+
+    <h2 id="faq">10. Frequently asked questions</h2>
+    <div class="faq">
+      <details>
+        <summary>Do AI assistants cite a competitor's comparison page when someone compares you?</summary>
+        <p>Usually. In a test of 144 answers to "X vs Y: which is better for a small business?" across Perplexity, GPT-4o and Gemini, 109 answers cited at least one page on either vendor's own domain, almost always a vs, compare or alternatives page. Those pages were 18.5% of all 1,412 citations. Perplexity cited both vendors in all 48 of its answers.</p>
+      </details>
+      <details>
+        <summary>Does a competitor's comparison page make AI recommend them over you?</summary>
+        <p>Not in this test. When one vendor's page was among the sources, the answer favored that vendor 68 times and its rival 66 times. In 11 of 12 pairs every clear verdict went the same way regardless of which page was cited or which name came first. Zendesk's own Zendesk vs Freshdesk page was cited in 10 answers and none recommended Zendesk.</p>
+      </details>
+      <details>
+        <summary>How do I stop ChatGPT repeating a false claim from a competitor's article?</summary>
+        <p>Trace the claim to the page it comes from, then decide whether it is a checkable fact or an opinion. Publish the correct fact with a date on your pricing, feature and FAQ pages, get the same fact stated on review sites, directories and partner pages, and ask the competitor to correct it. Report the answer through the platform's feedback button, then re-run the same prompts weekly for six weeks.</p>
+      </details>
+      <details>
+        <summary>Can I take legal action over a competitor's comparison page?</summary>
+        <p>Sometimes, if it makes a false statement of fact rather than an opinion. In the US, false or misleading statements of fact in commercial advertising can be challenged under section 43(a) of the Lanham Act, and competitors can file a challenge with the National Advertising Division. In the EU, Directive 2006/114/EC only permits comparative advertising that is not misleading, compares verifiable features and does not discredit the competitor. Get advice from a lawyer in your jurisdiction first.</p>
+      </details>
+      <details>
+        <summary>Should I publish my own comparison page to answer theirs?</summary>
+        <p>Publish facts, not a rebuttal. In this test the engines gave no advantage to a vendor for writing about its rival, so a hostile counter page is unlikely to change the verdict and can create legal exposure. A factual comparison that is fair to the competitor is fine. The priority is a dated block of your own facts that an engine can quote.</p>
+      </details>
+      <details>
+        <summary>How long does it take for AI answers to change after I fix the facts?</summary>
+        <p>It depends on the engine. Perplexity searches the live web on every query, so a new or corrected source can show up within days. Answers that come from a model's training data change only when the model is updated, which can take months. Measure with a fixed prompt set rather than one screenshot, because the same prompt can give a different answer from run to run.</p>
+      </details>
+    </div>
+
+    <h2 id="data">11. Get the data</h2>
+    <div class="data-box">
+      <h3>All 144 answers, CC BY 4.0</h3>
+      <p>The pair, name order, engine and run for every answer. Also the judged verdict, the number of citations and every cited URL on either vendor's domain, plus the per-pair and per-condition totals used on this page.</p>
+      <p><a href="/research/competitor-comparison-pages-in-ai-answers/data-summary.json" rel="noopener">data-summary.json</a> - machine readable</p>
+      <p style="margin-bottom:0">Citing this page: link to this URL. If a competitor's page is feeding wrong facts about you into AI answers and you are willing to share the before and after, <a href="mailto:info@stanislav-peev.com?subject=Competitor%20comparison%20page%20-%20AI%20answers">email me</a>. The claim-level test needs real cases.</p>
+    </div>
+
+    <h3 style="margin-top:40px">Sources</h3>
+    <ol class="sources-list">
+      <li id="src-1" value="1">Semrush. "How to find and fix what AI gets wrong about your brand." May 2026. <a href="https://www.semrush.com/blog/fix-ai-brand-misinformation/" rel="noopener">semrush.com/blog/fix-ai-brand-misinformation/</a>. Accessed September 28, 2026.</li>
+      <li id="src-2" value="2">BBB National Programs. "National Advertising Division (NAD)" - filing tracks and case decisions. <a href="https://bbbprograms.org/programs/all-programs/national-advertising-division" rel="noopener">bbbprograms.org/programs/all-programs/national-advertising-division</a>. Accessed September 28, 2026.</li>
+      <li id="src-3" value="3">15 U.S. Code § 1125 - False designations of origin, false descriptions, and dilution forbidden (Lanham Act § 43(a)). Legal Information Institute, Cornell Law School. <a href="https://www.law.cornell.edu/uscode/text/15/1125" rel="noopener">law.cornell.edu/uscode/text/15/1125</a>. Accessed September 28, 2026.</li>
+      <li id="src-4" value="4">Directive 2006/114/EC of the European Parliament and of the Council of 12 December 2006 concerning misleading and comparative advertising, Article 4. EUR-Lex. <a href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32006L0114" rel="noopener">eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32006L0114</a>. Accessed September 28, 2026.</li>
+      <li id="src-5" value="5">r/SEO. "Influencing AI Responses." September 24, 2026. The thread that prompted this report. <a href="https://www.reddit.com/r/SEO/comments/1wpdamq/influencing_ai_responses/" rel="noopener">reddit.com/r/SEO/comments/1wpdamq/influencing_ai_responses/</a>. Accessed September 28, 2026.</li>
+      <li id="src-6" value="6">r/SEO. "Any way to fix this?" August 10, 2026. <a href="https://www.reddit.com/r/SEO/comments/1vko1uf/any_way_to_fix_this/" rel="noopener">reddit.com/r/SEO/comments/1vko1uf/any_way_to_fix_this/</a>. Accessed September 28, 2026.</li>
+    </ol>
+
+    <p class="updated">Published: September 28, 2026. Experiment designed, run and written up by <a href="/">Stanislav Peev</a>. Next planned step: a claim-level test of whether AI answers repeat specific facts from vendors' comparison pages. Spotted an error? <a href="mailto:info@stanislav-peev.com?subject=Competitor%20comparison%20pages%20-%20correction">Email me</a> and I will fix it and date the fix.</p>
+
+  </div>
+</section>
+
+<section class="contact-band" id="contact" style="padding:56px 0">
+  <div class="wrap contact-cols">
+    <div>
+      <h2>Is AI repeating something wrong about your company?</h2>
+      <p class="section-intro">I trace the claim to the page it comes from, check it across ChatGPT, Gemini, Perplexity and Google AI Mode, and build the fact layer that replaces it. Then I measure the same prompts until the answer changes. Describe your situation in a few sentences and I'll reply personally with an honest first read. No calls, no meetings.</p>
+      <p><a class="btn btn-primary" href="/services/">See GEO services</a> <a class="btn btn-ghost" href="mailto:info@stanislav-peev.com?subject=AI%20answers%20about%20my%20company" style="margin-left:10px">Email me</a></p>
+    </div>
+    <ul class="contact-list">
+      <li><b>Email</b><a class="link" href="mailto:info@stanislav-peev.com">info@stanislav-peev.com</a></li>
+      <li><b>LinkedIn</b><a class="link" href="https://www.linkedin.com/in/stanislav-peev-seo/" rel="noopener">in/stanislav-peev-seo</a></li>
+      <li><b>Based in</b>Bratislava, Slovakia - working worldwide</li>
+    </ul>
+  </div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div>© 2026 Stanislav Peev · SEO Consultant &amp; AI Search (GEO) Specialist, Bratislava, Slovakia</div>
+    <nav class="footer-nav" aria-label="Footer">
+      <a href="/">Home</a>
+      <a href="/#geo">AI / GEO</a>
+      <a href="/services/">Services</a>
+      <a href="/services/seo-audit/">SEO Audit</a>
+      <a href="/services/small-business-seo/">Small Business SEO</a>
+      <a href="/research/">Research</a>
+      <a href="https://www.linkedin.com/in/stanislav-peev-seo/" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" style="width:1em;height:1em;vertical-align:-.15em;margin-right:.35em;fill:currentColor"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29ZM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13ZM7.12 20.45H3.56V9h3.56v11.45ZM22.22 0H1.77C.79 0 0 .77 0 1.72v20.55C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0Z"/></svg>LinkedIn</a>
+      <a href="https://www.youtube.com/@stanislav_peev" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" style="width:1em;height:1em;vertical-align:-.15em;margin-right:.35em;fill:currentColor"><path d="M23.5 6.2a3 3 0 0 0-2.11-2.12C19.5 3.55 12 3.55 12 3.55s-7.5 0-9.39.53A3 3 0 0 0 .5 6.2 31.3 31.3 0 0 0 0 12a31.3 31.3 0 0 0 .5 5.8 3 3 0 0 0 2.11 2.12c1.89.53 9.39.53 9.39.53s7.5 0 9.39-.53A3 3 0 0 0 23.5 17.8 31.3 31.3 0 0 0 24 12a31.3 31.3 0 0 0-.5-5.8ZM9.55 15.57V8.43L15.82 12l-6.27 3.57Z"/></svg>YouTube</a>
+    </nav>
+  </div>
+</footer>
+
+<button class="to-top" id="toTop" aria-label="Back to top" title="Back to top">↑</button>
+<script>
+(function () {
+  var t = document.getElementById('toTop');
+  addEventListener('scroll', function () { t.classList.toggle('show', scrollY > 600); }, { passive: true });
+  t.addEventListener('click', function () { scrollTo({ top: 0, behavior: 'smooth' }); });
+})();
+
+(function () {
+  var tip = document.createElement('div'); tip.id = 'vizTip';
+  var tv = document.createElement('b'), tl = document.createElement('span');
+  tip.appendChild(tv); tip.appendChild(tl); document.body.appendChild(tip);
+  function show(e) {
+    var el = e.target.closest('[data-tip]'); if (!el) { tip.style.display = 'none'; return; }
+    var p = el.getAttribute('data-tip').split('|');
+    tv.textContent = p[0]; tl.textContent = p[1] || '';
+    tip.style.display = 'block';
+    var x = e.clientX + 14, y = e.clientY + 14, w = tip.offsetWidth, h = tip.offsetHeight;
+    if (x + w > innerWidth - 8) x = e.clientX - w - 14;
+    if (y + h > innerHeight - 8) y = e.clientY - h - 14;
+    tip.style.left = Math.max(8, x) + 'px'; tip.style.top = Math.max(8, y) + 'px';
+  }
+  [].forEach.call(document.querySelectorAll('.viz svg'), function (s) {
+    s.addEventListener('pointermove', show);
+    s.addEventListener('pointerleave', function () { tip.style.display = 'none'; });
+  });
+})();
+</script>
+<script src="/assets/agent-tools.js?v=1" defer></script>
+</body>
+</html>

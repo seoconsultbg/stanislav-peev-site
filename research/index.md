@@ -13,6 +13,22 @@ Data reports and practical guides on how search - classic and AI-driven - actual
 
 Data report · AI Search
 
+## [Your competitor's comparison page is in the AI answer about you: what it moves, and what to do when it gets you wrong](https://stanislav-peev.com/research/competitor-comparison-pages-in-ai-answers/)
+
+Original experiment: 144 answers from Perplexity, GPT-4o and Gemini to "X vs Y: which is better?" for 12 software vendor pairs. 76% cited a page written by one of the two vendors, yet when a vendor's own page was cited it won 68 times and lost 66, and 94 of 96 clear verdicts went to the same winner per pair. What a competitor's page really moves is the facts, with a step-by-step fix for false claims (fact page, third-party repetition, NAD, Lanham Act, EU Directive 2006/114/EC) and for answers dominated by one negative review. Raw data published.
+
+Published September 28, 2026 · 11 min read
+
+Data report · AI Search
+
+## [What percentage of leads really come from ChatGPT? Tracked vs self-reported, 17 figures checked against their source](https://stanislav-peev.com/research/ai-lead-attribution-gap/)
+
+Analytics puts AI assistants under 2% of tracked leads - 0.073% of 20 million inbound calls (CallRail). Companies that ask their customers report 7% to 25% (Outfunnel, Webflow, Vercel, Tally), and 45% to 94% of buyers say they research with AI. The gap has a mechanism: 55.9% of visits after a ChatGPT recommendation arrive as a branded search. Three layers side by side, a gap calculator, and four popular figures that did not trace to their credited source.
+
+Published September 21, 2026 · 10 min read
+
+Data report · AI Search
+
 ## [AI citations by question shape: which pages ChatGPT, Gemini and Perplexity cite for "best X", "X alternatives" and "X vs Y"](https://stanislav-peev.com/research/ai-citations-by-query-shape/)
 
 Original pilot: 176 citations logged and every cited page labeled by shape and owner. "best X" questions cited listicles 84% of the time and comparison pages 2%; "X alternatives" flipped to 86% comparison pages, a quarter of them on competing vendors' own domains, while G2 earned one citation. Why the published "under 3%" figure for comparison pages is an average that hides the switch. Raw data published.

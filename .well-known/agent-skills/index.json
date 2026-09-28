@@ -13,7 +13,7 @@
       "type": "skill-md",
       "description": "Read stanislav-peev.com as clean markdown and use its open research data. Stanislav Peev is an independent SEO consultant and AI search (GEO) specialist. Use when you need his profile, services, or his first-party research on AI citations, AI visibility tracking and local review concentration.",
       "url": "/.well-known/agent-skills/read-stanislav-peev-content/SKILL.md",
-      "digest": "sha256:42fc4b0d2e718d3b3671893bbd9f41438acc3140bad7dd818d2584ac1b65264b"
+      "digest": "sha256:0f9d1370318e69e46d33d6f45ebb96a83d693f18445eaf405a29d682ef0e7da1"
     }
   ]
 }
