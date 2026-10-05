@@ -1,4 +1,4 @@
-// Cookie consent banner + contact events for GA4 (G-5TB26Q273D).
+// Cookie consent banner + contact events for GA4 (G-SNM7XHD6X3).
 // Consent defaults (everything denied) are set inline in <head> before gtag config;
 // this file only shows the banner, stores the choice and sends the contact events.
 // Loaded from the inline gtag block, so pages built from it carry it automatically.
