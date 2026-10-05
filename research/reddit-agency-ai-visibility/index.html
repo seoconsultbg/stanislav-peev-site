@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Is a Reddit agency worth it for AI visibility? (2026) - Stanislav Peev</title>
+<meta name="description" content="One tracker saw Reddit&#x27;s share of ChatGPT citations fall 86% in August 2026 and AI Overviews 11%. What a Reddit agency can still deliver: 10 questions.">
+<link rel="canonical" href="https://stanislav-peev.com/research/reddit-agency-ai-visibility/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Stanislav Peev">
+<meta property="og:title" content="Is it worth paying a Reddit agency to get into ChatGPT and AI Overviews?">
+<meta property="og:description" content="One tracker saw ChatGPT nearly stop linking Reddit in August 2026 (-86%), while Google AI Overviews fell 11% and AI Mode 31%. Published prices run from $2,500 to $12,500 a month. A buyer&#x27;s guide: which engine you pay for, who owns the accounts, how to check citation claims, and six popular claims that do not hold as stated.">
+<meta property="og:url" content="https://stanislav-peev.com/research/reddit-agency-ai-visibility/">
+<meta property="og:image" content="https://stanislav-peev.com/research/reddit-agency-ai-visibility/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Reddit's share of ChatGPT Search citations fell 86% in August 2026, Google AI Overviews 11%, AI Mode 31%. Buyer's guide to Reddit agencies for AI visibility">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:creator" content="@SeoPeev">
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="alternate" type="application/rss+xml" title="Stanislav Peev - SEO &amp; AI Search Research" href="/rss.xml">
+<link rel="stylesheet" href="/assets/site.css?v=6">
+<style>
+.article-meta { font-size: .9rem; color: var(--ink-soft); margin-bottom: 34px; }
+.article-meta b { color: var(--ink); }
+.hero-stat {
+  background: linear-gradient(135deg, var(--surface), var(--band));
+  border: 1px solid var(--green); border-radius: 18px;
+  padding: 36px 32px; text-align: center; margin: 0 0 40px;
+}
+.hero-stat .big {
+  font-family: var(--serif); font-size: clamp(3.2rem, 8vw, 5rem);
+  color: var(--green); font-weight: 700; line-height: 1; display: block; margin-bottom: 12px;
+}
+.hero-stat p { color: var(--ink); font-size: 1.1rem; max-width: 62ch; margin: 0 auto 8px; }
+.hero-stat .src { font-size: .85rem; color: var(--ink-soft); }
+.takeaways {
+  background: var(--surface); border: 1px solid var(--line); border-left: 4px solid var(--green);
+  border-radius: 12px; padding: 26px 28px; margin: 0 0 40px;
+}
+.takeaways h2 {
+  font-family: var(--sans); font-size: .8rem; font-weight: 700; letter-spacing: .12em;
+  text-transform: uppercase; color: var(--green); margin-bottom: 14px;
+}
+.takeaways ul { list-style: none; display: grid; gap: 10px; }
+.takeaways li { padding-left: 22px; position: relative; color: var(--ink-soft); font-size: .98rem; }
+.takeaways li::before { content: '→'; position: absolute; left: 0; color: var(--green); }
+.takeaways li b { color: var(--ink); font-family: var(--serif); }
+.toc {
+  border: 1px solid var(--line); border-radius: 12px; padding: 22px 26px; margin: 0 0 48px;
+  background: var(--bg-alt);
+}
+.toc h2 { font-family: var(--sans); font-size: .95rem; margin-bottom: 12px; }
+.toc ol { margin-left: 20px; color: var(--ink-soft); display: grid; gap: 6px; font-size: .95rem; }
+.toc a { color: var(--green); text-decoration: none; }
+.toc a:hover { text-decoration: underline; }
+.article h2 { margin-top: 56px; margin-bottom: 16px; scroll-margin-top: 90px; }
+.article h3 { margin-top: 30px; margin-bottom: 10px; font-size: 1.1rem; }
+.article .capsule { color: var(--ink); font-size: 1.08rem; margin-bottom: 18px; max-width: 70ch; }
+.article p { color: var(--ink-soft); margin-bottom: 18px; max-width: 72ch; }
+.article p strong { color: var(--ink); }
+.article a { color: var(--green); }
+.article ul.plain { margin: 0 0 18px 20px; color: var(--ink-soft); max-width: 72ch; display: grid; gap: 8px; }
+.metric-table { width: 100%; border-collapse: collapse; margin: 22px 0; font-size: .95rem; }
+.metric-table th {
+  background: var(--band); color: var(--ink); text-align: left;
+  padding: 11px 14px; text-transform: uppercase; font-size: .76rem; letter-spacing: .07em;
+  border-bottom: 2px solid var(--green);
+}
+.metric-table td { padding: 11px 14px; border-bottom: 1px solid var(--line); color: var(--ink-soft); }
+.metric-table td.v { font-family: var(--serif); font-weight: 700; color: var(--green); white-space: nowrap; }
+.metric-table td.hi { color: var(--green); font-weight: 700; }
+.metric-table td.lo { color: var(--ink-soft); }
+.table-wrap { overflow-x: auto; }
+.stat-callout {
+  display: flex; align-items: center; gap: 22px; background: var(--surface);
+  border: 1px solid var(--line); border-left: 4px solid var(--green); border-radius: 12px;
+  padding: 20px 24px; margin: 24px 0;
+}
+.stat-callout .val {
+  font-family: var(--serif); font-size: 2.1rem; font-weight: 700; color: var(--green);
+  white-space: nowrap; min-width: 90px; text-align: center;
+}
+.stat-callout div p { margin: 0; font-size: .96rem; }
+.stat-callout div .src { font-size: .82rem; color: var(--ink-soft); margin-top: 4px; }
+.bar-chart { margin: 24px 0; display: grid; gap: 10px; max-width: 680px; }
+.bar-row { display: grid; grid-template-columns: 230px 1fr; align-items: center; gap: 12px; }
+.bar-row .lbl { font-size: .9rem; color: var(--ink-soft); text-align: right; }
+.bar-track { background: var(--band); border-radius: 6px; overflow: hidden; height: 30px; position: relative; }
+.bar-fill {
+  height: 100%; background: var(--green); border-radius: 6px;
+  display: flex; align-items: center; padding-left: 10px;
+  font-family: var(--serif); font-weight: 700; font-size: .88rem; color: var(--btn-text);
+  min-width: fit-content; white-space: nowrap;
+}
+.bar-fill.dim { background: var(--ink-soft); }
+.bar-note { font-size: .82rem; color: var(--ink-soft); margin-top: 2px; }
+.explorer {
+  background: var(--surface); border: 1px solid var(--green); border-radius: 16px;
+  padding: 24px; margin: 26px 0;
+}
+.explorer .controls { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 14px; }
+.explorer select, .explorer input[type="search"] {
+  background: var(--bg-alt); color: var(--ink); border: 1px solid var(--line); border-radius: 8px;
+  padding: 8px 10px; font-size: .92rem;
+}
+.explorer input[type="search"] { flex: 1; min-width: 180px; }
+.explorer .count { font-size: .88rem; color: var(--ink-soft); margin-bottom: 10px; }
+.explorer table { width: 100%; border-collapse: collapse; font-size: .86rem; }
+.explorer th { text-align: left; padding: 8px 10px; border-bottom: 2px solid var(--green); color: var(--ink); font-size: .74rem; text-transform: uppercase; letter-spacing: .06em; cursor: pointer; white-space: nowrap; }
+.explorer td { padding: 7px 10px; border-bottom: 1px solid var(--line); color: var(--ink-soft); vertical-align: top; }
+.explorer td a { color: var(--green); word-break: break-all; }
+.explorer .tag { display: inline-block; padding: 1px 7px; border-radius: 999px; font-size: .74rem; border: 1px solid var(--line); color: var(--ink); white-space: nowrap; }
+.explorer .tag.cmp { border-color: var(--green); color: var(--green); }
+.explorer .scroll { max-height: 520px; overflow: auto; }
+.data-box {
+  background: var(--bg-alt); border: 1px solid var(--line); border-radius: 12px;
+  padding: 22px 26px; margin: 26px 0;
+}
+.data-box h3 { font-size: 1rem; margin: 0 0 8px; }
+.data-box p { font-size: .92rem; margin-bottom: 10px; }
+.sources-list { font-size: .92rem; color: var(--ink-soft); margin-left: 20px; display: grid; gap: 10px; }
+.sources-list a { color: var(--green); word-break: break-all; }
+.updated { font-size: .88rem; color: var(--ink-soft); border-top: 1px solid var(--line); padding-top: 20px; margin-top: 48px; }
+@media (max-width: 640px) {
+  .bar-row { grid-template-columns: 1fr; gap: 4px; }
+  .bar-row .lbl { text-align: left; }
+  .stat-callout { flex-direction: column; align-items: flex-start; gap: 10px; }
+}
+.explorer.calc .calc-grid { display: grid; gap: 14px; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); margin-bottom: 18px; }
+.explorer.calc label { display: grid; gap: 6px; font-size: .88rem; color: var(--ink-soft); }
+.explorer.calc input { background: var(--bg-alt); color: var(--ink); border: 1px solid var(--line); border-radius: 8px; padding: 10px 12px; font-size: 1rem; font-variant-numeric: tabular-nums; }
+.calc-out { display: grid; gap: 10px; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); margin-bottom: 12px; }
+.calc-out .cell { background: var(--bg-alt); border: 1px solid var(--line); border-radius: 10px; padding: 14px 16px; }
+.calc-out .cell b { display: block; font-family: var(--serif); font-size: 1.6rem; color: var(--green); font-variant-numeric: tabular-nums; }
+.calc-out .cell span { font-size: .84rem; color: var(--ink-soft); }
+.explorer td.fig { font-family: var(--serif); font-weight: 700; color: var(--ink); font-variant-numeric: tabular-nums; }
+.explorer .tag.tracked { border-color: var(--green); color: var(--green); }
+.hero-stat .src a { color: var(--green); }
+.hero-stat .big { white-space: nowrap; font-size: clamp(2.1rem, 9.5vw, 5rem); }
+.viz { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 22px 22px 16px; margin: 28px 0; }
+.viz h3 { font-family: var(--sans); font-size: 1rem; font-weight: 700; color: var(--ink); margin: 0 0 4px; }
+.viz .sub { font-size: .88rem; color: var(--ink-soft); margin: 0 0 14px; max-width: 70ch; }
+.viz .plot { overflow-x: auto; }
+.viz svg { display: block; width: 100%; min-width: 620px; height: auto; font-family: var(--sans); }
+.viz svg text { fill: var(--ink-soft); font-size: 12px; }
+.viz svg text.strong { fill: var(--ink); font-weight: 600; }
+.viz svg text.row { fill: var(--ink); font-size: 13px; font-weight: 600; }
+.viz svg .grid { stroke: var(--line); stroke-width: 1; }
+.viz svg .ring { stroke: var(--surface); stroke-width: 2; }
+.viz svg [data-tip] { cursor: default; }
+.viz svg [data-tip]:hover { filter: brightness(1.25); }
+.viz .legend { display: flex; flex-wrap: wrap; gap: 6px 18px; font-size: .84rem; color: var(--ink-soft); margin: 0 0 10px; }
+.viz .legend i { display: inline-block; width: 10px; height: 10px; border-radius: 3px; margin-right: 7px; vertical-align: -1px; }
+.viz .legend i.ln { width: 16px; height: 2px; border-radius: 1px; vertical-align: 3px; }
+.viz .legend b { color: var(--ink); font-weight: 600; font-variant-numeric: tabular-nums; }
+.viz .cap { font-size: .82rem; color: var(--ink-soft); margin: 10px 0 0; }
+.viz .cap a { color: var(--green); }
+.viz details { margin-top: 10px; font-size: .84rem; color: var(--ink-soft); }
+.viz details summary { cursor: pointer; color: var(--green); }
+.viz details table { border-collapse: collapse; margin-top: 8px; font-variant-numeric: tabular-nums; }
+.viz details th, .viz details td { text-align: left; padding: 4px 14px 4px 0; border-bottom: 1px solid var(--line); }
+.viz details th { color: var(--ink); font-weight: 600; }
+.kpi-row { display: grid; grid-template-columns: 1fr auto 1fr auto 1fr; gap: 10px; align-items: stretch; margin: 6px 0 4px; }
+.kpi { background: var(--bg-alt); border: 1px solid var(--line); border-radius: 10px; padding: 14px 16px; }
+.kpi b { display: block; font-family: var(--sans); font-size: 1.9rem; font-weight: 700; color: var(--ink); line-height: 1.1; }
+.kpi span { font-size: .84rem; color: var(--ink-soft); }
+.kpi-arrow { align-self: center; color: var(--ink-soft); font-size: 1.2rem; }
+#vizTip { position: fixed; z-index: 50; pointer-events: none; background: var(--band); border: 1px solid var(--line); border-radius: 8px; padding: 8px 11px; font-size: .84rem; color: var(--ink-soft); max-width: 280px; box-shadow: 0 6px 20px rgba(0,0,0,.45); display: none; }
+#vizTip b { display: block; color: var(--ink); font-size: .98rem; font-variant-numeric: tabular-nums; }
+@media (max-width: 640px) {
+  .kpi-row { grid-template-columns: 1fr; }
+  .kpi-arrow { transform: rotate(90deg); justify-self: center; }
+}
+.explorer td.fig { font-family: var(--serif); font-weight: 700; color: var(--ink); font-variant-numeric: tabular-nums; white-space: nowrap; }
+ol.plain > li { margin-bottom: 12px; }
+.explorer.calc ul.checks { list-style: none; margin: 0 0 16px; padding: 0; display: grid; gap: 8px; }
+.explorer.calc ul.checks label { display: flex; gap: 10px; align-items: flex-start; font-size: .95rem; color: var(--ink); cursor: pointer; }
+.explorer.calc ul.checks input { margin-top: 4px; accent-color: var(--green); width: 18px; height: 18px; flex: none; }
+.calc-out { display: grid; gap: 10px; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); margin-bottom: 12px; }
+.calc-out .cell { background: var(--bg-alt); border: 1px solid var(--line); border-radius: 10px; padding: 14px 16px; }
+.calc-out .cell b { display: block; font-family: var(--serif); font-size: 1.6rem; color: var(--green); font-variant-numeric: tabular-nums; }
+.calc-out .cell.warn b { color: #e8915f; }
+.calc-out .cell span { font-size: .84rem; color: var(--ink-soft); }
+.hero-stat .src a { color: var(--green); }
+.hero-stat .big { white-space: nowrap; font-size: clamp(2.1rem, 9.5vw, 5rem); }
+.article code { font-size: .9em; }
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://stanislav-peev.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Research",
+          "item": "https://stanislav-peev.com/research/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Reddit agencies and AI visibility",
+          "item": "https://stanislav-peev.com/research/reddit-agency-ai-visibility/"
+        }
+      ]
+    },
+    {
+      "@type": "Article",
+      "@id": "https://stanislav-peev.com/research/reddit-agency-ai-visibility/#article",
+      "headline": "Is it worth paying a Reddit agency to get into ChatGPT and AI Overviews?",
+      "description": "A buyer's guide to hiring a Reddit marketing agency for AI visibility after one tracker saw Reddit's share of ChatGPT citations fall 86% in August 2026: the engine split, the volatility record, agency prices, account ownership, FTC disclosure, how to verify citation claims, and six popular claims that do not hold as stated.",
+      "author": {
+        "@type": "Person",
+        "@id": "https://stanislav-peev.com/#person",
+        "name": "Stanislav Peev",
+        "url": "https://stanislav-peev.com/",
+        "sameAs": [
+          "https://www.linkedin.com/in/stanislav-peev-seo/"
+        ]
+      },
+      "publisher": {
+        "@id": "https://stanislav-peev.com/#person"
+      },
+      "datePublished": "2026-10-05",
+      "dateModified": "2026-10-05",
+      "mainEntityOfPage": "https://stanislav-peev.com/research/reddit-agency-ai-visibility/",
+      "image": "https://stanislav-peev.com/research/reddit-agency-ai-visibility/og.png",
+      "inLanguage": "en",
+      "about": [
+        {
+          "@type": "Thing",
+          "name": "Reddit"
+        },
+        {
+          "@type": "Thing",
+          "name": "Generative engine optimization"
+        },
+        {
+          "@type": "Thing",
+          "name": "ChatGPT"
+        }
+      ],
+      "citation": [
+        "https://promptwatch.com/blog/chatgpt-stop-citing-reddit",
+        "https://www.axios.com/2026/08/20/chatgpt-reddit-citations-geo-strategy",
+        "https://dejan.ai/blog/site-fanouts/",
+        "https://www.semrush.com/blog/most-cited-domains-ai/",
+        "https://learn.g2.com/reddit-chatgpt-citations",
+        "https://www.fool.com/investing/2025/10/02/why-reddit-stock-tumbled-this-week",
+        "https://mariopeshev.com/answers/where-reddit-falls-flat-b2b-industry-depth-and-real-decision-making/",
+        "https://www.brightedge.com/resources/weekly-ai-search-insights/reddit-breakout-year-search-visibility-33x-footprint-expansion",
+        "https://www.brightedge.com/resources/weekly-ai-search-insights/google-ai-overviews-vs-chatgpt-reddit-usage",
+        "https://www.steadydemand.com/ai-citation-ledger-updates/",
+        "https://www.frac.tl/?p=18680",
+        "https://ahrefs.com/blog/most-cited-domains-in-chatgpt/",
+        "https://discoveredlabs.com/research/reddit-llm-retrieval-research",
+        "https://discoveredlabs.com/blog/reddit-marketing-agency-cost",
+        "https://www.emarketer.com/content/marketers-seeking-ai-citations-ruining-reddit",
+        "https://canopymanagement.com/reddit-chatgpt-citation-drop-ai-visibility/",
+        "https://www.reddit.com/r/modnews/comments/py2xy2/voting_commenting_on_archived_posts/",
+        "https://redditinc.com/policies/user-agreement",
+        "https://ahrefs.com/blog/why-chatgpt-cites-pages/",
+        "https://support.reddithelp.com/hc/en-us/articles/360043504811-What-is-ban-evasion",
+        "https://redditinc.com/policies/content-policy",
+        "https://www.law.cornell.edu/cfr/text/16/465.8",
+        "https://kotaku.com/trap-plan-marketing-astroturf-warrobots-fake-reddit-accounts-posts-2000642503",
+        "https://ppc.land/reddit-at-21-huffman-reveals-23-million-spam-views-blocked-daily/",
+        "https://discoveredlabs.com/services/reddit-marketing-agency",
+        "https://www.tryprofound.com/blog/ai-platform-citation-patterns",
+        "https://skale.so/?p=9377",
+        "https://www.parse.gl/blog/best-reddit-marketing-agencies-for-ai-visibility-2026",
+        "https://www.adgully.com/post/19605/chatgpt-slashes-citations-from-reddit-youtube-and-tiktok-petra-labs",
+        "https://www.reddit.com/r/SEO/comments/1wuhwqh/are_reddit_agencies_all_full_of_crap/",
+        "https://www.reddit.com/r/SaaS/comments/1vwpnc5/we_analyzed_300k_reddit_citations_from_ai_answers/",
+        "https://www.parse.gl/",
+        "https://www.reddit.com/r/SaaS/comments/1skzoc8/i_reverseengineered_how_chatgpt_actually_picks/"
+      ],
+      "speakable": {
+        "@type": "SpeakableSpecification",
+        "cssSelector": [
+          ".hero-stat",
+          ".takeaways"
+        ]
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://stanislav-peev.com/research/reddit-agency-ai-visibility/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Does ChatGPT still cite Reddit?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Much less than before. Promptwatch measured Reddit's share of ChatGPT Search citations falling from 3.83% (July 18 to August 7, 2026) to 0.52% (August 14 to 17), an 86.4% drop, and calls the size provisional. Before the drop, studies found ChatGPT retrieved Reddit pages far more often than it showed them as sources; one small post-August sample (Canopy) saw ChatGPT's Reddit retrieval fall by about 70% as well. Brand mentions learned from Reddit may survive even when the link does not."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do Google AI Overviews still cite Reddit?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. In the same August 2026 window Promptwatch saw Reddit's share fall only 11.3% in AI Overviews and 30.5% in AI Mode, and a smaller agency sample (Canopy, about 98 queries a week) saw AI Overviews rise to about 130% of its own baseline. If a Reddit campaign helps anywhere right now, Google's AI answers are the likelier place."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How much do Reddit marketing agencies charge?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "One agency's cost guide puts it at $3,000 to $12,500 a month, separate from ad spend (Discovered Labs). Just Reddit Agency starts at $2,500 a month for 35 to 100 brand mentions, according to eMarketer citing the Wall Street Journal. All published prices come from companies selling the service."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can an agency get me cited by commenting on old Reddit threads?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sometimes, but it is the riskiest version of the work. Since October 2021 each community decides whether posts lock after six months, so some cited threads are closed. Where they are open, a brand mention added years later is what moderators and spam filters look for, and a removed comment cannot be cited."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is it legal for an agency to post about my brand without saying who pays?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "In the US the FTC's Endorsement Guides require material connections to be disclosed, and its 2024 rule on reviews and testimonials covers undisclosed testimonials from insiders and agents and the sale of fake social media indicators. Reddit's own rules ban content manipulation. This is not legal advice, but every paid post that mentions you should say who wrote it."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How long does a Reddit campaign take to show in AI answers?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Agencies' own guides, such as Parse's and Discovered Labs', say three to six months. Measure it yourself on a fixed list of 20 to 30 prompts, run several times per engine, with a baseline taken before you sign. One screenshot of one answer proves nothing, because answers change between runs."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Should I measure AI citations or brand mentions?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Both, separately. A citation is a Reddit link shown as a source; a mention is your brand named in the answer. After August 2026 they moved differently in ChatGPT: links to Reddit collapsed while, according to Petra Labs, brand visibility stayed largely intact. Put both in the contract and report them per engine."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-5TB26Q273D"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-5TB26Q273D');
+</script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="/">Stanislav <em>Peev</em></a>
+    <nav class="site-nav" aria-label="Main">
+      <a href="/#geo">AI / GEO</a>
+      <a href="/services/">Services</a>
+      <a href="/research/" aria-current="page">Research</a>
+      <a href="/#clients">Clients</a>
+      <a href="/#experience" class="hide-m">Experience</a>
+      <a href="/#proof" class="hide-m">Publications</a>
+      <a class="cta" href="#contact">Write to me</a>
+    </nav>
+  </div>
+</header>
+
+<nav class="crumbs" aria-label="Breadcrumb">
+  <div class="wrap"><a href="/">Home</a> › <a href="/research/">Research</a> › Reddit agencies and AI visibility</div>
+</nav>
+
+<main>
+
+<article>
+<section class="hero" style="padding:40px 0 8px">
+  <div class="wrap" style="display:block">
+    <span class="kicker">Research · Buyer's guide</span>
+    <h1 style="max-width:27ch">Is it worth paying a <span class="accent">Reddit agency</span> to get into ChatGPT and AI Overviews?</h1>
+    <p class="article-meta">By <b>Stanislav Peev</b>, SEO consultant &amp; GEO specialist · Published <b><time datetime="2026-10-05">October 5, 2026</time></b> · 33 sources, each figure traced to its source · 14 min read</p>
+  </div>
+</section>
+
+<section style="padding:0 0 72px">
+  <div class="wrap article">
+
+    <div class="hero-stat">
+      <span class="big">-86% vs -11%</span>
+      <p>Worth it sometimes for Google's AI answers, rarely for ChatGPT right now. In mid-August 2026 one tracker saw Reddit's share of ChatGPT Search citations fall from 3.83% to 0.52% in a week, while in Google AI Overviews it fell by 11%. So before price, ask which engine the retainer is for, who owns the accounts, and how you will check the result without the agency's dashboard.</p>
+      <span class="src">Engine split: <a href="#src-1">Promptwatch</a>, reported by <a href="#src-2">Axios</a>, August 2026. The tracker calls the size provisional. Disclosure: I do not sell Reddit posting, and nothing on this page is a referral.</span>
+    </div>
+
+    <div class="takeaways">
+      <h2>Key takeaways</h2>
+      <ul>
+        <li><b>3.83% to 0.52%</b> - Reddit's share of ChatGPT Search citations, July 18 to August 7 against August 14 to 17, 2026. Google AI Overviews fell 11.3% and AI Mode 30.5% over the same period (Promptwatch)</li>
+        <li><b>4 big moves in ChatGPT in 16 months</b>, up and down, plus a Gemini drop, measured by different trackers on different metrics. Few places you can pay to appear on move this much</li>
+        <li><b>$2,500 to $12,500 a month</b> - published Reddit agency prices, all from companies that sell the work. Every page on Google's first page for this question is written by someone who sells Reddit work or AI-visibility tracking</li>
+        <li><b>"You never need your own accounts"</b> - one agency's sales page. That means the agency, not you, holds the accounts and their history. Reddit's user agreement forbids selling or transferring an account without its written approval, so ask whose name the accounts are in and how they were obtained</li>
+        <li><b>77%</b> of brands named by AI were named by only one of three models across 15 runs per prompt (Fractl). A citation claim means little until you know the engine, the prompts and the number of runs</li>
+        <li><b>6 popular claims</b> did not hold as stated when I checked them, including "Reddit is 21% of AI Overviews citations" and "Reddit archives threads after six months". <a href="#numbers">Listed below</a></li>
+      </ul>
+    </div>
+
+    <div class="toc">
+      <h2>What's in this guide</h2>
+      <ol>
+        <li><a href="#short-answer">The short answer</a></li>
+        <li><a href="#august">What changed in August 2026?</a></li>
+        <li><a href="#engine">Which AI engine are you paying for?</a></li>
+        <li><a href="#volatility">How often has Reddit's AI share reset?</a></li>
+        <li><a href="#price">What does a Reddit agency cost, and what should the fee buy?</a></li>
+        <li><a href="#mechanics">Why Reddit agency work is harder than the pitch</a></li>
+        <li><a href="#accounts">Who owns the accounts?</a></li>
+        <li><a href="#disclosure">Put disclosure in the contract</a></li>
+        <li><a href="#verify">How to check an agency's citation claims</a></li>
+        <li><a href="#checklist">Pre-hire checklist</a></li>
+        <li><a href="#when">When it is worth it, and when it is not</a></li>
+        <li><a href="#instead">What to fund instead, or alongside</a></li>
+        <li><a href="#numbers">Six popular claims that do not hold as stated</a></li>
+        <li><a href="#methodology">How I checked</a></li>
+        <li><a href="#faq">Frequently asked questions</a></li>
+      </ol>
+    </div>
+
+    <h2 id="short-answer">1. The short answer</h2>
+    <p class="capsule">A Reddit marketing agency can be worth it for AI visibility if your buyers argue about your category on Reddit, if Google's AI answers matter to them more than ChatGPT, and if the work happens in accounts you own, with the connection disclosed. It is a poor buy if the goal is "get ChatGPT to recommend us within a quarter". ChatGPT changed how it cites Reddit in August 2026, and it has done so before.</p>
+    <p>This guide exists because of a <a href="#src-30">thread in r/SEO</a> asking whether Reddit agencies are "all full of crap", and the dozen like it I found going back eighteen months. The answers were opinions. The pages Google ranks for the question are agency service pages, agency price guides and an agency ranking published by a company whose own tool is used by the agency it ranks first (<a href="#src-33">Parse</a>). So I checked their numbers against the sources they cite, and wrote down what a buyer should ask.</p>
+
+    <h2 id="august">2. What changed in August 2026?</h2>
+    <p class="capsule">ChatGPT almost stopped linking to Reddit. Promptwatch, which monitors AI answers in the real interface, saw Reddit's share of ChatGPT Search citations drop from an average of 3.83% to 0.52%, an 86.4% fall, with the collapse on August 14. Google's two AI surfaces lost far less.</p>
+    <div class="table-wrap"><table class="metric-table">
+      <thead><tr><th>Engine</th><th>Reddit's citation share</th><th>Source</th><th>Caveat</th></tr></thead>
+      <tbody>
+        <tr><td>ChatGPT Search</td><td class="v">3.83% to 0.52% (-86.4%)</td><td><a href="#src-1">Promptwatch, Aug 2026</a></td><td>Tracker says the size is provisional and a collection error is not ruled out</td></tr>
+        <tr><td>Google AI Mode</td><td class="v">-30.5%</td><td><a href="#src-1">Promptwatch, Aug 2026</a></td><td>Same comparison window</td></tr>
+        <tr><td>Google AI Overviews</td><td class="v">-11.3%</td><td><a href="#src-1">Promptwatch, Aug 2026</a></td><td>A smaller agency sample (about 98 queries a week) saw AIO's Reddit retrieval rise to about 130% of its own baseline (<a href="#src-16">Canopy</a>)</td></tr>
+        <tr><td>ChatGPT, top-source share</td><td class="v">16.7% (July) to 16.8% (Sept)</td><td><a href="#src-12">Ahrefs</a></td><td>Different denominator: share of citations among the top cited domains only. No collapse on this metric</td></tr>
+      </tbody>
+    </table></div>
+    <p>Nobody outside OpenAI knows why. Promptwatch noticed that the share of ChatGPT's background searches using a <code>site:</code> operator jumped from about 0.37% to 16.8% on August 8, six days before the drop, but a test of the OpenAI API by <a href="#src-3">Dejan</a>, a different surface from the ChatGPT app, found <code>site:</code> in only 0.14% of background searches in August. Petra Labs, reported by <a href="#src-29">Adgully</a>, says brand visibility in ChatGPT answers stayed "largely intact" while the Reddit links went. For a buyer this matters: the brand may still be mentioned from material the model read on Reddit even when no Reddit link is shown. Mentions and citations are different deliverables, and the contract should say which one you are paying for.</p>
+
+    <h2 id="engine">3. Which AI engine are you paying for?</h2>
+    <p class="capsule">Write the engine into the contract. Reddit's role is different in each assistant and moves independently. A result in Google AI Overviews says nothing about ChatGPT, and the reverse.</p>
+    <p>BrightEdge compared 465,000 AI Overview queries with 719,000 ChatGPT queries in March 2026. ChatGPT surfaced Reddit in about 55% more queries, and how-to questions made up 32% of its Reddit citations against 8% in AI Overviews (<a href="#src-9">BrightEdge</a>). Five months later ChatGPT had stopped showing most of its Reddit links. Gemini is moving too: in Steady Demand's local-business tracking, Reddit's share of Gemini citations fell from 13.7% in July to 1.7% in September 2026, and Gemini and ChatGPT recommended the same local business only 4.2% of the time in July (4.9% in September) (<a href="#src-10">Steady Demand</a>).</p>
+    <p>The models also disagree with each other on brands. Fractl ran 96 prompts 15 times each through GPT-4o, Gemini 2.5 Flash and Claude Sonnet 4.6. Of the brands mentioned, 77% (6,264) appeared in only one model and 11% (900) in all three (<a href="#src-11">Fractl</a>). In Perplexity, Reddit was 6.6% of all citations in Profound's 2025 data (<a href="#src-26">Profound</a>). An agency that reports "AI visibility" as one number is averaging across engines that do not agree.</p>
+
+    <h2 id="volatility">4. How often has Reddit's AI share reset?</h2>
+    <p class="capsule">Four large moves in ChatGPT in sixteen months, up and down, plus a Gemini drop in 2026. The trackers measure different things, so the sizes are not comparable, but the pattern is the same: Reddit's share can swing by most of its size within weeks. A contract longer than a few months is a bet that this will not happen again.</p>
+    <div class="table-wrap"><table class="metric-table">
+      <thead><tr><th>When</th><th>Engine</th><th>What moved</th><th>Source</th></tr></thead>
+      <tbody>
+        <tr><td>From May 19, 2025</td><td>ChatGPT</td><td class="v">Reddit citations +436%</td><td><a href="#src-7">Profound (Josh Blyskal), LinkedIn post</a></td></tr>
+        <tr><td>Aug to Sept 2025</td><td>ChatGPT</td><td class="v">Responses citing Reddit: about 60% to about 10%</td><td><a href="#src-4">Semrush, 230K prompts</a></td></tr>
+        <tr><td>Sept 2025</td><td>ChatGPT</td><td class="v">Searched responses citing Reddit: over 14% to under 1%</td><td><a href="#src-6">Promptwatch via Motley Fool</a></td></tr>
+        <tr><td>May 2026</td><td>ChatGPT</td><td class="v">Reddit passes Wikipedia in citations for the first time</td><td><a href="#src-8">BrightEdge</a></td></tr>
+        <tr><td>Aug 2026</td><td>ChatGPT Search</td><td class="v">Citation share 3.83% to 0.52%</td><td><a href="#src-1">Promptwatch</a></td></tr>
+        <tr><td>Jul to Sept 2026</td><td>Gemini (local)</td><td class="v">Citation share 13.7% to 1.7%</td><td><a href="#src-10">Steady Demand</a></td></tr>
+      </tbody>
+    </table></div>
+    <p>The September 2025 drop is often blamed on Google removing the <code>num=100</code> results parameter. That is <a href="#src-5">Kevin Indig's hypothesis</a>, and the Semrush study that measured the drop doubts it. Treat every explanation as a guess and every size as one tracker's view.</p>
+
+    <h2 id="price">5. What does a Reddit agency cost, and what should the fee buy?</h2>
+    <p class="capsule">One agency's cost guide puts the market at $3,000 to $12,500 a month, and published starting prices go as low as $2,500. All of these figures come from companies selling the service, so read them as asking prices. What matters more is whether you can audit what the fee buys.</p>
+    <ul class="plain">
+      <li><strong>$3,000 to $12,500 a month</strong>, separate from ad spend, per a Reddit agency's own cost guide; its own tiers are EUR 7,995 and EUR 12,995 (<a href="#src-14">Discovered Labs</a>)</li>
+      <li><strong>From $2,500 a month for 35 to 100 brand mentions</strong> at Just Reddit Agency, as reported by <a href="#src-15">eMarketer</a> citing the Wall Street Journal</li>
+      <li><strong>$4,500 a month</strong> at Skale, from a "top agencies" list that Skale publishes and ranks itself first in (<a href="#src-27">Skale</a>)</li>
+    </ul>
+    <p>Whatever the price, ask for deliverables you can check yourself:</p>
+    <div class="table-wrap"><table class="metric-table">
+      <thead><tr><th>Deliverable</th><th>How you audit it</th></tr></thead>
+      <tbody>
+        <tr><td>Every post and comment that mentions you</td><td>A live link to each, every month. Open them logged out</td></tr>
+        <tr><td>Subreddits worked in</td><td>The list, with each community's self-promotion rule</td></tr>
+        <tr><td>Removals</td><td>How many items were removed by moderators or filters, as a number</td></tr>
+        <tr><td>AI results</td><td>Per engine, on your prompt list, citations and mentions reported separately (see <a href="#verify">section 9</a>)</td></tr>
+        <tr><td>Accounts</td><td>Usernames, in whose name, and what happens to them at contract end</td></tr>
+      </tbody>
+    </table></div>
+
+    <h2 id="mechanics">6. Why Reddit agency work is harder than the pitch</h2>
+    <p class="capsule">The sales pages skip how old the cited threads are, how much of what agencies post Reddit removes, and the gap between being read and being cited.</p>
+    <h3>Old threads are not always open</h3>
+    <p>The pitch "we get you into the threads AI already cites" assumes you can still comment there. Since October 2021, archiving is a per-community moderator setting: when it is on, posts lock after six months; when it is off, they stay open (<a href="#src-17">Reddit, r/modnews</a>). So some cited threads are closed and some are not, and nobody has published a sound count of which (see <a href="#numbers">section 13</a>). Even where a thread is open, a brand mention dropped into a discussion that went quiet years ago is what moderators and spam filters look for.</p>
+    <h3>Removed posts take their citations with them</h3>
+    <p>Reddit says its systems block 23 million spam views a day before a human sees them, and that it detected about 25,000 new spammy posts and comments a day in the first quarter of 2026 (<a href="#src-24">PPC Land, reporting Reddit's figures</a>). A post that is removed or shadowbanned cannot be cited. One documented case of covert posting is Trap Plan, whose CEO described in November 2025 how the agency posted "over 40" promotional threads for a video game from multiple accounts. The post was later deleted and survives in the Internet Archive (<a href="#src-23">Kotaku</a>).</p>
+    <h3>Being read is not being cited</h3>
+    <p>Before August 2026, ChatGPT retrieved Reddit far more often than it showed it. Ahrefs found pages from its Reddit source were cited 1.93% of the time when retrieved, across 1.4 million prompts (<a href="#src-19">Ahrefs</a>). A Reddit agency's own research put Reddit at 0.121% of 291,607 visible ChatGPT citations on B2B software prompts, while Reddit was retrieved on about one in four search turns (<a href="#src-13">Discovered Labs</a>). The model may learn something about you from a thread without ever linking it.</p>
+
+    <h2 id="accounts">7. Who owns the accounts?</h2>
+    <p class="capsule">Some agencies post from their own pool of aged accounts, so ask about ownership before anything else. That means the accounts, with their karma and post history, stay with the agency when the contract ends, and if an account is banned, everything it posted can disappear with it.</p>
+    <p>One agency's service page says it plainly: "You never need your own accounts. We run a dedicated, aged account infrastructure" (<a href="#src-25">Discovered Labs</a>). Reddit's user agreement says users "will not license, sell, or transfer" an account without Reddit's prior written approval (<a href="#src-18">Reddit User Agreement</a>), and creating new accounts to get around a ban "could result in a sitewide suspension" (<a href="#src-20">Reddit Help</a>). That page does not say where the accounts come from, and I have no evidence that this agency buys them. But if any agency buys, rents or transfers aged accounts, you are paying for that risk. The safer setup is accounts in the names of real people at your company, which you keep.</p>
+
+    <h2 id="disclosure">8. Put disclosure in the contract</h2>
+    <p class="capsule">In the US, if someone you pay posts about your product without disclosing the connection, the FTC can treat the brand as responsible, not only the poster. Put disclosure in the contract.</p>
+    <p>Reddit's rules ban content manipulation and require users to be authentic (<a href="#src-21">Reddit Content Policy</a>). In the US, the FTC's Endorsement Guides require a material connection between an endorser and a brand to be disclosed when the audience would not expect it, and the FTC's 2024 rule on reviews and testimonials covers undisclosed reviews or testimonials from company insiders and agents, and the buying or selling of fake social media indicators such as likes and comments from accounts that are not real people (<a href="#src-22">16 CFR 255.5 and Part 465</a>). Whether a given Reddit thread counts as a "consumer review" under that rule is not settled. This is not legal advice. It is a reason to want every post that mentions you to say who wrote it.</p>
+
+    <h2 id="verify">9. How to check an agency's citation claims</h2>
+    <p class="capsule">Write your own prompt list before the first sales call, measure it yourself before you sign, and keep measuring the same list. Do not let the agency's dashboard be the only judge.</p>
+    <ol>
+      <li><strong>Your prompts, in writing.</strong> 20 to 30 questions your buyers actually ask, including comparisons and "best X for Y". Agreed before work starts and not changed during it.</li>
+      <li><strong>A baseline before you pay.</strong> Run every prompt in each engine you care about and save the answers and their sources.</li>
+      <li><strong>Several runs per prompt.</strong> Answers change between runs. In <a href="/research/ai-visibility-tracking-reliability/">my own 60-query test</a>, the first-named brand changed between identical runs in one test cell out of five. A single screenshot is not evidence.</li>
+      <li><strong>Per engine, and mentions apart from citations.</strong> "Named in the answer" and "Reddit link shown" are different results. After August 2026 they moved differently in ChatGPT.</li>
+      <li><strong>Know the denominator.</strong> The same agency says "around 27% of ChatGPT's search answers already reference Reddit" on its sales page (<a href="#src-25">service page</a>) and "roughly 0.35 percent of visible ChatGPT citations" in its price guide (<a href="#src-14">cost guide</a>). Both can be true only because they count different things: the price guide explains that 27% is a share of ChatGPT's internal search slots, and the sales page drops that qualifier. A buyer cannot tell which one a report means unless it says.</li>
+      <li><strong>Independent measurement.</strong> If the agency also sells the tracking tool, ask for raw answers you can re-run, or measure with a different tool.</li>
+    </ol>
+    <p>Which pages get cited also depends on how the question is phrased. I measured that split in <a href="/research/ai-citations-by-query-shape/">AI citations by question shape</a>.</p>
+
+    <h2 id="checklist">10. Pre-hire checklist</h2>
+    <p class="capsule">Ask a Reddit agency ten questions before you sign, and get the answers in writing. Three are deal-breakers: whose names the accounts are in, whether every post discloses the connection, and whether they ever buy, rent or reuse accounts or coordinate votes.</p>
+    <p>Tick each question the agency answered clearly and in writing. A vague answer to any of questions 3 to 5 is a no.</p>
+    <div class="explorer calc" id="checklist-box">
+      <ul class="checks">
+        <li><label><input type="checkbox" data-w="1"> 1. Which engines and which of my prompts does the promise cover?</label></li>
+        <li><label><input type="checkbox" data-w="1"> 2. Will I get a baseline on my prompts before I pay?</label></li>
+        <li><label><input type="checkbox" data-w="1" data-key="1"> 3. Whose names are the accounts in, and do I keep them at the end?</label></li>
+        <li><label><input type="checkbox" data-w="1" data-key="1"> 4. Will every post that mentions us disclose the connection?</label></li>
+        <li><label><input type="checkbox" data-w="1" data-key="1"> 5. Do you confirm you never buy, rent or reuse accounts, or coordinate votes?</label></li>
+        <li><label><input type="checkbox" data-w="1"> 6. Will I get a live link to every post and comment, plus the removal count?</label></li>
+        <li><label><input type="checkbox" data-w="1"> 7. What happens to the work if an account is banned or a post removed?</label></li>
+        <li><label><input type="checkbox" data-w="1"> 8. New threads or old ones, and what do you do where threads are archived?</label></li>
+        <li><label><input type="checkbox" data-w="1"> 9. Is it month to month, and what is out of scope?</label></li>
+        <li><label><input type="checkbox" data-w="1"> 10. Which client result can I check myself in a live engine today?</label></li>
+      </ul>
+      <div class="calc-out" id="ckOut" aria-live="polite"></div>
+      <p class="bar-note">Nothing you tick leaves this page.</p>
+    </div>
+
+    <h2 id="when">11. When it is worth it, and when it is not</h2>
+    <p class="capsule">Worth it when Reddit is where your category is argued and you can bring a real expert voice. Not worth it when you want a quick ChatGPT result or have not fixed your own site yet.</p>
+    <ul class="plain">
+      <li><strong>Worth it:</strong> your buyers ask for recommendations on Reddit today; Google's AI answers and Google search matter to them; someone at your company can answer questions in public; you can wait at least three months; the accounts are yours.</li>
+      <li><strong>Not worth it:</strong> the brief is "be recommended by ChatGPT" within weeks; the agency cannot answer checklist questions 3 to 5; your category is answered by specs, documentation and pricing pages rather than opinions; you have no help center, documentation or comparison pages for the AI to cite in the first place.</li>
+    </ul>
+
+    <h2 id="instead">12. What to fund instead, or alongside</h2>
+    <p class="capsule">Put the first money where you own the result. Each option below is slower than a Reddit campaign.</p>
+    <ul class="plain">
+      <li><strong>A named founder or employee account, disclosed.</strong> Slower than an agency pool, but it builds a reputation that stays with you.</li>
+      <li><strong>Your own subreddit.</strong> Slow to build, months before it has enough activity to be cited, but you own the community and its rules.</li>
+      <li><strong>Documentation and a help center.</strong> On B2B software prompts, documentation pages rose from 36.9% to 55.1% of ChatGPT citations between October 2025 and August 2026, by one agency's count (<a href="#src-13">Discovered Labs</a>).</li>
+      <li><strong>Comparison pages.</strong> AI answers to "X vs Y" questions often cite the vendors' own comparison pages. My <a href="/research/competitor-comparison-pages-in-ai-answers/">144-answer test</a> shows when that helps and when it does not.</li>
+      <li><strong>Original data.</strong> A small study other people quote can get cited by them, and sometimes by AI answers. That is how every page in my <a href="/research/">research section</a> started.</li>
+      <li><strong>Measurement.</strong> Before you pay for visibility, know how many leads AI already sends. Most of it is invisible in analytics; see <a href="/research/ai-lead-attribution-gap/">the AI lead attribution gap</a>.</li>
+    </ul>
+
+    <h2 id="numbers">13. Six popular claims that do not hold as stated</h2>
+    <p class="capsule">These circulate in agency posts and rankings. In each case the number is misread, wrongly attributed, out of date, or comes with no method that could produce or check it.</p>
+    <ul class="plain">
+      <li><strong>"Google AI Overviews cite Reddit in about 21% of responses, Perplexity up to 47%."</strong> The source is Profound's June 2025 analysis, and the figures are Reddit's share among each engine's top 10 cited domains. Of all citations, Reddit was 2.2% in AI Overviews and 6.6% in Perplexity. Profound itself says the top-10 figures "do not represent overall citation volume" (<a href="#src-26">Profound</a>). The agency ranking that repeats them is <a href="#src-28">Parse</a>.</li>
+      <li><strong>"Reddit auto-archives threads after six months."</strong> True before October 2021. Since then it is each community's choice (<a href="#src-17">Reddit</a>).</li>
+      <li><strong>"60-70% of the Reddit threads AI cites are archived."</strong> From a tool vendor's post in r/SaaS claiming about 300,000 citations. It gives no period, engine split or method for detecting archived threads, so it cannot be checked, and it assumes the six-month rule that Reddit dropped in 2021 (<a href="#src-31">r/SaaS</a>).</li>
+      <li><strong>"The median cited Reddit thread is 900 days old."</strong> From a self-reported r/SaaS post whose stated method is running queries "through ChatGPT with search disabled". With search off, ChatGPT shows no sources, so that method cannot produce the number (<a href="#src-32">r/SaaS</a>).</li>
+      <li><strong>"Reddit citations up 436% after the OpenAI deal."</strong> The 436% is real, but the timing is not. The jump Profound reported started on May 19, 2025. The OpenAI-Reddit deal was announced a year earlier, on May 16, 2024 (<a href="#src-7">Profound, quoted</a>).</li>
+      <li><strong>"Around 27% of ChatGPT's search answers reference Reddit."</strong> The same vendor's price guide puts Reddit at about 0.35% of visible ChatGPT citations and describes 27% as a share of ChatGPT's internal search slots (<a href="#src-14">Discovered Labs</a>). The sales page drops the qualifier.</li>
+    </ul>
+
+    <h2 id="methodology">14. How I checked</h2>
+    <p>I collected the pages that rank in US Google for the buyer phrasing of this question and for the August 2026 drop, then traced every number they use to the publication it is credited to. Where the original could not be opened (LinkedIn, some Reddit help pages, the eCFR), I say which copy I used. Figures from companies that sell AI-visibility tracking or Reddit services are marked as such in the sources. I kept 33 sources. Searches and checks ran on October 5, 2026.</p>
+    <p>Limits. Every number about AI citation share in this guide comes from a commercial tracker, each with its own prompt set and denominator, and none publishes its full prompt list. I found no independent or academic dataset on Reddit's share of AI citations. This guide is about the buyer's decision, not a ranking of agencies, and I name agencies only where their own pages are the source.</p>
+
+    <h2 id="faq">15. Frequently asked questions</h2>
+    <div class="faq">
+      <details>
+        <summary>Does ChatGPT still cite Reddit?</summary>
+        <p>Much less than before. Promptwatch measured Reddit's share of ChatGPT Search citations falling from 3.83% (July 18 to August 7, 2026) to 0.52% (August 14 to 17), an 86.4% drop, and calls the size provisional. Before the drop, studies found ChatGPT retrieved Reddit pages far more often than it showed them as sources; one small post-August sample (Canopy) saw ChatGPT's Reddit retrieval fall by about 70% as well. Brand mentions learned from Reddit may survive even when the link does not.</p>
+      </details>
+      <details>
+        <summary>Do Google AI Overviews still cite Reddit?</summary>
+        <p>Yes. In the same August 2026 window Promptwatch saw Reddit's share fall only 11.3% in AI Overviews and 30.5% in AI Mode, and a smaller agency sample (Canopy, about 98 queries a week) saw AI Overviews rise to about 130% of its own baseline. If a Reddit campaign helps anywhere right now, Google's AI answers are the likelier place.</p>
+      </details>
+      <details>
+        <summary>How much do Reddit marketing agencies charge?</summary>
+        <p>One agency's cost guide puts it at $3,000 to $12,500 a month, separate from ad spend (Discovered Labs). Just Reddit Agency starts at $2,500 a month for 35 to 100 brand mentions, according to eMarketer citing the Wall Street Journal. All published prices come from companies selling the service.</p>
+      </details>
+      <details>
+        <summary>Can an agency get me cited by commenting on old Reddit threads?</summary>
+        <p>Sometimes, but it is the riskiest version of the work. Since October 2021 each community decides whether posts lock after six months, so some cited threads are closed. Where they are open, a brand mention added years later is what moderators and spam filters look for, and a removed comment cannot be cited.</p>
+      </details>
+      <details>
+        <summary>Is it legal for an agency to post about my brand without saying who pays?</summary>
+        <p>In the US the FTC's Endorsement Guides require material connections to be disclosed, and its 2024 rule on reviews and testimonials covers undisclosed testimonials from insiders and agents and the sale of fake social media indicators. Reddit's own rules ban content manipulation. This is not legal advice, but every paid post that mentions you should say who wrote it.</p>
+      </details>
+      <details>
+        <summary>How long does a Reddit campaign take to show in AI answers?</summary>
+        <p>Agencies' own guides, such as Parse's and Discovered Labs', say three to six months. Measure it yourself on a fixed list of 20 to 30 prompts, run several times per engine, with a baseline taken before you sign. One screenshot of one answer proves nothing, because answers change between runs.</p>
+      </details>
+      <details>
+        <summary>Should I measure AI citations or brand mentions?</summary>
+        <p>Both, separately. A citation is a Reddit link shown as a source; a mention is your brand named in the answer. After August 2026 they moved differently in ChatGPT: links to Reddit collapsed while, according to Petra Labs, brand visibility stayed largely intact. Put both in the contract and report them per engine.</p>
+      </details>
+    </div>
+
+    <h3 style="margin-top:40px">Sources</h3>
+    <ol class="sources-list">
+      <li id="src-1" value="1">Promptwatch (Klaas Foppen). "ChatGPT stopped citing Reddit" and data page "Reddit citations are dropping in ChatGPT". August 18-20, 2026, updated September 8, 2026. Real-interface monitoring of ChatGPT, AI Overviews and AI Mode; prompt set not disclosed. <em>Vendor: sells SEO, AI-visibility or Reddit services.</em> <a href="https://promptwatch.com/blog/chatgpt-stop-citing-reddit" rel="noopener">promptwatch.com/blog/chatgpt-stop-citing-reddit</a>. Accessed October 5, 2026.</li>
+      <li id="src-2" value="2">Axios. "Reddit fades from ChatGPT citations." August 20, 2026. <a href="https://www.axios.com/2026/08/20/chatgpt-reddit-citations-geo-strategy" rel="noopener">axios.com/2026/08/20/chatgpt-reddit-citations-geo-strategy</a>. Accessed October 5, 2026.</li>
+      <li id="src-3" value="3">Dejan. "Site fan-outs" - API test of ChatGPT site: query use. August 25, 2026. <em>Vendor: sells SEO, AI-visibility or Reddit services.</em> <a href="https://dejan.ai/blog/site-fanouts/" rel="noopener">dejan.ai/blog/site-fanouts/</a>. Accessed October 5, 2026.</li>
+      <li id="src-4" value="4">Semrush. "The most-cited domains in AI" - 230,000 prompts, July 14 to October 12, 2025. November 10, 2025. <em>Vendor: sells SEO, AI-visibility or Reddit services.</em> <a href="https://www.semrush.com/blog/most-cited-domains-ai/" rel="noopener">semrush.com/blog/most-cited-domains-ai/</a>. Accessed October 5, 2026.</li>
+      <li id="src-5" value="5">Kevin Indig for G2. "Decoding Google's role in Reddit's recent ChatGPT citation dip." October 2025. <a href="https://learn.g2.com/reddit-chatgpt-citations" rel="noopener">learn.g2.com/reddit-chatgpt-citations</a>. Accessed October 5, 2026.</li>
+      <li id="src-6" value="6">The Motley Fool. "Why Reddit stock tumbled this week" - quoting Promptwatch data. October 2, 2025. <a href="https://www.fool.com/investing/2025/10/02/why-reddit-stock-tumbled-this-week" rel="noopener">fool.com/investing/2025/10/02/why-reddit-stock-tumbled-this-week</a>. Accessed October 5, 2026.</li>
+      <li id="src-7" value="7">Josh Blyskal (Profound), LinkedIn post, June 2025, 630M citations; original not retrievable, text quoted by Mario Peshev (August 10, 2025) and the AI Found You newsletter (June 10, 2025). <em>Vendor: sells SEO, AI-visibility or Reddit services.</em> <a href="https://mariopeshev.com/answers/where-reddit-falls-flat-b2b-industry-depth-and-real-decision-making/" rel="noopener">mariopeshev.com/answers/where-reddit-falls-flat-b2b-industry-depth-and-real-decision-making/</a>. Accessed October 5, 2026.</li>
+      <li id="src-8" value="8">BrightEdge. "Reddit's breakout year in search visibility" - February to July 2026. August 13, 2026. <em>Vendor: sells SEO, AI-visibility or Reddit services.</em> <a href="https://www.brightedge.com/resources/weekly-ai-search-insights/reddit-breakout-year-search-visibility-33x-footprint-expansion" rel="noopener">brightedge.com/resources/weekly-ai-search-insights/reddit-breakout-year-search-visibility-33x-footprint-expansion</a>. Accessed October 5, 2026.</li>
+      <li id="src-9" value="9">BrightEdge. "How Google AI Overviews and ChatGPT use Reddit differently" - 465K AI Overview and 719K ChatGPT queries. March 20, 2026. <em>Vendor: sells SEO, AI-visibility or Reddit services.</em> <a href="https://www.brightedge.com/resources/weekly-ai-search-insights/google-ai-overviews-vs-chatgpt-reddit-usage" rel="noopener">brightedge.com/resources/weekly-ai-search-insights/google-ai-overviews-vs-chatgpt-reddit-usage</a>. Accessed October 5, 2026.</li>
+      <li id="src-10" value="10">Steady Demand. "Gemini vs ChatGPT - two different internets" (AI Citation Ledger), 1,487 local-business queries, August 6, 2026; September 2026 update. <em>Vendor: sells SEO, AI-visibility or Reddit services.</em> <a href="https://www.steadydemand.com/ai-citation-ledger-updates/" rel="noopener">steadydemand.com/ai-citation-ledger-updates/</a>. Accessed October 5, 2026.</li>
+      <li id="src-11" value="11">Fractl (Kelsey Libert, Aditya Sachdeva). "The AI Visibility Index" - 96 prompts x 15 runs x 3 models, 4,320 responses. August 2026. <em>Vendor: sells SEO, AI-visibility or Reddit services.</em> <a href="https://www.frac.tl/?p=18680" rel="noopener">frac.tl/?p=18680</a>. Accessed October 5, 2026.</li>
+      <li id="src-12" value="12">Ahrefs. "Most cited domains in ChatGPT" - July 2026 capture (16.7%) and September 2, 2026 update (16.8%); share of summed citations among top cited domains. <em>Vendor: sells SEO, AI-visibility or Reddit services.</em> <a href="https://ahrefs.com/blog/most-cited-domains-in-chatgpt/" rel="noopener">ahrefs.com/blog/most-cited-domains-in-chatgpt/</a>. Accessed October 5, 2026.</li>
+      <li id="src-13" value="13">Discovered Labs (Liam Dunne, Ben Moore, Joell Alex). "How ChatGPT retrieves in 2026" - 291,607 citations, B2B software prompts, October 2025 to August 2026. Updated September 2026. <em>Vendor: sells SEO, AI-visibility or Reddit services.</em> <a href="https://discoveredlabs.com/research/reddit-llm-retrieval-research" rel="noopener">discoveredlabs.com/research/reddit-llm-retrieval-research</a>. Accessed October 5, 2026.</li>
+      <li id="src-14" value="14">Discovered Labs. "How much does a Reddit marketing agency cost in 2026." July 21, 2026, updated July 28, 2026. <em>Vendor: sells SEO, AI-visibility or Reddit services.</em> <a href="https://discoveredlabs.com/blog/reddit-marketing-agency-cost" rel="noopener">discoveredlabs.com/blog/reddit-marketing-agency-cost</a>. Accessed October 5, 2026.</li>
+      <li id="src-15" value="15">eMarketer (Lisa Haiss). "Are marketers seeking AI citations ruining Reddit?" - citing The Wall Street Journal. August 17, 2026. <a href="https://www.emarketer.com/content/marketers-seeking-ai-citations-ruining-reddit" rel="noopener">emarketer.com/content/marketers-seeking-ai-citations-ruining-reddit</a>. Accessed October 5, 2026.</li>
+      <li id="src-16" value="16">Canopy Management (Chuck Kessler). "Reddit lost 86% of its ChatGPT citations in four days" - about 98 queries a week, indexed to each engine's June 1 to August 3 average. September 3, 2026. <em>Vendor: sells SEO, AI-visibility or Reddit services.</em> <a href="https://canopymanagement.com/reddit-chatgpt-citation-drop-ai-visibility/" rel="noopener">canopymanagement.com/reddit-chatgpt-citation-drop-ai-visibility/</a>. Accessed October 5, 2026.</li>
+      <li id="src-17" value="17">Reddit, r/modnews. "Voting and commenting on archived posts." September 29, 2021 (default changed October 13, 2021). <a href="https://www.reddit.com/r/modnews/comments/py2xy2/voting_commenting_on_archived_posts/" rel="noopener">reddit.com/r/modnews/comments/py2xy2/voting_commenting_on_archived_posts/</a>. Accessed October 5, 2026.</li>
+      <li id="src-18" value="18">Reddit. User Agreement, "Your Reddit Account". Effective July 1, 2026. <a href="https://redditinc.com/policies/user-agreement" rel="noopener">redditinc.com/policies/user-agreement</a>. Accessed October 5, 2026.</li>
+      <li id="src-19" value="19">Ahrefs. "Why ChatGPT cites some pages and not others" - 1.4M ChatGPT prompts. April 15, 2026. Reported by Search Engine Journal. <em>Vendor: sells SEO, AI-visibility or Reddit services.</em> <a href="https://ahrefs.com/blog/why-chatgpt-cites-pages/" rel="noopener">ahrefs.com/blog/why-chatgpt-cites-pages/</a>. Accessed October 5, 2026.</li>
+      <li id="src-20" value="20">Reddit Help. "What is ban evasion?" <a href="https://support.reddithelp.com/hc/en-us/articles/360043504811-What-is-ban-evasion" rel="noopener">support.reddithelp.com/hc/en-us/articles/360043504811-What-is-ban-evasion</a>. Accessed October 5, 2026.</li>
+      <li id="src-21" value="21">Reddit. Content Policy, Rules 2 and 5. <a href="https://redditinc.com/policies/content-policy" rel="noopener">redditinc.com/policies/content-policy</a>. Accessed October 5, 2026.</li>
+      <li id="src-22" value="22">US Federal Trade Commission. Guides Concerning the Use of Endorsements and Testimonials, 16 CFR 255.5; Rule on the Use of Consumer Reviews and Testimonials, 16 CFR 465.5 and 465.8 (effective October 21, 2024). Text via Cornell LII. <a href="https://www.law.cornell.edu/cfr/text/16/465.8" rel="noopener">law.cornell.edu/cfr/text/16/465.8</a>. Accessed October 5, 2026.</li>
+      <li id="src-23" value="23">Kotaku (Zack Zwiezen). Report on Trap Plan's Reddit posts for WarRobots: Frontiers. November 10, 2025. <a href="https://kotaku.com/trap-plan-marketing-astroturf-warrobots-fake-reddit-accounts-posts-2000642503" rel="noopener">kotaku.com/trap-plan-marketing-astroturf-warrobots-fake-reddit-accounts-posts-2000642503</a>. Accessed October 5, 2026.</li>
+      <li id="src-24" value="24">PPC Land. "Reddit at 21: Huffman reveals 23 million spam views blocked daily." June 2026; Q1 2026 figures from Reddit's July 6, 2026 blog post, as reported by Bloomberg via Yahoo Finance. <a href="https://ppc.land/reddit-at-21-huffman-reveals-23-million-spam-views-blocked-daily/" rel="noopener">ppc.land/reddit-at-21-huffman-reveals-23-million-spam-views-blocked-daily/</a>. Accessed October 5, 2026.</li>
+      <li id="src-25" value="25">Discovered Labs. "Reddit marketing agency" service page. Accessed October 5, 2026. <em>Vendor: sells SEO, AI-visibility or Reddit services.</em> <a href="https://discoveredlabs.com/services/reddit-marketing-agency" rel="noopener">discoveredlabs.com/services/reddit-marketing-agency</a>. Accessed October 5, 2026.</li>
+      <li id="src-26" value="26">Profound. "AI platform citation patterns." June 5, 2025. <em>Vendor: sells SEO, AI-visibility or Reddit services.</em> <a href="https://www.tryprofound.com/blog/ai-platform-citation-patterns" rel="noopener">tryprofound.com/blog/ai-platform-citation-patterns</a>. Accessed October 5, 2026.</li>
+      <li id="src-27" value="27">Skale. "Top Reddit marketing agencies for SaaS" (self-ranked first). Updated September 30, 2026. <em>Vendor: sells SEO, AI-visibility or Reddit services.</em> <a href="https://skale.so/?p=9377" rel="noopener">skale.so/?p=9377</a>. Accessed October 5, 2026.</li>
+      <li id="src-28" value="28">Parse. "Best Reddit marketing agencies for AI visibility in 2026: 10 firms ranked by citation impact." <em>Vendor: sells SEO, AI-visibility or Reddit services.</em> <a href="https://www.parse.gl/blog/best-reddit-marketing-agencies-for-ai-visibility-2026" rel="noopener">parse.gl/blog/best-reddit-marketing-agencies-for-ai-visibility-2026</a>. Accessed October 5, 2026.</li>
+      <li id="src-29" value="29">Adgully. "ChatGPT slashes citations from Reddit, YouTube and TikTok: Petra Labs." August 22, 2026. <a href="https://www.adgully.com/post/19605/chatgpt-slashes-citations-from-reddit-youtube-and-tiktok-petra-labs" rel="noopener">adgully.com/post/19605/chatgpt-slashes-citations-from-reddit-youtube-and-tiktok-petra-labs</a>. Accessed October 5, 2026.</li>
+      <li id="src-30" value="30">r/SEO. "Are Reddit agencies all full of crap?" September 30, 2026. The thread that prompted this guide. <a href="https://www.reddit.com/r/SEO/comments/1wuhwqh/are_reddit_agencies_all_full_of_crap/" rel="noopener">reddit.com/r/SEO/comments/1wuhwqh/are_reddit_agencies_all_full_of_crap/</a>. Accessed October 5, 2026.</li>
+      <li id="src-31" value="31">r/SaaS (Sanbi). "We analyzed ~300k Reddit citations from AI answers. 60-70% of the cited threads are archived." August 24, 2026. <em>Vendor: sells SEO, AI-visibility or Reddit services.</em> <a href="https://www.reddit.com/r/SaaS/comments/1vwpnc5/we_analyzed_300k_reddit_citations_from_ai_answers/" rel="noopener">reddit.com/r/SaaS/comments/1vwpnc5/we_analyzed_300k_reddit_citations_from_ai_answers/</a>. Accessed October 5, 2026.</li>
+      <li id="src-32" value="32">r/SaaS. "I reverse-engineered how ChatGPT actually picks Reddit citations." April 14, 2026. <a href="https://www.reddit.com/r/SaaS/comments/1skzoc8/i_reverseengineered_how_chatgpt_actually_picks/" rel="noopener">reddit.com/r/SaaS/comments/1skzoc8/i_reverseengineered_how_chatgpt_actually_picks/</a>. Accessed October 5, 2026.</li>
+      <li id="src-33" value="33">Parse. Homepage case study "How Soar reached #1 with Parse." Accessed October 5, 2026. <em>Vendor: sells SEO, AI-visibility or Reddit services.</em> <a href="https://www.parse.gl/" rel="noopener">parse.gl/</a>. Accessed October 5, 2026.</li>
+    </ol>
+
+    <p class="updated">Published: <time datetime="2026-10-05">October 5, 2026</time>. Compiled and checked by <a href="/">Stanislav Peev</a>. Next scheduled re-check: January 2027, or sooner if the trackers report another move. A figure looks wrong or you have a primary source I missed? <a href="mailto:info@stanislav-peev.com?subject=Reddit%20agency%20guide%20-%20correction">Email me</a> and I will fix it and date the fix.</p>
+
+  </div>
+</section>
+
+</article>
+
+<section class="contact-band" id="contact" style="padding:56px 0">
+  <div class="wrap contact-cols">
+    <div>
+      <h2>Want a second opinion before you sign?</h2>
+      <p class="section-intro">Send me the agency's proposal and the questions your buyers ask. I will run them through ChatGPT, Gemini and Google's AI answers and tell you where your brand appears today and what the proposal can realistically change. I do not sell Reddit posting. No calls, no meetings.</p>
+      <p><a class="btn btn-primary" href="/services/">See GEO services</a> <a class="btn btn-ghost" href="mailto:info@stanislav-peev.com?subject=Reddit%20agency%20proposal%20review" style="margin-left:10px">Email me</a></p>
+    </div>
+    <ul class="contact-list">
+      <li><b>Email</b><a class="link" href="mailto:info@stanislav-peev.com">info@stanislav-peev.com</a></li>
+      <li><b>LinkedIn</b><a class="link" href="https://www.linkedin.com/in/stanislav-peev-seo/" rel="noopener">in/stanislav-peev-seo</a></li>
+      <li><b>Based in</b>Bratislava, Slovakia - working worldwide</li>
+    </ul>
+  </div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div>© 2026 Stanislav Peev · SEO Consultant &amp; AI Search (GEO) Specialist, Bratislava, Slovakia</div>
+    <nav class="footer-nav" aria-label="Footer">
+      <a href="/">Home</a>
+      <a href="/#geo">AI / GEO</a>
+      <a href="/services/">Services</a>
+      <a href="/services/seo-audit/">SEO Audit</a>
+      <a href="/services/small-business-seo/">Small Business SEO</a>
+      <a href="/research/">Research</a>
+      <a href="https://www.linkedin.com/in/stanislav-peev-seo/" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" style="width:1em;height:1em;vertical-align:-.15em;margin-right:.35em;fill:currentColor"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29ZM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13ZM7.12 20.45H3.56V9h3.56v11.45ZM22.22 0H1.77C.79 0 0 .77 0 1.72v20.55C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0Z"/></svg>LinkedIn</a>
+      <a href="https://www.youtube.com/@stanislav_peev" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" style="width:1em;height:1em;vertical-align:-.15em;margin-right:.35em;fill:currentColor"><path d="M23.5 6.2a3 3 0 0 0-2.11-2.12C19.5 3.55 12 3.55 12 3.55s-7.5 0-9.39.53A3 3 0 0 0 .5 6.2 31.3 31.3 0 0 0 0 12a31.3 31.3 0 0 0 .5 5.8 3 3 0 0 0 2.11 2.12c1.89.53 9.39.53 9.39.53s7.5 0 9.39-.53A3 3 0 0 0 23.5 17.8 31.3 31.3 0 0 0 24 12a31.3 31.3 0 0 0-.5-5.8ZM9.55 15.57V8.43L15.82 12l-6.27 3.57Z"/></svg>YouTube</a>
+    </nav>
+  </div>
+</footer>
+
+<button class="to-top" id="toTop" aria-label="Back to top" title="Back to top">↑</button>
+<script>
+(function () {
+  var t = document.getElementById('toTop');
+  addEventListener('scroll', function () { t.classList.toggle('show', scrollY > 600); }, { passive: true });
+  t.addEventListener('click', function () { scrollTo({ top: 0, behavior: 'smooth' }); });
+
+  var boxes = [].slice.call(document.querySelectorAll('#checklist-box input[type=checkbox]')), out = document.getElementById('ckOut');
+  function cell(v, l, w) { return '<div class="cell' + (w ? ' warn' : '') + '"><b>' + v + '</b><span>' + l + '</span></div>'; }
+  function score() {
+    var n = 0, keyMiss = 0;
+    boxes.forEach(function (b) { if (b.checked) n++; else if (b.getAttribute('data-key')) keyMiss++; });
+    var verdict, warn = false;
+    if (n === 0) { verdict = 'Start ticking'; }
+    else if (keyMiss > 0) { verdict = 'Walk away'; warn = true; }
+    else if (n >= 9) { verdict = 'Reasonable to try'; }
+    else if (n >= 7) { verdict = 'Get the gaps in writing'; }
+    else { verdict = 'Not yet'; warn = true; }
+    var note = keyMiss > 0 ? keyMiss + ' deal-breaker question' + (keyMiss > 1 ? 's' : '') + ' (3-5) not answered' : 'All deal-breakers (3-5) answered';
+    out.innerHTML = cell(n + '/10', 'questions answered clearly, in writing') + cell(verdict, note, warn);
+  }
+  boxes.forEach(function (b) { b.addEventListener('change', score); }); score();
+})();
+</script>
+<script src="/assets/agent-tools.js?v=1" defer></script>
+</body>
+</html>

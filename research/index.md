@@ -11,6 +11,14 @@ Research
 
 Data reports and practical guides on how search - classic and AI-driven - actually behaves. Every statistic traces to a primary source, limitations are named, and pages are updated as new data lands. **Citable, linkable, and honest about what we don't know yet.**
 
+Buyer's guide · AI Search
+
+## [Is it worth paying a Reddit agency to get into ChatGPT and AI Overviews?](https://stanislav-peev.com/research/reddit-agency-ai-visibility/)
+
+One tracker saw Reddit's share of ChatGPT Search citations fall from 3.83% to 0.52% in August 2026, while Google AI Overviews fell 11% and AI Mode 31%. Which engine a Reddit agency can still move, four large swings in sixteen months, published prices of $2,500 to $12,500 a month, who owns the accounts, FTC disclosure, how to check citation claims yourself, a 10-question pre-hire checklist, and six popular claims about Reddit and AI that do not hold as stated. 33 sources, vendors flagged.
+
+Published October 5, 2026 · 14 min read
+
 Data report · AI Search
 
 ## [Your competitor's comparison page is in the AI answer about you: what it moves, and what to do when it gets you wrong](https://stanislav-peev.com/research/competitor-comparison-pages-in-ai-answers/)
