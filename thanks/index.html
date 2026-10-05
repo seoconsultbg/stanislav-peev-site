@@ -9,14 +9,27 @@
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="stylesheet" href="/assets/site.css?v=6">
-<!-- Google tag (gtag.js) -->
+<!-- Google tag (gtag.js) with Consent Mode v2 -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-5TB26Q273D"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
+  // Nothing is stored until the visitor accepts the banner (assets/analytics.js).
+  gtag('consent', 'default', {
+    ad_storage: 'denied',
+    ad_user_data: 'denied',
+    ad_personalization: 'denied',
+    analytics_storage: 'denied'
+  });
+  try {
+    if (localStorage.getItem('sp-consent') === 'granted') {
+      gtag('consent', 'update', { analytics_storage: 'granted' });
+    }
+  } catch (e) {}
   gtag('js', new Date());
-
-  gtag('config', 'G-5TB26Q273D');
+  // Only the live site reports; local previews stay out of GA4.
+  if (location.hostname === 'stanislav-peev.com') gtag('config', 'G-5TB26Q273D');
+  (function (s) { s.src = '/assets/analytics.js?v=1'; s.async = true; document.head.appendChild(s); })(document.createElement('script'));
 </script>
 </head>
 <body>
@@ -50,6 +63,7 @@
     <nav class="footer-nav" aria-label="Footer">
       <a href="/">Home</a>
       <a href="/services/">Services</a>
+      <a href="/privacy/">Privacy</a>
     </nav>
   </div>
 </footer>

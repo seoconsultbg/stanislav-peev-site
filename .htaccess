@@ -13,6 +13,14 @@ RewriteEngine On
 RewriteCond %{HTTP_HOST} ^www\.(.+)$ [NC]
 RewriteRule ^ https://%1%{REQUEST_URI} [R=301,L]
 
+# ---- Force HTTPS ----
+# Cloudflare talks to the origin in its own scheme, so %{HTTPS} says nothing about
+# the visitor. CF-Visitor carries the visitor's scheme: {"scheme":"http"} or "https".
+# Certificate validation paths stay reachable over plain HTTP for AutoSSL.
+RewriteCond %{HTTP:CF-Visitor} scheme\W+http\b
+RewriteCond %{REQUEST_URI} !^/\.well-known/(acme-challenge|pki-validation)/
+RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
+
 # ---- Markdown for agents ----
 # Agents that ask for text/markdown via the Accept header get the .md version.
 AddType text/markdown .md

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Privacy - Stanislav Peev</title>
+<meta name="description" content="How stanislav-peev.com handles contact messages, analytics cookies and hosting data.">
+<meta name="robots" content="noindex, follow">
+<link rel="canonical" href="https://stanislav-peev.com/privacy/">
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="stylesheet" href="/assets/site.css?v=6">
+<!-- Google tag (gtag.js) with Consent Mode v2 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-5TB26Q273D"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  // Nothing is stored until the visitor accepts the banner (assets/analytics.js).
+  gtag('consent', 'default', {
+    ad_storage: 'denied',
+    ad_user_data: 'denied',
+    ad_personalization: 'denied',
+    analytics_storage: 'denied'
+  });
+  try {
+    if (localStorage.getItem('sp-consent') === 'granted') {
+      gtag('consent', 'update', { analytics_storage: 'granted' });
+    }
+  } catch (e) {}
+  gtag('js', new Date());
+  // Only the live site reports; local previews stay out of GA4.
+  if (location.hostname === 'stanislav-peev.com') gtag('config', 'G-5TB26Q273D');
+  (function (s) { s.src = '/assets/analytics.js?v=1'; s.async = true; document.head.appendChild(s); })(document.createElement('script'));
+</script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="/">Stanislav <em>Peev</em></a>
+    <nav class="site-nav" aria-label="Main">
+      <a href="/#geo">AI / GEO</a>
+      <a href="/services/">Services</a>
+    </nav>
+  </div>
+</header>
+
+<nav class="crumbs" aria-label="Breadcrumb">
+  <div class="wrap"><a href="/">Home</a> › Privacy</div>
+</nav>
+
+<main>
+<section style="padding-top:40px">
+  <div class="wrap prose">
+    <span class="kicker">Privacy</span>
+    <h1>How this site handles your data</h1>
+    <p class="lede">Short version: I collect what you send me when you write, plus visit statistics only if you allow cookies. Nothing is sold and nothing is used for ads.</p>
+
+    <h2 style="font-size:1.5rem;margin-top:36px">Who is responsible</h2>
+    <p>Stanislav Peev, independent SEO consultant based in Bratislava, Slovakia. For anything about your data, write to <a href="mailto:info@stanislav-peev.com">info@stanislav-peev.com</a>.</p>
+
+    <h2 style="font-size:1.5rem;margin-top:36px">When you write to me</h2>
+    <p>The contact form sends your name, email address, website and message. It is delivered to my mailbox by <strong>FormSubmit</strong> (formsubmit.co). Email sent to info@stanislav-peev.com is forwarded by <strong>Cloudflare Email Routing</strong> to a mailbox hosted by <strong>Google</strong>. If you message me on WhatsApp, LinkedIn or X, those platforms' own privacy policies apply to what you send there.</p>
+    <p>I use this information only to answer you and, if we decide to work together, to scope and run the project. The legal basis is taking steps at your request before a contract and, for general questions, my legitimate interest in replying (GDPR Art. 6(1)(b) and 6(1)(f)).</p>
+    <p>I keep a conversation as long as it is useful for it. If we work together, contracts and invoices are kept for the periods Slovak accounting and tax law require. You can ask me to delete a conversation at any time.</p>
+
+    <h2 style="font-size:1.5rem;margin-top:36px">Visit statistics (Google Analytics)</h2>
+    <p>The site uses <strong>Google Analytics 4</strong> to count visits and see which pages are useful, and only after you click <strong>Accept</strong> in the cookie banner (GDPR Art. 6(1)(a)). It then sets two cookies, <code>_ga</code> and <code>_ga_5TB26Q273D</code>, which last up to two years. Advertising features and Google Signals are switched off.</p>
+    <p>If you decline or ignore the banner, no analytics cookies are set. The page still sends Google a cookieless signal without identifiers, which Google uses only for aggregate statistics. Your choice is stored in your browser (localStorage key <code>sp-consent</code>), not in a cookie. You can change it at any time with <strong>Cookie settings</strong> at the bottom of every page; declining also removes the analytics cookies.</p>
+
+    <h2 style="font-size:1.5rem;margin-top:36px">Hosting and security</h2>
+    <p>The site is hosted by an EU-based hosting provider and served through <strong>Cloudflare</strong>; both process technical data such as IP addresses and browser details to deliver pages and block attacks. This is my legitimate interest in running a secure site (GDPR Art. 6(1)(f)).</p>
+
+    <h2 style="font-size:1.5rem;margin-top:36px">Transfers outside the EU</h2>
+    <p>Google, Cloudflare and FormSubmit may process data in the United States. These transfers rely on the safeguards the providers offer, such as the EU-US Data Privacy Framework or the European Commission's Standard Contractual Clauses.</p>
+
+    <h2 style="font-size:1.5rem;margin-top:36px">Your rights</h2>
+    <p>You can ask for access to your data, correction, deletion, restriction or a portable copy, object to processing based on legitimate interest, and withdraw consent at any time. Write to <a href="mailto:info@stanislav-peev.com">info@stanislav-peev.com</a>. You can also complain to the Slovak data protection authority, the <a href="https://dataprotection.gov.sk/" rel="noopener">Office for Personal Data Protection of the Slovak Republic</a>.</p>
+    <p>There is no automated decision-making or profiling on this site.</p>
+
+    <p style="margin-top:36px"><em>Last updated: 5 October 2026</em></p>
+  </div>
+</section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div>© 2026 Stanislav Peev · SEO Consultant &amp; AI Search (GEO) Specialist, Bratislava, Slovakia</div>
+    <nav class="footer-nav" aria-label="Footer">
+      <a href="/">Home</a>
+      <a href="/services/">Services</a>
+      <a href="/privacy/">Privacy</a>
+    </nav>
+  </div>
+</footer>
+
+</body>
+</html>

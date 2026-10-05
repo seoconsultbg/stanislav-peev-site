@@ -24,7 +24,7 @@ from pathlib import Path
 
 SITE_ROOT = Path("D:/Claude/stanislav-peev-site")
 ORIGIN = "https://stanislav-peev.com"
-SKIP_DIRS = {".git", ".tools", ".well-known", ".claude", "assets", "thanks"}
+SKIP_DIRS = {".git", ".tools", ".well-known", ".claude", "assets", "thanks", "privacy"}
 # hand-written summaries - never overwritten by the generator
 CURATED = {"index.md", "services/index.md"}
 CONTACT_LINE = ("Stanislav Peev - contact in writing only, no calls: "
