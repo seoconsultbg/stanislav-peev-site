@@ -159,7 +159,7 @@
       "name": "AI Citations by Question Shape - Pilot Dataset 2026",
       "description": "18 AI answers (3 question shapes x 2 phrasings x 3 web-connected engines: Perplexity Sonar, OpenAI GPT-4o, Google Gemini 2.5 Flash) in the project management software category, run on 2026-09-07. Records every cited URL (176 citations, 116 unique URLs), each labeled by page shape (comparison / listicle / review / other, from URL path and fetched title) and source type (vendor / review directory / community / media-blog). Raw answers included.",
       "url": "https://stanislav-peev.com/research/ai-citations-by-query-shape/",
-      "creator": { "@id": "https://stanislav-peev.com/#person" },
+      "creator": {"@type": "Person", "@id": "https://stanislav-peev.com/#person", "name": "Stanislav Peev", "url": "https://stanislav-peev.com/"},
       "temporalCoverage": "2026-09-07",
       "measurementTechnique": "Identical prompts sent through the OpenRouter API to three web-enabled models; url_citation annotations logged; rule-based labeling of each unique URL from its path and HTML title.",
       "variableMeasured": ["cited URL", "page shape", "source type", "question shape", "engine"],
