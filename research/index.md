@@ -13,6 +13,14 @@ Data reports and practical guides on how search - classic and AI-driven - actual
 
 Buyer's guide · AI Search
 
+## [Do your own "reviews" site, a "best X" list that ranks you first, or a paid award get you into AI answers?](https://stanislav-peev.com/research/owned-review-sites-ai-visibility/)
+
+Google's AI Overviews cited self-promotional "best" lists 323 times in a 100-query test and did not recommend the author in 224 of them (69%). How often AI answers cite pages a brand controls, why that rarely becomes a recommendation, what Google does with self-promotion, US FTC 16 CFR 465.6 and EU and UK review law (up to $53,088 per violation in the US), research on manipulating AI search, whether paid awards help, an 8-question risk checklist, and seven popular claims that do not hold as stated. 35 sources, vendors flagged.
+
+Published October 12, 2026 · 13 min read
+
+Buyer's guide · AI Search
+
 ## [Is it worth paying a Reddit agency to get into ChatGPT and AI Overviews?](https://stanislav-peev.com/research/reddit-agency-ai-visibility/)
 
 One tracker saw Reddit's share of ChatGPT Search citations fall from 3.83% to 0.52% in August 2026, while Google AI Overviews fell 11% and AI Mode 31%. Which engine a Reddit agency can still move, four large swings in sixteen months, published prices of $2,500 to $12,500 a month, who owns the accounts, FTC disclosure, how to check citation claims yourself, a 10-question pre-hire checklist, and six popular claims about Reddit and AI that do not hold as stated. 33 sources, vendors flagged.

@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Do owned review sites help AI visibility? (2026) - Stanislav Peev</title>
+<meta name="description" content="AI Overviews cited self-promotional &#x27;best&#x27; lists 323 times and passed over the author in 69% of them. What owned review sites and paid awards really do.">
+<link rel="canonical" href="https://stanislav-peev.com/research/owned-review-sites-ai-visibility/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Stanislav Peev">
+<meta property="og:title" content="Do your own &quot;reviews&quot; site, a &quot;best X&quot; list that ranks you first, or a paid award get you into AI answers?">
+<meta property="og:description" content="Cited is not recommended: in 224 of 323 AI Overview citations of self-promotional lists, the author was not recommended. What AI engines, Google and US, EU and UK review law do with brand-owned review sites, self-ranked lists, owned site networks and paid awards, an 8-question risk checklist, and seven popular claims that do not hold as stated.">
+<meta property="og:url" content="https://stanislav-peev.com/research/owned-review-sites-ai-visibility/">
+<meta property="og:image" content="https://stanislav-peev.com/research/owned-review-sites-ai-visibility/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="AI Overviews cited self-promotional best-of lists 323 times and did not recommend the author in 69% of cases. Buyer's guide to owned review sites and AI visibility">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:creator" content="@SeoPeev">
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="alternate" type="application/rss+xml" title="Stanislav Peev - SEO &amp; AI Search Research" href="/rss.xml">
+<link rel="stylesheet" href="/assets/site.css?v=6">
+<style>
+.article-meta { font-size: .9rem; color: var(--ink-soft); margin-bottom: 34px; }
+.article-meta b { color: var(--ink); }
+.hero-stat {
+  background: linear-gradient(135deg, var(--surface), var(--band));
+  border: 1px solid var(--green); border-radius: 18px;
+  padding: 36px 32px; text-align: center; margin: 0 0 40px;
+}
+.hero-stat .big {
+  font-family: var(--serif); font-size: clamp(3.2rem, 8vw, 5rem);
+  color: var(--green); font-weight: 700; line-height: 1; display: block; margin-bottom: 12px;
+}
+.hero-stat p { color: var(--ink); font-size: 1.1rem; max-width: 62ch; margin: 0 auto 8px; }
+.hero-stat .src { font-size: .85rem; color: var(--ink-soft); }
+.takeaways {
+  background: var(--surface); border: 1px solid var(--line); border-left: 4px solid var(--green);
+  border-radius: 12px; padding: 26px 28px; margin: 0 0 40px;
+}
+.takeaways h2 {
+  font-family: var(--sans); font-size: .8rem; font-weight: 700; letter-spacing: .12em;
+  text-transform: uppercase; color: var(--green); margin-bottom: 14px;
+}
+.takeaways ul { list-style: none; display: grid; gap: 10px; }
+.takeaways li { padding-left: 22px; position: relative; color: var(--ink-soft); font-size: .98rem; }
+.takeaways li::before { content: '→'; position: absolute; left: 0; color: var(--green); }
+.takeaways li b { color: var(--ink); font-family: var(--serif); }
+.toc {
+  border: 1px solid var(--line); border-radius: 12px; padding: 22px 26px; margin: 0 0 48px;
+  background: var(--bg-alt);
+}
+.toc h2 { font-family: var(--sans); font-size: .95rem; margin-bottom: 12px; }
+.toc ol { margin-left: 20px; color: var(--ink-soft); display: grid; gap: 6px; font-size: .95rem; }
+.toc a { color: var(--green); text-decoration: none; }
+.toc a:hover { text-decoration: underline; }
+.article h2 { margin-top: 56px; margin-bottom: 16px; scroll-margin-top: 90px; }
+.article h3 { margin-top: 30px; margin-bottom: 10px; font-size: 1.1rem; }
+.article .capsule { color: var(--ink); font-size: 1.08rem; margin-bottom: 18px; max-width: 70ch; }
+.article p { color: var(--ink-soft); margin-bottom: 18px; max-width: 72ch; }
+.article p strong { color: var(--ink); }
+.article a { color: var(--green); }
+.article ul.plain { margin: 0 0 18px 20px; color: var(--ink-soft); max-width: 72ch; display: grid; gap: 8px; }
+.metric-table { width: 100%; border-collapse: collapse; margin: 22px 0; font-size: .95rem; }
+.metric-table th {
+  background: var(--band); color: var(--ink); text-align: left;
+  padding: 11px 14px; text-transform: uppercase; font-size: .76rem; letter-spacing: .07em;
+  border-bottom: 2px solid var(--green);
+}
+.metric-table td { padding: 11px 14px; border-bottom: 1px solid var(--line); color: var(--ink-soft); }
+.metric-table td.v { font-family: var(--serif); font-weight: 700; color: var(--green); white-space: nowrap; }
+.metric-table td.hi { color: var(--green); font-weight: 700; }
+.metric-table td.lo { color: var(--ink-soft); }
+.table-wrap { overflow-x: auto; }
+.stat-callout {
+  display: flex; align-items: center; gap: 22px; background: var(--surface);
+  border: 1px solid var(--line); border-left: 4px solid var(--green); border-radius: 12px;
+  padding: 20px 24px; margin: 24px 0;
+}
+.stat-callout .val {
+  font-family: var(--serif); font-size: 2.1rem; font-weight: 700; color: var(--green);
+  white-space: nowrap; min-width: 90px; text-align: center;
+}
+.stat-callout div p { margin: 0; font-size: .96rem; }
+.stat-callout div .src { font-size: .82rem; color: var(--ink-soft); margin-top: 4px; }
+.bar-chart { margin: 24px 0; display: grid; gap: 10px; max-width: 680px; }
+.bar-row { display: grid; grid-template-columns: 230px 1fr; align-items: center; gap: 12px; }
+.bar-row .lbl { font-size: .9rem; color: var(--ink-soft); text-align: right; }
+.bar-track { background: var(--band); border-radius: 6px; overflow: hidden; height: 30px; position: relative; }
+.bar-fill {
+  height: 100%; background: var(--green); border-radius: 6px;
+  display: flex; align-items: center; padding-left: 10px;
+  font-family: var(--serif); font-weight: 700; font-size: .88rem; color: var(--btn-text);
+  min-width: fit-content; white-space: nowrap;
+}
+.bar-fill.dim { background: var(--ink-soft); }
+.bar-note { font-size: .82rem; color: var(--ink-soft); margin-top: 2px; }
+.explorer {
+  background: var(--surface); border: 1px solid var(--green); border-radius: 16px;
+  padding: 24px; margin: 26px 0;
+}
+.explorer .controls { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 14px; }
+.explorer select, .explorer input[type="search"] {
+  background: var(--bg-alt); color: var(--ink); border: 1px solid var(--line); border-radius: 8px;
+  padding: 8px 10px; font-size: .92rem;
+}
+.explorer input[type="search"] { flex: 1; min-width: 180px; }
+.explorer .count { font-size: .88rem; color: var(--ink-soft); margin-bottom: 10px; }
+.explorer table { width: 100%; border-collapse: collapse; font-size: .86rem; }
+.explorer th { text-align: left; padding: 8px 10px; border-bottom: 2px solid var(--green); color: var(--ink); font-size: .74rem; text-transform: uppercase; letter-spacing: .06em; cursor: pointer; white-space: nowrap; }
+.explorer td { padding: 7px 10px; border-bottom: 1px solid var(--line); color: var(--ink-soft); vertical-align: top; }
+.explorer td a { color: var(--green); word-break: break-all; }
+.explorer .tag { display: inline-block; padding: 1px 7px; border-radius: 999px; font-size: .74rem; border: 1px solid var(--line); color: var(--ink); white-space: nowrap; }
+.explorer .tag.cmp { border-color: var(--green); color: var(--green); }
+.explorer .scroll { max-height: 520px; overflow: auto; }
+.data-box {
+  background: var(--bg-alt); border: 1px solid var(--line); border-radius: 12px;
+  padding: 22px 26px; margin: 26px 0;
+}
+.data-box h3 { font-size: 1rem; margin: 0 0 8px; }
+.data-box p { font-size: .92rem; margin-bottom: 10px; }
+.sources-list { font-size: .92rem; color: var(--ink-soft); margin-left: 20px; display: grid; gap: 10px; }
+.sources-list a { color: var(--green); word-break: break-all; }
+.updated { font-size: .88rem; color: var(--ink-soft); border-top: 1px solid var(--line); padding-top: 20px; margin-top: 48px; }
+@media (max-width: 640px) {
+  .bar-row { grid-template-columns: 1fr; gap: 4px; }
+  .bar-row .lbl { text-align: left; }
+  .stat-callout { flex-direction: column; align-items: flex-start; gap: 10px; }
+}
+.explorer.calc .calc-grid { display: grid; gap: 14px; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); margin-bottom: 18px; }
+.explorer.calc label { display: grid; gap: 6px; font-size: .88rem; color: var(--ink-soft); }
+.explorer.calc input { background: var(--bg-alt); color: var(--ink); border: 1px solid var(--line); border-radius: 8px; padding: 10px 12px; font-size: 1rem; font-variant-numeric: tabular-nums; }
+.calc-out { display: grid; gap: 10px; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); margin-bottom: 12px; }
+.calc-out .cell { background: var(--bg-alt); border: 1px solid var(--line); border-radius: 10px; padding: 14px 16px; }
+.calc-out .cell b { display: block; font-family: var(--serif); font-size: 1.6rem; color: var(--green); font-variant-numeric: tabular-nums; }
+.calc-out .cell span { font-size: .84rem; color: var(--ink-soft); }
+.explorer td.fig { font-family: var(--serif); font-weight: 700; color: var(--ink); font-variant-numeric: tabular-nums; }
+.explorer .tag.tracked { border-color: var(--green); color: var(--green); }
+.hero-stat .src a { color: var(--green); }
+.hero-stat .big { white-space: nowrap; font-size: clamp(2.1rem, 9.5vw, 5rem); }
+.viz { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 22px 22px 16px; margin: 28px 0; }
+.viz h3 { font-family: var(--sans); font-size: 1rem; font-weight: 700; color: var(--ink); margin: 0 0 4px; }
+.viz .sub { font-size: .88rem; color: var(--ink-soft); margin: 0 0 14px; max-width: 70ch; }
+.viz .plot { overflow-x: auto; }
+.viz svg { display: block; width: 100%; min-width: 620px; height: auto; font-family: var(--sans); }
+.viz svg text { fill: var(--ink-soft); font-size: 12px; }
+.viz svg text.strong { fill: var(--ink); font-weight: 600; }
+.viz svg text.row { fill: var(--ink); font-size: 13px; font-weight: 600; }
+.viz svg .grid { stroke: var(--line); stroke-width: 1; }
+.viz svg .ring { stroke: var(--surface); stroke-width: 2; }
+.viz svg [data-tip] { cursor: default; }
+.viz svg [data-tip]:hover { filter: brightness(1.25); }
+.viz .legend { display: flex; flex-wrap: wrap; gap: 6px 18px; font-size: .84rem; color: var(--ink-soft); margin: 0 0 10px; }
+.viz .legend i { display: inline-block; width: 10px; height: 10px; border-radius: 3px; margin-right: 7px; vertical-align: -1px; }
+.viz .legend i.ln { width: 16px; height: 2px; border-radius: 1px; vertical-align: 3px; }
+.viz .legend b { color: var(--ink); font-weight: 600; font-variant-numeric: tabular-nums; }
+.viz .cap { font-size: .82rem; color: var(--ink-soft); margin: 10px 0 0; }
+.viz .cap a { color: var(--green); }
+.viz details { margin-top: 10px; font-size: .84rem; color: var(--ink-soft); }
+.viz details summary { cursor: pointer; color: var(--green); }
+.viz details table { border-collapse: collapse; margin-top: 8px; font-variant-numeric: tabular-nums; }
+.viz details th, .viz details td { text-align: left; padding: 4px 14px 4px 0; border-bottom: 1px solid var(--line); }
+.viz details th { color: var(--ink); font-weight: 600; }
+.kpi-row { display: grid; grid-template-columns: 1fr auto 1fr auto 1fr; gap: 10px; align-items: stretch; margin: 6px 0 4px; }
+.kpi { background: var(--bg-alt); border: 1px solid var(--line); border-radius: 10px; padding: 14px 16px; }
+.kpi b { display: block; font-family: var(--sans); font-size: 1.9rem; font-weight: 700; color: var(--ink); line-height: 1.1; }
+.kpi span { font-size: .84rem; color: var(--ink-soft); }
+.kpi-arrow { align-self: center; color: var(--ink-soft); font-size: 1.2rem; }
+#vizTip { position: fixed; z-index: 50; pointer-events: none; background: var(--band); border: 1px solid var(--line); border-radius: 8px; padding: 8px 11px; font-size: .84rem; color: var(--ink-soft); max-width: 280px; box-shadow: 0 6px 20px rgba(0,0,0,.45); display: none; }
+#vizTip b { display: block; color: var(--ink); font-size: .98rem; font-variant-numeric: tabular-nums; }
+@media (max-width: 640px) {
+  .kpi-row { grid-template-columns: 1fr; }
+  .kpi-arrow { transform: rotate(90deg); justify-self: center; }
+}
+.explorer td.fig { font-family: var(--serif); font-weight: 700; color: var(--ink); font-variant-numeric: tabular-nums; white-space: nowrap; }
+ol.plain > li { margin-bottom: 12px; }
+.explorer.calc ul.checks { list-style: none; margin: 0 0 16px; padding: 0; display: grid; gap: 8px; }
+.explorer.calc ul.checks label { display: flex; gap: 10px; align-items: flex-start; font-size: .95rem; color: var(--ink); cursor: pointer; }
+.explorer.calc ul.checks input { margin-top: 4px; accent-color: var(--green); width: 18px; height: 18px; flex: none; }
+.calc-out { display: grid; gap: 10px; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); margin-bottom: 12px; }
+.calc-out .cell { background: var(--bg-alt); border: 1px solid var(--line); border-radius: 10px; padding: 14px 16px; }
+.calc-out .cell b { display: block; font-family: var(--serif); font-size: 1.6rem; color: var(--green); font-variant-numeric: tabular-nums; }
+.calc-out .cell.warn b { color: #e8915f; }
+.calc-out .cell span { font-size: .84rem; color: var(--ink-soft); }
+.hero-stat .src a { color: var(--green); }
+.hero-stat .big { white-space: nowrap; font-size: clamp(2.1rem, 9.5vw, 5rem); }
+.article code { font-size: .9em; }
+.explorer.calc ul.checks { list-style: none; margin: 0 0 16px; padding: 0; display: grid; gap: 8px; }
+.explorer.calc ul.checks label { display: flex; gap: 10px; align-items: flex-start; font-size: .95rem; color: var(--ink); cursor: pointer; }
+.explorer.calc ul.checks input { margin-top: 4px; accent-color: var(--green); width: 18px; height: 18px; flex: none; }
+.calc-out .cell.warn b { color: #e8915f; }
+.hero-stat .src a { color: var(--green); }
+@media (min-width: 641px) { .bar-row { grid-template-columns: 300px 1fr; } }
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://stanislav-peev.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Research",
+          "item": "https://stanislav-peev.com/research/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Owned review sites and AI visibility",
+          "item": "https://stanislav-peev.com/research/owned-review-sites-ai-visibility/"
+        }
+      ]
+    },
+    {
+      "@type": "Article",
+      "@id": "https://stanislav-peev.com/research/owned-review-sites-ai-visibility/#article",
+      "headline": "Do your own \"reviews\" site, a \"best X\" list that ranks you first, or a paid award get you into AI answers?",
+      "description": "A source-checked buyer's guide on brand-owned 'independent' review sites, self-ranked 'best X' lists, owned site networks and paid awards as AI visibility tactics: how often AI answers cite them, how often the AI still does not recommend the author (224 of 323 AI Overview citations), Google's policies, US FTC 16 CFR 465.6 and EU and UK review law, research on manipulating AI search, an 8-question risk checklist, and seven popular claims that do not hold as stated.",
+      "author": {
+        "@type": "Person",
+        "@id": "https://stanislav-peev.com/#person",
+        "name": "Stanislav Peev",
+        "url": "https://stanislav-peev.com/",
+        "sameAs": [
+          "https://www.linkedin.com/in/stanislav-peev-seo/"
+        ]
+      },
+      "publisher": {
+        "@id": "https://stanislav-peev.com/#person"
+      },
+      "datePublished": "2026-10-12",
+      "dateModified": "2026-10-12",
+      "mainEntityOfPage": "https://stanislav-peev.com/research/owned-review-sites-ai-visibility/",
+      "image": "https://stanislav-peev.com/research/owned-review-sites-ai-visibility/og.png",
+      "inLanguage": "en",
+      "about": [
+        {
+          "@type": "Thing",
+          "name": "Online reviews"
+        },
+        {
+          "@type": "Thing",
+          "name": "Generative engine optimization"
+        },
+        {
+          "@type": "Thing",
+          "name": "AI Overviews"
+        }
+      ],
+      "citation": [
+        "https://www.reddit.com/r/SEO/comments/1x1r11e/question_regarding_aggregate_review_site/",
+        "https://www.law.cornell.edu/cfr/text/16/465.6",
+        "https://www.ftc.gov/news-events/news/press-releases/2024/08/federal-trade-commission-announces-final-rule-banning-fake-reviews-testimonials",
+        "https://www.law.cornell.edu/cfr/text/16/1.98",
+        "https://public-inspection.federalregister.gov/2026-18853.pdf",
+        "https://www.ftc.gov/news-events/news/press-releases/2025/12/ftc-warns-10-companies-about-possible-violations-agencys-new-consumer-review-rule",
+        "https://www.ftc.gov/news-events/news/press-releases/2026/07/ftc-approves-final-order-against-truheight-deceptive-unsubstantiated-advertising-supplements-kids",
+        "https://www.ftc.gov/news-events/news/press-releases/2026/05/ftc-illinois-take-action-stop-deceptive-conduct-company-created-thousands-business-listings-fake",
+        "https://www.legislation.gov.uk/eudr/2019/2161/article/3",
+        "https://www.legislation.gov.uk/ukpga/2024/13/schedule/20",
+        "https://www.gov.uk/government/publications/fake-reviews-cma208",
+        "https://www.gov.uk/government/news/fake-and-misleading-reviews-5-businesses-under-cma-investigation",
+        "https://developers.google.com/search/blog/2019/09/making-review-rich-results-more-helpful",
+        "https://developers.google.com/search/docs/appearance/structured-data/review-snippet",
+        "https://developers.google.com/search/docs/essentials/spam-policies",
+        "https://developers.google.com/search/blog/2024/11/site-reputation-abuse",
+        "https://developers.google.com/search/docs/fundamentals/ai-optimization-guide",
+        "https://support.google.com/contributionpolicy/answer/7400114",
+        "https://searchengineland.com/google-cracking-down-self-promotional-best-of-listicles-468227",
+        "https://lilyraynyc.substack.com/p/is-google-finally-cracking-down-on",
+        "https://www.searchenginejournal.com/why-calling-yourself-the-best-could-be-helping-your-competitors-win-in-ai-search/579778/",
+        "https://searchengineland.com/google-ai-overviews-cite-self-serving-listicles-recommend-competitors-480573",
+        "https://ahrefs.com/blog/self-promotional-content-ai-seo-experiment/",
+        "https://peec.ai/blog/self-promotional-listicles-analysis-from-232k-citations",
+        "https://thesearchspot.substack.com/p/what-93968-ai-answers-said-about",
+        "https://ahrefs.com/blog/best-lists-research/",
+        "https://metehan.ai/blog/publish-stats-get-cited-the-tactic-that-put-my-data-all-over-the-web",
+        "https://yext.com/about/news-media/ai-citations-release",
+        "https://arxiv.org/abs/2406.18382",
+        "https://arxiv.org/abs/2402.11782",
+        "https://arxiv.org/abs/2606.16821",
+        "https://arxiv.org/abs/2609.02964",
+        "https://developers.google.com/search/docs/specialty/ecommerce/write-high-quality-reviews",
+        "https://developers.google.com/search/docs/appearance/ai-features",
+        "https://arxiv.org/abs/2404.07981"
+      ],
+      "speakable": {
+        "@type": "SpeakableSpecification",
+        "cssSelector": [
+          ".hero-stat",
+          ".takeaways"
+        ]
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://stanislav-peev.com/research/owned-review-sites-ai-visibility/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Does a separate {brand}reviews.com domain help AI visibility?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "I found no study that measures it. AI answers can cite pages a brand controls, but in a 100-query test Google's AI Overviews did not recommend the author in 69% of citations of self-promotional lists. In the US, presenting a site you control as an independent source of reviews about your own category breaks FTC rule 16 CFR 465.6 if it materially misleads buyers. Put real reviews on established platforms and label testimonials on your own site as yours."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do AI engines detect self-promotional content?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Not reliably, as of October 2026. Peec AI found about 11% of AI citations in a software study went to self-promotional lists, and Ahrefs saw no assistant label its self-promotional pages across 9,886 answers. What happens instead is quieter: the AI uses the page as a list of options and often recommends someone else."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is ranking my own product #1 in a 'best X' article illegal?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Not by itself, but it becomes a legal problem if readers are led to think the ranking is independent when you control it. That is the case FTC rule 16 CFR 465.6 describes, with penalties up to $53,088 per violation. Say plainly that you wrote it, publish the method, and judge every product on the same criteria. This is not legal advice."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Did Google penalize self-ranked listicles in 2026?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Google has not confirmed a targeted update. Lily Ray documented organic visibility drops of 29% to 49% from around January 20, 2026 on several sites that relied on self-ranked 'best' lists, and Search Engine Land reported the decline accelerated in the May 2026 core update. Other factors, such as scaled AI content, were present on some of those sites."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I show review stars for my own business in Google?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. Since September 2019 Google treats reviews a business controls about itself as self-serving, and LocalBusiness and Organization reviews on the business's own site are not eligible for star snippets, including reviews shown through an embedded third-party widget. You can still show the reviews to visitors."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do paid awards help a brand appear in ChatGPT or AI Overviews?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "There is no evidence either way. I found no study comparing the AI visibility of brands with and without paid awards; every claim I found came from a seller of awards, PR or AI-visibility services. A bought award is a claim you paid for, so do not expect it to work as independent evidence."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What actually gets a business recommended in AI answers?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The evidence points to what other people publish: reviews on platforms buyers already use, mentions in honest third-party lists and articles, and original data that others quote. Measure the result on a fixed set of questions, run several times per engine, and count recommendations separately from citations."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+<!-- Google tag (gtag.js) with Consent Mode v2 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-SNM7XHD6X3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  // Nothing is stored until the visitor accepts the banner (assets/analytics.js).
+  gtag('consent', 'default', {
+    ad_storage: 'denied',
+    ad_user_data: 'denied',
+    ad_personalization: 'denied',
+    analytics_storage: 'denied'
+  });
+  try {
+    if (localStorage.getItem('sp-consent') === 'granted') {
+      gtag('consent', 'update', { analytics_storage: 'granted' });
+    }
+  } catch (e) {}
+  gtag('js', new Date());
+  // Only the live site reports; local previews stay out of GA4.
+  if (location.hostname === 'stanislav-peev.com') gtag('config', 'G-SNM7XHD6X3');
+  (function (s) { s.src = '/assets/analytics.js?v=1'; s.async = true; document.head.appendChild(s); })(document.createElement('script'));
+</script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="/">Stanislav <em>Peev</em></a>
+    <nav class="site-nav" aria-label="Main">
+      <a href="/#geo">AI / GEO</a>
+      <a href="/services/">Services</a>
+      <a href="/research/" aria-current="page">Research</a>
+      <a href="/#clients">Clients</a>
+      <a href="/#experience" class="hide-m">Experience</a>
+      <a href="/#proof" class="hide-m">Publications</a>
+      <a class="cta" href="#contact">Write to me</a>
+    </nav>
+  </div>
+</header>
+
+<nav class="crumbs" aria-label="Breadcrumb">
+  <div class="wrap"><a href="/">Home</a> › <a href="/research/">Research</a> › Owned review sites and AI visibility</div>
+</nav>
+
+<main>
+
+<article>
+<section class="hero" style="padding:40px 0 8px">
+  <div class="wrap" style="display:block">
+    <span class="kicker">Research · Buyer's guide</span>
+    <h1 style="max-width:28ch">Do your own <span class="accent">"reviews" site</span>, a "best X" list that ranks you first, or a paid award get you into AI answers?</h1>
+    <p class="article-meta">By <b>Stanislav Peev</b>, SEO consultant &amp; GEO specialist · Published <b><time datetime="2026-10-12">October 12, 2026</time></b> · 35 sources, each figure traced to its source · 13 min read</p>
+  </div>
+</section>
+
+<section style="padding:0 0 72px">
+  <div class="wrap article">
+
+    <div class="hero-stat">
+      <span class="big">69%</span>
+      <p>Cited is not the same as recommended. In a 100-query test of B2B "best software" searches, Google's AI Overviews cited self-promotional listicles 323 times, and in 224 of those cases (69%) the answer did not recommend the brand that wrote the list. Pages you control can get quoted. They often do not make the AI choose you, and versions that hide who owns them or carry fake reviews are illegal in the US, the EU and the UK.</p>
+      <span class="src">Test: <a href="#src-21">Lily Ray, June 2026</a>, Ahrefs Brand Radar data, summarised by <a href="#src-22">Search Engine Land</a>. Disclosure: I do not sell reviews, rankings or awards, and nothing on this page is a referral.</span>
+    </div>
+
+    <div class="takeaways">
+      <h2>Key takeaways</h2>
+      <ul>
+        <li><b>69%</b> - share of AI Overview citations of self-promotional "best" lists where the list's author was not recommended (224 of 323, 100 B2B queries, June 2026)</li>
+        <li><b>45.4% vs 16.3%</b> - how often a vendor was named when its own list was cited, against when it was not (93,968 answers, 5 B2B software clients). Own lists are associated with being named more often, so the tactic is not useless. It is weaker and riskier than it is sold</li>
+        <li><b>-29% to -49%</b> - organic visibility drops Lily Ray documented from late January 2026 on sites leaning on self-ranked "best" lists. Google has not confirmed an update, and other factors were present</li>
+        <li><b>16 CFR 465.6</b> - the US rule that bans presenting a website you control as an independent source of reviews or opinions about your own category. Penalties run up to <b>$53,088 per violation</b>, unchanged for 2026</li>
+        <li><b>"Seeking inauthentic 'mentions' across the web isn't as helpful as it might seem"</b> - Google's own guide to its AI features, which it says run on the same ranking and spam systems as Search</li>
+        <li><b>0 studies</b> found that measure whether paid awards raise AI visibility. Every claim I found came from someone selling awards or PR</li>
+        <li><b>7 popular claims</b> did not hold as stated when I checked them, including "ChatGPT now flags self-promotional lists" and "the FTC has already fined fake review sites". <a href="#claims">Listed below</a></li>
+      </ul>
+    </div>
+
+    <div class="toc">
+      <h2>What's in this guide</h2>
+      <ol>
+        <li><a href="#short-answer">The short answer</a></li>
+        <li><a href="#tactics">Four tactics sold as "AI trust"</a></li>
+        <li><a href="#cited">Do AI answers cite pages you control?</a></li>
+        <li><a href="#recommended">Does a citation make the AI recommend you?</a></li>
+        <li><a href="#google">What Google does with self-promotion</a></li>
+        <li><a href="#law">Is a brand-owned "independent" review site legal?</a></li>
+        <li><a href="#consensus">Can a network of owned sites "trick AI into consensus"?</a></li>
+        <li><a href="#awards">Do paid awards help?</a></li>
+        <li><a href="#checklist">Risk checklist before you publish</a></li>
+        <li><a href="#instead">What builds third-party trust instead</a></li>
+        <li><a href="#claims">Seven popular claims that do not hold as stated</a></li>
+        <li><a href="#methodology">How I checked</a></li>
+        <li><a href="#faq">Frequently asked questions</a></li>
+      </ol>
+    </div>
+
+    <h2 id="short-answer">1. The short answer</h2>
+    <p class="capsule">A website you own that calls itself independent, a "best X" list that ranks you first, or an award you paid for can be cited by AI answers, but they often do not make the AI recommend you, they carry a Google risk, and the first one is banned in the US when it misleads people about who owns it. The evidence points the other way: toward what other people publish about you.</p>
+    <p>This guide exists because of a <a href="#src-1">thread in r/SEO</a> from October 9, 2026. A company owner wanted a separate {brand}reviews.com domain because a Facebook post said it "helps with AI discovery". One reply went further and suggested building a network of owned "third party authority sites" to "trick AI into consensus". The IT person who asked had the right instinct, and the replies were mostly right too, but nobody brought numbers. Here they are.</p>
+
+    <h2 id="tactics">2. Four tactics sold as "AI trust"</h2>
+    <p class="capsule">All four try to make a claim the brand makes about itself look like a claim someone else makes. That is the part Google and consumer law look at. AI answers have not been shown to.</p>
+    <div class="table-wrap"><table class="metric-table">
+      <thead><tr><th>Tactic</th><th>What it looks like</th><th>Main risk</th></tr></thead>
+      <tbody>
+        <tr><td>Brand-owned "reviews" site</td><td>{brand}reviews.com or "Best [category] reviews" run by the company, ownership not obvious</td><td class="hi">US: 16 CFR 465.6. EU and UK: misleading reviews rules</td></tr>
+        <tr><td>Self-ranked "best X" list</td><td>"Top 10 [category] tools" on your blog, with you at #1</td><td class="hi">Google visibility losses since January 2026; citation without recommendation</td></tr>
+        <tr><td>Network of owned "independent" sites</td><td>Several domains that review or link to each other</td><td class="hi">Google doorway, scaled content and link spam policies</td></tr>
+        <tr><td>Paid award</td><td>"Best [category] company 2026" badge bought from an awards publisher</td><td class="lo">No measured AI effect found either way</td></tr>
+      </tbody>
+    </table></div>
+
+    <h2 id="cited">3. Do AI answers cite pages you control?</h2>
+    <p class="capsule">Yes. No major AI engine has been shown to filter self-promotional pages out. In one software study about 11% of all AI citations went to self-promotional lists, and Google's own results are full of them.</p>
+    <div class="table-wrap"><table class="metric-table">
+      <thead><tr><th>Finding</th><th>Value</th><th>Source</th></tr></thead>
+      <tbody>
+        <tr><td>Share of AI citations going to self-promotional lists (software, 6 platforms, Dec 2025 to Feb 2026)</td><td class="v">~11%</td><td><a href="#src-24">Peec AI</a> (vendor)</td></tr>
+        <tr><td>Same, ChatGPT only</td><td class="v">~4%</td><td><a href="#src-24">Peec AI</a></td></tr>
+        <tr><td>Same, Google AI Mode and Perplexity</td><td class="v">~10-11%</td><td><a href="#src-24">Peec AI</a></td></tr>
+        <tr><td>"Best X software" Google results with a list whose author ranks itself first</td><td class="v">169 of 250 (67.6%)</td><td><a href="#src-26">Ahrefs</a> (vendor)</td></tr>
+        <tr><td>Answers in which an assistant labelled a page as self-promotional (9,886 answers, 4 assistants)</td><td class="v">0</td><td><a href="#src-23">Ahrefs experiment</a> (vendor)</td></tr>
+      </tbody>
+    </table></div>
+    <p>Peec put it plainly: "AI search hasn't found a way to actively filter self-promotional content (yet)" (<a href="#src-24">Peec AI</a>). The research on AI search points the same way. A 2024 study found that language models judge web evidence mostly by how relevant it is to the question, "largely ignoring stylistic features that humans find important" (<a href="#src-30">Wan et al.</a>). In practice, a page that answers "what is the best X" well can be retrieved whoever wrote it. My own <a href="/research/ai-citations-by-query-shape/">test of AI citations by question shape</a> found that "best X" questions pull listicles above all other page types, so the format is there to be used.</p>
+
+    <h2 id="recommended">4. Does a citation make the AI recommend you?</h2>
+    <p class="capsule">Mostly not. When Google's AI Overviews cited a self-promotional list, the author was left out of the recommendation 69% of the time. The AI used the page as a list of options and picked from it.</p>
+    <div class="bar-chart" role="img" aria-label="Share of answers that cited a brand's own page but did not recommend it (Ray) or did not name it (other bars): 69% in Google AI Overviews for self-promotional lists, 54.6% across AI answers for B2B vendors' own lists, 43% for an Ahrefs conference page and 11% for Ahrefs tool pages.">
+      <div class="bar-row"><span class="lbl">AI Overviews, self-promotional lists (Ray)</span><div class="bar-track"><div class="bar-fill" style="width:69%">69%</div></div></div>
+      <div class="bar-row"><span class="lbl">B2B vendors' own lists (Search Spot)</span><div class="bar-track"><div class="bar-fill" style="width:54.6%">54.6%</div></div></div>
+      <div class="bar-row"><span class="lbl">Ahrefs conference page (Ahrefs)</span><div class="bar-track"><div class="bar-fill" style="width:43%">43%</div></div></div>
+      <div class="bar-row"><span class="lbl">Ahrefs tool pages (Ahrefs)</span><div class="bar-track"><div class="bar-fill dim" style="width:11%">11%</div></div></div>
+    </div>
+    <p class="bar-note">Share of answers citing a brand's own page that did not recommend that brand (Ray) or did not name it (other bars). Different samples, engines and definitions; read each bar on its own. Sources: <a href="#src-21">Ray</a>, <a href="#src-25">The Search Spot</a>, <a href="#src-23">Ahrefs</a>.</p>
+    <p>Lily Ray, who ran the June 2026 test on 100 "best [category] software" queries, found 80 showed an AI Overview, and 74 of the 100 showed the split between who was cited and who was recommended (<a href="#src-21">Ray</a>, <a href="#src-22">Search Engine Land</a>). Strong category leaders still got recommended. Brands that ranked themselves first often handed the AI a shortlist that included their competitors.</p>
+    <p>The fairest counter-evidence comes from Maeva Cifuentes, who analysed 93,968 AI answers for five B2B software clients. When a vendor's own list was cited, the vendor was named in 45.4% of answers, against 16.3% when it was not cited, and 78 of 94 vendors were named more often with their list in the sources (<a href="#src-25">The Search Spot</a>). That is a correlation, not proof, but it means own lists are not worthless. Her summary of why they disappoint is the most useful sentence in this debate: "AI uses a roundup as a source for every vendor on it."</p>
+    <div class="stat-callout"><span class="val">1 in 3</span><div><p>In Ahrefs' own four-month experiment, its self-promotional pages were cited on about one eligible day in three, so the effect also comes and goes.</p><p class="src"><a href="#src-23">Ahrefs, July 2026</a></p></div></div>
+
+    <h2 id="google">5. What Google does with self-promotion</h2>
+    <p class="capsule">Google says its AI features run on the same ranking and spam systems as Search, it stopped showing review stars for reviews a business controls in 2019, and several documented sites leaning on self-ranked lists lost visibility in early 2026.</p>
+    <ul class="plain">
+      <li><strong>Same systems for AI answers.</strong> Google's guide says its generative AI features "are rooted in our core Search ranking and quality systems", that creating pages "primarily to manipulate rankings or generative AI responses" breaks its scaled content abuse policy, and that "seeking inauthentic 'mentions' across the web isn't as helpful as it might seem" (<a href="#src-17">Google, July 2026</a>). It also says there are no special optimizations needed to appear in AI Overviews or AI Mode (<a href="#src-34">Google</a>).</li>
+      <li><strong>No stars for reviews about yourself.</strong> Since September 2019 Google treats a review "self-serving" when "a review about entity A is placed on the website of entity A", and such LocalBusiness and Organization reviews are not eligible for star snippets, even through an embedded widget (<a href="#src-13">Google, 2019</a>, <a href="#src-14">current docs</a>).</li>
+      <li><strong>Visibility losses in 2026.</strong> From late January 2026 Lily Ray documented organic drops of 29% to 49% on several SaaS and B2B sites that relied on self-ranked "best" lists (<a href="#src-20">Ray</a>). Search Engine Land rounded it to "30% to 50%", reported the losses concentrated in blog and guide folders, and noted that self-promotional lists "likely weren't the only factor" (<a href="#src-19">Search Engine Land</a>). In June the declines were reported to have begun around January 20 and accelerated in the May 2026 core update (<a href="#src-22">Search Engine Land</a>). Google has not confirmed a targeted update.</li>
+      <li><strong>Networks of owned sites.</strong> Google's spam policies name "multiple websites with slight variations to the URL and home page" (doorway abuse), excessive link exchanges and "partner pages exclusively for the sake of cross-linking" (link spam), and pages made at scale to manipulate rankings (<a href="#src-15">Google spam policies</a>).</li>
+      <li><strong>Reviews that rank.</strong> Google's reviews guidance rewards first-hand evidence: "Provide evidence such as visuals, audio, or other links of your own experience" (<a href="#src-33">Google</a>). By that standard, a reviews site that never tested the products has little to show.</li>
+    </ul>
+    <p>One correction to a common reply: a separate {brand}reviews.com is not "site reputation abuse". That policy covers third-party content placed on someone else's site to borrow its signals (<a href="#src-16">Google, 2024</a>). Paying to put a "best X" list on a high-authority publisher could fall under it.</p>
+
+    <h2 id="law">6. Is a brand-owned "independent" review site legal?</h2>
+    <p class="capsule">In the US it is illegal if the site makes people think it is independent when you control it. The EU and the UK ban fake and misleading reviews outright, with fines tied to turnover. This is not legal advice, but the rules are short and specific.</p>
+    <div class="table-wrap"><table class="metric-table">
+      <thead><tr><th>Jurisdiction</th><th>Rule</th><th>What it bans</th><th>Penalty</th></tr></thead>
+      <tbody>
+        <tr><td>United States</td><td>FTC 16 CFR 465.6, in force since October 2024</td><td>Materially misrepresenting that a website or entity you control provides "independent reviews or opinions" about a category that includes your own products</td><td class="v">up to $53,088 per violation</td></tr>
+        <tr><td>United States</td><td>16 CFR 465.2, 465.4, 465.5</td><td>Fake reviews, reviews bought on condition of a positive rating, undisclosed reviews by staff and insiders</td><td class="v">same</td></tr>
+        <tr><td>European Union</td><td>Directive 2019/2161, UCPD Annex I points 23b and 23c, from May 28, 2022</td><td>Claiming reviews come from real users without reasonable checks; submitting or commissioning false reviews; misrepresenting reviews</td><td class="v">at least 4% of turnover in coordinated actions</td></tr>
+        <tr><td>United Kingdom</td><td>DMCC Act 2024, Schedule 20 para 13, from April 6, 2025</td><td>Fake reviews, reviews hiding an incentive, publishing reviews in a misleading way</td><td class="v">up to 10% of global turnover</td></tr>
+      </tbody>
+    </table></div>
+    <p>Sources: <a href="#src-2">16 CFR 465.6</a>, <a href="#src-3">FTC announcement</a>, <a href="#src-4">16 CFR 1.98</a>, <a href="#src-9">Directive 2019/2161</a>, <a href="#src-10">DMCC Act</a>, <a href="#src-11">CMA guidance</a>.</p>
+    <p>The US penalty did not rise in 2026. The FTC published a notice that its civil penalty amounts "will remain unchanged during 2026" after the yearly inflation adjustment was cancelled (<a href="#src-5">FTC notice, September 2026</a>). Enforcement is real but early. The FTC sent warning letters to 10 companies in December 2025 (<a href="#src-6">FTC</a>), finalized an order against TruHeight in July 2026, with $750,000 paid as consumer redress; the complaint alleged reviews written by its own employees and vendors and 5-star reviews bought with discounts (<a href="#src-7">FTC</a>), and in May 2026 the Justice Department and Illinois sued a company over "thousands of online business profiles for non-existent home-repair companies" with fabricated five-star reviews (<a href="#src-8">FTC</a>). That last case is the closest thing on record to a network of fake "independent" entities. In the UK the CMA opened investigations into five businesses over reviews in March 2026 (<a href="#src-12">CMA</a>).</p>
+    <p>For local businesses the platform rules come first. Google Maps bans reviews "that have been paid for, directly or in kind", content "posted from multiple accounts by or at the request of one person" and reviews from current or former employees (<a href="#src-18">Google Maps policy</a>). Removed reviews are unlikely to help anyone's AI visibility.</p>
+
+    <h2 id="consensus">7. Can a network of owned sites "trick AI into consensus"?</h2>
+    <p class="capsule">Sometimes, for a while. Research shows AI search can be steered by planted content, and one SEO kept getting ChatGPT traffic to fabricated pages after Google removed them. Newer research is already producing defences that cut attack success from about 50% to about 6%.</p>
+    <ul class="plain">
+      <li><strong>It works on today's systems.</strong> Researchers showed in 2024 that crafted page content can make LLM search engines on Bing and Perplexity promote one product, and concluded this creates "a prisoner's dilemma, where all parties are incentivized to launch attacks" (<a href="#src-29">Nestaas et al.</a>). Another team showed a short text sequence can raise a product's position in LLM recommendations (<a href="#src-35">Kumar and Lakkaraju</a>).</li>
+      <li><strong>It works unevenly.</strong> A June 2026 test of LLM search agents found attack success rates from 0.0% on Claude Sonnet 4.6 to 31.4% on Gemini 3 Flash (<a href="#src-31">Chen et al.</a>). What fools one engine may do nothing in another. My inference: any scheme to plant "consensus" is a bet on today's weakest model.</li>
+      <li><strong>Google and ChatGPT can disagree.</strong> Metehan Yesilyurt published 50,000 unverified, machine-generated statistics pages on a new domain as an experiment. Google deindexed the site after two updates, yet ChatGPT kept citing and sending traffic to it, and the site now "carries a disclaimer" (<a href="#src-27">Metehan Yesilyurt, October 2026</a>).</li>
+      <li><strong>The defences are arriving.</strong> A September 2026 paper reduced the average success of malicious generative engine optimization attacks "from 50.32% to 6.20%" while keeping 94.12% of genuine evidence (<a href="#src-32">Li et al.</a>). Tricks that work today are the test cases for next year's filters.</li>
+    </ul>
+    <p>Add the legal side and the arithmetic gets worse. A network that presents your opinions as several independent voices is what 465.6 describes, and if those sites carry false reviews the EU and UK fake-review rules apply too. Each owned site is also one more place where the ownership can be traced.</p>
+
+    <h2 id="awards">8. Do paid awards help?</h2>
+    <p class="capsule">There is no evidence either way. I found no study that compares AI visibility of brands with and without paid awards. Every claim I found that awards "boost AI citations" came from a company that sells awards, PR or AI-visibility services.</p>
+    <p>The pay-to-win awards I have seen share a pattern: you are "nominated" without applying, the criteria are general, nobody asks for evidence, and the winner's package costs money. An award like that is a claim you bought, not a claim someone else made, so it is unlikely to count as independent evidence to a careful reader, and there is no data showing AI engines treat it differently. If you already have one, state it exactly: name of the award, year and publisher, and keep it apart from real certifications and memberships.</p>
+
+    <h2 id="checklist">9. Risk checklist before you publish</h2>
+    <p class="capsule">Run any page you control that rates, ranks or reviews your category through eight questions. Three are deal-breakers: ownership stated plainly, reviews from real customers with no rating-conditioned reward, and no undisclosed staff, agency or extra-account reviews.</p>
+    <p>Tick each statement that is true for the page or site. Any unticked deal-breaker (1 to 3) means do not publish as it is.</p>
+    <div class="explorer calc" id="checklist-box">
+      <ul class="checks">
+        <li><label><input type="checkbox" data-key="1"> 1. The page says plainly, near the top, that my company owns or runs it.</label></li>
+        <li><label><input type="checkbox" data-key="1"> 2. Every review comes from a real customer, and none was paid for or rewarded on condition of a good rating.</label></li>
+        <li><label><input type="checkbox" data-key="1"> 3. No reviews or ratings were written by staff, an agency or extra accounts without saying so.</label></li>
+        <li><label><input type="checkbox"> 4. If I rank myself, the method is published and every product is judged on the same criteria.</label></li>
+        <li><label><input type="checkbox"> 5. I do not add review star markup to reviews of my own business.</label></li>
+        <li><label><input type="checkbox"> 6. It is not one of several near-identical sites I run.</label></li>
+        <li><label><input type="checkbox"> 7. Sites I own do not link to each other only to pass authority.</label></li>
+        <li><label><input type="checkbox"> 8. I will measure whether AI answers recommend us, not only whether they cite the page.</label></li>
+      </ul>
+      <div class="calc-out" id="ckOut" aria-live="polite"></div>
+      <p class="bar-note">Nothing you tick leaves this page. Not legal advice.</p>
+    </div>
+
+    <h2 id="instead">10. What builds third-party trust instead</h2>
+    <p class="capsule">Put the effort where someone else does the vouching: reviews on established platforms, mentions in other people's lists and articles, and evidence on your own site that is clearly labelled as yours.</p>
+    <ul class="plain">
+      <li><strong>Reviews on platforms people already trust.</strong> Ask every real customer, on Google, the leading platform for your category and nowhere else at first. My <a href="/research/google-review-concentration-home-services/">study of 72 local markets</a> shows how unevenly review volume is spread: the top five businesses held 58.3% of visible reviews.</li>
+      <li><strong>Testimonials on your own site, labelled.</strong> Put real reviews on the matching service or product pages, with first name and date, without star markup for your own business, and without calling the page independent.</li>
+      <li><strong>Other people's lists.</strong> Getting into honest third-party roundups is slower than writing your own, but it should be the version where you can be both cited and recommended.</li>
+      <li><strong>Comparison pages that compare.</strong> If you write "you vs competitor" pages, make them factual. My <a href="/research/competitor-comparison-pages-in-ai-answers/">144-answer test</a> found AI answers lean on vendors' own comparison pages, but a vendor's page did not make the AI pick that vendor.</li>
+      <li><strong>Original data.</strong> A number other people quote earns citations on their sites. That is how every page in my <a href="/research/">research section</a> started.</li>
+      <li><strong>Measure before and after.</strong> One check of one answer proves nothing, because answers change between runs; see <a href="/research/ai-visibility-tracking-reliability/">how reliable AI visibility tracking is</a>. And if AI gets facts about you wrong, fix the source, not the symptom: <a href="/research/ai-wrong-business-information-statistics/">what to do when AI gets your business wrong</a>.</li>
+    </ul>
+    <p>If someone is selling you the shortcut instead, the same buyer logic applies as with <a href="/research/reddit-agency-ai-visibility/">Reddit agencies that promise AI visibility</a>: ask which engine, which prompts, measured how, and who carries the risk.</p>
+
+    <h2 id="claims">11. Seven popular claims that do not hold as stated</h2>
+    <p class="capsule">These circulate in posts about AI visibility. In each case the claim is rounded up, misread, wrongly attributed, or has no primary source I could find.</p>
+    <ul class="plain">
+      <li><strong>"ChatGPT and Perplexity now flag self-promotional lists as unreliable."</strong> I found no primary source for this. Ahrefs' experiment found no assistant labelling its pages as self-promotional across 9,886 answers (<a href="#src-23">Ahrefs</a>), and the 93,968-answer analysis reports no such flag either (<a href="#src-25">The Search Spot</a>). Where an AI answer repeats a disclaimer, check whether the disclaimer is on the page itself.</li>
+      <li><strong>"AI search already filters out self-promotion."</strong> Not shown. The defensible claim is narrower: a citation is often not a recommendation (<a href="#src-21">Ray</a>), and several documented sites relying on such pages lost Google visibility in 2026.</li>
+      <li><strong>"Self-ranked lists lose 30-50% of traffic."</strong> That is Search Engine Land's rounding of a handful of documented cases, from -29% to -49%, with no total sample and other factors present (<a href="#src-19">Search Engine Land</a>, <a href="#src-20">Ray</a>).</li>
+      <li><strong>"AI Overviews recommended 224 competitors."</strong> 224 is the number of citations, out of 323, where the self-promoting brand was not recommended. It is not a count of competitors (<a href="#src-21">Ray</a>).</li>
+      <li><strong>"44% of AI citations come from brand-owned sites, so owned review sites work."</strong> Yext's 44% is official brand and location websites in local queries, from a vendor study of 6.8 million citations. It says nothing about owned "independent" review domains (<a href="#src-28">Yext</a>).</li>
+      <li><strong>"The FTC has already fined companies for fake independent review sites."</strong> I found no action under 465.6 so far. Enforcement to date is warning letters under the rule, a TruHeight order on fake and incentivized reviews whose press release does not cite the rule, and a pending civil penalty complaint (<a href="#src-6">FTC</a>, <a href="#src-7">FTC</a>, <a href="#src-8">FTC</a>).</li>
+      <li><strong>"A {brand}reviews.com site is site reputation abuse."</strong> Not under Google's definition, which covers third-party content on a host site (<a href="#src-16">Google</a>). The relevant Google policies are doorway abuse, scaled content and link spam, plus the self-serving review rule (<a href="#src-15">Google</a>, <a href="#src-13">Google</a>).</li>
+    </ul>
+
+    <h2 id="methodology">12. How I checked</h2>
+    <p>I started from the <a href="#src-1">r/SEO thread</a> that prompted this guide, then searched for what has been published on whether owned review sites, self-ranked lists and awards help AI visibility. Much of it comes from companies that sell reviews, review widgets or AI-visibility tracking, and none of it tests a brand-owned "independent" review site directly. I traced each figure to the publication it is credited to, read the rule texts on the regulator's or a legal mirror's site, and kept 35 sources. Where only a copy could be opened, the source line says so. Studies by companies that sell SEO or AI-visibility products are marked as vendors. Checks ran on October 12, 2026.</p>
+    <p>Limits. The citation numbers come from different engines, samples and definitions and should not be added up. Most of the self-promotion data is from B2B software, so local services may behave differently. I could not open OpenAI's pages on how ChatGPT search chooses sources, and found no published OpenAI method for scoring source trust. Several figures that circulate (a Muck Rack share for paid content, a Wix study on listicles) are left out because I could not open the original.</p>
+
+    <h2 id="faq">13. Frequently asked questions</h2>
+    <div class="faq">
+      <details>
+        <summary>Does a separate {brand}reviews.com domain help AI visibility?</summary>
+        <p>I found no study that measures it. AI answers can cite pages a brand controls, but in a 100-query test Google's AI Overviews did not recommend the author in 69% of citations of self-promotional lists. In the US, presenting a site you control as an independent source of reviews about your own category breaks FTC rule 16 CFR 465.6 if it materially misleads buyers. Put real reviews on established platforms and label testimonials on your own site as yours.</p>
+      </details>
+      <details>
+        <summary>Do AI engines detect self-promotional content?</summary>
+        <p>Not reliably, as of October 2026. Peec AI found about 11% of AI citations in a software study went to self-promotional lists, and Ahrefs saw no assistant label its self-promotional pages across 9,886 answers. What happens instead is quieter: the AI uses the page as a list of options and often recommends someone else.</p>
+      </details>
+      <details>
+        <summary>Is ranking my own product #1 in a 'best X' article illegal?</summary>
+        <p>Not by itself, but it becomes a legal problem if readers are led to think the ranking is independent when you control it. That is the case FTC rule 16 CFR 465.6 describes, with penalties up to $53,088 per violation. Say plainly that you wrote it, publish the method, and judge every product on the same criteria. This is not legal advice.</p>
+      </details>
+      <details>
+        <summary>Did Google penalize self-ranked listicles in 2026?</summary>
+        <p>Google has not confirmed a targeted update. Lily Ray documented organic visibility drops of 29% to 49% from around January 20, 2026 on several sites that relied on self-ranked 'best' lists, and Search Engine Land reported the decline accelerated in the May 2026 core update. Other factors, such as scaled AI content, were present on some of those sites.</p>
+      </details>
+      <details>
+        <summary>Can I show review stars for my own business in Google?</summary>
+        <p>No. Since September 2019 Google treats reviews a business controls about itself as self-serving, and LocalBusiness and Organization reviews on the business's own site are not eligible for star snippets, including reviews shown through an embedded third-party widget. You can still show the reviews to visitors.</p>
+      </details>
+      <details>
+        <summary>Do paid awards help a brand appear in ChatGPT or AI Overviews?</summary>
+        <p>There is no evidence either way. I found no study comparing the AI visibility of brands with and without paid awards; every claim I found came from a seller of awards, PR or AI-visibility services. A bought award is a claim you paid for, so do not expect it to work as independent evidence.</p>
+      </details>
+      <details>
+        <summary>What actually gets a business recommended in AI answers?</summary>
+        <p>The evidence points to what other people publish: reviews on platforms buyers already use, mentions in honest third-party lists and articles, and original data that others quote. Measure the result on a fixed set of questions, run several times per engine, and count recommendations separately from citations.</p>
+      </details>
+    </div>
+
+    <h3 style="margin-top:40px">Sources</h3>
+    <ol class="sources-list">
+      <li id="src-1" value="1">r/SEO. "Question regarding aggregate review site." October 9, 2026. The thread that prompted this guide. <a href="https://www.reddit.com/r/SEO/comments/1x1r11e/question_regarding_aggregate_review_site/" rel="noopener">reddit.com/r/SEO/comments/1x1r11e/question_regarding_aggregate_review_site/</a>. Accessed October 12, 2026.</li>
+      <li id="src-2" value="2">US Federal Trade Commission. Rule on the Use of Consumer Reviews and Testimonials, 16 CFR 465.6 "Company-controlled review websites or entities". Text via Cornell LII. <a href="https://www.law.cornell.edu/cfr/text/16/465.6" rel="noopener">law.cornell.edu/cfr/text/16/465.6</a>. Accessed October 12, 2026.</li>
+      <li id="src-3" value="3">US Federal Trade Commission. "Federal Trade Commission announces final rule banning fake reviews and testimonials." August 14, 2024. <a href="https://www.ftc.gov/news-events/news/press-releases/2024/08/federal-trade-commission-announces-final-rule-banning-fake-reviews-testimonials" rel="noopener">ftc.gov/news-events/news/press-releases/2024/08/federal-trade-commission-announces-final-rule-banning-fake-reviews-testimonials</a>. Accessed October 12, 2026.</li>
+      <li id="src-4" value="4">US Code of Federal Regulations. 16 CFR 1.98(d), adjustment of civil monetary penalty amounts. Text via Cornell LII. <a href="https://www.law.cornell.edu/cfr/text/16/1.98" rel="noopener">law.cornell.edu/cfr/text/16/1.98</a>. Accessed October 12, 2026.</li>
+      <li id="src-5" value="5">US Federal Trade Commission. "Civil Penalty Inflation Adjustments" notice, FR Doc. 2026-18853. Public inspection, September 15, 2026. <a href="https://public-inspection.federalregister.gov/2026-18853.pdf" rel="noopener">public-inspection.federalregister.gov/2026-18853.pdf</a>. Accessed October 12, 2026.</li>
+      <li id="src-6" value="6">US Federal Trade Commission. "FTC warns 10 companies about possible violations of the agency's new consumer review rule." December 22, 2025. <a href="https://www.ftc.gov/news-events/news/press-releases/2025/12/ftc-warns-10-companies-about-possible-violations-agencys-new-consumer-review-rule" rel="noopener">ftc.gov/news-events/news/press-releases/2025/12/ftc-warns-10-companies-about-possible-violations-agencys-new-consumer-review-rule</a>. Accessed October 12, 2026.</li>
+      <li id="src-7" value="7">US Federal Trade Commission. "FTC approves final order against TruHeight." July 15, 2026. <a href="https://www.ftc.gov/news-events/news/press-releases/2026/07/ftc-approves-final-order-against-truheight-deceptive-unsubstantiated-advertising-supplements-kids" rel="noopener">ftc.gov/news-events/news/press-releases/2026/07/ftc-approves-final-order-against-truheight-deceptive-unsubstantiated-advertising-supplements-kids</a>. Accessed October 12, 2026.</li>
+      <li id="src-8" value="8">US Federal Trade Commission. "FTC, Illinois take action to stop deceptive conduct by company that created thousands of business listings" (Premium Home Service). May 11, 2026. <a href="https://www.ftc.gov/news-events/news/press-releases/2026/05/ftc-illinois-take-action-stop-deceptive-conduct-company-created-thousands-business-listings-fake" rel="noopener">ftc.gov/news-events/news/press-releases/2026/05/ftc-illinois-take-action-stop-deceptive-conduct-company-created-thousands-business-listings-fake</a>. Accessed October 12, 2026.</li>
+      <li id="src-9" value="9">Directive (EU) 2019/2161, Article 3 (amending Directive 2005/29/EC, Annex I points 23b and 23c) and Article 7. Text via legislation.gov.uk; official text on EUR-Lex. <a href="https://www.legislation.gov.uk/eudr/2019/2161/article/3" rel="noopener">legislation.gov.uk/eudr/2019/2161/article/3</a>. Accessed October 12, 2026.</li>
+      <li id="src-10" value="10">UK Digital Markets, Competition and Consumers Act 2024, Schedule 20, paragraph 13. <a href="https://www.legislation.gov.uk/ukpga/2024/13/schedule/20" rel="noopener">legislation.gov.uk/ukpga/2024/13/schedule/20</a>. Accessed October 12, 2026.</li>
+      <li id="src-11" value="11">UK Competition and Markets Authority. "Fake reviews" guidance, CMA208. April 4, 2025. <a href="https://www.gov.uk/government/publications/fake-reviews-cma208" rel="noopener">gov.uk/government/publications/fake-reviews-cma208</a>. Accessed October 12, 2026.</li>
+      <li id="src-12" value="12">UK Competition and Markets Authority. "Fake and misleading reviews: 5 businesses under CMA investigation." March 27, 2026. <a href="https://www.gov.uk/government/news/fake-and-misleading-reviews-5-businesses-under-cma-investigation" rel="noopener">gov.uk/government/news/fake-and-misleading-reviews-5-businesses-under-cma-investigation</a>. Accessed October 12, 2026.</li>
+      <li id="src-13" value="13">Google Search Central Blog. "Making Review Rich Results more helpful." September 16, 2019. <a href="https://developers.google.com/search/blog/2019/09/making-review-rich-results-more-helpful" rel="noopener">developers.google.com/search/blog/2019/09/making-review-rich-results-more-helpful</a>. Accessed October 12, 2026.</li>
+      <li id="src-14" value="14">Google Search Central. "Review snippet (Review, AggregateRating) structured data." <a href="https://developers.google.com/search/docs/appearance/structured-data/review-snippet" rel="noopener">developers.google.com/search/docs/appearance/structured-data/review-snippet</a>. Accessed October 12, 2026.</li>
+      <li id="src-15" value="15">Google Search Central. "Spam policies for Google web search." Last updated August 28, 2026. <a href="https://developers.google.com/search/docs/essentials/spam-policies" rel="noopener">developers.google.com/search/docs/essentials/spam-policies</a>. Accessed October 12, 2026.</li>
+      <li id="src-16" value="16">Google Search Central Blog. "Updating our site reputation abuse policy." November 19, 2024. <a href="https://developers.google.com/search/blog/2024/11/site-reputation-abuse" rel="noopener">developers.google.com/search/blog/2024/11/site-reputation-abuse</a>. Accessed October 12, 2026.</li>
+      <li id="src-17" value="17">Google Search Central. "Guide to optimizing for generative AI features on Google Search." Last updated July 10, 2026. <a href="https://developers.google.com/search/docs/fundamentals/ai-optimization-guide" rel="noopener">developers.google.com/search/docs/fundamentals/ai-optimization-guide</a>. Accessed October 12, 2026.</li>
+      <li id="src-18" value="18">Google. Maps user contributed content policy: fake engagement and conflict of interest. <a href="https://support.google.com/contributionpolicy/answer/7400114" rel="noopener">support.google.com/contributionpolicy/answer/7400114</a>. Accessed October 12, 2026.</li>
+      <li id="src-19" value="19">Search Engine Land (Danny Goodwin). "Google may be cracking down on self-promotional 'best of' listicles." February 4, 2026. Reporting research by Lily Ray, then at Amsive. Read from a saved copy; the live page blocks automated access. <a href="https://searchengineland.com/google-cracking-down-self-promotional-best-of-listicles-468227" rel="noopener">searchengineland.com/google-cracking-down-self-promotional-best-of-listicles-468227</a>. Accessed October 12, 2026.</li>
+      <li id="src-20" value="20">Lily Ray. "Is Google finally cracking down on self-promotional listicles?" Substack, February 3, 2026. <a href="https://lilyraynyc.substack.com/p/is-google-finally-cracking-down-on" rel="noopener">lilyraynyc.substack.com/p/is-google-finally-cracking-down-on</a>. Accessed October 12, 2026.</li>
+      <li id="src-21" value="21">Lily Ray. "Why calling yourself the best could be helping your competitors win in AI search." Search Engine Journal, June 18, 2026. 100 B2B queries, Ahrefs Brand Radar data, checkpoints April 15, May 15 and June 8, 2026. <a href="https://www.searchenginejournal.com/why-calling-yourself-the-best-could-be-helping-your-competitors-win-in-ai-search/579778/" rel="noopener">searchenginejournal.com/why-calling-yourself-the-best-could-be-helping-your-competitors-win-in-ai-search/579778/</a>. Accessed October 12, 2026.</li>
+      <li id="src-22" value="22">Search Engine Land (Danny Goodwin). "Google AI Overviews cite self-serving listicles, recommend competitors." June 18, 2026. <a href="https://searchengineland.com/google-ai-overviews-cite-self-serving-listicles-recommend-competitors-480573" rel="noopener">searchengineland.com/google-ai-overviews-cite-self-serving-listicles-recommend-competitors-480573</a>. Accessed October 12, 2026.</li>
+      <li id="src-23" value="23">Ahrefs (Mateusz Makosiewicz). "Self-promotional content works until it backfires (AI SEO experiment)." 34 pages, 9,886 answers from ChatGPT, Gemini, Perplexity and Copilot, February 7 to May 31, 2026. July 6, 2026. <em>Vendor: sells SEO or AI-visibility products.</em> <a href="https://ahrefs.com/blog/self-promotional-content-ai-seo-experiment/" rel="noopener">ahrefs.com/blog/self-promotional-content-ai-seo-experiment/</a>. Accessed October 12, 2026.</li>
+      <li id="src-24" value="24">Peec AI (Tom Wells). "Self-promotional listicles: analysis from 232k citations." 6 AI platforms, software niche, December 2025 to February 2026. March 3, 2026. <em>Vendor: sells SEO or AI-visibility products.</em> <a href="https://peec.ai/blog/self-promotional-listicles-analysis-from-232k-citations" rel="noopener">peec.ai/blog/self-promotional-listicles-analysis-from-232k-citations</a>. Accessed October 12, 2026.</li>
+      <li id="src-25" value="25">Maeva Cifuentes, The Search Spot. "What 93,968 AI answers said about..." Scrunch data for 5 B2B software clients, Q2 to Q3 2026. October 3, 2026. <a href="https://thesearchspot.substack.com/p/what-93968-ai-answers-said-about" rel="noopener">thesearchspot.substack.com/p/what-93968-ai-answers-said-about</a>. Accessed October 12, 2026.</li>
+      <li id="src-26" value="26">Ahrefs (Glen Allsopp). "Do self-promotional 'best' lists boost ChatGPT visibility? Study of 26,283 source URLs." December 4, 2025. <em>Vendor: sells SEO or AI-visibility products.</em> <a href="https://ahrefs.com/blog/best-lists-research/" rel="noopener">ahrefs.com/blog/best-lists-research/</a>. Accessed October 12, 2026.</li>
+      <li id="src-27" value="27">Metehan Yesilyurt. "Publish stats, get cited: the tactic that put my data all over the web." October 7, 2026. <a href="https://metehan.ai/blog/publish-stats-get-cited-the-tactic-that-put-my-data-all-over-the-web" rel="noopener">metehan.ai/blog/publish-stats-get-cited-the-tactic-that-put-my-data-all-over-the-web</a>. Accessed October 12, 2026.</li>
+      <li id="src-28" value="28">Yext. "Yext research: 86% of AI citations come from brand-managed sources." 6.8 million citations, location queries. October 9, 2025. <em>Vendor: sells SEO or AI-visibility products.</em> <a href="https://yext.com/about/news-media/ai-citations-release" rel="noopener">yext.com/about/news-media/ai-citations-release</a>. Accessed October 12, 2026.</li>
+      <li id="src-29" value="29">Nestaas, Debenedetti, Tramer. "Adversarial search engine optimization for large language models." arXiv 2406.18382, June 2024. <a href="https://arxiv.org/abs/2406.18382" rel="noopener">arxiv.org/abs/2406.18382</a>. Accessed October 12, 2026.</li>
+      <li id="src-30" value="30">Wan, Wallace, Klein. "What evidence do language models find convincing?" arXiv 2402.11782, ACL 2024. <a href="https://arxiv.org/abs/2402.11782" rel="noopener">arxiv.org/abs/2402.11782</a>. Accessed October 12, 2026.</li>
+      <li id="src-31" value="31">Chen et al. "How much can we trust LLM search agents? Measuring endorsement vulnerability to web content manipulation." arXiv 2606.16821, June 2026. <a href="https://arxiv.org/abs/2606.16821" rel="noopener">arxiv.org/abs/2606.16821</a>. Accessed October 12, 2026.</li>
+      <li id="src-32" value="32">Li et al. "When optimization becomes manipulation: defending generative search against malicious generative engine optimization." arXiv 2609.02964, September 2026. <a href="https://arxiv.org/abs/2609.02964" rel="noopener">arxiv.org/abs/2609.02964</a>. Accessed October 12, 2026.</li>
+      <li id="src-33" value="33">Google Search Central. "Write high quality reviews." Last updated December 10, 2025. <a href="https://developers.google.com/search/docs/specialty/ecommerce/write-high-quality-reviews" rel="noopener">developers.google.com/search/docs/specialty/ecommerce/write-high-quality-reviews</a>. Accessed October 12, 2026.</li>
+      <li id="src-34" value="34">Google Search Central. "AI features and your website." Last updated December 10, 2025. <a href="https://developers.google.com/search/docs/appearance/ai-features" rel="noopener">developers.google.com/search/docs/appearance/ai-features</a>. Accessed October 12, 2026.</li>
+      <li id="src-35" value="35">Kumar, Lakkaraju. "Manipulating large language models to increase product visibility." arXiv 2404.07981, April 2024. <a href="https://arxiv.org/abs/2404.07981" rel="noopener">arxiv.org/abs/2404.07981</a>. Accessed October 12, 2026.</li>
+    </ol>
+
+    <p class="updated">Published: <time datetime="2026-10-12">October 12, 2026</time>. Compiled and checked by <a href="/">Stanislav Peev</a>. Next scheduled re-check: January 2027, or sooner if the FTC brings a 465.6 case or an AI engine starts labelling self-promotion. A figure looks wrong or you have a primary source I missed? <a href="mailto:info@stanislav-peev.com?subject=Owned%20review%20sites%20guide">Email me</a>.</p>
+
+  </div>
+</section>
+
+</article>
+
+<section class="contact-band" id="contact" style="padding:56px 0">
+  <div class="wrap contact-cols">
+    <div>
+      <h2>Not sure if your review or "best X" pages are a risk?</h2>
+      <p class="section-intro">Send me the URLs and the questions your buyers ask. I will check what ChatGPT, Gemini and Google's AI answers do with those pages today, and what to change so you are recommended, not just cited. I do not sell reviews, rankings or awards. No calls, no meetings - everything in writing.</p>
+      <p><a class="btn btn-primary" href="/services/">See GEO services</a> <a class="btn btn-ghost" href="mailto:info@stanislav-peev.com?subject=Review%20pages%20and%20AI%20visibility" style="margin-left:10px">Email me</a></p>
+    </div>
+    <ul class="contact-list">
+      <li><b>Email</b><a class="link" href="mailto:info@stanislav-peev.com">info@stanislav-peev.com</a></li>
+      <li><b>LinkedIn</b><a class="link" href="https://www.linkedin.com/in/stanislav-peev-seo/" rel="noopener">in/stanislav-peev-seo</a></li>
+      <li><b>Based in</b>Bratislava, Slovakia - working worldwide</li>
+    </ul>
+  </div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div>© 2026 Stanislav Peev · SEO Consultant &amp; AI Search (GEO) Specialist, Bratislava, Slovakia</div>
+    <nav class="footer-nav" aria-label="Footer">
+      <a href="/">Home</a>
+      <a href="/#geo">AI / GEO</a>
+      <a href="/services/">Services</a>
+      <a href="/services/seo-audit/">SEO Audit</a>
+      <a href="/services/small-business-seo/">Small Business SEO</a>
+      <a href="/research/">Research</a>
+      <a href="https://www.linkedin.com/in/stanislav-peev-seo/" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" style="width:1em;height:1em;vertical-align:-.15em;margin-right:.35em;fill:currentColor"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29ZM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13ZM7.12 20.45H3.56V9h3.56v11.45ZM22.22 0H1.77C.79 0 0 .77 0 1.72v20.55C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0Z"/></svg>LinkedIn</a>
+      <a href="https://www.youtube.com/@stanislav_peev" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" style="width:1em;height:1em;vertical-align:-.15em;margin-right:.35em;fill:currentColor"><path d="M23.5 6.2a3 3 0 0 0-2.11-2.12C19.5 3.55 12 3.55 12 3.55s-7.5 0-9.39.53A3 3 0 0 0 .5 6.2 31.3 31.3 0 0 0 0 12a31.3 31.3 0 0 0 .5 5.8 3 3 0 0 0 2.11 2.12c1.89.53 9.39.53 9.39.53s7.5 0 9.39-.53A3 3 0 0 0 23.5 17.8 31.3 31.3 0 0 0 24 12a31.3 31.3 0 0 0-.5-5.8ZM9.55 15.57V8.43L15.82 12l-6.27 3.57Z"/></svg>YouTube</a>
+      <a href="/privacy/">Privacy</a>
+    </nav>
+  </div>
+</footer>
+
+<button class="to-top" id="toTop" aria-label="Back to top" title="Back to top">↑</button>
+<script>
+(function () {
+  var t = document.getElementById('toTop');
+  addEventListener('scroll', function () { t.classList.toggle('show', scrollY > 600); }, { passive: true });
+  t.addEventListener('click', function () { scrollTo({ top: 0, behavior: 'smooth' }); });
+
+  var boxes = [].slice.call(document.querySelectorAll('#checklist-box input[type=checkbox]')), out = document.getElementById('ckOut');
+  function cell(v, l, w) { return '<div class="cell' + (w ? ' warn' : '') + '"><b>' + v + '</b><span>' + l + '</span></div>'; }
+  function score() {
+    var n = 0, keyMiss = 0;
+    boxes.forEach(function (b) { if (b.checked) n++; else if (b.getAttribute('data-key')) keyMiss++; });
+    var verdict, warn = false;
+    if (n === 0) { verdict = 'Start ticking'; }
+    else if (keyMiss > 0) { verdict = 'Do not publish as is'; warn = true; }
+    else if (n === 8) { verdict = 'Low risk'; }
+    else { verdict = 'Fix the gaps first'; warn = true; }
+    var note = keyMiss > 0 ? keyMiss + ' deal-breaker' + (keyMiss > 1 ? 's' : '') + ' (1-3) not met' : 'All deal-breakers (1-3) met';
+    out.innerHTML = cell(n + '/8', 'statements true for this page') + cell(verdict, note, warn);
+  }
+  boxes.forEach(function (b) { b.addEventListener('change', score); }); score();
+})();
+</script>
+<script src="/assets/agent-tools.js?v=1" defer></script>
+</body>
+</html>
