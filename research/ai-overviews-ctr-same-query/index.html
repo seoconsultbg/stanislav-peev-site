@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI Overviews CTR: same query, one year later (2026)</title>
+<meta name="description" content="How much do AI Overviews cut CTR? Same query, same position, a year apart: -28% with an AI Overview, -10% without. 280 queries, 13 sites.">
+<link rel="canonical" href="https://stanislav-peev.com/research/ai-overviews-ctr-same-query/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Stanislav Peev">
+<meta property="og:title" content="How much do AI Overviews cut your CTR? Same query, one year apart">
+<meta property="og:description" content="Original Search Console data from 15 sites, mostly Bulgarian: CTR fell 28% on queries that now show an AI Overview and about 10% on queries that do not. Impressions +54%, clicks -12%. Being cited did not save the click, and the common with-vs-without split points the wrong way.">
+<meta property="og:url" content="https://stanislav-peev.com/research/ai-overviews-ctr-same-query/">
+<meta property="og:image" content="https://stanislav-peev.com/research/ai-overviews-ctr-same-query/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Same query, one year apart: CTR -28% with an AI Overview, -10% without. Original data from 15 sites">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:creator" content="@SeoPeev">
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="alternate" type="application/rss+xml" title="Stanislav Peev - SEO &amp; AI Search Research" href="/rss.xml">
+<link rel="stylesheet" href="/assets/site.css?v=6">
+<style>
+.article-meta { font-size: .9rem; color: var(--ink-soft); margin-bottom: 34px; }
+.article-meta b { color: var(--ink); }
+.hero-stat {
+  background: linear-gradient(135deg, var(--surface), var(--band));
+  border: 1px solid var(--green); border-radius: 18px;
+  padding: 36px 32px; text-align: center; margin: 0 0 40px;
+}
+.hero-stat .big {
+  font-family: var(--serif); font-size: clamp(3.2rem, 8vw, 5rem);
+  color: var(--green); font-weight: 700; line-height: 1; display: block; margin-bottom: 12px;
+}
+.hero-stat p { color: var(--ink); font-size: 1.1rem; max-width: 62ch; margin: 0 auto 8px; }
+.hero-stat .src { font-size: .85rem; color: var(--ink-soft); }
+.takeaways {
+  background: var(--surface); border: 1px solid var(--line); border-left: 4px solid var(--green);
+  border-radius: 12px; padding: 26px 28px; margin: 0 0 40px;
+}
+.takeaways h2 {
+  font-family: var(--sans); font-size: .8rem; font-weight: 700; letter-spacing: .12em;
+  text-transform: uppercase; color: var(--green); margin-bottom: 14px;
+}
+.takeaways ul { list-style: none; display: grid; gap: 10px; }
+.takeaways li { padding-left: 22px; position: relative; color: var(--ink-soft); font-size: .98rem; }
+.takeaways li::before { content: '→'; position: absolute; left: 0; color: var(--green); }
+.takeaways li b { color: var(--ink); font-family: var(--serif); }
+.toc {
+  border: 1px solid var(--line); border-radius: 12px; padding: 22px 26px; margin: 0 0 48px;
+  background: var(--bg-alt);
+}
+.toc h2 { font-family: var(--sans); font-size: .95rem; margin-bottom: 12px; }
+.toc ol { margin-left: 20px; color: var(--ink-soft); display: grid; gap: 6px; font-size: .95rem; }
+.toc a { color: var(--green); text-decoration: none; }
+.toc a:hover { text-decoration: underline; }
+.article h2 { margin-top: 56px; margin-bottom: 16px; scroll-margin-top: 90px; }
+.article h3 { margin-top: 30px; margin-bottom: 10px; font-size: 1.1rem; }
+.article .capsule { color: var(--ink); font-size: 1.08rem; margin-bottom: 18px; max-width: 70ch; }
+.article p { color: var(--ink-soft); margin-bottom: 18px; max-width: 72ch; }
+.article p strong { color: var(--ink); }
+.article a { color: var(--green); }
+.article ul.plain { margin: 0 0 18px 20px; color: var(--ink-soft); max-width: 72ch; display: grid; gap: 8px; }
+.metric-table { width: 100%; border-collapse: collapse; margin: 22px 0; font-size: .95rem; }
+.metric-table th {
+  background: var(--band); color: var(--ink); text-align: left;
+  padding: 11px 14px; text-transform: uppercase; font-size: .76rem; letter-spacing: .07em;
+  border-bottom: 2px solid var(--green);
+}
+.metric-table td { padding: 11px 14px; border-bottom: 1px solid var(--line); color: var(--ink-soft); }
+.metric-table td.v { font-family: var(--serif); font-weight: 700; color: var(--green); white-space: nowrap; }
+.metric-table td.hi { color: var(--green); font-weight: 700; }
+.metric-table td.lo { color: var(--ink-soft); }
+.table-wrap { overflow-x: auto; }
+.stat-callout {
+  display: flex; align-items: center; gap: 22px; background: var(--surface);
+  border: 1px solid var(--line); border-left: 4px solid var(--green); border-radius: 12px;
+  padding: 20px 24px; margin: 24px 0;
+}
+.stat-callout .val {
+  font-family: var(--serif); font-size: 2.1rem; font-weight: 700; color: var(--green);
+  white-space: nowrap; min-width: 90px; text-align: center;
+}
+.stat-callout div p { margin: 0; font-size: .96rem; }
+.stat-callout div .src { font-size: .82rem; color: var(--ink-soft); margin-top: 4px; }
+.bar-chart { margin: 24px 0; display: grid; gap: 10px; max-width: 680px; }
+.bar-row { display: grid; grid-template-columns: 230px 1fr; align-items: center; gap: 12px; }
+.bar-row .lbl { font-size: .9rem; color: var(--ink-soft); text-align: right; }
+.bar-track { background: var(--band); border-radius: 6px; overflow: hidden; height: 30px; position: relative; }
+.bar-fill {
+  height: 100%; background: var(--green); border-radius: 6px;
+  display: flex; align-items: center; padding-left: 10px;
+  font-family: var(--serif); font-weight: 700; font-size: .88rem; color: var(--btn-text);
+  min-width: fit-content; white-space: nowrap;
+}
+.bar-fill.dim { background: var(--ink-soft); }
+.bar-note { font-size: .82rem; color: var(--ink-soft); margin-top: 2px; }
+.explorer {
+  background: var(--surface); border: 1px solid var(--green); border-radius: 16px;
+  padding: 24px; margin: 26px 0;
+}
+.explorer .controls { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 14px; }
+.explorer select, .explorer input[type="search"] {
+  background: var(--bg-alt); color: var(--ink); border: 1px solid var(--line); border-radius: 8px;
+  padding: 8px 10px; font-size: .92rem;
+}
+.explorer input[type="search"] { flex: 1; min-width: 180px; }
+.explorer .count { font-size: .88rem; color: var(--ink-soft); margin-bottom: 10px; }
+.explorer table { width: 100%; border-collapse: collapse; font-size: .86rem; }
+.explorer th { text-align: left; padding: 8px 10px; border-bottom: 2px solid var(--green); color: var(--ink); font-size: .74rem; text-transform: uppercase; letter-spacing: .06em; cursor: pointer; white-space: nowrap; }
+.explorer td { padding: 7px 10px; border-bottom: 1px solid var(--line); color: var(--ink-soft); vertical-align: top; }
+.explorer td a { color: var(--green); word-break: break-all; }
+.explorer .tag { display: inline-block; padding: 1px 7px; border-radius: 999px; font-size: .74rem; border: 1px solid var(--line); color: var(--ink); white-space: nowrap; }
+.explorer .tag.cmp { border-color: var(--green); color: var(--green); }
+.explorer .scroll { max-height: 520px; overflow: auto; }
+.data-box {
+  background: var(--bg-alt); border: 1px solid var(--line); border-radius: 12px;
+  padding: 22px 26px; margin: 26px 0;
+}
+.data-box h3 { font-size: 1rem; margin: 0 0 8px; }
+.data-box p { font-size: .92rem; margin-bottom: 10px; }
+.sources-list { font-size: .92rem; color: var(--ink-soft); margin-left: 20px; display: grid; gap: 10px; }
+.sources-list a { color: var(--green); word-break: break-all; }
+.updated { font-size: .88rem; color: var(--ink-soft); border-top: 1px solid var(--line); padding-top: 20px; margin-top: 48px; }
+@media (max-width: 640px) {
+  .bar-row { grid-template-columns: 1fr; gap: 4px; }
+  .bar-row .lbl { text-align: left; }
+  .stat-callout { flex-direction: column; align-items: flex-start; gap: 10px; }
+}
+.explorer.calc .calc-grid { display: grid; gap: 14px; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); margin-bottom: 18px; }
+.explorer.calc label { display: grid; gap: 6px; font-size: .88rem; color: var(--ink-soft); }
+.explorer.calc input { background: var(--bg-alt); color: var(--ink); border: 1px solid var(--line); border-radius: 8px; padding: 10px 12px; font-size: 1rem; font-variant-numeric: tabular-nums; }
+.calc-out { display: grid; gap: 10px; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); margin-bottom: 12px; }
+.calc-out .cell { background: var(--bg-alt); border: 1px solid var(--line); border-radius: 10px; padding: 14px 16px; }
+.calc-out .cell b { display: block; font-family: var(--serif); font-size: 1.6rem; color: var(--green); font-variant-numeric: tabular-nums; }
+.calc-out .cell span { font-size: .84rem; color: var(--ink-soft); }
+.explorer td.fig { font-family: var(--serif); font-weight: 700; color: var(--ink); font-variant-numeric: tabular-nums; }
+.explorer .tag.tracked { border-color: var(--green); color: var(--green); }
+.hero-stat .src a { color: var(--green); }
+.hero-stat .big { white-space: nowrap; font-size: clamp(2.1rem, 9.5vw, 5rem); }
+.viz { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 22px 22px 16px; margin: 28px 0; }
+.viz h3 { font-family: var(--sans); font-size: 1rem; font-weight: 700; color: var(--ink); margin: 0 0 4px; }
+.viz .sub { font-size: .88rem; color: var(--ink-soft); margin: 0 0 14px; max-width: 70ch; }
+.viz .plot { overflow-x: auto; }
+.viz svg { display: block; width: 100%; min-width: 620px; height: auto; font-family: var(--sans); }
+.viz svg text { fill: var(--ink-soft); font-size: 12px; }
+.viz svg text.strong { fill: var(--ink); font-weight: 600; }
+.viz svg text.row { fill: var(--ink); font-size: 13px; font-weight: 600; }
+.viz svg .grid { stroke: var(--line); stroke-width: 1; }
+.viz svg .ring { stroke: var(--surface); stroke-width: 2; }
+.viz svg [data-tip] { cursor: default; }
+.viz svg [data-tip]:hover { filter: brightness(1.25); }
+.viz .legend { display: flex; flex-wrap: wrap; gap: 6px 18px; font-size: .84rem; color: var(--ink-soft); margin: 0 0 10px; }
+.viz .legend i { display: inline-block; width: 10px; height: 10px; border-radius: 3px; margin-right: 7px; vertical-align: -1px; }
+.viz .legend i.ln { width: 16px; height: 2px; border-radius: 1px; vertical-align: 3px; }
+.viz .legend b { color: var(--ink); font-weight: 600; font-variant-numeric: tabular-nums; }
+.viz .cap { font-size: .82rem; color: var(--ink-soft); margin: 10px 0 0; }
+.viz .cap a { color: var(--green); }
+.viz details { margin-top: 10px; font-size: .84rem; color: var(--ink-soft); }
+.viz details summary { cursor: pointer; color: var(--green); }
+.viz details table { border-collapse: collapse; margin-top: 8px; font-variant-numeric: tabular-nums; }
+.viz details th, .viz details td { text-align: left; padding: 4px 14px 4px 0; border-bottom: 1px solid var(--line); }
+.viz details th { color: var(--ink); font-weight: 600; }
+.kpi-row { display: grid; grid-template-columns: 1fr auto 1fr auto 1fr; gap: 10px; align-items: stretch; margin: 6px 0 4px; }
+.kpi { background: var(--bg-alt); border: 1px solid var(--line); border-radius: 10px; padding: 14px 16px; }
+.kpi b { display: block; font-family: var(--sans); font-size: 1.9rem; font-weight: 700; color: var(--ink); line-height: 1.1; }
+.kpi span { font-size: .84rem; color: var(--ink-soft); }
+.kpi-arrow { align-self: center; color: var(--ink-soft); font-size: 1.2rem; }
+#vizTip { position: fixed; z-index: 50; pointer-events: none; background: var(--band); border: 1px solid var(--line); border-radius: 8px; padding: 8px 11px; font-size: .84rem; color: var(--ink-soft); max-width: 280px; box-shadow: 0 6px 20px rgba(0,0,0,.45); display: none; }
+#vizTip b { display: block; color: var(--ink); font-size: .98rem; font-variant-numeric: tabular-nums; }
+@media (max-width: 640px) {
+  .kpi-row { grid-template-columns: 1fr; }
+  .kpi-arrow { transform: rotate(90deg); justify-self: center; }
+}
+.explorer td.fig { font-family: var(--serif); font-weight: 700; color: var(--ink); font-variant-numeric: tabular-nums; white-space: nowrap; }
+ol.plain > li { margin-bottom: 12px; }
+.explorer.calc ul.checks { list-style: none; margin: 0 0 16px; padding: 0; display: grid; gap: 8px; }
+.explorer.calc ul.checks label { display: flex; gap: 10px; align-items: flex-start; font-size: .95rem; color: var(--ink); cursor: pointer; }
+.explorer.calc ul.checks input { margin-top: 4px; accent-color: var(--green); width: 18px; height: 18px; flex: none; }
+.calc-out { display: grid; gap: 10px; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); margin-bottom: 12px; }
+.calc-out .cell { background: var(--bg-alt); border: 1px solid var(--line); border-radius: 10px; padding: 14px 16px; }
+.calc-out .cell b { display: block; font-family: var(--serif); font-size: 1.6rem; color: var(--green); font-variant-numeric: tabular-nums; }
+.calc-out .cell.warn b { color: #e8915f; }
+.calc-out .cell span { font-size: .84rem; color: var(--ink-soft); }
+.hero-stat .src a { color: var(--green); }
+.hero-stat .big { white-space: nowrap; font-size: clamp(2.1rem, 9.5vw, 5rem); }
+.article code { font-size: .9em; }
+.explorer.calc ul.checks { list-style: none; margin: 0 0 16px; padding: 0; display: grid; gap: 8px; }
+.explorer.calc ul.checks label { display: flex; gap: 10px; align-items: flex-start; font-size: .95rem; color: var(--ink); cursor: pointer; }
+.explorer.calc ul.checks input { margin-top: 4px; accent-color: var(--green); width: 18px; height: 18px; flex: none; }
+.calc-out .cell.warn b { color: #e8915f; }
+.hero-stat .src a { color: var(--green); }
+@media (min-width: 641px) { .bar-row { grid-template-columns: 300px 1fr; } }
+.explorer.calc fieldset { border: 1px solid var(--line); border-radius: 10px; padding: 12px 14px; margin: 0; }
+.explorer.calc legend { font-weight: 700; padding: 0 6px; }
+.explorer.calc label { display: flex; justify-content: space-between; gap: 10px; align-items: center; font-size: .9rem; margin: 6px 0; }
+.explorer.calc input[type=number] { width: 120px; padding: 6px 8px; border: 1px solid var(--line); border-radius: 8px; background: var(--bg); color: var(--ink); font-variant-numeric: tabular-nums; }
+.calc-out .cell.warn b { color: #e8915f; }
+.hero-stat .src a { color: var(--green); }
+@media (min-width: 641px) { .bar-row { grid-template-columns: 260px 1fr; } }
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://stanislav-peev.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Research",
+          "item": "https://stanislav-peev.com/research/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "AI Overviews and CTR",
+          "item": "https://stanislav-peev.com/research/ai-overviews-ctr-same-query/"
+        }
+      ]
+    },
+    {
+      "@type": "Article",
+      "@id": "https://stanislav-peev.com/research/ai-overviews-ctr-same-query/#article",
+      "headline": "How much do AI Overviews cut your CTR? Same query, one year apart",
+      "description": "Original study: year-over-year CTR change on the same queries at stable positions, with and without an AI Overview, from the Search Console data of 15 sites in Bulgarian, Slovak, English and Romanian search, plus a mobile SERP snapshot of 1,529 queries: AI Overview prevalence, position effects, citation effects, the local pack, why a one-period split misleads, and a method and calculator to measure it on your own site.",
+      "author": {
+        "@type": "Person",
+        "@id": "https://stanislav-peev.com/#person",
+        "name": "Stanislav Peev",
+        "url": "https://stanislav-peev.com/",
+        "sameAs": [
+          "https://www.linkedin.com/in/stanislav-peev-seo/"
+        ]
+      },
+      "publisher": {
+        "@id": "https://stanislav-peev.com/#person"
+      },
+      "datePublished": "2026-10-19",
+      "dateModified": "2026-10-19",
+      "mainEntityOfPage": "https://stanislav-peev.com/research/ai-overviews-ctr-same-query/",
+      "image": "https://stanislav-peev.com/research/ai-overviews-ctr-same-query/og.png",
+      "inLanguage": "en",
+      "about": [
+        {
+          "@type": "Thing",
+          "name": "AI Overviews"
+        },
+        {
+          "@type": "Thing",
+          "name": "Click-through rate"
+        },
+        {
+          "@type": "Thing",
+          "name": "Google Search Console"
+        }
+      ],
+      "citation": [
+        "https://www.reddit.com/r/localseo/comments/1x7001m/google_says_ai_overviewsai_mode_now_show_more/",
+        "https://www.reddit.com/r/SEO/comments/1x7nb27/b2b_manufacturing_seo_rankings_are_improving_but/",
+        "https://www.reddit.com/r/SEO/comments/1wyrqqq/why_would_a_site_get_impressions_but_almost_no/",
+        "https://support.google.com/webmasters/answer/7042828?hl=en",
+        "https://ahrefs.com/blog/ai-overviews-reduce-clicks-update/",
+        "https://www.pewresearch.org/short-reads/2025/07/22/google-users-are-less-likely-to-click-on-links-when-an-ai-summary-appears-in-the-results/",
+        "https://ppc.land/researchers-find-google-ai-overviews-cut-publisher-clicks-39-8/"
+      ],
+      "speakable": {
+        "@type": "SpeakableSpecification",
+        "cssSelector": [
+          ".hero-stat",
+          ".takeaways"
+        ]
+      }
+    },
+    {
+      "@type": "Dataset",
+      "@id": "https://stanislav-peev.com/research/ai-overviews-ctr-same-query/#dataset",
+      "name": "AI Overviews and CTR: same-query year-over-year data from 15 sites (2025-2026)",
+      "description": "Anonymised query-level Search Console data (mobile, one country per site, September 19 to October 16 in 2025 and 2026) for 1,317 non-branded page-one queries from 15 sites in Bulgarian, Slovak, English and Romanian search, joined with a Google mobile SERP snapshot from October 19, 2026 recording AI Overview presence, site citation in the overview and local pack presence.",
+      "creator": {
+        "@type": "Person",
+        "@id": "https://stanislav-peev.com/#person",
+        "name": "Stanislav Peev"
+      },
+      "license": "https://creativecommons.org/licenses/by/4.0/",
+      "datePublished": "2026-10-19",
+      "dateModified": "2026-10-19",
+      "isAccessibleForFree": true,
+      "temporalCoverage": "2025-09-19/2026-10-19",
+      "keywords": [
+        "AI Overviews",
+        "click-through rate",
+        "Google Search Console",
+        "SERP features",
+        "Bulgarian search"
+      ],
+      "variableMeasured": [
+        "CTR",
+        "impressions",
+        "clicks",
+        "average position",
+        "AI Overview presence",
+        "AI Overview citation"
+      ],
+      "distribution": [
+        {
+          "@type": "DataDownload",
+          "encodingFormat": "text/csv",
+          "contentUrl": "https://stanislav-peev.com/research/ai-overviews-ctr-same-query/data-queries.csv"
+        },
+        {
+          "@type": "DataDownload",
+          "encodingFormat": "application/json",
+          "contentUrl": "https://stanislav-peev.com/research/ai-overviews-ctr-same-query/data-summary.json"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://stanislav-peev.com/research/ai-overviews-ctr-same-query/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How much do AI Overviews reduce click-through rate?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "In my data, about 28% on the same query at the same position from one year to the next, against about 10% for queries without an AI Overview, which is within noise. That covers 280 mobile query pairs from 13 sites, mostly Bulgarian, autumn 2025 vs autumn 2026. US studies point the same way: Ahrefs estimates 58% for the top result over two years, and a randomized field experiment found outbound organic clicks fell 39.8%."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does Search Console show clicks from AI Overviews?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, but not separately. Google's Search Console Help says a click on an external link in an AI Overview counts as a click, standard impression rules apply, and the whole overview takes a single position that every link inside it shares. There is no filter for those clicks, so the practical way to estimate the effect is to compare the same queries over time."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Why do I get impressions but no clicks?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "One common reason is an AI Overview above your result. On the queries in this study that show one, impressions rose 54% year over year while clicks fell 12%, at unchanged positions. Check the live results page for your top queries before you look for a technical fault."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does being cited in an AI Overview bring the clicks back?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No sign of it in this data. Queries where the site was cited inside the AI Overview lost 32% of CTR, queries where it was not lost 24%, and the difference is within noise. Pew Research found people click a link inside an AI summary on about 1% of visits. A citation helps visibility; it is not a click guarantee."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How often do AI Overviews appear in Bulgarian or other smaller languages?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Often, on the queries where these sites rank. On October 19, 2026 an AI Overview showed on 74% of the non-branded page-one mobile queries of the Bulgarian sites in this study, 55% for the Slovak sites and 80% for the English ones. Question queries got one 97% of the time; queries with a local map pack only 19%."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is comparing queries with and without an AI Overview a good way to measure the impact?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Only if you compare each query with itself over time. In a single snapshot, my AI Overview queries had 4.7 times the CTR of the others, because the queries without an overview were mostly short head terms and local searches with naturally low CTR. A one-period split describes your query mix, not the cost of AI Overviews."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+<!-- Google tag (gtag.js) with Consent Mode v2 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-SNM7XHD6X3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  // Nothing is stored until the visitor accepts the banner (assets/analytics.js).
+  gtag('consent', 'default', {
+    ad_storage: 'denied',
+    ad_user_data: 'denied',
+    ad_personalization: 'denied',
+    analytics_storage: 'denied'
+  });
+  try {
+    if (localStorage.getItem('sp-consent') === 'granted') {
+      gtag('consent', 'update', { analytics_storage: 'granted' });
+    }
+  } catch (e) {}
+  gtag('js', new Date());
+  // Only the live site reports; local previews stay out of GA4.
+  if (location.hostname === 'stanislav-peev.com') gtag('config', 'G-SNM7XHD6X3');
+  (function (s) { s.src = '/assets/analytics.js?v=1'; s.async = true; document.head.appendChild(s); })(document.createElement('script'));
+</script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="/">Stanislav <em>Peev</em></a>
+    <nav class="site-nav" aria-label="Main">
+      <a href="/#geo">AI / GEO</a>
+      <a href="/services/">Services</a>
+      <a href="/research/" aria-current="page">Research</a>
+      <a href="/#clients">Clients</a>
+      <a href="/#experience" class="hide-m">Experience</a>
+      <a href="/#proof" class="hide-m">Publications</a>
+      <a class="cta" href="#contact">Write to me</a>
+    </nav>
+  </div>
+</header>
+
+<nav class="crumbs" aria-label="Breadcrumb">
+  <div class="wrap"><a href="/">Home</a> › <a href="/research/">Research</a> › AI Overviews and CTR</div>
+</nav>
+
+<main>
+
+<article>
+<section class="hero" style="padding:40px 0 8px">
+  <div class="wrap" style="display:block">
+    <span class="kicker">Research · Original data</span>
+    <h1 style="max-width:30ch">How much do AI Overviews cut your CTR? <span class="accent">Same query, one year apart</span></h1>
+    <p class="article-meta">By <b>Stanislav Peev</b>, SEO consultant &amp; GEO specialist · Published <b><time datetime="2026-10-19">October 19, 2026</time></b> · 1,529 queries from 15 sites, each checked on a live mobile results page · <a href="data-queries.csv">Download the data (CSV)</a> · 13 min read</p>
+  </div>
+</section>
+
+<section style="padding:0 0 72px">
+  <div class="wrap article">
+
+    <div class="hero-stat">
+      <span class="big">-28%</span>
+      <p><b>How much do AI Overviews cut click-through rate?</b> On the same query at the same position a year apart, CTR fell 28% where Google now shows an AI Overview, and changed by a statistically unclear -10% where it does not. That is 280 mobile queries from 13 sites, mostly in Bulgarian. I have not found another same-query study in a non-English market.</p>
+      <span class="src">My data: Search Console, September 19 to October 16, 2025 vs 2026, with a mobile SERP check on October 19, 2026. 95% intervals: -36% to -18% with an AI Overview, -24% to +6% without. Points the same way as <a href="#src-5">Ahrefs</a> and a <a href="#src-7">randomized field experiment</a>, both on US data.</span>
+    </div>
+
+    <div class="takeaways">
+      <h2>Key takeaways</h2>
+      <ul>
+        <li><b>-28% vs -10%</b> - year-over-year CTR change on the same query at a stable position, with and without an AI Overview today (280 query pairs, 13 sites). Only the first is clearly different from zero, and the gap between the two groups is not itself statistically established</li>
+        <li><b>+54% impressions, -12% clicks</b> - what happened on the AI Overview queries. Most of the CTR drop is impressions growing while clicks shrink a little, which is exactly the "impressions but no clicks" pattern people keep asking about</li>
+        <li><b>-35%</b> - the CTR change for top-3 positions with an AI Overview, against -16% for positions 4-10. The top results lost more in this sample, though the intervals overlap</li>
+        <li><b>Being cited showed no sign of protecting CTR</b> - queries where the site was a source inside the AI Overview lost 32% of CTR, queries where it was not lost 24%. The intervals overlap</li>
+        <li><b>71%</b> - share of non-branded page-one queries that showed an AI Overview on mobile: 74% in Bulgarian, 55% in Slovak, 80% in English</li>
+        <li><b>19% vs 79%</b> - AI Overview rate on queries with a local map pack against queries without one. Local searches still mostly get the map, not the overview</li>
+        <li><b>4.7x the wrong way</b> - if you simply split Search Console queries into "with" and "without" an AI Overview, the AI Overview queries show 4.7 times the CTR. That comparison measures query types, not the AI Overview, and it is the most common mistake I see</li>
+      </ul>
+    </div>
+
+    <div class="toc">
+      <h2>What's in this study</h2>
+      <ol>
+        <li><a href="#why">Why I ran this</a></li>
+        <li><a href="#yoy">How much CTR did queries with an AI Overview lose?</a></li>
+        <li><a href="#impressions">Why impressions went up while clicks went down</a></li>
+        <li><a href="#position">Which positions lost the most?</a></li>
+        <li><a href="#cited">Does being cited in the AI Overview save the click?</a></li>
+        <li><a href="#prevalence">How often do AI Overviews show in Bulgarian, Slovak and English?</a></li>
+        <li><a href="#trap">Why the simple "with vs without" split gives the wrong answer</a></li>
+        <li><a href="#check">How to measure it on your own site</a></li>
+        <li><a href="#calc">Calculator: your same-query CTR gap</a></li>
+        <li><a href="#methodology">Methodology and limitations</a></li>
+        <li><a href="#faq">Frequently asked questions</a></li>
+      </ol>
+    </div>
+
+    <h2 id="why">1. Why I ran this</h2>
+    <p class="capsule">Search Console counts a click on an AI Overview link as an ordinary click and does not split it out, so site owners see rankings improve while clicks stay flat and cannot tell how much the AI Overview is to blame.</p>
+    <p>The question kept coming up in Reddit threads in the first half of October 2026. In <a href="#src-1">r/localseo</a> someone noted that Google says AI Overviews now show more links higher up, while Search Console still shows no separate click data for them. In <a href="#src-2">r/SEO</a> a B2B manufacturer's average position went from 17.7 to 11.7 and traffic did not move. Another <a href="#src-3">r/SEO</a> thread asked why a site gets impressions but almost no clicks. The answers repeated numbers from US studies, and nobody could say what happens in a smaller, non-English market.</p>
+    <p>Search Console's own documentation explains part of the blindness. A click on an external link in an AI Overview counts as a click, standard impression rules apply, and the whole AI Overview takes one position, so every link inside it shares that position (<a href="#src-4">Google Search Console Help</a>). You cannot filter those clicks out. What you can do is compare the same query with itself over time, which is what I did with the Search Console data of 15 sites I work on. I keep the sites anonymous; the <a href="data-queries.csv">query-level file</a> has no query text and no site names.</p>
+
+    <h2 id="yoy">2. How much CTR did queries with an AI Overview lose?</h2>
+    <p class="capsule">About 28%. For the same query at an average position that moved less than one place, mobile CTR fell from one year to the next by 28% on queries that show an AI Overview today, against -10% on queries that do not, and only the first change is clearly different from zero.</p>
+    <div class="table-wrap"><table class="metric-table">
+      <thead><tr><th>Group (same query, stable position)</th><th>Queries</th><th>CTR change, Sep-Oct 2025 to Sep-Oct 2026</th><th>95% interval</th></tr></thead>
+      <tbody>
+        <tr><td>AI Overview shown today</td><td class="v">203</td><td class="v hi">-28%</td><td>-36% to -18%</td></tr>
+        <tr><td>No AI Overview today</td><td class="v">77</td><td class="v">-10%</td><td>-24% to +6%</td></tr>
+        <tr><td>Bulgarian only, AI Overview</td><td class="v">179</td><td class="v hi">-31%</td><td>-40% to -21%</td></tr>
+        <tr><td>Bulgarian only, no AI Overview</td><td class="v">58</td><td class="v">-15%</td><td>-30% to +2%</td></tr>
+      </tbody>
+    </table></div>
+    <p>The change is the geometric mean of per-query CTR ratios, so one big query cannot drive it. The median query tells the same story: -32% with an AI Overview, -4% without. Seven of the eight sites with at least 7 query pairs lost CTR on their AI Overview queries, and the median site lost 41%. The one exception gained CTR on its 20 pairs.</p>
+    <div class="bar-chart" role="img" aria-label="Year-over-year CTR change: AI Overview queries minus 28 percent, top 3 with AI Overview minus 35 percent, cited minus 32 percent, not cited minus 24 percent, no AI Overview minus 10 percent">
+      <div class="bar-row"><span class="lbl">AI Overview, all positions</span><div class="bar-track"><div class="bar-fill" style="width:80%">-28%</div></div></div>
+      <div class="bar-row"><span class="lbl">AI Overview, top 3</span><div class="bar-track"><div class="bar-fill" style="width:100%">-35%</div></div></div>
+      <div class="bar-row"><span class="lbl">AI Overview, site cited</span><div class="bar-track"><div class="bar-fill" style="width:91%">-32%</div></div></div>
+      <div class="bar-row"><span class="lbl">AI Overview, site not cited</span><div class="bar-track"><div class="bar-fill" style="width:69%">-24%</div></div></div>
+      <div class="bar-row"><span class="lbl">No AI Overview</span><div class="bar-track"><div class="bar-fill dim" style="width:29%">-10%</div></div></div>
+    </div>
+    <p>The size fits what larger US studies found. Ahrefs compared 150,000 keywords with an AI Overview against 150,000 informational keywords without one and estimated that an AI Overview now goes with a 58% lower CTR for the top result, using December 2023 and December 2025 data (<a href="#src-5">Ahrefs</a>, vendor). A randomized experiment with 1,065 US desktop Chrome users found outbound organic clicks fell 39.8% when an AI Overview appeared (<a href="#src-7">Agarwal and Sen, via PPC Land</a>). My -28% is smaller, and two reasons are likely: I measure one year, not two, and some of these queries probably already had an AI Overview in autumn 2025, so part of the loss had happened before my baseline.</p>
+
+    <h2 id="impressions">3. Why impressions went up while clicks went down</h2>
+    <p class="capsule">On the queries that show an AI Overview, impressions grew 54% while clicks fell 12%, so the CTR collapse is mostly a growing denominator. On queries without one, impressions and clicks fell together and CTR barely moved.</p>
+    <div class="table-wrap"><table class="metric-table">
+      <thead><tr><th>Same-query pairs</th><th>Impressions 2025</th><th>Impressions 2026</th><th>Clicks 2025</th><th>Clicks 2026</th></tr></thead>
+      <tbody>
+        <tr><td>AI Overview today (203)</td><td class="v">66,383</td><td class="v">101,955 <span class="hi">(+54%)</span></td><td class="v">5,911</td><td class="v">5,217 <span class="hi">(-12%)</span></td></tr>
+        <tr><td>No AI Overview (77)</td><td class="v">101,081</td><td class="v">72,931 (-28%)</td><td class="v">1,210</td><td class="v">881 (-27%)</td></tr>
+      </tbody>
+    </table></div>
+    <div class="stat-callout"><span class="val">+54%</span><div><p>More impressions for the same queries at the same positions, with fewer clicks. If your Search Console shows this shape, an AI Overview is the first thing to check.</p><span class="src">203 query pairs, mobile, my data</span></div></div>
+    <p>I cannot tell from Search Console alone why the impressions grew, and I would not claim one cause. Two readings fit the data, and I cannot separate them. Demand for these informational queries may have grown, with the extra searchers getting their answer on the results page. And because an AI Overview link inherits the overview's position (<a href="#src-4">Search Console Help</a>), a site that appears both inside the overview and below it may collect impressions from people who never scroll to the blue link. Either way, the practical point is the same: "more impressions, same rank, no new clicks" can be a sign of an AI Overview, so check the live results page before you assume a technical fault.</p>
+
+    <h2 id="position">4. Which positions lost the most?</h2>
+    <p class="capsule">The top three, in this sample, though the intervals overlap. With an AI Overview, CTR for queries in positions 1 to 3 fell 35%, while positions 4 to 10 fell 16% with an interval that crosses zero.</p>
+    <div class="table-wrap"><table class="metric-table">
+      <thead><tr><th>Position band (AI Overview queries)</th><th>Queries</th><th>CTR change</th><th>95% interval</th></tr></thead>
+      <tbody>
+        <tr><td>Positions 1-3</td><td class="v">115</td><td class="v hi">-35%</td><td>-44% to -24%</td></tr>
+        <tr><td>Positions 4-10</td><td class="v">88</td><td class="v">-16%</td><td>-33% to +4%</td></tr>
+      </tbody>
+    </table></div>
+    <p>This matches the shape Ahrefs reported for US keywords, where the estimated loss falls from 58% at position 1 to 50.8% at position 2 and 32.6% at position 5 (<a href="#src-5">Ahrefs</a>). The top result had the most clicks to give away. If you rank first for an informational query, plan for the loss there first; that is also where a <a href="/research/ai-visibility-tracking-reliability/">reliable AI visibility measurement</a> matters more than a rank report.</p>
+
+    <h2 id="cited">5. Does being cited in the AI Overview save the click?</h2>
+    <p class="capsule">Not in this data. Where the site was one of the sources inside the AI Overview, CTR fell 32%; where it was not, CTR fell 24%. The intervals overlap, so being cited did not protect the click.</p>
+    <p>On the October snapshot, sites were cited in 47% of the AI Overviews that appeared for their queries, and the median overview listed 7 source links. A plain comparison makes citation look powerful: cited queries had a 5.9% CTR, uncited ones 2.3%. But cited queries also ranked higher. Comparing only queries in the top three, the gap shrinks to 12.2% against 9.0%, and the 95% interval for that ratio (0.91 to 2.30) includes no difference at all.</p>
+    <p>That is consistent with how people use the feature. Pew Research tracked 900 US adults and found that people who saw an AI summary clicked a link inside the summary on just 1% of visits, and clicked a regular result on 8% of visits against 15% when no summary appeared (<a href="#src-6">Pew Research Center</a>). A citation is a visibility win and worth having for brand reasons, as I found when testing <a href="/research/ai-citations-by-query-shape/">which pages AI answers cite</a>. It is not a click guarantee.</p>
+
+    <h2 id="prevalence">6. How often do AI Overviews show in Bulgarian, Slovak and English?</h2>
+    <p class="capsule">Often. On October 19, 2026, an AI Overview appeared on 71% of the non-branded mobile queries where these sites rank on page one: 74% in Bulgarian, 55% in Slovak and 80% in English.</p>
+    <div class="table-wrap"><table class="metric-table">
+      <thead><tr><th>Segment (non-branded, page one, mobile)</th><th>Queries</th><th>AI Overview shown</th></tr></thead>
+      <tbody>
+        <tr><td>All</td><td class="v">1,317</td><td class="v hi">71%</td></tr>
+        <tr><td>Bulgarian</td><td class="v">922</td><td class="v">74%</td></tr>
+        <tr><td>Slovak</td><td class="v">191</td><td class="v">55%</td></tr>
+        <tr><td>English (UK and US)</td><td class="v">176</td><td class="v">80%</td></tr>
+        <tr><td>Romanian (small sample)</td><td class="v">28</td><td class="v">36%</td></tr>
+        <tr><td>Question queries ("how", "what", "why" and their equivalents)</td><td class="v">72</td><td class="v">97%</td></tr>
+        <tr><td>One-word queries</td><td class="v">244</td><td class="v">55%</td></tr>
+        <tr><td>Four words or more</td><td class="v">444</td><td class="v">83%</td></tr>
+        <tr><td>Queries with a local map pack</td><td class="v">168</td><td class="v">19%</td></tr>
+        <tr><td>Queries without a local map pack</td><td class="v">1,149</td><td class="v">79%</td></tr>
+        <tr><td>Branded queries (excluded elsewhere)</td><td class="v">212</td><td class="v">67%</td></tr>
+      </tbody>
+    </table></div>
+    <p>These are not shares of all searches. They are shares of the queries where these sites already get seen, which lean informational, so they run higher than the 18% of US searches with an AI summary in Pew's March 2025 panel (<a href="#src-6">Pew</a>) or the roughly 41% in the field experiment (<a href="#src-7">Agarwal and Sen</a>). The direction is the same as Pew's: longer queries and question queries trigger an overview far more often. Pew saw 8% for one- or two-word searches and 53% for ten words or more.</p>
+    <p>The local finding deserves its own line. When Google showed a map pack, it showed an AI Overview only 19% of the time. For a plumber or a dentist, the map is still the main battleground, which is why <a href="/research/google-review-concentration-home-services/">who wins the map pack</a> and <a href="/services/small-business-seo/">local SEO basics</a> matter more than chasing overview citations.</p>
+
+    <h2 id="trap">7. Why the simple "with vs without" split gives the wrong answer</h2>
+    <p class="capsule">Because AI Overview queries are not a random sample of queries. In a single snapshot, my AI Overview queries had 4.7 times the CTR of the rest, and even after matching by site, position and map pack they got 1.23 times the clicks you would expect, so a one-period split measures query types, not the overview.</p>
+    <div class="table-wrap"><table class="metric-table">
+      <thead><tr><th>Position (snapshot, non-branded)</th><th>CTR with AI Overview</th><th>CTR without</th><th>Queries with / without</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td class="v">20.5%</td><td class="v">9.0%</td><td>104 / 20</td></tr>
+        <tr><td>2</td><td class="v">11.2%</td><td class="v">6.3%</td><td>99 / 17</td></tr>
+        <tr><td>3</td><td class="v">5.1%</td><td class="v">5.0%</td><td>57 / 13</td></tr>
+        <tr><td>4-5</td><td class="v">3.7%</td><td class="v">2.2%</td><td>158 / 60</td></tr>
+        <tr><td>6-10</td><td class="v">1.6%</td><td class="v">0.5%</td><td>518 / 271</td></tr>
+      </tbody>
+    </table></div>
+    <p>Read naively, this table says AI Overviews double your CTR. They do not. The queries without an overview here are mostly short head terms, such as a single broad term, and local searches with a map pack. Those queries get huge impressions and tiny CTR for reasons that have nothing to do with AI. The fair test compares a query with itself, which is section 2. If a tool or a report shows you a with-vs-without split from one period, treat it as a description of your query mix, not as the cost of AI Overviews.</p>
+    <p>The same trap catches people comparing <a href="/research/ai-referral-traffic-conversion-vs-organic/">AI referral traffic with organic traffic</a>: the groups differ before the feature does anything.</p>
+
+    <h2 id="check">8. How to measure it on your own site</h2>
+    <p class="capsule">Export the same 28 days from this year and last year by query, keep queries whose average position moved less than one place, check which of them show an AI Overview today, and compare the CTR change of the two groups.</p>
+    <ol>
+      <li><b>Pick two identical windows a year apart</b>, for example September 19 to October 16 in both years, so seasonality cancels out. Filter to one country and one device; mobile and desktop SERPs differ.</li>
+      <li><b>Export queries with impressions and clicks</b> for both windows. Drop branded queries; they behave differently and an AI Overview rarely stops someone who wants your site.</li>
+      <li><b>Keep stable pairs</b>: at least 20 impressions in both windows and an average position within one place of last year. Otherwise you are measuring ranking changes.</li>
+      <li><b>Check the SERP today</b> for each remaining query, in the right country and language and on the same device, and record whether an AI Overview shows. A rank tracker or SERP API that loads the overview does this; checking by hand works for a few dozen queries.</li>
+      <li><b>Compare the CTR change</b> of the two groups, using the calculator below. The difference between them is a descriptive gap, not a clean measure of the effect: the no-overview group is a rough comparison group for everything else that changed in a year, not a true control.</li>
+    </ol>
+    <p>If the gap is large and your top informational pages sit in the overview group, the work moves from ranking to what earns the click: content an overview cannot summarise in two lines, such as <a href="/research/competitor-comparison-pages-in-ai-answers/">original comparisons</a>, tools and first-party data, and pages that convert the smaller, more decided group that still clicks. An <a href="/services/seo-audit/">SEO audit</a> that starts from this split is more useful than one that starts from average position.</p>
+
+    <div class="explorer calc" id="calc">
+      <h2 style="margin-top:0">9. Calculator: your same-query CTR gap</h2>
+      <p>Enter totals for your stable query pairs, last year and this year, for queries that show an AI Overview today and for queries that do not.</p>
+      <div class="calc-grid">
+        <fieldset><legend>AI Overview queries</legend>
+          <label>Clicks last year <input type="number" min="0" id="a_c0" value="5911"></label>
+          <label>Impressions last year <input type="number" min="0" id="a_i0" value="66383"></label>
+          <label>Clicks this year <input type="number" min="0" id="a_c1" value="5217"></label>
+          <label>Impressions this year <input type="number" min="0" id="a_i1" value="101955"></label>
+        </fieldset>
+        <fieldset><legend>Queries without an AI Overview</legend>
+          <label>Clicks last year <input type="number" min="0" id="n_c0" value="1210"></label>
+          <label>Impressions last year <input type="number" min="0" id="n_i0" value="101081"></label>
+          <label>Clicks this year <input type="number" min="0" id="n_c1" value="881"></label>
+          <label>Impressions this year <input type="number" min="0" id="n_i1" value="72931"></label>
+        </fieldset>
+      </div>
+      <div class="calc-out" id="calcOut" aria-live="polite"></div>
+      <p class="count">Pre-filled with this study's totals, which give -43% and +1%. Pooled totals let a few large queries dominate, which is why the study itself reports per-query ratios (-28% and -10%). For your own site, the pooled figure is a quick first read. Nothing you type leaves your browser.</p>
+    </div>
+
+    <h2 id="methodology">10. Methodology and limitations</h2>
+    <p class="capsule">Search Console data from 15 sites, mobile only, one country per site, compared with a DataForSEO mobile SERP check on October 19, 2026; the year-over-year test uses 280 stable query pairs from 13 sites.</p>
+    <ul>
+      <li><b>Sites:</b> 15 small business, ecommerce and information sites I work on, in several verticals and four languages, most of them in Bulgarian. Names, verticals per site and query text are withheld.</li>
+      <li><b>Search Console:</b> query dimension, each site's top country, device = mobile, September 19 to October 16 in 2025 and 2026. Selection: at least 20 mobile impressions and average position 10.5 or better in 2026, up to 150 queries per site by impressions, 1,529 queries in total.</li>
+      <li><b>SERP check:</b> one Google mobile (Android) result page per query on October 19, 2026, through the DataForSEO SERP API with asynchronous AI Overview loading on, in the site's country and language. I recorded whether an AI Overview, a local pack or a featured snippet showed and whether the site was among the overview's sources.</li>
+      <li><b>Branded queries</b> (the site's name, or a brand the site sells) were tagged by keyword list and kept out of the main analysis: 212 queries, leaving 1,317.</li>
+      <li><b>Year-over-year pairs:</b> same query with at least 20 impressions in both windows and an average position within 1.0 of the previous year: 280 pairs (203 with an AI Overview today, 77 without). The change is the geometric mean of per-query CTR ratios with 0.5-click smoothing, with 95% bootstrap intervals from 4,000 resamples.</li>
+      <li><b>Biggest limitation:</b> I know whether a query shows an AI Overview today, not when it started. Queries that already had one in 2025 likely make my estimate smaller than the true effect. AI Overviews also vary by user and by day, and one snapshot per query will misclassify some.</li>
+      <li><b>Other limits:</b> 13 to 15 sites is a small and non-random sample, heavy on Bulgarian; the Slovak, English and Romanian slices are too small for their own conclusions. Other changes between 2025 and 2026, such as other SERP features or Google updates, hit both groups, which is why the no-overview group serves as a rough comparison group. This is observational data, not an experiment.</li>
+      <li><b>Data:</b> <a href="data-queries.csv">data-queries.csv</a> (one row per non-branded query, anonymised) and <a href="data-summary.json">data-summary.json</a> (every number on this page), CC BY 4.0. Planned refresh: spring 2027, with a second SERP snapshot to catch queries that gain or lose the overview.</li>
+    </ul>
+
+    <h2 id="faq">11. Frequently asked questions</h2>
+    <div class="faq">
+      <details>
+        <summary>How much do AI Overviews reduce click-through rate?</summary>
+        <p>In my data, about 28% on the same query at the same position from one year to the next, against about 10% for queries without an AI Overview, which is within noise. That covers 280 mobile query pairs from 13 sites, mostly Bulgarian, autumn 2025 vs autumn 2026. US studies point the same way: Ahrefs estimates 58% for the top result over two years, and a randomized field experiment found outbound organic clicks fell 39.8%.</p>
+      </details>
+      <details>
+        <summary>Does Search Console show clicks from AI Overviews?</summary>
+        <p>Yes, but not separately. Google's Search Console Help says a click on an external link in an AI Overview counts as a click, standard impression rules apply, and the whole overview takes a single position that every link inside it shares. There is no filter for those clicks, so the practical way to estimate the effect is to compare the same queries over time.</p>
+      </details>
+      <details>
+        <summary>Why do I get impressions but no clicks?</summary>
+        <p>One common reason is an AI Overview above your result. On the queries in this study that show one, impressions rose 54% year over year while clicks fell 12%, at unchanged positions. Check the live results page for your top queries before you look for a technical fault.</p>
+      </details>
+      <details>
+        <summary>Does being cited in an AI Overview bring the clicks back?</summary>
+        <p>No sign of it in this data. Queries where the site was cited inside the AI Overview lost 32% of CTR, queries where it was not lost 24%, and the difference is within noise. Pew Research found people click a link inside an AI summary on about 1% of visits. A citation helps visibility; it is not a click guarantee.</p>
+      </details>
+      <details>
+        <summary>How often do AI Overviews appear in Bulgarian or other smaller languages?</summary>
+        <p>Often, on the queries where these sites rank. On October 19, 2026 an AI Overview showed on 74% of the non-branded page-one mobile queries of the Bulgarian sites in this study, 55% for the Slovak sites and 80% for the English ones. Question queries got one 97% of the time; queries with a local map pack only 19%.</p>
+      </details>
+      <details>
+        <summary>Is comparing queries with and without an AI Overview a good way to measure the impact?</summary>
+        <p>Only if you compare each query with itself over time. In a single snapshot, my AI Overview queries had 4.7 times the CTR of the others, because the queries without an overview were mostly short head terms and local searches with naturally low CTR. A one-period split describes your query mix, not the cost of AI Overviews.</p>
+      </details>
+    </div>
+
+    <h2 id="sources">Sources</h2>
+    <ol class="sources">
+      <li id="src-1" value="1">r/localseo. "Google says AI Overviews/AI Mode now show more inline links higher up, but Search Console still won't show click data for them." October 15, 2026. <a href="https://www.reddit.com/r/localseo/comments/1x7001m/google_says_ai_overviewsai_mode_now_show_more/" rel="noopener">reddit.com/r/localseo/comments/1x7001m/google_says_ai_overviewsai_mode_now_show_more/</a>. Accessed October 19, 2026.</li>
+      <li id="src-2" value="2">r/SEO. "B2B manufacturing SEO: rankings are improving, but organic traffic has plateaued." October 16, 2026. <a href="https://www.reddit.com/r/SEO/comments/1x7nb27/b2b_manufacturing_seo_rankings_are_improving_but/" rel="noopener">reddit.com/r/SEO/comments/1x7nb27/b2b_manufacturing_seo_rankings_are_improving_but/</a>. Accessed October 19, 2026.</li>
+      <li id="src-3" value="3">r/SEO. "Why would a site get impressions but almost no clicks?" October 6, 2026. <a href="https://www.reddit.com/r/SEO/comments/1wyrqqq/why_would_a_site_get_impressions_but_almost_no/" rel="noopener">reddit.com/r/SEO/comments/1wyrqqq/why_would_a_site_get_impressions_but_almost_no/</a>. Accessed October 19, 2026.</li>
+      <li id="src-4" value="4">Google Search Console Help. "What are impressions, position, and clicks?" Section on AI Overviews and AI Mode. <a href="https://support.google.com/webmasters/answer/7042828?hl=en" rel="noopener">support.google.com/webmasters/answer/7042828?hl=en</a>. Accessed October 19, 2026.</li>
+      <li id="src-5" value="5">Ahrefs. "Update: AI Overviews reduce clicks by 58%." 300,000 keywords (150,000 with an AI Overview, 150,000 informational without), December 2023 vs December 2025. <em>Vendor: sells SEO products.</em> <a href="https://ahrefs.com/blog/ai-overviews-reduce-clicks-update/" rel="noopener">ahrefs.com/blog/ai-overviews-reduce-clicks-update/</a>. Accessed October 19, 2026.</li>
+      <li id="src-6" value="6">Pew Research Center. "Google users are less likely to click on links when an AI summary appears in the results." Browsing data of 900 US adults, March 2025. July 22, 2025. <a href="https://www.pewresearch.org/short-reads/2025/07/22/google-users-are-less-likely-to-click-on-links-when-an-ai-summary-appears-in-the-results/" rel="noopener">pewresearch.org/short-reads/2025/07/22/google-users-are-less-likely-to-click-on-links-when-an-ai-summary-appears-in-the-results/</a>. Accessed October 19, 2026.</li>
+      <li id="src-7" value="7">PPC Land. "Researchers find Google AI Overviews cut publisher clicks 39.8%." On Agarwal and Sen, "The Impact of Google AI Overviews on Publisher Traffic and User Experience: Evidence from a Field Experiment," SSRN, April 3, 2026, revised June 17, 2026. <a href="https://ppc.land/researchers-find-google-ai-overviews-cut-publisher-clicks-39-8/" rel="noopener">ppc.land/researchers-find-google-ai-overviews-cut-publisher-clicks-39-8/</a>. Accessed October 19, 2026.</li>
+    </ol>
+    <p class="updated">Last updated: <time datetime="2026-10-19">October 19, 2026</time>. Related research: <a href="/research/">all studies</a>.</p>
+
+  </div>
+</section>
+</article>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div>© 2026 Stanislav Peev · SEO Consultant &amp; AI Search (GEO) Specialist, Bratislava, Slovakia</div>
+    <nav class="footer-nav" aria-label="Footer">
+      <a href="/">Home</a>
+      <a href="/#geo">AI / GEO</a>
+      <a href="/services/">Services</a>
+      <a href="/services/seo-audit/">SEO Audit</a>
+      <a href="/services/small-business-seo/">Small Business SEO</a>
+      <a href="/research/">Research</a>
+      <a href="https://www.linkedin.com/in/stanislav-peev-seo/" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" style="width:1em;height:1em;vertical-align:-.15em;margin-right:.35em;fill:currentColor"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29ZM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13ZM7.12 20.45H3.56V9h3.56v11.45ZM22.22 0H1.77C.79 0 0 .77 0 1.72v20.55C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0Z"/></svg>LinkedIn</a>
+      <a href="https://www.youtube.com/@stanislav_peev" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" style="width:1em;height:1em;vertical-align:-.15em;margin-right:.35em;fill:currentColor"><path d="M23.5 6.2a3 3 0 0 0-2.11-2.12C19.5 3.55 12 3.55 12 3.55s-7.5 0-9.39.53A3 3 0 0 0 .5 6.2 31.3 31.3 0 0 0 0 12a31.3 31.3 0 0 0 .5 5.8 3 3 0 0 0 2.11 2.12c1.89.53 9.39.53 9.39.53s7.5 0 9.39-.53A3 3 0 0 0 23.5 17.8 31.3 31.3 0 0 0 24 12a31.3 31.3 0 0 0-.5-5.8ZM9.55 15.57V8.43L15.82 12l-6.27 3.57Z"/></svg>YouTube</a>
+      <a href="/privacy/">Privacy</a>
+    </nav>
+  </div>
+</footer>
+
+<button class="to-top" id="toTop" aria-label="Back to top" title="Back to top">↑</button>
+<script>
+(function () {
+  var t = document.getElementById('toTop');
+  addEventListener('scroll', function () { t.classList.toggle('show', scrollY > 600); }, { passive: true });
+  t.addEventListener('click', function () { scrollTo({ top: 0, behavior: 'smooth' }); });
+  var ids = ['a_c0','a_i0','a_c1','a_i1','n_c0','n_i0','n_c1','n_i1'], out = document.getElementById('calcOut');
+  function v(id) { var x = parseFloat(document.getElementById(id).value); return isFinite(x) && x >= 0 ? x : 0; }
+  function pct(x) { return (x > 0 ? '+' : '') + (x * 100).toFixed(0) + '%'; }
+  function cell(val, lbl, warn) { return '<div class="cell' + (warn ? ' warn' : '') + '"><b>' + val + '</b><span>' + lbl + '</span></div>'; }
+  function run() {
+    var a0 = v('a_i0') ? v('a_c0') / v('a_i0') : 0, a1 = v('a_i1') ? v('a_c1') / v('a_i1') : 0;
+    var n0 = v('n_i0') ? v('n_c0') / v('n_i0') : 0, n1 = v('n_i1') ? v('n_c1') / v('n_i1') : 0;
+    if (!a0 || !n0) { out.innerHTML = cell('-', 'Enter last year clicks and impressions for both groups'); return; }
+    var ca = a1 / a0 - 1, cn = n1 / n0 - 1, gap = (1 + ca) / (1 + cn) - 1;
+    out.innerHTML = cell(pct(ca), 'CTR change, AI Overview queries', ca < 0) + cell(pct(cn), 'CTR change, other queries') +
+      cell(pct(gap), 'Estimated AI Overview effect against the control group', gap < 0);
+  }
+  ids.forEach(function (id) { document.getElementById(id).addEventListener('input', run); }); run();
+})();
+</script>
+<script src="/assets/agent-tools.js?v=1" defer></script>
+</body>
+</html>

@@ -11,6 +11,14 @@ Research
 
 Data reports and practical guides on how search - classic and AI-driven - actually behaves. Every statistic traces to a primary source, limitations are named, and pages are updated as new data lands. **Citable, linkable, and honest about what we don't know yet.**
 
+Original data · AI Search
+
+## [How much do AI Overviews cut your CTR? Same query, one year apart](https://stanislav-peev.com/research/ai-overviews-ctr-same-query/)
+
+Search Console data from 15 sites, mostly in Bulgarian search: on the same query at a stable position, mobile CTR fell 28% from autumn 2025 to autumn 2026 where Google now shows an AI Overview, against a statistically unclear -10% where it does not. Impressions rose 54% while clicks fell 12%, top-3 positions lost 35%, and being cited inside the overview did not save the click. AI Overviews showed on 71% of page-one queries (74% Bulgarian, 55% Slovak), but on only 19% of queries with a map pack. Why the common with-vs-without split points the wrong way, a step-by-step method and a calculator. Downloadable data, CC BY 4.0.
+
+Published October 19, 2026 · 13 min read
+
 Buyer's guide · AI Search
 
 ## [Do your own "reviews" site, a "best X" list that ranks you first, or a paid award get you into AI answers?](https://stanislav-peev.com/research/owned-review-sites-ai-visibility/)

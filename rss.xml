@@ -5,8 +5,15 @@
     <link>https://stanislav-peev.com/</link>
     <description>Original research and data reports on AI search visibility, GEO (generative engine optimization) and SEO - by Stanislav Peev, independent SEO consultant and AI search specialist.</description>
     <language>en</language>
-    <lastBuildDate>Mon, 19 Oct 2026 18:00:00 GMT</lastBuildDate>
+    <lastBuildDate>Mon, 19 Oct 2026 19:00:00 GMT</lastBuildDate>
     <atom:link href="https://stanislav-peev.com/rss.xml" rel="self" type="application/rss+xml"/>
+    <item>
+      <title>How much do AI Overviews cut your CTR? Same query, one year apart</title>
+      <link>https://stanislav-peev.com/research/ai-overviews-ctr-same-query/</link>
+      <guid isPermaLink="true">https://stanislav-peev.com/research/ai-overviews-ctr-same-query/</guid>
+      <pubDate>Mon, 19 Oct 2026 19:00:00 GMT</pubDate>
+      <description>Original Search Console data from 15 sites, mostly in Bulgarian search. On the same query at a stable position, mobile CTR fell 28% (95% interval -36% to -18%) from September-October 2025 to September-October 2026 where Google now shows an AI Overview, and -10% (-24% to +6%) where it does not; 280 query pairs, 13 sites. Impressions +54% and clicks -12% on the AI Overview queries; top 3 -35%; cited in the overview -32% vs not cited -24%. Snapshot of 1,317 non-branded page-one queries: AI Overview on 71% (Bulgarian 74%, Slovak 55%, English 80%), 97% of question queries, 19% of queries with a local pack. A one-period with-vs-without split shows the reverse (4.7x), which is why the comparison must be same query over time. Method, calculator and CC BY 4.0 data.</description>
+    </item>
     <item>
       <title>Do your own "reviews" site, a "best X" list that ranks you first, or a paid award get you into AI answers?</title>
       <link>https://stanislav-peev.com/research/owned-review-sites-ai-visibility/</link>
