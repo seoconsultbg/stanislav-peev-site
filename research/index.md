@@ -15,9 +15,9 @@ Buyer's guide · AI Search
 
 ## [Do your own "reviews" site, a "best X" list that ranks you first, or a paid award get you into AI answers?](https://stanislav-peev.com/research/owned-review-sites-ai-visibility/)
 
-Google's AI Overviews cited self-promotional "best" lists 323 times in a 100-query test and did not recommend the author in 224 of them (69%). How often AI answers cite pages a brand controls, why that rarely becomes a recommendation, what Google does with self-promotion, US FTC 16 CFR 465.6 and EU and UK review law (up to $53,088 per violation in the US), research on manipulating AI search, whether paid awards help, an 8-question risk checklist, and seven popular claims that do not hold as stated. 35 sources, vendors flagged.
+Google's AI Overviews cited self-promotional "best" lists 323 times in a 100-query test and did not recommend the author in 224 of them (69%). How often AI answers cite pages a brand controls, why that rarely becomes a recommendation, what Google does with self-promotion, US FTC 16 CFR 465.6 and EU and UK review law (up to $53,088 per violation in the US), research on manipulating AI search, whether paid awards help, an 8-question risk checklist, and seven popular claims that do not hold as stated. Updated with July to October 2026 data: self-promotional lists fell from 44% to 24% of the listicles AI Overviews cite. 37 sources, vendors flagged.
 
-Published October 12, 2026 · 13 min read
+Updated October 19, 2026 · 15 min read
 
 Buyer's guide · AI Search
 

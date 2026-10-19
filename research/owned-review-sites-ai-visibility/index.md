@@ -9,7 +9,7 @@ Research · Buyer's guide
 
 # Do your own "reviews" site, a "best X" list that ranks you first, or a paid award get you into AI answers?
 
-By **Stanislav Peev**, SEO consultant & GEO specialist · Published **October 12, 2026** · 35 sources, each figure traced to its source · 13 min read
+By **Stanislav Peev**, SEO consultant & GEO specialist · Published **October 12, 2026** · Updated **October 19, 2026** · 37 sources, each figure traced to its source · 15 min read
 
 69%
 
@@ -21,6 +21,7 @@ Test: Lily Ray, June 2026, Ahrefs Brand Radar data, summarised by Search Engine 
 
 - **69%** - share of AI Overview citations of self-promotional "best" lists where the list's author was not recommended (224 of 323, 100 B2B queries, June 2026)
 - **45.4% vs 16.3%** - how often a vendor was named when its own list was cited, against when it was not (93,968 answers, 5 B2B software clients). Own lists are associated with being named more often, so the tactic is not useless. It is weaker and riskier than it is sold
+- **44% to 24%** - the self-promotional share of the "best X" lists Google's AI Overviews cited, July to October 2026, across 11,025 US commercial queries. When AI Overviews did cite one, the brand that ranked itself #1 made the answer's top 3 in 25% of cases, against 45-48% for the #1 of someone else's list
 - **-29% to -49%** - organic visibility drops Lily Ray documented from late January 2026 on sites leaning on self-ranked "best" lists. Google has not confirmed an update, and other factors were present
 - **16 CFR 465.6** - the US rule that bans presenting a website you control as an independent source of reviews or opinions about your own category. Penalties run up to **$53,088 per violation**, unchanged for 2026
 - **"Seeking inauthentic 'mentions' across the web isn't as helpful as it might seem"** - Google's own guide to its AI features, which it says run on the same ranking and spam systems as Search
@@ -62,13 +63,15 @@ All four try to make a claim the brand makes about itself look like a claim some
 
 ## 3. Do AI answers cite pages you control?
 
-Yes. No major AI engine has been shown to filter self-promotional pages out. In one software study about 11% of all AI citations went to self-promotional lists, and Google's own results are full of them.
+Yes. No major AI engine has been shown to filter self-promotional pages out. In one software study about 11% of all AI citations went to self-promotional lists, and Google's own results are full of them. Google's AI Overviews cited fewer of them in October 2026 than in July, but still cited some.
 
 | Finding | Value | Source |
 | --- | --- | --- |
 | Share of AI citations going to self-promotional lists (software, 6 platforms, Dec 2025 to Feb 2026) | ~11% | Peec AI (vendor) |
 | Same, ChatGPT only | ~4% | Peec AI |
 | Same, Google AI Mode and Perplexity | ~10-11% | Peec AI |
+| Self-promotional share of the listicles Google AI Overviews cited, July vs October 2026 (11,025 US "best X" queries, a dozen industries) | 44% to 24% | AI Citation Insights |
+| Share of retrieved listicles ChatGPT went on to cite, October 2026: self-promotional vs third-party | 67% vs 41% | AI Citation Insights |
 | "Best X software" Google results with a list whose author ranks itself first | 169 of 250 (67.6%) | Ahrefs (vendor) |
 | Answers in which an assistant labelled a page as self-promotional (9,886 answers, 4 assistants) | 0 | Ahrefs experiment (vendor) |
 
@@ -82,6 +85,10 @@ AI Overviews, self-promotional lists (Ray)
 
 69%
 
+AI Overviews, own lists, Oct 2026 (AI Citation Insights)
+
+61%
+
 B2B vendors' own lists (Search Spot)
 
 54.6%
@@ -94,11 +101,24 @@ Ahrefs tool pages (Ahrefs)
 
 11%
 
-Share of answers citing a brand's own page that did not recommend that brand (Ray) or did not name it (other bars). Different samples, engines and definitions; read each bar on its own. Sources: Ray, The Search Spot, Ahrefs.
+Share of answers citing a brand's own page that did not recommend that brand (Ray) or did not name it (other bars). Different samples, engines and definitions; read each bar on its own. Sources: Ray, AI Citation Insights, The Search Spot, Ahrefs.
 
 Lily Ray, who ran the June 2026 test on 100 "best [category] software" queries, found 80 showed an AI Overview, and 74 of the 100 showed the split between who was cited and who was recommended (Ray, Search Engine Land). Strong category leaders still got recommended. Brands that ranked themselves first often handed the AI a shortlist that included their competitors.
 
+A larger study from October 2026 found the same pattern across more industries than software. AI Citation Insights ran 11,025 US "best X" queries across SaaS, finance, insurance, legal, home services, marketing and other categories, once in July and again in October. When Google's AI Overviews cited a brand's own self-promotional list, the brand was not named in the answer at all in 64% of cases in July and 61% in October. A brand that ranked itself first also reached the top of the answer far less often than the #1 of someone else's list. The table shows how often the brand at #1 of a cited list reached the answer's top 3 (AI Citation Insights).
+
+| Answer engine and month | Ranked itself #1 | #1 of a third-party list |
+| --- | --- | --- |
+| AI Overviews, July 2026 | 25% | 45% |
+| AI Overviews, October 2026 | 25% | 48% |
+| ChatGPT, July 2026 | 48% | 58% |
+| ChatGPT, October 2026 | 35% | 64% |
+
+US queries only. The July ChatGPT data came from the API and the October data from chatgpt.com, which runs a newer model, so part of the ChatGPT change reflects the product, not only time. Source: AI Citation Insights.
+
 The fairest counter-evidence comes from Maeva Cifuentes, who analysed 93,968 AI answers for five B2B software clients. When a vendor's own list was cited, the vendor was named in 45.4% of answers, against 16.3% when it was not cited, and 78 of 94 vendors were named more often with their list in the sources (The Search Spot). That is a correlation, not proof, but it means own lists are not worthless. Her summary of why they disappoint is the most useful sentence in this debate: "AI uses a roundup as a source for every vendor on it."
+
+The October study checked this on ChatGPT as well. It ran 537 queries about a dozen times each and compared the same brand in runs where its own list was cited with runs where it was not. With its list among the sources, the brand was named about 10 percentage points more often and reached the top 3 about 5 to 8 points more often, while its chance of being named first barely moved (AI Citation Insights). That is again an association, and the study itself calls it a small edge.
 
 1 in 3
 
@@ -108,11 +128,12 @@ Ahrefs, July 2026
 
 ## 5. What Google does with self-promotion
 
-Google says its AI features run on the same ranking and spam systems as Search, it stopped showing review stars for reviews a business controls in 2019, and several documented sites leaning on self-ranked lists lost visibility in early 2026.
+Google says its AI features run on the same ranking and spam systems as Search, it stopped showing review stars for reviews a business controls in 2019, and several documented sites leaning on self-ranked lists lost visibility in early 2026. By October 2026 self-promotional lists were 24% of the listicles its AI Overviews cited, down from 44% in July.
 
 - **Same systems for AI answers.** Google's guide says its generative AI features "are rooted in our core Search ranking and quality systems", that creating pages "primarily to manipulate rankings or generative AI responses" breaks its scaled content abuse policy, and that "seeking inauthentic 'mentions' across the web isn't as helpful as it might seem" (Google, July 2026). It also says there are no special optimizations needed to appear in AI Overviews or AI Mode (Google).
 - **No stars for reviews about yourself.** Since September 2019 Google treats a review "self-serving" when "a review about entity A is placed on the website of entity A", and such LocalBusiness and Organization reviews are not eligible for star snippets, even through an embedded widget (Google, 2019, current docs).
 - **Visibility losses in 2026.** From late January 2026 Lily Ray documented organic drops of 29% to 49% on several SaaS and B2B sites that relied on self-ranked "best" lists (Ray). Search Engine Land rounded it to "30% to 50%", reported the losses concentrated in blog and guide folders, and noted that self-promotional lists "likely weren't the only factor" (Search Engine Land). In June the declines were reported to have begun around January 20 and accelerated in the May 2026 core update (Search Engine Land). Google has not confirmed a targeted update.
+- **Fewer citations in AI Overviews.** Across 11,025 US "best X" queries, self-promotional lists made up 44% of the listicles AI Overviews cited in July 2026 and 24% in October. Per AI Overview, citations to listicles in general fell 38% and to self-promotional ones 66% (AI Citation Insights). The study credits Lily Ray with spotting the drop first.
 - **Networks of owned sites.** Google's spam policies name "multiple websites with slight variations to the URL and home page" (doorway abuse), excessive link exchanges and "partner pages exclusively for the sake of cross-linking" (link spam), and pages made at scale to manipulate rankings (Google spam policies).
 - **Reviews that rank.** Google's reviews guidance rewards first-hand evidence: "Provide evidence such as visuals, audio, or other links of your own experience" (Google). By that standard, a reviews site that never tested the products has little to show.
 
@@ -166,7 +187,7 @@ Put the effort where someone else does the vouching: reviews on established plat
 
 - **Reviews on platforms people already trust.** Ask every real customer, on Google, the leading platform for your category and nowhere else at first. My [study of 72 local markets](https://stanislav-peev.com/research/google-review-concentration-home-services/) shows how unevenly review volume is spread: the top five businesses held 58.3% of visible reviews.
 - **Testimonials on your own site, labelled.** Put real reviews on the matching service or product pages, with first name and date, without star markup for your own business, and without calling the page independent.
-- **Other people's lists.** Getting into honest third-party roundups is slower than writing your own, but it should be the version where you can be both cited and recommended.
+- **Other people's lists.** Getting into honest third-party roundups is slower than writing your own, but it should be the version where you can be both cited and recommended. The October 2026 data points the same way: the #1 of a third-party list reached the top 3 of an AI Overview about twice as often as a self-ranked #1, 48% against 25% (AI Citation Insights). Where you sit on the list matters too. Across 12,564 cited lists, the same brand was named about 17 points above its own average at #1, close to its average at #4, and about 20 points below it at #15 or lower (AI Citation Insights).
 - **Comparison pages that compare.** If you write "you vs competitor" pages, make them factual. My [144-answer test](https://stanislav-peev.com/research/competitor-comparison-pages-in-ai-answers/) found AI answers lean on vendors' own comparison pages, but a vendor's page did not make the AI pick that vendor.
 - **Original data.** A number other people quote earns citations on their sites. That is how every page in my [research section](https://stanislav-peev.com/research/) started.
 - **Measure before and after.** One check of one answer proves nothing, because answers change between runs; see [how reliable AI visibility tracking is](https://stanislav-peev.com/research/ai-visibility-tracking-reliability/). And if AI gets facts about you wrong, fix the source, not the symptom: [what to do when AI gets your business wrong](https://stanislav-peev.com/research/ai-wrong-business-information-statistics/).
@@ -178,7 +199,7 @@ If someone is selling you the shortcut instead, the same buyer logic applies as 
 These circulate in posts about AI visibility. In each case the claim is rounded up, misread, wrongly attributed, or has no primary source I could find.
 
 - **"ChatGPT and Perplexity now flag self-promotional lists as unreliable."** I found no primary source for this. Ahrefs' experiment found no assistant labelling its pages as self-promotional across 9,886 answers (Ahrefs), and the 93,968-answer analysis reports no such flag either (The Search Spot). Where an AI answer repeats a disclaimer, check whether the disclaimer is on the page itself.
-- **"AI search already filters out self-promotion."** Not shown. The defensible claim is narrower: a citation is often not a recommendation (Ray), and several documented sites relying on such pages lost Google visibility in 2026.
+- **"AI search already filters out self-promotion."** Not shown. The defensible claim is narrower: a citation is often not a recommendation (Ray), and several documented sites relying on such pages lost Google visibility in 2026. Self-promotional lists were 24% of the listicles Google's AI Overviews cited in October 2026, down from 44% in July, but they are still cited, and ChatGPT cites them readily (AI Citation Insights). Fewer is not none.
 - **"Self-ranked lists lose 30-50% of traffic."** That is Search Engine Land's rounding of a handful of documented cases, from -29% to -49%, with no total sample and other factors present (Search Engine Land, Ray).
 - **"AI Overviews recommended 224 competitors."** 224 is the number of citations, out of 323, where the self-promoting brand was not recommended. It is not a count of competitors (Ray).
 - **"44% of AI citations come from brand-owned sites, so owned review sites work."** Yext's 44% is official brand and location websites in local queries, from a vendor study of 6.8 million citations. It says nothing about owned "independent" review domains (Yext).
@@ -187,9 +208,9 @@ These circulate in posts about AI visibility. In each case the claim is rounded 
 
 ## 12. How I checked
 
-I started from the r/SEO thread that prompted this guide, then searched for what has been published on whether owned review sites, self-ranked lists and awards help AI visibility. Much of it comes from companies that sell reviews, review widgets or AI-visibility tracking, and none of it tests a brand-owned "independent" review site directly. I traced each figure to the publication it is credited to, read the rule texts on the regulator's or a legal mirror's site, and kept 35 sources. Where only a copy could be opened, the source line says so. Studies by companies that sell SEO or AI-visibility products are marked as vendors. Checks ran on October 12, 2026.
+I started from the r/SEO thread that prompted this guide, then searched for what has been published on whether owned review sites, self-ranked lists and awards help AI visibility. Much of it comes from companies that sell reviews, review widgets or AI-visibility tracking, and none of it tests a brand-owned "independent" review site directly. I traced each figure to the publication it is credited to, read the rule texts on the regulator's or a legal mirror's site, and kept 37 sources. Where only a copy could be opened, the source line says so. Studies by companies that sell SEO or AI-visibility products are marked as vendors. Checks ran on October 12, 2026. On October 19, 2026 I added a July to October 2026 study of 11,025 queries and its companion study on list position, both read on the publisher's site. That publisher has no About page and I could not establish whether it sells SEO services, so it is not flagged as a vendor.
 
-Limits. The citation numbers come from different engines, samples and definitions and should not be added up. Most of the self-promotion data is from B2B software, so local services may behave differently. I could not open OpenAI's pages on how ChatGPT search chooses sources, and found no published OpenAI method for scoring source trust. Several figures that circulate (a Muck Rack share for paid content, a Wix study on listicles) are left out because I could not open the original.
+Limits. The citation numbers come from different engines, samples and definitions and should not be added up. Most of the self-promotion data is from B2B software. The October 2026 study adds finance, insurance, legal, home services and marketing, but only for US queries, so local services elsewhere may still behave differently. I could not open OpenAI's pages on how ChatGPT search chooses sources, and found no published OpenAI method for scoring source trust. Several figures that circulate (a Muck Rack share for paid content, a Wix study on listicles) are left out because I could not open the original.
 
 ## 13. Frequently asked questions
 
@@ -207,7 +228,7 @@ Not by itself, but it becomes a legal problem if readers are led to think the ra
 
 **Did Google penalize self-ranked listicles in 2026?**
 
-Google has not confirmed a targeted update. Lily Ray documented organic visibility drops of 29% to 49% from around January 20, 2026 on several sites that relied on self-ranked 'best' lists, and Search Engine Land reported the decline accelerated in the May 2026 core update. Other factors, such as scaled AI content, were present on some of those sites.
+Google has not confirmed a targeted update. Lily Ray documented organic visibility drops of 29% to 49% from around January 20, 2026 on several sites that relied on self-ranked 'best' lists, and Search Engine Land reported the decline accelerated in the May 2026 core update. Other factors, such as scaled AI content, were present on some of those sites. A separate study of 11,025 US queries found self-promotional lists were 24% of the listicles AI Overviews cited in October 2026, down from 44% in July.
 
 **Can I show review stars for my own business in Google?**
 
@@ -258,8 +279,10 @@ The evidence points to what other people publish: reviews on platforms buyers al
 33. Google Search Central. "Write high quality reviews." Last updated December 10, 2025. [developers.google.com/search/docs/specialty/ecommerce/write-high-quality-reviews](https://developers.google.com/search/docs/specialty/ecommerce/write-high-quality-reviews). Accessed October 12, 2026.
 34. Google Search Central. "AI features and your website." Last updated December 10, 2025. [developers.google.com/search/docs/appearance/ai-features](https://developers.google.com/search/docs/appearance/ai-features). Accessed October 12, 2026.
 35. Kumar, Lakkaraju. "Manipulating large language models to increase product visibility." arXiv 2404.07981, April 2024. [arxiv.org/abs/2404.07981](https://arxiv.org/abs/2404.07981). Accessed October 12, 2026.
+36. AI Citation Insights (Dmytro Sokhach). "Self-promo listicles: cited 2x less, brands still left out." 11,025 US commercial "best X" queries, Google AI Overviews and ChatGPT, July and October 2026, plus a repeat test of 537 queries on chatgpt.com. Updated October 19, 2026. [aicitationinsights.com/best-x-page-google-vs-chatgpt/](https://aicitationinsights.com/best-x-page-google-vs-chatgpt/). Accessed October 19, 2026.
+37. AI Citation Insights (Dmytro Sokhach). "Your listicle slot decides AI mentions." 12,564 listicles cited by ChatGPT and Google AI Overview, with a same-brand comparison by slot. Updated October 19, 2026. [aicitationinsights.com/listicle-position-ai-citations/](https://aicitationinsights.com/listicle-position-ai-citations/). Accessed October 19, 2026.
 
-Published: October 12, 2026. Compiled and checked by [Stanislav Peev](https://stanislav-peev.com/). Next scheduled re-check: January 2027, or sooner if the FTC brings a 465.6 case or an AI engine starts labelling self-promotion. A figure looks wrong or you have a primary source I missed? [Email me](mailto:info@stanislav-peev.com?subject=Owned%20review%20sites%20guide).
+Published: October 12, 2026. Updated: October 19, 2026, with the July to October 2026 AI Overviews and ChatGPT data. Compiled and checked by [Stanislav Peev](https://stanislav-peev.com/). Next scheduled re-check: January 2027, or sooner if the FTC brings a 465.6 case or an AI engine starts labelling self-promotion. A figure looks wrong or you have a primary source I missed? [Email me](mailto:info@stanislav-peev.com?subject=Owned%20review%20sites%20guide).
 
 ## Not sure if your review or "best X" pages are a risk?
 
