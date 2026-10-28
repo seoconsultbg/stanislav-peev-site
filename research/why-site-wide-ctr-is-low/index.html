@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Why is site-wide CTR so low? Data from 15 sites (2026)</title>
+<meta name="description" content="Low site-wide CTR is mostly brand mix and positions 4-10, not page 2. Search Console data from 15 sites, 2.85M impressions, plus a calculator.">
+<link rel="canonical" href="https://stanislav-peev.com/research/why-site-wide-ctr-is-low/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Stanislav Peev">
+<meta property="og:title" content="Why is your site-wide CTR so low? It is rarely page 2">
+<meta property="og:description" content="Original Search Console data from 15 sites: branded searches are 3.5% of impressions but 24% of clicks, positions 4-10 hold 58% of non-branded impressions on the median site at a 1.4% CTR, and dropping page 2 lifts non-branded CTR by only 17%.">
+<meta property="og:url" content="https://stanislav-peev.com/research/why-site-wide-ctr-is-low/">
+<meta property="og:image" content="https://stanislav-peev.com/research/why-site-wide-ctr-is-low/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Positions 4-10: 58% of non-branded impressions on the median site, at a 1.4% CTR. Original data from 15 sites">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:creator" content="@SeoPeev">
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="alternate" type="application/rss+xml" title="Stanislav Peev - SEO &amp; AI Search Research" href="/rss.xml">
+<link rel="stylesheet" href="/assets/site.css?v=6">
+<style>
+.article-meta { font-size: .9rem; color: var(--ink-soft); margin-bottom: 34px; }
+.article-meta b { color: var(--ink); }
+.hero-stat {
+  background: linear-gradient(135deg, var(--surface), var(--band));
+  border: 1px solid var(--green); border-radius: 18px;
+  padding: 36px 32px; text-align: center; margin: 0 0 40px;
+}
+.hero-stat .big {
+  font-family: var(--serif); font-size: clamp(3.2rem, 8vw, 5rem);
+  color: var(--green); font-weight: 700; line-height: 1; display: block; margin-bottom: 12px;
+}
+.hero-stat p { color: var(--ink); font-size: 1.1rem; max-width: 62ch; margin: 0 auto 8px; }
+.hero-stat .src { font-size: .85rem; color: var(--ink-soft); }
+.takeaways {
+  background: var(--surface); border: 1px solid var(--line); border-left: 4px solid var(--green);
+  border-radius: 12px; padding: 26px 28px; margin: 0 0 40px;
+}
+.takeaways h2 {
+  font-family: var(--sans); font-size: .8rem; font-weight: 700; letter-spacing: .12em;
+  text-transform: uppercase; color: var(--green); margin-bottom: 14px;
+}
+.takeaways ul { list-style: none; display: grid; gap: 10px; }
+.takeaways li { padding-left: 22px; position: relative; color: var(--ink-soft); font-size: .98rem; }
+.takeaways li::before { content: '→'; position: absolute; left: 0; color: var(--green); }
+.takeaways li b { color: var(--ink); font-family: var(--serif); }
+.toc {
+  border: 1px solid var(--line); border-radius: 12px; padding: 22px 26px; margin: 0 0 48px;
+  background: var(--bg-alt);
+}
+.toc h2 { font-family: var(--sans); font-size: .95rem; margin-bottom: 12px; }
+.toc ol { margin-left: 20px; color: var(--ink-soft); display: grid; gap: 6px; font-size: .95rem; }
+.toc a { color: var(--green); text-decoration: none; }
+.toc a:hover { text-decoration: underline; }
+.article h2 { margin-top: 56px; margin-bottom: 16px; scroll-margin-top: 90px; }
+.article h3 { margin-top: 30px; margin-bottom: 10px; font-size: 1.1rem; }
+.article .capsule { color: var(--ink); font-size: 1.08rem; margin-bottom: 18px; max-width: 70ch; }
+.article p { color: var(--ink-soft); margin-bottom: 18px; max-width: 72ch; }
+.article p strong { color: var(--ink); }
+.article a { color: var(--green); }
+.article ul.plain { margin: 0 0 18px 20px; color: var(--ink-soft); max-width: 72ch; display: grid; gap: 8px; }
+.metric-table { width: 100%; border-collapse: collapse; margin: 22px 0; font-size: .95rem; }
+.metric-table th {
+  background: var(--band); color: var(--ink); text-align: left;
+  padding: 11px 14px; text-transform: uppercase; font-size: .76rem; letter-spacing: .07em;
+  border-bottom: 2px solid var(--green);
+}
+.metric-table td { padding: 11px 14px; border-bottom: 1px solid var(--line); color: var(--ink-soft); }
+.metric-table td.v { font-family: var(--serif); font-weight: 700; color: var(--green); white-space: nowrap; }
+.metric-table td.hi { color: var(--green); font-weight: 700; }
+.metric-table td.lo { color: var(--ink-soft); }
+.table-wrap { overflow-x: auto; }
+.stat-callout {
+  display: flex; align-items: center; gap: 22px; background: var(--surface);
+  border: 1px solid var(--line); border-left: 4px solid var(--green); border-radius: 12px;
+  padding: 20px 24px; margin: 24px 0;
+}
+.stat-callout .val {
+  font-family: var(--serif); font-size: 2.1rem; font-weight: 700; color: var(--green);
+  white-space: nowrap; min-width: 90px; text-align: center;
+}
+.stat-callout div p { margin: 0; font-size: .96rem; }
+.stat-callout div .src { font-size: .82rem; color: var(--ink-soft); margin-top: 4px; }
+.bar-chart { margin: 24px 0; display: grid; gap: 10px; max-width: 680px; }
+.bar-row { display: grid; grid-template-columns: 230px 1fr; align-items: center; gap: 12px; }
+.bar-row .lbl { font-size: .9rem; color: var(--ink-soft); text-align: right; }
+.bar-track { background: var(--band); border-radius: 6px; overflow: hidden; height: 30px; position: relative; }
+.bar-fill {
+  height: 100%; background: var(--green); border-radius: 6px;
+  display: flex; align-items: center; padding-left: 10px;
+  font-family: var(--serif); font-weight: 700; font-size: .88rem; color: var(--btn-text);
+  min-width: fit-content; white-space: nowrap;
+}
+.bar-fill.dim { background: var(--ink-soft); }
+.bar-note { font-size: .82rem; color: var(--ink-soft); margin-top: 2px; }
+.explorer {
+  background: var(--surface); border: 1px solid var(--green); border-radius: 16px;
+  padding: 24px; margin: 26px 0;
+}
+.explorer .controls { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 14px; }
+.explorer select, .explorer input[type="search"] {
+  background: var(--bg-alt); color: var(--ink); border: 1px solid var(--line); border-radius: 8px;
+  padding: 8px 10px; font-size: .92rem;
+}
+.explorer input[type="search"] { flex: 1; min-width: 180px; }
+.explorer .count { font-size: .88rem; color: var(--ink-soft); margin-bottom: 10px; }
+.explorer table { width: 100%; border-collapse: collapse; font-size: .86rem; }
+.explorer th { text-align: left; padding: 8px 10px; border-bottom: 2px solid var(--green); color: var(--ink); font-size: .74rem; text-transform: uppercase; letter-spacing: .06em; cursor: pointer; white-space: nowrap; }
+.explorer td { padding: 7px 10px; border-bottom: 1px solid var(--line); color: var(--ink-soft); vertical-align: top; }
+.explorer td a { color: var(--green); word-break: break-all; }
+.explorer .tag { display: inline-block; padding: 1px 7px; border-radius: 999px; font-size: .74rem; border: 1px solid var(--line); color: var(--ink); white-space: nowrap; }
+.explorer .tag.cmp { border-color: var(--green); color: var(--green); }
+.explorer .scroll { max-height: 520px; overflow: auto; }
+.data-box {
+  background: var(--bg-alt); border: 1px solid var(--line); border-radius: 12px;
+  padding: 22px 26px; margin: 26px 0;
+}
+.data-box h3 { font-size: 1rem; margin: 0 0 8px; }
+.data-box p { font-size: .92rem; margin-bottom: 10px; }
+.sources-list { font-size: .92rem; color: var(--ink-soft); margin-left: 20px; display: grid; gap: 10px; }
+.sources-list a { color: var(--green); word-break: break-all; }
+.updated { font-size: .88rem; color: var(--ink-soft); border-top: 1px solid var(--line); padding-top: 20px; margin-top: 48px; }
+@media (max-width: 640px) {
+  .bar-row { grid-template-columns: 1fr; gap: 4px; }
+  .bar-row .lbl { text-align: left; }
+  .stat-callout { flex-direction: column; align-items: flex-start; gap: 10px; }
+}
+.explorer.calc .calc-grid { display: grid; gap: 14px; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); margin-bottom: 18px; }
+.explorer.calc label { display: grid; gap: 6px; font-size: .88rem; color: var(--ink-soft); }
+.explorer.calc input { background: var(--bg-alt); color: var(--ink); border: 1px solid var(--line); border-radius: 8px; padding: 10px 12px; font-size: 1rem; font-variant-numeric: tabular-nums; }
+.calc-out { display: grid; gap: 10px; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); margin-bottom: 12px; }
+.calc-out .cell { background: var(--bg-alt); border: 1px solid var(--line); border-radius: 10px; padding: 14px 16px; }
+.calc-out .cell b { display: block; font-family: var(--serif); font-size: 1.6rem; color: var(--green); font-variant-numeric: tabular-nums; }
+.calc-out .cell span { font-size: .84rem; color: var(--ink-soft); }
+.explorer td.fig { font-family: var(--serif); font-weight: 700; color: var(--ink); font-variant-numeric: tabular-nums; }
+.explorer .tag.tracked { border-color: var(--green); color: var(--green); }
+.hero-stat .src a { color: var(--green); }
+.hero-stat .big { white-space: nowrap; font-size: clamp(2.1rem, 9.5vw, 5rem); }
+.viz { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 22px 22px 16px; margin: 28px 0; }
+.viz h3 { font-family: var(--sans); font-size: 1rem; font-weight: 700; color: var(--ink); margin: 0 0 4px; }
+.viz .sub { font-size: .88rem; color: var(--ink-soft); margin: 0 0 14px; max-width: 70ch; }
+.viz .plot { overflow-x: auto; }
+.viz svg { display: block; width: 100%; min-width: 620px; height: auto; font-family: var(--sans); }
+.viz svg text { fill: var(--ink-soft); font-size: 12px; }
+.viz svg text.strong { fill: var(--ink); font-weight: 600; }
+.viz svg text.row { fill: var(--ink); font-size: 13px; font-weight: 600; }
+.viz svg .grid { stroke: var(--line); stroke-width: 1; }
+.viz svg .ring { stroke: var(--surface); stroke-width: 2; }
+.viz svg [data-tip] { cursor: default; }
+.viz svg [data-tip]:hover { filter: brightness(1.25); }
+.viz .legend { display: flex; flex-wrap: wrap; gap: 6px 18px; font-size: .84rem; color: var(--ink-soft); margin: 0 0 10px; }
+.viz .legend i { display: inline-block; width: 10px; height: 10px; border-radius: 3px; margin-right: 7px; vertical-align: -1px; }
+.viz .legend i.ln { width: 16px; height: 2px; border-radius: 1px; vertical-align: 3px; }
+.viz .legend b { color: var(--ink); font-weight: 600; font-variant-numeric: tabular-nums; }
+.viz .cap { font-size: .82rem; color: var(--ink-soft); margin: 10px 0 0; }
+.viz .cap a { color: var(--green); }
+.viz details { margin-top: 10px; font-size: .84rem; color: var(--ink-soft); }
+.viz details summary { cursor: pointer; color: var(--green); }
+.viz details table { border-collapse: collapse; margin-top: 8px; font-variant-numeric: tabular-nums; }
+.viz details th, .viz details td { text-align: left; padding: 4px 14px 4px 0; border-bottom: 1px solid var(--line); }
+.viz details th { color: var(--ink); font-weight: 600; }
+.kpi-row { display: grid; grid-template-columns: 1fr auto 1fr auto 1fr; gap: 10px; align-items: stretch; margin: 6px 0 4px; }
+.kpi { background: var(--bg-alt); border: 1px solid var(--line); border-radius: 10px; padding: 14px 16px; }
+.kpi b { display: block; font-family: var(--sans); font-size: 1.9rem; font-weight: 700; color: var(--ink); line-height: 1.1; }
+.kpi span { font-size: .84rem; color: var(--ink-soft); }
+.kpi-arrow { align-self: center; color: var(--ink-soft); font-size: 1.2rem; }
+#vizTip { position: fixed; z-index: 50; pointer-events: none; background: var(--band); border: 1px solid var(--line); border-radius: 8px; padding: 8px 11px; font-size: .84rem; color: var(--ink-soft); max-width: 280px; box-shadow: 0 6px 20px rgba(0,0,0,.45); display: none; }
+#vizTip b { display: block; color: var(--ink); font-size: .98rem; font-variant-numeric: tabular-nums; }
+@media (max-width: 640px) {
+  .kpi-row { grid-template-columns: 1fr; }
+  .kpi-arrow { transform: rotate(90deg); justify-self: center; }
+}
+.explorer td.fig { font-family: var(--serif); font-weight: 700; color: var(--ink); font-variant-numeric: tabular-nums; white-space: nowrap; }
+ol.plain > li { margin-bottom: 12px; }
+.explorer.calc ul.checks { list-style: none; margin: 0 0 16px; padding: 0; display: grid; gap: 8px; }
+.explorer.calc ul.checks label { display: flex; gap: 10px; align-items: flex-start; font-size: .95rem; color: var(--ink); cursor: pointer; }
+.explorer.calc ul.checks input { margin-top: 4px; accent-color: var(--green); width: 18px; height: 18px; flex: none; }
+.calc-out { display: grid; gap: 10px; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); margin-bottom: 12px; }
+.calc-out .cell { background: var(--bg-alt); border: 1px solid var(--line); border-radius: 10px; padding: 14px 16px; }
+.calc-out .cell b { display: block; font-family: var(--serif); font-size: 1.6rem; color: var(--green); font-variant-numeric: tabular-nums; }
+.calc-out .cell.warn b { color: #e8915f; }
+.calc-out .cell span { font-size: .84rem; color: var(--ink-soft); }
+.hero-stat .src a { color: var(--green); }
+.hero-stat .big { white-space: nowrap; font-size: clamp(2.1rem, 9.5vw, 5rem); }
+.article code { font-size: .9em; }
+.explorer.calc ul.checks { list-style: none; margin: 0 0 16px; padding: 0; display: grid; gap: 8px; }
+.explorer.calc ul.checks label { display: flex; gap: 10px; align-items: flex-start; font-size: .95rem; color: var(--ink); cursor: pointer; }
+.explorer.calc ul.checks input { margin-top: 4px; accent-color: var(--green); width: 18px; height: 18px; flex: none; }
+.calc-out .cell.warn b { color: #e8915f; }
+.hero-stat .src a { color: var(--green); }
+@media (min-width: 641px) { .bar-row { grid-template-columns: 300px 1fr; } }
+.explorer.calc fieldset { border: 1px solid var(--line); border-radius: 10px; padding: 12px 14px; margin: 0; }
+.explorer.calc legend { font-weight: 700; padding: 0 6px; }
+.explorer.calc label { display: flex; justify-content: space-between; gap: 10px; align-items: center; font-size: .9rem; margin: 6px 0; }
+.explorer.calc input[type=number] { width: 120px; padding: 6px 8px; border: 1px solid var(--line); border-radius: 8px; background: var(--bg); color: var(--ink); font-variant-numeric: tabular-nums; }
+.calc-out .cell.warn b { color: #e8915f; }
+.hero-stat .src a { color: var(--green); }
+@media (min-width: 641px) { .bar-row { grid-template-columns: 260px 1fr; } }
+.explorer.calc fieldset { border: 1px solid var(--line); border-radius: 10px; padding: 12px 14px; margin: 0; }
+.explorer.calc legend { font-weight: 700; padding: 0 6px; }
+.explorer.calc label { display: flex; justify-content: space-between; gap: 10px; align-items: center; font-size: .9rem; margin: 6px 0; }
+.explorer.calc input[type=number] { width: 120px; padding: 6px 8px; border: 1px solid var(--line); border-radius: 8px; background: var(--bg); color: var(--ink); font-variant-numeric: tabular-nums; }
+.calc-out .cell.warn b { color: #e8915f; }
+.hero-stat .src a { color: var(--green); }
+@media (min-width: 641px) { .bar-row { grid-template-columns: 260px 1fr; } }
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://stanislav-peev.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Research",
+          "item": "https://stanislav-peev.com/research/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Why site-wide CTR is low",
+          "item": "https://stanislav-peev.com/research/why-site-wide-ctr-is-low/"
+        }
+      ]
+    },
+    {
+      "@type": "Article",
+      "@id": "https://stanislav-peev.com/research/why-site-wide-ctr-is-low/#article",
+      "headline": "Why is your site-wide CTR so low? It is rarely page 2",
+      "description": "Original study: a decomposition of site-wide click-through rate in the Search Console data of 15 sites (28 days, 2.85 million impressions) into branded queries, position bands and anonymized queries, compared with published benchmarks, with a year-over-year check, a diagnostic method and a calculator.",
+      "author": {
+        "@type": "Person",
+        "@id": "https://stanislav-peev.com/#person",
+        "name": "Stanislav Peev",
+        "url": "https://stanislav-peev.com/",
+        "sameAs": [
+          "https://www.linkedin.com/in/stanislav-peev-seo/"
+        ]
+      },
+      "publisher": {
+        "@id": "https://stanislav-peev.com/#person"
+      },
+      "datePublished": "2026-10-26",
+      "dateModified": "2026-10-26",
+      "mainEntityOfPage": "https://stanislav-peev.com/research/why-site-wide-ctr-is-low/",
+      "image": "https://stanislav-peev.com/research/why-site-wide-ctr-is-low/og.png",
+      "inLanguage": "en",
+      "about": [
+        {
+          "@type": "Thing",
+          "name": "Click-through rate"
+        },
+        {
+          "@type": "Thing",
+          "name": "Google Search Console"
+        },
+        {
+          "@type": "Thing",
+          "name": "Branded search"
+        }
+      ],
+      "citation": [
+        "https://www.reddit.com/r/SEO/comments/1xf4lgy/getting_200k_google_impressions_but_only_02_ctr/",
+        "https://www.reddit.com/r/SEO/comments/1xbkpaq/how_do_i_get_more_clicks_on_ai_overviews/",
+        "https://www.reddit.com/r/SEO/comments/1xca0da/6_months_of_seo_on_a_competitive_agency_niche_600/",
+        "https://www.reddit.com/r/bigseo/comments/1xfo8z7/have_117m_impression_06_ctr_how_can_i_improve_my/",
+        "https://ahrefs.com/blog/what-is-a-good-ctr/",
+        "https://databox.com/benchmarks/ctr-benchmarks",
+        "https://developers.google.com/search/blog/2022/10/performance-data-deep-dive",
+        "https://measuremindsgroup.com/gsc-impressions-dropped-rankings-improved"
+      ],
+      "speakable": {
+        "@type": "SpeakableSpecification",
+        "cssSelector": [
+          ".hero-stat",
+          ".takeaways"
+        ]
+      }
+    },
+    {
+      "@type": "Dataset",
+      "@id": "https://stanislav-peev.com/research/why-site-wide-ctr-is-low/#dataset",
+      "name": "Site-wide CTR decomposition: Search Console data from 15 sites (2026)",
+      "description": "Anonymized per-site Search Console aggregates for 15 sites (web search, all countries, September 26 to October 23, 2026, with the same window in 2025 for comparison): site-wide CTR, branded click share, non-branded CTR, impression share and CTR by position band, and the share of impressions in visible query rows.",
+      "creator": {
+        "@type": "Person",
+        "@id": "https://stanislav-peev.com/#person",
+        "name": "Stanislav Peev"
+      },
+      "license": "https://creativecommons.org/licenses/by/4.0/",
+      "datePublished": "2026-10-26",
+      "dateModified": "2026-10-26",
+      "isAccessibleForFree": true,
+      "temporalCoverage": "2025-09-27/2026-10-23",
+      "keywords": [
+        "click-through rate",
+        "Google Search Console",
+        "branded search",
+        "average position",
+        "anonymized queries"
+      ],
+      "variableMeasured": [
+        "CTR",
+        "impressions",
+        "clicks",
+        "average position",
+        "branded click share"
+      ],
+      "distribution": [
+        {
+          "@type": "DataDownload",
+          "encodingFormat": "text/csv",
+          "contentUrl": "https://stanislav-peev.com/research/why-site-wide-ctr-is-low/data-sites.csv"
+        },
+        {
+          "@type": "DataDownload",
+          "encodingFormat": "application/json",
+          "contentUrl": "https://stanislav-peev.com/research/why-site-wide-ctr-is-low/data-summary.json"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://stanislav-peev.com/research/why-site-wide-ctr-is-low/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is a normal site-wide CTR in Google Search Console?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Most benchmarks put the typical site between about 1% and 2%. Ahrefs reports 1% to 2% as the usual range across 422,421 websites, and Databox lists a 0.91% median for Search Console CTR. In my 15 sites the median was 4.1% for all queries but 1.2% for non-branded queries, because a few branded searches with very high CTR lift the total."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Why do I have lots of impressions but a very low CTR?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Usually because most of your impressions sit in positions 4 to 10, not on page 2. On the median site in my data, positions 4-10 held 58% of non-branded impressions at a 1.4% CTR, while positions 1-3 held 19% of impressions and earned 37% of clicks. A site with almost no branded searches will also look low, since branded queries carry a large share of clicks."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does page 2 drag down my CTR?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Less than most people think. Keeping only non-branded queries in the top 10 raised CTR by a median of 17% across my 15 sites, from 1.2% to 1.5%. Page 2 matters only on sites where it holds a big share of impressions; on one site, 73% of impressions were beyond position 10 and its site-wide CTR was 0.36%."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How much do branded searches affect site-wide CTR?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A lot. Branded queries were a median 3.5% of impressions but 24% of clicks, with a median CTR of 25%. Sites with a bigger branded share of clicks tended to have a higher site-wide CTR, so compare non-branded CTR with non-branded CTR, not totals."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Why don't my Search Console query rows add up to the total?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Because Google hides anonymized queries (those not issued by more than a few dozen users over two to three months) from the query table but keeps them in the chart totals. In my sites the visible query rows covered a median 57% of impressions and 48% of clicks, so any analysis by query sees only part of the site."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Has site-wide CTR dropped in the last year?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Not clearly in my data. For 14 sites with data in both years, the median site-wide CTR was 3.5% in autumn 2025 and 3.8% in autumn 2026, though 9 of the 14 sites went down. Same-query comparisons show a clearer loss where an AI Overview appears, which I measured separately."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+<!-- Google tag (gtag.js) with Consent Mode v2 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-SNM7XHD6X3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  // Nothing is stored until the visitor accepts the banner (assets/analytics.js).
+  gtag('consent', 'default', {
+    ad_storage: 'denied',
+    ad_user_data: 'denied',
+    ad_personalization: 'denied',
+    analytics_storage: 'denied'
+  });
+  try {
+    if (localStorage.getItem('sp-consent') === 'granted') {
+      gtag('consent', 'update', { analytics_storage: 'granted' });
+    }
+  } catch (e) {}
+  gtag('js', new Date());
+  // Only the live site reports; local previews stay out of GA4.
+  if (location.hostname === 'stanislav-peev.com') gtag('config', 'G-SNM7XHD6X3');
+  (function (s) { s.src = '/assets/analytics.js?v=1'; s.async = true; document.head.appendChild(s); })(document.createElement('script'));
+</script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="/">Stanislav <em>Peev</em></a>
+    <nav class="site-nav" aria-label="Main">
+      <a href="/#geo">AI / GEO</a>
+      <a href="/services/">Services</a>
+      <a href="/research/" aria-current="page">Research</a>
+      <a href="/#clients">Clients</a>
+      <a href="/#experience" class="hide-m">Experience</a>
+      <a href="/#proof" class="hide-m">Publications</a>
+      <a class="cta" href="#contact">Write to me</a>
+    </nav>
+  </div>
+</header>
+
+<nav class="crumbs" aria-label="Breadcrumb">
+  <div class="wrap"><a href="/">Home</a> › <a href="/research/">Research</a> › Why site-wide CTR is low</div>
+</nav>
+
+<main>
+
+<article>
+<section class="hero" style="padding:40px 0 8px">
+  <div class="wrap" style="display:block">
+    <span class="kicker">Research · Original data</span>
+    <h1 style="max-width:30ch">Why is your site-wide CTR so low? <span class="accent">It is rarely page 2</span></h1>
+    <p class="article-meta">By <b>Stanislav Peev</b>, SEO consultant &amp; GEO specialist · Published <b><time datetime="2026-10-26">October 26, 2026</time></b> · 15 sites, 2.85 million impressions, 28 days of Search Console data · <a href="data-sites.csv">Download the data (CSV)</a> · 13 min read</p>
+  </div>
+</section>
+
+<section style="padding:0 0 72px">
+  <div class="wrap article">
+
+    <div class="hero-stat">
+      <span class="big">58%</span>
+      <p><b>Why is my site-wide CTR so low?</b> Mostly because of where your impressions sit, and how few of your searches are for your name. On the median of 15 sites, positions 4 to 10 held 58% of non-branded impressions at a 1.4% CTR, while positions 1 to 3 held 19% of impressions and earned 37% of clicks. Page 2 was a much smaller drag: keeping only top-10 queries lifted the median site's non-branded CTR from just 1.2% to 1.5%.</p>
+      <span class="src">My data: Search Console, web search, September 26 to October 23, 2026. Published benchmarks for comparison: <a href="#src-5">Ahrefs</a> (1% to 2% is typical) and <a href="#src-6">Databox</a> (0.91% median).</span>
+    </div>
+
+    <div class="takeaways">
+      <h2>Key takeaways</h2>
+      <ul>
+        <li><b>4.1% vs 1.2%</b> - median site-wide CTR with and without branded searches. The total you see in Search Console says more about how often people search your name than about your snippets</li>
+        <li><b>3.5% of impressions, 24% of clicks</b> - what branded queries contributed on the median site, at a 25% CTR. Sites with the highest site-wide CTR were the ones whose clicks came mostly from branded searches</li>
+        <li><b>58% of impressions at 1.4% CTR</b> - positions 4 to 10 on the median site, non-branded queries only. It was the biggest position band on 10 of the 15 sites</li>
+        <li><b>+17%</b> - median lift in non-branded CTR when you drop everything below position 10. Page 2 was the main drag on two sites, one with 73% of its impressions beyond position 10</li>
+        <li><b>43% of impressions are invisible</b> - the median share of impressions that never shows up in the query table, because Google anonymizes rare queries. Any query-level CTR analysis sees only part of the site</li>
+        <li><b>No clear drop in a year</b> - median site-wide CTR was 3.5% in autumn 2025 and 3.8% in autumn 2026 for the 14 sites with data in both years, though 9 of them went down</li>
+      </ul>
+    </div>
+
+    <div class="toc">
+      <h2>What's in this study</h2>
+      <ol>
+        <li><a href="#why">Why I ran this</a></li>
+        <li><a href="#normal">What is a normal site-wide CTR?</a></li>
+        <li><a href="#brand">How much do branded searches inflate CTR?</a></li>
+        <li><a href="#positions">Where do the non-branded impressions sit?</a></li>
+        <li><a href="#page2">Does page 2 drag your CTR down?</a></li>
+        <li><a href="#hidden">Why your query rows do not add up</a></li>
+        <li><a href="#yoy">Did site-wide CTR fall in the last year?</a></li>
+        <li><a href="#check">How to diagnose a low CTR on your own site</a></li>
+        <li><a href="#calc">Calculator: split your CTR into four groups</a></li>
+        <li><a href="#methodology">Methodology and limitations</a></li>
+        <li><a href="#faq">Frequently asked questions</a></li>
+      </ol>
+    </div>
+
+    <h2 id="why">1. Why I ran this</h2>
+    <p class="capsule">In one week of October 2026, four Reddit threads asked the same thing: why does my site get so many impressions and so few clicks? Three of them reported site-wide CTRs between 0.2% and 0.6%. The answers offered advice but no numbers.</p>
+    <p>A niche content site had 275,000 impressions and about 600 clicks in 28 days, a 0.2% CTR, and asked whether to fix titles or rankings (<a href="#src-1">r/SEO</a>). Another site had 136,000 weekly impressions at 0.3% and an average position of 8.2 (<a href="#src-2">r/SEO</a>). An agency founder had 600 keywords and almost no clicks (<a href="#src-3">r/SEO</a>). A ten-year-old hobby site had 1.17 million impressions at 0.6% (<a href="#src-4">r/bigseo</a>).</p>
+    <p>The best replies said the same sensible thing: stop looking at the site-wide number, split it by position, and check the top 10 separately. Nobody showed what that split usually looks like, or how much each part moves the total. So I ran it on the Search Console data of 15 sites I work on: small business, ecommerce and information sites, mostly in Bulgarian, with some Slovak, English and Romanian search. I keep the sites anonymous. The <a href="data-sites.csv">per-site file</a> labels them Site A to Site O, sorted from the lowest site-wide CTR to the highest.</p>
+
+    <h2 id="normal">2. What is a normal site-wide CTR?</h2>
+    <p class="capsule">Published benchmarks put the typical site at roughly 1% to 2%, and below 1% is common for newer sites. My 15 sites had a median of 4.1%, but only 1.2% once branded searches are removed.</p>
+    <div class="table-wrap"><table class="metric-table">
+      <thead><tr><th>Benchmark</th><th>Sample</th><th>Site-wide CTR</th></tr></thead>
+      <tbody>
+        <tr><td><a href="#src-5">Ahrefs</a>, June 2026 data</td><td>422,421 websites</td><td class="v">1% to 2% typical</td></tr>
+        <tr><td><a href="#src-6">Databox</a>, Search Console median</td><td>Over 4,800 companies</td><td class="v">0.91%</td></tr>
+        <tr><td>This study, all queries (median site)</td><td>15 sites</td><td class="v hi">4.1%</td></tr>
+        <tr><td>This study, non-branded queries only (median site)</td><td>15 sites</td><td class="v hi">1.2%</td></tr>
+      </tbody>
+    </table></div>
+    <p>The range in my sample is wide: from 0.36% to 24.5% for all queries. Two of the 15 sites were under 1% site-wide, and four were under 1% on non-branded queries. Ahrefs also found that the median rises steadily with Domain Rating, roughly six times from the weakest to the strongest sites, and reads that as recognition: people click names they know (<a href="#src-5">Ahrefs</a>, vendor). My data points the same way from a different angle, which is the next section.</p>
+    <p>So a 0.2% site-wide CTR is low, but the number alone does not show a fault. Look at what is inside it. One more caution: the published benchmarks include branded searches, so compare them with your total, and compare your non-branded CTR only with other non-branded figures, such as the ones in this study.</p>
+
+    <h2 id="brand">3. How much do branded searches inflate CTR?</h2>
+    <p class="capsule">A lot. On the median site, branded queries were 3.5% of impressions but 24% of clicks, at a 25% CTR. Sites with a bigger share of branded clicks tended to have a higher site-wide CTR, though not always.</p>
+    <div class="stat-callout"><span class="val">24%</span><div><p>Median share of clicks from branded searches, from just 3.5% of impressions. Across all 15 sites, branded queries made up 7% of visible impressions and 45% of visible clicks.</p><span class="src">15 sites, visible query rows, my data</span></div></div>
+    <p>The rank correlation between a site's branded click share and its site-wide CTR was 0.64: strong, with exceptions. Site M had a 10.5% site-wide CTR with only 10% of clicks branded and a 14.9% non-branded CTR. Two other sites show why the total misleads. Site O had a 24.5% site-wide CTR, the best in the sample, but 99% of its clicks were branded, and its non-branded CTR was 1.1%. Site H looked healthy at 4.1% site-wide, with 89% of its clicks branded and a non-branded CTR of 0.56%.</p>
+    <p>That is why comparing your total CTR with someone else's tells you little. A local restaurant that people search by name and a new content site that nobody knows yet can have the same snippets and very different totals. If you report CTR to a client or a boss, report non-branded CTR next to it. The same mix problem distorts other channel comparisons, for example <a href="/research/ai-referral-traffic-conversion-vs-organic/">AI referral traffic against organic</a>.</p>
+
+    <h2 id="positions">4. Where do the non-branded impressions sit?</h2>
+    <p class="capsule">Mostly on the lower half of page 1. On the median site, positions 4 to 10 held 58% of non-branded impressions at a 1.4% CTR, while positions 1 to 3 held 19% of impressions and earned 37% of the clicks.</p>
+    <div class="table-wrap"><table class="metric-table">
+      <thead><tr><th>Average position (non-branded, median site)</th><th>Share of impressions</th><th>Share of clicks</th><th>CTR</th></tr></thead>
+      <tbody>
+        <tr><td>1-3</td><td class="v">19%</td><td class="v hi">37%</td><td class="v">6.6%</td></tr>
+        <tr><td>4-5</td><td class="v">12%</td><td class="v">21%</td><td class="v">2.3%</td></tr>
+        <tr><td>6-10</td><td class="v hi">37%</td><td class="v">27%</td><td class="v">1.1%</td></tr>
+        <tr><td>4-10 together</td><td class="v hi">58%</td><td class="v">52%</td><td class="v">1.4%</td></tr>
+        <tr><td>11 and deeper</td><td class="v">20%</td><td class="v">6%</td><td class="v">0.38%</td></tr>
+      </tbody>
+    </table></div>
+    <div class="bar-chart" role="img" aria-label="Pooled non-branded CTR by average position: 1 is 12.0 percent, 2 is 9.0, 3 is 4.1, 4 is 3.4, 5 is 2.6, 6 is 1.05, 7 is 1.55, 8 is 0.88, 9 is 0.75, 10 is 0.61">
+      <div class="bar-row"><span class="lbl">Position 1</span><div class="bar-track"><div class="bar-fill" style="width:100%">12.0%</div></div></div>
+      <div class="bar-row"><span class="lbl">Position 2</span><div class="bar-track"><div class="bar-fill" style="width:75%">9.0%</div></div></div>
+      <div class="bar-row"><span class="lbl">Position 3</span><div class="bar-track"><div class="bar-fill" style="width:34%">4.1%</div></div></div>
+      <div class="bar-row"><span class="lbl">Position 4</span><div class="bar-track"><div class="bar-fill" style="width:28%">3.4%</div></div></div>
+      <div class="bar-row"><span class="lbl">Position 5</span><div class="bar-track"><div class="bar-fill" style="width:22%">2.6%</div></div></div>
+      <div class="bar-row"><span class="lbl">Positions 6-10</span><div class="bar-track"><div class="bar-fill dim" style="width:8%">0.95%</div></div></div>
+    </div>
+    <p>Each cell is the median across the 15 sites, so the columns do not add up to 100%. Positions 4 to 10 were the biggest band on 10 of the 15 sites and held more than half of non-branded impressions on 8 of them. The chart pools all sites (1.64 million non-branded impressions and 32,380 clicks in positions 1 to 20), where one large site makes up about half of the impressions, so read it for the shape of the curve, not the shares. The per-site medians follow the same shape, from 11.9% at position 1 to 0.76% at position 10. Without the largest site, the pooled split is close to the median: positions 4 to 10 held 58% of impressions and 39% of clicks, positions 1 to 3 held 19% of impressions and 57% of clicks.</p>
+    <p>Most "impressions but no clicks" threads miss this. On most of these sites the bulk of impressions sits on the lower half of page 1, not on page 2: shown often but rarely clicked, under ads, AI Overviews, a map pack or a block of forum results. Average position also hides it. A query reported at position 8 can be a result that moves between 5 and 11 during the month. For the queries that also show an AI Overview, I measured the extra loss separately: <a href="/research/ai-overviews-ctr-same-query/">CTR fell 28% on the same query a year later</a>.</p>
+
+    <h2 id="page2">5. Does page 2 drag your CTR down?</h2>
+    <p class="capsule">Not much, on most sites. Keeping only non-branded queries in the top 10 raised each site's CTR by a median of 17%; the median site's non-branded CTR went from 1.2% to 1.5% (the two medians come from different sites, which is why they differ by more than 17%). Page 2 matters on the sites where it holds a big share of impressions.</p>
+    <div class="table-wrap"><table class="metric-table">
+      <thead><tr><th>Measure (15 sites)</th><th>Median</th><th>Range</th></tr></thead>
+      <tbody>
+        <tr><td>Share of impressions beyond position 10</td><td class="v">19%</td><td>0.4% to 73%</td></tr>
+        <tr><td>Share of impressions beyond position 20</td><td class="v">4%</td><td>0.2% to 33%</td></tr>
+        <tr><td>Share of clicks from the top 10</td><td class="v">95%</td><td>62% to 99.9%</td></tr>
+        <tr><td>Lift in non-branded CTR from dropping positions 11+</td><td class="v hi">+17%</td><td>+1% to +113%</td></tr>
+      </tbody>
+    </table></div>
+    <p>The share of impressions beyond position 10 still matters as a warning sign. Its rank correlation with site-wide CTR was -0.72, and the two lowest sites in the sample show it. Site A had 73% of its visible impressions beyond position 10 and a 0.36% site-wide CTR. Site B had 49% beyond position 10 and 0.96%. For sites like these, the reply in the <a href="#src-4">r/bigseo thread</a> is right: most impressions live in a tail where nobody clicks, and no title rewrite fixes that.</p>
+    <p>For the other 13 sites, page 2 was a minor part of the picture: positions 11 and deeper held a median 20% of non-branded impressions and earned 6% of the clicks. Older advice about deep impressions also predates a change: since September 9, 2025, Google no longer honors the &amp;num=100 parameter that rank-tracking bots used to load 100 results at once, which had inflated impressions at deep positions; by November 2025 impressions were climbing again as tools adapted (<a href="#src-8">Measure Minds Group</a>, vendor). Both of my windows fall after that change, and the share of impressions beyond position 10 was 19% on the median site in both years.</p>
+
+    <h2 id="hidden">6. Why your query rows do not add up</h2>
+    <p class="capsule">Because Google hides rare queries from the query table but keeps them in the totals. On the median site, visible query rows covered 57% of impressions and 48% of clicks.</p>
+    <p>Google calls these anonymized queries: searches not issued by more than a few dozen users over two to three months. They are always left out of the tables and included in the chart totals unless you filter by query (<a href="#src-7">Google Search Central</a>). That has two practical effects on a CTR analysis.</p>
+    <ul>
+      <li><b>Your position buckets describe about half of the site.</b> Everything in sections 4 and 5 is based on the visible rows. The hidden half is long-tail searches you cannot see one by one.</li>
+      <li><b>The hidden half often clicks better.</b> On 10 of the 15 sites, the anonymized remainder had a higher CTR than the visible queries. That is why a site's top-10 CTR can come out lower than its site-wide CTR. My data does not show why; one likely reason is that rare, very specific searches often have one obvious result.</li>
+    </ul>
+    <p>If you filter by query to split branded from non-branded traffic, the anonymized queries drop out of both sides, so the two parts will not add up to the total. That is expected, not a bug.</p>
+
+    <h2 id="yoy">7. Did site-wide CTR fall in the last year?</h2>
+    <p class="capsule">Not clearly. For the 14 sites with enough data in both years, the median site-wide CTR went from 3.5% to 3.8%, but 9 of the 14 sites went down. The median top-10 CTR stayed at 3.7%.</p>
+    <p>I compared September 27 to October 24, 2025 with September 26 to October 23, 2026, the same weekdays a year apart. Site-wide CTR is a weak measure for this question, because it moves with the query mix: a site that starts ranking for a big new informational term can lose CTR while gaining traffic. When I compared the same query at the same position a year apart, the loss was clear on queries with an AI Overview and unclear on the rest (<a href="/research/ai-overviews-ctr-same-query/">same-query study</a>). For trend questions, use same-query comparisons, not the site-wide line.</p>
+
+    <h2 id="check">8. How to diagnose a low CTR on your own site</h2>
+    <p class="capsule">Split the site-wide number into branded queries, non-branded positions 1 to 3, non-branded 4 to 10, and non-branded 11 and beyond (11+), then see which group holds the impressions and which one earns the clicks.</p>
+    <ol>
+      <li><b>Export 28 days of queries</b> from the Performance report or the API, with clicks, impressions and position. Note the chart totals before you filter anything.</li>
+      <li><b>Tag branded queries</b>: your name, its misspellings, and brands you sell if people search for them. Track non-branded CTR as your main number, and compare it with non-branded figures such as the 1.2% median in this study, not with total-CTR benchmarks.</li>
+      <li><b>Bucket the non-branded rows by average position</b>: 1-3, 4-10 and 11+. Sum clicks and impressions per bucket. The calculator below does the rest.</li>
+      <li><b>Read the result.</b> If 11+ holds most of the impressions, as on Site A, the problem is ranking and relevance: prune or merge pages that rank for queries you should not target, and pause publishing new pages for a while. If 4-10 holds most of them, as on 10 of the 15 sites here, the lever is moving a smaller number of pages into the top 3, then checking the live results page of each query for AI Overviews, ads and map packs above you.</li>
+      <li><b>Only then work on titles and descriptions</b>, for queries in positions 1 to 5 whose CTR is clearly below the curve in section 4. A snippet rewrite rarely helps a result that nobody scrolls to.</li>
+    </ol>
+    <p>An <a href="/services/seo-audit/">SEO audit</a> that starts from this split usually finds the problem faster than one that starts from the site-wide CTR.</p>
+
+    <div class="explorer calc" id="calc">
+      <h2 style="margin-top:0">9. Calculator: split your CTR into four groups</h2>
+      <p>Enter clicks and impressions from your Search Console export for each group.</p>
+      <div class="calc-grid">
+        <fieldset><legend>Branded queries</legend>
+          <label>Clicks <input type="number" min="0" id="b_c" value="26181"></label>
+          <label>Impressions <input type="number" min="0" id="b_i" value="125607"></label>
+        </fieldset>
+        <fieldset><legend>Non-branded, positions 1-3</legend>
+          <label>Clicks <input type="number" min="0" id="t3_c" value="15129"></label>
+          <label>Impressions <input type="number" min="0" id="t3_i" value="183209"></label>
+        </fieldset>
+        <fieldset><legend>Non-branded, positions 4-10</legend>
+          <label>Clicks <input type="number" min="0" id="t10_c" value="15913"></label>
+          <label>Impressions <input type="number" min="0" id="t10_i" value="1256812"></label>
+        </fieldset>
+        <fieldset><legend>Non-branded, positions 11+</legend>
+          <label>Clicks <input type="number" min="0" id="deep_c" value="1338"></label>
+          <label>Impressions <input type="number" min="0" id="deep_i" value="199698"></label>
+        </fieldset>
+      </div>
+      <div class="calc-out" id="calcOut" aria-live="polite"></div>
+      <p class="count">Pre-filled with this study's pooled visible totals (the 11+ group here covers positions 11 to 20). Nothing you type leaves your browser.</p>
+    </div>
+
+    <h2 id="methodology">10. Methodology and limitations</h2>
+    <p class="capsule">Search Console data from 15 sites, web search, all countries and devices, September 26 to October 23, 2026, with the same window in 2025 for the year-over-year check.</p>
+    <ul>
+      <li><b>Sites:</b> 15 small business, ecommerce and information sites I work on, in several verticals, mostly in Bulgarian search. Two more properties had too little data and were left out. Names, verticals and query text are withheld.</li>
+      <li><b>Totals:</b> daily clicks and impressions from the date dimension, which include anonymized queries: 2,853,158 impressions and 101,412 clicks in 2026.</li>
+      <li><b>Query rows:</b> the query dimension for the same 28 days, up to 25,000 rows per site; no site reached the limit. Position is the average position Search Console reports for the query over the period, rounded for the per-position curve.</li>
+      <li><b>Branded queries</b> were tagged with a keyword list per site: the site's name and its spellings, and brands the site sells when people search for them. A keyword list misses some variants.</li>
+      <li><b>Pooled vs median:</b> tables that say "pooled" sum all sites, so large sites weigh more. Medians are per site. Both are shown where they differ.</li>
+      <li><b>Year-over-year:</b> 14 sites with more than 5,000 impressions in the 2025 window.</li>
+      <li><b>Limits:</b> 15 sites is a small, non-random sample, heavy on Bulgarian and on small businesses; large publishers will look different. Average position is a blend, so a query at 8 may spend days at 5 and at 11. This is descriptive data, not a test of what causes CTR.</li>
+      <li><b>Data:</b> <a href="data-sites.csv">data-sites.csv</a> (one anonymized row per site) and <a href="data-summary.json">data-summary.json</a> (every number on this page), CC BY 4.0.</li>
+    </ul>
+
+    <h2 id="faq">11. Frequently asked questions</h2>
+    <div class="faq">
+      <details>
+        <summary>What is a normal site-wide CTR in Google Search Console?</summary>
+        <p>Most benchmarks put the typical site between about 1% and 2%. Ahrefs reports 1% to 2% as the usual range across 422,421 websites, and Databox lists a 0.91% median for Search Console CTR. In my 15 sites the median was 4.1% for all queries but 1.2% for non-branded queries, because a few branded searches with very high CTR lift the total.</p>
+      </details>
+      <details>
+        <summary>Why do I have lots of impressions but a very low CTR?</summary>
+        <p>Usually because most of your impressions sit in positions 4 to 10, not on page 2. On the median site in my data, positions 4-10 held 58% of non-branded impressions at a 1.4% CTR, while positions 1-3 held 19% of impressions and earned 37% of clicks. A site with almost no branded searches will also look low, since branded queries carry a large share of clicks.</p>
+      </details>
+      <details>
+        <summary>Does page 2 drag down my CTR?</summary>
+        <p>Less than most people think. Keeping only non-branded queries in the top 10 raised CTR by a median of 17% across my 15 sites, from 1.2% to 1.5%. Page 2 matters only on sites where it holds a big share of impressions; on one site, 73% of impressions were beyond position 10 and its site-wide CTR was 0.36%.</p>
+      </details>
+      <details>
+        <summary>How much do branded searches affect site-wide CTR?</summary>
+        <p>A lot. Branded queries were a median 3.5% of impressions but 24% of clicks, with a median CTR of 25%. Sites with a bigger branded share of clicks tended to have a higher site-wide CTR, so compare non-branded CTR with non-branded CTR, not totals.</p>
+      </details>
+      <details>
+        <summary>Why don't my Search Console query rows add up to the total?</summary>
+        <p>Because Google hides anonymized queries (those not issued by more than a few dozen users over two to three months) from the query table but keeps them in the chart totals. In my sites the visible query rows covered a median 57% of impressions and 48% of clicks, so any analysis by query sees only part of the site.</p>
+      </details>
+      <details>
+        <summary>Has site-wide CTR dropped in the last year?</summary>
+        <p>Not clearly in my data. For 14 sites with data in both years, the median site-wide CTR was 3.5% in autumn 2025 and 3.8% in autumn 2026, though 9 of the 14 sites went down. Same-query comparisons show a clearer loss where an AI Overview appears, which I measured separately.</p>
+      </details>
+    </div>
+
+    <h2 id="sources">Sources</h2>
+    <ol class="sources">
+      <li id="src-1" value="1">r/SEO. "Getting 200k+ Google impressions but only 0.2% CTR. What should I improve?" October 25, 2026. <a href="https://www.reddit.com/r/SEO/comments/1xf4lgy/getting_200k_google_impressions_but_only_02_ctr/" rel="noopener">reddit.com/r/SEO/comments/1xf4lgy/getting_200k_google_impressions_but_only_02_ctr/</a>. Accessed October 26, 2026.</li>
+      <li id="src-2" value="2">r/SEO. "How do I get more clicks on AI overviews?" October 21, 2026. <a href="https://www.reddit.com/r/SEO/comments/1xbkpaq/how_do_i_get_more_clicks_on_ai_overviews/" rel="noopener">reddit.com/r/SEO/comments/1xbkpaq/how_do_i_get_more_clicks_on_ai_overviews/</a>. Accessed October 26, 2026.</li>
+      <li id="src-3" value="3">r/SEO. "6 months of SEO on a competitive agency niche: 600+ keywords, tons of impressions, almost no clicks." October 22, 2026. <a href="https://www.reddit.com/r/SEO/comments/1xca0da/6_months_of_seo_on_a_competitive_agency_niche_600/" rel="noopener">reddit.com/r/SEO/comments/1xca0da/6_months_of_seo_on_a_competitive_agency_niche_600/</a>. Accessed October 26, 2026.</li>
+      <li id="src-4" value="4">r/bigseo. "Have 1.17M impression, 0.6 CTR. How can I improve my CTR?" October 26, 2026. <a href="https://www.reddit.com/r/bigseo/comments/1xfo8z7/have_117m_impression_06_ctr_how_can_i_improve_my/" rel="noopener">reddit.com/r/bigseo/comments/1xfo8z7/have_117m_impression_06_ctr_how_can_i_improve_my/</a>. Accessed October 26, 2026.</li>
+      <li id="src-5" value="5">Ryan Law, Ahrefs. "What is a Good Organic CTR? Real Website Benchmarks (July 2026)." Search Console data from 422,421 websites. June 22, 2026, updated monthly. <em>Vendor: sells SEO or analytics products.</em> <a href="https://ahrefs.com/blog/what-is-a-good-ctr/" rel="noopener">ahrefs.com/blog/what-is-a-good-ctr/</a>. Accessed October 26, 2026.</li>
+      <li id="src-6" value="6">Databox. "Organic and Paid CTR Benchmarks." Data contributed by over 4,800 companies; Google Search Console median CTR. Last updated October 26, 2026. <em>Vendor: sells SEO or analytics products.</em> <a href="https://databox.com/benchmarks/ctr-benchmarks" rel="noopener">databox.com/benchmarks/ctr-benchmarks</a>. Accessed October 26, 2026.</li>
+      <li id="src-7" value="7">Daniel Waisberg, Google Search Central Blog. "A deep dive into Search Console performance data filtering and limits." October 19, 2022. <a href="https://developers.google.com/search/blog/2022/10/performance-data-deep-dive" rel="noopener">developers.google.com/search/blog/2022/10/performance-data-deep-dive</a>. Accessed October 26, 2026.</li>
+      <li id="src-8" value="8">Alex Szwabowicz, Measure Minds Group. "Google Search Console September 2025: Why Have Impressions Dropped &amp; Rankings Improved?" September 16, 2025, updated November 19, 2025. <em>Vendor: sells SEO or analytics products.</em> <a href="https://measuremindsgroup.com/gsc-impressions-dropped-rankings-improved" rel="noopener">measuremindsgroup.com/gsc-impressions-dropped-rankings-improved</a>. Accessed October 26, 2026.</li>
+    </ol>
+    <p class="updated">Last updated: <time datetime="2026-10-26">October 26, 2026</time>. Related research: <a href="/research/">all studies</a>.</p>
+
+  </div>
+</section>
+</article>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div>© 2026 Stanislav Peev · SEO Consultant &amp; AI Search (GEO) Specialist, Bratislava, Slovakia</div>
+    <nav class="footer-nav" aria-label="Footer">
+      <a href="/">Home</a>
+      <a href="/#geo">AI / GEO</a>
+      <a href="/services/">Services</a>
+      <a href="/services/seo-audit/">SEO Audit</a>
+      <a href="/services/small-business-seo/">Small Business SEO</a>
+      <a href="/research/">Research</a>
+      <a href="https://www.linkedin.com/in/stanislav-peev-seo/" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" style="width:1em;height:1em;vertical-align:-.15em;margin-right:.35em;fill:currentColor"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29ZM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13ZM7.12 20.45H3.56V9h3.56v11.45ZM22.22 0H1.77C.79 0 0 .77 0 1.72v20.55C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0Z"/></svg>LinkedIn</a>
+      <a href="https://www.youtube.com/@stanislav_peev" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" style="width:1em;height:1em;vertical-align:-.15em;margin-right:.35em;fill:currentColor"><path d="M23.5 6.2a3 3 0 0 0-2.11-2.12C19.5 3.55 12 3.55 12 3.55s-7.5 0-9.39.53A3 3 0 0 0 .5 6.2 31.3 31.3 0 0 0 0 12a31.3 31.3 0 0 0 .5 5.8 3 3 0 0 0 2.11 2.12c1.89.53 9.39.53 9.39.53s7.5 0 9.39-.53A3 3 0 0 0 23.5 17.8 31.3 31.3 0 0 0 24 12a31.3 31.3 0 0 0-.5-5.8ZM9.55 15.57V8.43L15.82 12l-6.27 3.57Z"/></svg>YouTube</a>
+      <a href="/privacy/">Privacy</a>
+    </nav>
+  </div>
+</footer>
+
+<button class="to-top" id="toTop" aria-label="Back to top" title="Back to top">↑</button>
+<script>
+(function () {
+  var t = document.getElementById('toTop');
+  addEventListener('scroll', function () { t.classList.toggle('show', scrollY > 600); }, { passive: true });
+  t.addEventListener('click', function () { scrollTo({ top: 0, behavior: 'smooth' }); });
+  var g = ['b', 't3', 't10', 'deep'], out = document.getElementById('calcOut');
+  var names = { b: 'Branded', t3: 'Non-branded 1-3', t10: 'Non-branded 4-10', deep: 'Non-branded 11+' };
+  function v(id) { var x = parseFloat(document.getElementById(id).value); return isFinite(x) && x >= 0 ? x : 0; }
+  function p(x) { return (x * 100).toFixed(x < 0.1 ? 2 : 1) + '%'; }
+  function cell(val, lbl, warn) { return '<div class="cell' + (warn ? ' warn' : '') + '"><b>' + val + '</b><span>' + lbl + '</span></div>'; }
+  function run() {
+    var I = 0, C = 0, d = {};
+    g.forEach(function (k) { d[k] = [v(k + '_c'), v(k + '_i')]; C += d[k][0]; I += d[k][1]; });
+    if (!I) { out.innerHTML = cell('-', 'Enter impressions for at least one group'); return; }
+    var nbI = I - d.b[1], nbC = C - d.b[0], topI = d.t3[1] + d.t10[1], topC = d.t3[0] + d.t10[0];
+    var html = cell(p(C / I), 'CTR of all four groups') + cell(nbI ? p(nbC / nbI) : '-', 'Non-branded CTR') +
+      cell(topI ? p(topC / topI) : '-', 'Non-branded CTR, top 10 only') +
+      cell(C ? p(d.b[0] / C) : '-', 'Share of clicks from branded queries');
+    var worst = null;
+    g.slice(1).forEach(function (k) { if (d[k][1] && (!worst || d[k][1] > d[worst][1])) worst = k; });
+    if (worst) html += cell(p(d[worst][1] / I), 'Largest impression share: ' + names[worst] + ' at ' + p(d[worst][1] ? d[worst][0] / d[worst][1] : 0) + ' CTR', worst !== 't3');
+    out.innerHTML = html;
+  }
+  g.forEach(function (k) { ['_c', '_i'].forEach(function (s) { document.getElementById(k + s).addEventListener('input', run); }); }); run();
+})();
+</script>
+<script src="/assets/agent-tools.js?v=1" defer></script>
+</body>
+</html>

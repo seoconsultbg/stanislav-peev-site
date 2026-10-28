@@ -1,0 +1,169 @@
+{
+ "date": "2026-10-26",
+ "n_serps": 407,
+ "aio_present_share": 0.941,
+ "aio_present_share_by_market": {
+  "Bulgarian": 0.96,
+  "Slovak": 0.8962,
+  "English": 0.9716,
+  "Romanian": 0.7
+ },
+ "median_max_org_rank": 90,
+ "aio_url_bands": {
+  "1-3": 0.1158,
+  "4-10": 0.1695,
+  "11-20": 0.0358,
+  "21-100": 0.0317,
+  "not in top 100": 0.6471,
+  "n": 2961
+ },
+ "aio_dom_bands": {
+  "1-3": 0.228,
+  "4-10": 0.2364,
+  "11-20": 0.0881,
+  "21-100": 0.0996,
+  "not in top 100": 0.3479,
+  "n": 2961
+ },
+ "aio_url_bands_by_market": {
+  "Bulgarian": {
+   "1-3": 0.1259,
+   "4-10": 0.1827,
+   "11-20": 0.0386,
+   "21-100": 0.0274,
+   "not in top 100": 0.6254,
+   "n": 985
+  },
+  "Slovak": {
+   "1-3": 0.1375,
+   "4-10": 0.2218,
+   "11-20": 0.0402,
+   "21-100": 0.0259,
+   "not in top 100": 0.5746,
+   "n": 771
+  },
+  "English": {
+   "1-3": 0.0907,
+   "4-10": 0.1246,
+   "11-20": 0.0305,
+   "21-100": 0.0373,
+   "not in top 100": 0.7169,
+   "n": 1180
+  }
+ },
+ "aio_queries_with_refs": 380,
+ "aio_any_cited_in_top10": 0.5237,
+ "aio_none_in_top100": 0.4395,
+ "aio_median_refs": 7.0,
+ "aio_google_internal_refs": {
+  "n": 294,
+  "of_raw_refs": 3293,
+  "aios_with_one": 27
+ },
+ "aio_median_query_share_top10": 0.1111111111111111,
+ "aio_url_top10_ci95": [
+  0.2537,
+  0.3182
+ ],
+ "organic_top3_url_cited_share": 0.3009,
+ "cited_share_by_position": {
+  "1": 0.3395,
+  "2": 0.2947,
+  "3": 0.2684,
+  "4": 0.2507,
+  "5": 0.1953,
+  "6": 0.2032,
+  "7": 0.209,
+  "8": 0.1833,
+  "9": 0.1727,
+  "10": 0.1391,
+  "11": 0.0741,
+  "12": 0.0391,
+  "13": 0.0327,
+  "14": 0.0297,
+  "15": 0.0215,
+  "16": 0.0245,
+  "17": 0.0219,
+  "18": 0.0225,
+  "19": 0.0167,
+  "20": 0.0115
+ },
+ "non_ranking": {
+  "n": 1916,
+  "social_video_share": 0.1461,
+  "by_platform": {
+   "youtube.com": 0.0465,
+   "facebook.com": 0.0522,
+   "instagram.com": 0.0224,
+   "reddit.com": 0.0177,
+   "tiktok.com": 0.0031,
+   "linkedin.com": 0.0042,
+   "x.com": 0.0,
+   "twitter.com": 0.0,
+   "pinterest.com": 0.0
+  },
+  "youtube_share": 0.0465,
+  "domain_ranks_top10_share": 0.2338,
+  "domain_ranks_top100_share": 0.4624
+ },
+ "stability": {
+  "pairs": 378,
+  "aio_still_shown": 0.941,
+  "median_url_jaccard": 0.3229,
+  "median_domain_jaccard": 0.4286,
+  "median_share_of_oct19_urls_still_cited": 0.5,
+  "share_pairs_zero_url_overlap": 0.1984
+ },
+ "chatgpt": {
+  "queries": 200,
+  "with_citations": 0.985,
+  "median_cited": 4.0,
+  "fanout_differs_from_query": 0.985,
+  "fanout_adds_2026": 0.435,
+  "fanout_only_english_for_bg_sk": 0.1357,
+  "url_bands": {
+   "1-3": 0.0118,
+   "4-10": 0.0258,
+   "11-20": 0.0204,
+   "21-100": 0.029,
+   "not in top 100": 0.9131,
+   "n": 932
+  },
+  "dom_bands": {
+   "1-3": 0.103,
+   "4-10": 0.1148,
+   "11-20": 0.0687,
+   "21-100": 0.1116,
+   "not in top 100": 0.6019,
+   "n": 932
+  },
+  "url_bands_by_market": {
+   "Bulgarian": {
+    "1-3": 0.0168,
+    "4-10": 0.0168,
+    "11-20": 0.0084,
+    "21-100": 0.0279,
+    "not in top 100": 0.9302,
+    "n": 358
+   },
+   "Slovak": {
+    "1-3": 0.0129,
+    "4-10": 0.0452,
+    "11-20": 0.0258,
+    "21-100": 0.0226,
+    "not in top 100": 0.8935,
+    "n": 310
+   },
+   "English": {
+    "1-3": 0.0038,
+    "4-10": 0.0152,
+    "11-20": 0.0303,
+    "21-100": 0.0379,
+    "not in top 100": 0.9129,
+    "n": 264
+   }
+  },
+  "cited_url_also_in_aio": 0.0891,
+  "cited_domain_also_in_aio": 0.2275
+ }
+}

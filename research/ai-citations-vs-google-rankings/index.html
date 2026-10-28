@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cited by AI without ranking in Google? Data from 407 queries</title>
+<meta name="description" content="65% of AI Overview citations and 91% of ChatGPT citations were pages outside Google&#x27;s top 100 for the query. Original data, Bulgarian, Slovak, English.">
+<link rel="canonical" href="https://stanislav-peev.com/research/ai-citations-vs-google-rankings/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Stanislav Peev">
+<meta property="og:title" content="Can you get cited in AI answers without ranking in Google? Usually, yes">
+<meta property="og:description" content="Original data from 407 queries in Bulgarian, Slovak and English search: 65% of AI Overview citations and 91% of ChatGPT citations were pages that did not rank in Google&#x27;s top 100 for the same query. Ranking still helps: the #1 result was cited 34% of the time, #11 just 7%.">
+<meta property="og:url" content="https://stanislav-peev.com/research/ai-citations-vs-google-rankings/">
+<meta property="og:image" content="https://stanislav-peev.com/research/ai-citations-vs-google-rankings/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="65% of AI Overview citations and 91% of ChatGPT citations did not rank in Google&#x27;s top 100. Original data, 407 queries">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:creator" content="@SeoPeev">
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="alternate" type="application/rss+xml" title="Stanislav Peev - SEO &amp; AI Search Research" href="/rss.xml">
+<link rel="stylesheet" href="/assets/site.css?v=6">
+<style>
+.article-meta { font-size: .9rem; color: var(--ink-soft); margin-bottom: 34px; }
+.article-meta b { color: var(--ink); }
+.hero-stat {
+  background: linear-gradient(135deg, var(--surface), var(--band));
+  border: 1px solid var(--green); border-radius: 18px;
+  padding: 36px 32px; text-align: center; margin: 0 0 40px;
+}
+.hero-stat .big {
+  font-family: var(--serif); font-size: clamp(3.2rem, 8vw, 5rem);
+  color: var(--green); font-weight: 700; line-height: 1; display: block; margin-bottom: 12px;
+}
+.hero-stat p { color: var(--ink); font-size: 1.1rem; max-width: 62ch; margin: 0 auto 8px; }
+.hero-stat .src { font-size: .85rem; color: var(--ink-soft); }
+.takeaways {
+  background: var(--surface); border: 1px solid var(--line); border-left: 4px solid var(--green);
+  border-radius: 12px; padding: 26px 28px; margin: 0 0 40px;
+}
+.takeaways h2 {
+  font-family: var(--sans); font-size: .8rem; font-weight: 700; letter-spacing: .12em;
+  text-transform: uppercase; color: var(--green); margin-bottom: 14px;
+}
+.takeaways ul { list-style: none; display: grid; gap: 10px; }
+.takeaways li { padding-left: 22px; position: relative; color: var(--ink-soft); font-size: .98rem; }
+.takeaways li::before { content: '→'; position: absolute; left: 0; color: var(--green); }
+.takeaways li b { color: var(--ink); font-family: var(--serif); }
+.toc {
+  border: 1px solid var(--line); border-radius: 12px; padding: 22px 26px; margin: 0 0 48px;
+  background: var(--bg-alt);
+}
+.toc h2 { font-family: var(--sans); font-size: .95rem; margin-bottom: 12px; }
+.toc ol { margin-left: 20px; color: var(--ink-soft); display: grid; gap: 6px; font-size: .95rem; }
+.toc a { color: var(--green); text-decoration: none; }
+.toc a:hover { text-decoration: underline; }
+.article h2 { margin-top: 56px; margin-bottom: 16px; scroll-margin-top: 90px; }
+.article h3 { margin-top: 30px; margin-bottom: 10px; font-size: 1.1rem; }
+.article .capsule { color: var(--ink); font-size: 1.08rem; margin-bottom: 18px; max-width: 70ch; }
+.article p { color: var(--ink-soft); margin-bottom: 18px; max-width: 72ch; }
+.article p strong { color: var(--ink); }
+.article a { color: var(--green); }
+.article ul.plain { margin: 0 0 18px 20px; color: var(--ink-soft); max-width: 72ch; display: grid; gap: 8px; }
+.metric-table { width: 100%; border-collapse: collapse; margin: 22px 0; font-size: .95rem; }
+.metric-table th {
+  background: var(--band); color: var(--ink); text-align: left;
+  padding: 11px 14px; text-transform: uppercase; font-size: .76rem; letter-spacing: .07em;
+  border-bottom: 2px solid var(--green);
+}
+.metric-table td { padding: 11px 14px; border-bottom: 1px solid var(--line); color: var(--ink-soft); }
+.metric-table td.v { font-family: var(--serif); font-weight: 700; color: var(--green); white-space: nowrap; }
+.metric-table td.hi { color: var(--green); font-weight: 700; }
+.metric-table td.lo { color: var(--ink-soft); }
+.table-wrap { overflow-x: auto; }
+.stat-callout {
+  display: flex; align-items: center; gap: 22px; background: var(--surface);
+  border: 1px solid var(--line); border-left: 4px solid var(--green); border-radius: 12px;
+  padding: 20px 24px; margin: 24px 0;
+}
+.stat-callout .val {
+  font-family: var(--serif); font-size: 2.1rem; font-weight: 700; color: var(--green);
+  white-space: nowrap; min-width: 90px; text-align: center;
+}
+.stat-callout div p { margin: 0; font-size: .96rem; }
+.stat-callout div .src { font-size: .82rem; color: var(--ink-soft); margin-top: 4px; }
+.bar-chart { margin: 24px 0; display: grid; gap: 10px; max-width: 680px; }
+.bar-row { display: grid; grid-template-columns: 230px 1fr; align-items: center; gap: 12px; }
+.bar-row .lbl { font-size: .9rem; color: var(--ink-soft); text-align: right; }
+.bar-track { background: var(--band); border-radius: 6px; overflow: hidden; height: 30px; position: relative; }
+.bar-fill {
+  height: 100%; background: var(--green); border-radius: 6px;
+  display: flex; align-items: center; padding-left: 10px;
+  font-family: var(--serif); font-weight: 700; font-size: .88rem; color: var(--btn-text);
+  min-width: fit-content; white-space: nowrap;
+}
+.bar-fill.dim { background: var(--ink-soft); }
+.bar-note { font-size: .82rem; color: var(--ink-soft); margin-top: 2px; }
+.explorer {
+  background: var(--surface); border: 1px solid var(--green); border-radius: 16px;
+  padding: 24px; margin: 26px 0;
+}
+.explorer .controls { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 14px; }
+.explorer select, .explorer input[type="search"] {
+  background: var(--bg-alt); color: var(--ink); border: 1px solid var(--line); border-radius: 8px;
+  padding: 8px 10px; font-size: .92rem;
+}
+.explorer input[type="search"] { flex: 1; min-width: 180px; }
+.explorer .count { font-size: .88rem; color: var(--ink-soft); margin-bottom: 10px; }
+.explorer table { width: 100%; border-collapse: collapse; font-size: .86rem; }
+.explorer th { text-align: left; padding: 8px 10px; border-bottom: 2px solid var(--green); color: var(--ink); font-size: .74rem; text-transform: uppercase; letter-spacing: .06em; cursor: pointer; white-space: nowrap; }
+.explorer td { padding: 7px 10px; border-bottom: 1px solid var(--line); color: var(--ink-soft); vertical-align: top; }
+.explorer td a { color: var(--green); word-break: break-all; }
+.explorer .tag { display: inline-block; padding: 1px 7px; border-radius: 999px; font-size: .74rem; border: 1px solid var(--line); color: var(--ink); white-space: nowrap; }
+.explorer .tag.cmp { border-color: var(--green); color: var(--green); }
+.explorer .scroll { max-height: 520px; overflow: auto; }
+.data-box {
+  background: var(--bg-alt); border: 1px solid var(--line); border-radius: 12px;
+  padding: 22px 26px; margin: 26px 0;
+}
+.data-box h3 { font-size: 1rem; margin: 0 0 8px; }
+.data-box p { font-size: .92rem; margin-bottom: 10px; }
+.sources-list { font-size: .92rem; color: var(--ink-soft); margin-left: 20px; display: grid; gap: 10px; }
+.sources-list a { color: var(--green); word-break: break-all; }
+.updated { font-size: .88rem; color: var(--ink-soft); border-top: 1px solid var(--line); padding-top: 20px; margin-top: 48px; }
+@media (max-width: 640px) {
+  .bar-row { grid-template-columns: 1fr; gap: 4px; }
+  .bar-row .lbl { text-align: left; }
+  .stat-callout { flex-direction: column; align-items: flex-start; gap: 10px; }
+}
+.explorer.calc .calc-grid { display: grid; gap: 14px; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); margin-bottom: 18px; }
+.explorer.calc label { display: grid; gap: 6px; font-size: .88rem; color: var(--ink-soft); }
+.explorer.calc input { background: var(--bg-alt); color: var(--ink); border: 1px solid var(--line); border-radius: 8px; padding: 10px 12px; font-size: 1rem; font-variant-numeric: tabular-nums; }
+.calc-out { display: grid; gap: 10px; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); margin-bottom: 12px; }
+.calc-out .cell { background: var(--bg-alt); border: 1px solid var(--line); border-radius: 10px; padding: 14px 16px; }
+.calc-out .cell b { display: block; font-family: var(--serif); font-size: 1.6rem; color: var(--green); font-variant-numeric: tabular-nums; }
+.calc-out .cell span { font-size: .84rem; color: var(--ink-soft); }
+.explorer td.fig { font-family: var(--serif); font-weight: 700; color: var(--ink); font-variant-numeric: tabular-nums; }
+.explorer .tag.tracked { border-color: var(--green); color: var(--green); }
+.hero-stat .src a { color: var(--green); }
+.hero-stat .big { white-space: nowrap; font-size: clamp(2.1rem, 9.5vw, 5rem); }
+.viz { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 22px 22px 16px; margin: 28px 0; }
+.viz h3 { font-family: var(--sans); font-size: 1rem; font-weight: 700; color: var(--ink); margin: 0 0 4px; }
+.viz .sub { font-size: .88rem; color: var(--ink-soft); margin: 0 0 14px; max-width: 70ch; }
+.viz .plot { overflow-x: auto; }
+.viz svg { display: block; width: 100%; min-width: 620px; height: auto; font-family: var(--sans); }
+.viz svg text { fill: var(--ink-soft); font-size: 12px; }
+.viz svg text.strong { fill: var(--ink); font-weight: 600; }
+.viz svg text.row { fill: var(--ink); font-size: 13px; font-weight: 600; }
+.viz svg .grid { stroke: var(--line); stroke-width: 1; }
+.viz svg .ring { stroke: var(--surface); stroke-width: 2; }
+.viz svg [data-tip] { cursor: default; }
+.viz svg [data-tip]:hover { filter: brightness(1.25); }
+.viz .legend { display: flex; flex-wrap: wrap; gap: 6px 18px; font-size: .84rem; color: var(--ink-soft); margin: 0 0 10px; }
+.viz .legend i { display: inline-block; width: 10px; height: 10px; border-radius: 3px; margin-right: 7px; vertical-align: -1px; }
+.viz .legend i.ln { width: 16px; height: 2px; border-radius: 1px; vertical-align: 3px; }
+.viz .legend b { color: var(--ink); font-weight: 600; font-variant-numeric: tabular-nums; }
+.viz .cap { font-size: .82rem; color: var(--ink-soft); margin: 10px 0 0; }
+.viz .cap a { color: var(--green); }
+.viz details { margin-top: 10px; font-size: .84rem; color: var(--ink-soft); }
+.viz details summary { cursor: pointer; color: var(--green); }
+.viz details table { border-collapse: collapse; margin-top: 8px; font-variant-numeric: tabular-nums; }
+.viz details th, .viz details td { text-align: left; padding: 4px 14px 4px 0; border-bottom: 1px solid var(--line); }
+.viz details th { color: var(--ink); font-weight: 600; }
+.kpi-row { display: grid; grid-template-columns: 1fr auto 1fr auto 1fr; gap: 10px; align-items: stretch; margin: 6px 0 4px; }
+.kpi { background: var(--bg-alt); border: 1px solid var(--line); border-radius: 10px; padding: 14px 16px; }
+.kpi b { display: block; font-family: var(--sans); font-size: 1.9rem; font-weight: 700; color: var(--ink); line-height: 1.1; }
+.kpi span { font-size: .84rem; color: var(--ink-soft); }
+.kpi-arrow { align-self: center; color: var(--ink-soft); font-size: 1.2rem; }
+#vizTip { position: fixed; z-index: 50; pointer-events: none; background: var(--band); border: 1px solid var(--line); border-radius: 8px; padding: 8px 11px; font-size: .84rem; color: var(--ink-soft); max-width: 280px; box-shadow: 0 6px 20px rgba(0,0,0,.45); display: none; }
+#vizTip b { display: block; color: var(--ink); font-size: .98rem; font-variant-numeric: tabular-nums; }
+@media (max-width: 640px) {
+  .kpi-row { grid-template-columns: 1fr; }
+  .kpi-arrow { transform: rotate(90deg); justify-self: center; }
+}
+.explorer td.fig { font-family: var(--serif); font-weight: 700; color: var(--ink); font-variant-numeric: tabular-nums; white-space: nowrap; }
+ol.plain > li { margin-bottom: 12px; }
+.explorer.calc ul.checks { list-style: none; margin: 0 0 16px; padding: 0; display: grid; gap: 8px; }
+.explorer.calc ul.checks label { display: flex; gap: 10px; align-items: flex-start; font-size: .95rem; color: var(--ink); cursor: pointer; }
+.explorer.calc ul.checks input { margin-top: 4px; accent-color: var(--green); width: 18px; height: 18px; flex: none; }
+.calc-out { display: grid; gap: 10px; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); margin-bottom: 12px; }
+.calc-out .cell { background: var(--bg-alt); border: 1px solid var(--line); border-radius: 10px; padding: 14px 16px; }
+.calc-out .cell b { display: block; font-family: var(--serif); font-size: 1.6rem; color: var(--green); font-variant-numeric: tabular-nums; }
+.calc-out .cell.warn b { color: #e8915f; }
+.calc-out .cell span { font-size: .84rem; color: var(--ink-soft); }
+.hero-stat .src a { color: var(--green); }
+.hero-stat .big { white-space: nowrap; font-size: clamp(2.1rem, 9.5vw, 5rem); }
+.article code { font-size: .9em; }
+.explorer.calc ul.checks { list-style: none; margin: 0 0 16px; padding: 0; display: grid; gap: 8px; }
+.explorer.calc ul.checks label { display: flex; gap: 10px; align-items: flex-start; font-size: .95rem; color: var(--ink); cursor: pointer; }
+.explorer.calc ul.checks input { margin-top: 4px; accent-color: var(--green); width: 18px; height: 18px; flex: none; }
+.calc-out .cell.warn b { color: #e8915f; }
+.hero-stat .src a { color: var(--green); }
+@media (min-width: 641px) { .bar-row { grid-template-columns: 300px 1fr; } }
+.explorer.calc fieldset { border: 1px solid var(--line); border-radius: 10px; padding: 12px 14px; margin: 0; }
+.explorer.calc legend { font-weight: 700; padding: 0 6px; }
+.explorer.calc label { display: flex; justify-content: space-between; gap: 10px; align-items: center; font-size: .9rem; margin: 6px 0; }
+.explorer.calc input[type=number] { width: 120px; padding: 6px 8px; border: 1px solid var(--line); border-radius: 8px; background: var(--bg); color: var(--ink); font-variant-numeric: tabular-nums; }
+.calc-out .cell.warn b { color: #e8915f; }
+.hero-stat .src a { color: var(--green); }
+@media (min-width: 641px) { .bar-row { grid-template-columns: 260px 1fr; } }
+.hero-stat .src a { color: var(--green); }
+@media (min-width: 641px) { .bar-row { grid-template-columns: 260px 1fr; } }
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://stanislav-peev.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Research",
+          "item": "https://stanislav-peev.com/research/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "AI citations vs Google rankings",
+          "item": "https://stanislav-peev.com/research/ai-citations-vs-google-rankings/"
+        }
+      ]
+    },
+    {
+      "@type": "Article",
+      "@id": "https://stanislav-peev.com/research/ai-citations-vs-google-rankings/#article",
+      "headline": "Can you get cited in AI answers without ranking in Google? Usually, yes",
+      "description": "Original study: Google AI Overview and ChatGPT citations compared with Google's organic top 100 for the same query, 407 mobile queries in Bulgarian, Slovak, English and Romanian search on October 26, 2026, with ChatGPT checked on 200 of them: rank bands of cited pages, citation odds by position, where non-ranking citations come from, ChatGPT's rewritten searches, and how much AI Overview citations changed in one week.",
+      "author": {
+        "@type": "Person",
+        "@id": "https://stanislav-peev.com/#person",
+        "name": "Stanislav Peev",
+        "url": "https://stanislav-peev.com/",
+        "sameAs": [
+          "https://www.linkedin.com/in/stanislav-peev-seo/"
+        ]
+      },
+      "publisher": {
+        "@id": "https://stanislav-peev.com/#person"
+      },
+      "datePublished": "2026-10-26",
+      "dateModified": "2026-10-26",
+      "mainEntityOfPage": "https://stanislav-peev.com/research/ai-citations-vs-google-rankings/",
+      "image": "https://stanislav-peev.com/research/ai-citations-vs-google-rankings/og.png",
+      "inLanguage": "en",
+      "about": [
+        {
+          "@type": "Thing",
+          "name": "AI Overviews"
+        },
+        {
+          "@type": "Thing",
+          "name": "ChatGPT"
+        },
+        {
+          "@type": "Thing",
+          "name": "Generative engine optimization"
+        },
+        {
+          "@type": "Thing",
+          "name": "Search engine ranking"
+        }
+      ],
+      "citation": [
+        "https://www.reddit.com/r/digital_marketing/comments/1xc9h68/can_websites_rank_in_ai_search_results_without/",
+        "https://www.reddit.com/r/localseo/comments/1xdm7zl/chatgpt_giving_strange_recommendation_for_local/",
+        "https://ahrefs.com/blog/ai-overview-citations-top-10/",
+        "https://ahrefs.com/blog/search-rankings-ai-citations/",
+        "https://ahrefs.com/blog/ai-search-overlap/"
+      ],
+      "speakable": {
+        "@type": "SpeakableSpecification",
+        "cssSelector": [
+          ".hero-stat",
+          ".takeaways"
+        ]
+      }
+    },
+    {
+      "@type": "Dataset",
+      "@id": "https://stanislav-peev.com/research/ai-citations-vs-google-rankings/#dataset",
+      "name": "AI Overview and ChatGPT citations vs Google organic rank, 407 queries (October 2026)",
+      "description": "Anonymized per-query counts for 407 mobile Google queries in Bulgarian, Slovak, English and Romanian search (October 26, 2026): whether an AI Overview showed, how many web pages it cited, and the organic rank band (1-3, 4-10, 11-20, 21-100, not in top 100) of each cited page; for 200 of the queries, the same counts for pages cited by ChatGPT with web search, and the overlap with the AI Overview.",
+      "creator": {
+        "@type": "Person",
+        "@id": "https://stanislav-peev.com/#person",
+        "name": "Stanislav Peev"
+      },
+      "license": "https://creativecommons.org/licenses/by/4.0/",
+      "datePublished": "2026-10-26",
+      "dateModified": "2026-10-26",
+      "isAccessibleForFree": true,
+      "temporalCoverage": "2026-10-19/2026-10-26",
+      "keywords": [
+        "AI Overviews",
+        "ChatGPT",
+        "citations",
+        "Google rankings",
+        "Bulgarian search",
+        "Slovak search"
+      ],
+      "variableMeasured": [
+        "AI Overview presence",
+        "citation count",
+        "organic rank band of cited pages",
+        "ChatGPT citations"
+      ],
+      "distribution": [
+        {
+          "@type": "DataDownload",
+          "encodingFormat": "text/csv",
+          "contentUrl": "https://stanislav-peev.com/research/ai-citations-vs-google-rankings/data-citations.csv"
+        },
+        {
+          "@type": "DataDownload",
+          "encodingFormat": "application/json",
+          "contentUrl": "https://stanislav-peev.com/research/ai-citations-vs-google-rankings/data-summary.json"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://stanislav-peev.com/research/ai-citations-vs-google-rankings/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Can you get cited in AI answers without ranking in Google?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, and it is common. In my October 2026 data, 65% of the pages cited in Google AI Overviews and 91% of the pages ChatGPT cited were not in Google's top 100 for the same query. That covers 407 mobile queries in Bulgarian, Slovak and English search, with ChatGPT checked on 200 of them."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does ranking first in Google get you into the AI Overview?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "It helps, but it is not a guarantee. The page in position 1 was cited in the AI Overview 34% of the time, position 3 27%, position 10 14%, and position 11 only 7%. So a page-one position gives you roughly two to five times the odds of position 11, but most top results are still left out."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Where do AI Overview citations come from if not the top 10?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "From a mix. In my data, 46% of the non-ranking citations came from sites that ranked in the top 100 with a different page, and 15% were social or video pages such as Facebook, YouTube and Instagram. The rest came from sites that did not rank for the query at all, likely through the related searches Google runs behind the scenes, though this data cannot show that directly."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do ChatGPT and Google AI Overviews cite the same pages?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Rarely. Only 9% of the pages ChatGPT cited were also cited in the AI Overview for the same query, and 23% shared a domain. ChatGPT also searched for something other than the query in 98.5% of cases, often adding the current year or switching to English."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How stable are AI Overview citations?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Not very. For the same query a week apart, the median AI Overview kept half of its cited pages, and 20% kept none of them. One check is one sample, so measure over several runs before you report a change."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What should I do if I want to be cited?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Rank the site, not just one page. Cover the follow-up questions around your main topic on separate, clear pages, keep facts current with dates, and be present where AI answers draw from in your niche, which in my data included Facebook and YouTube. Then track citations over several weeks, not one check."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+<!-- Google tag (gtag.js) with Consent Mode v2 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-SNM7XHD6X3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  // Nothing is stored until the visitor accepts the banner (assets/analytics.js).
+  gtag('consent', 'default', {
+    ad_storage: 'denied',
+    ad_user_data: 'denied',
+    ad_personalization: 'denied',
+    analytics_storage: 'denied'
+  });
+  try {
+    if (localStorage.getItem('sp-consent') === 'granted') {
+      gtag('consent', 'update', { analytics_storage: 'granted' });
+    }
+  } catch (e) {}
+  gtag('js', new Date());
+  // Only the live site reports; local previews stay out of GA4.
+  if (location.hostname === 'stanislav-peev.com') gtag('config', 'G-SNM7XHD6X3');
+  (function (s) { s.src = '/assets/analytics.js?v=1'; s.async = true; document.head.appendChild(s); })(document.createElement('script'));
+</script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="/">Stanislav <em>Peev</em></a>
+    <nav class="site-nav" aria-label="Main">
+      <a href="/#geo">AI / GEO</a>
+      <a href="/services/">Services</a>
+      <a href="/research/" aria-current="page">Research</a>
+      <a href="/#clients">Clients</a>
+      <a href="/#experience" class="hide-m">Experience</a>
+      <a href="/#proof" class="hide-m">Publications</a>
+      <a class="cta" href="#contact">Write to me</a>
+    </nav>
+  </div>
+</header>
+
+<nav class="crumbs" aria-label="Breadcrumb">
+  <div class="wrap"><a href="/">Home</a> › <a href="/research/">Research</a> › AI citations vs Google rankings</div>
+</nav>
+
+<main>
+
+<article>
+<section class="hero" style="padding:40px 0 8px">
+  <div class="wrap" style="display:block">
+    <span class="kicker">Research · Original data</span>
+    <h1 style="max-width:30ch">Can you get cited in AI answers without ranking in Google? <span class="accent">Usually, yes</span></h1>
+    <p class="article-meta">By <b>Stanislav Peev</b>, SEO consultant &amp; GEO specialist · Published <b><time datetime="2026-10-26">October 26, 2026</time></b> · 407 queries checked on live mobile results, 200 also in ChatGPT · <a href="data-citations.csv">Download the data (CSV)</a> · 13 min read</p>
+  </div>
+</section>
+
+<section style="padding:0 0 72px">
+  <div class="wrap article">
+
+    <div class="hero-stat">
+      <span class="big">65%</span>
+      <p><b>Can a page be cited in AI answers without ranking in Google?</b> Yes, and most cited pages do not rank for the query at all. On October 26, 2026, 65% of the pages Google's AI Overviews cited were not in Google's top 100 for the same query, and for ChatGPT it was 91%. That is 407 mobile queries in Bulgarian, Slovak and English search. Ranking still helps: the #1 result was cited 34% of the time, #11 only 7%.</p>
+      <span class="src">My data: DataForSEO mobile SERPs to position 100 and ChatGPT with web search, October 26, 2026. For comparison, <a href="#src-3">Ahrefs</a> found 37% of AI Overview citations outside the top 100 in its organic-only test, and 6% to 8% of ChatGPT citations in the top 10 (<a href="#src-5">Ahrefs</a>).</span>
+    </div>
+
+    <div class="takeaways">
+      <h2>Key takeaways</h2>
+      <ul>
+        <li><b>28% in the top 10, 65% outside the top 100</b> - where the pages cited in AI Overviews ranked for the same query. Only 7% sat in positions 11 to 100</li>
+        <li><b>34% vs 7%</b> - how often the result in position 1 and in position 11 was cited in the AI Overview. Page one still matters, but most top results are left out</li>
+        <li><b>46%</b> - share of non-ranking AI Overview citations that came from a site ranking in the top 100 with another page. Google often picks the site, then a different page from it</li>
+        <li><b>91%</b> - share of ChatGPT citations that were not in Google's top 100 for the query. Only 9% of ChatGPT's cited pages were also in the AI Overview</li>
+        <li><b>98.5%</b> - how often ChatGPT searched for something other than the query it was given. It added "2026" in 44% of cases, and searched only in English for 14% of Bulgarian and Slovak queries</li>
+        <li><b>Half</b> - the median share of an AI Overview's cited pages that were still cited one week later. One in five AI Overviews kept none</li>
+      </ul>
+    </div>
+
+    <div class="toc">
+      <h2>What's in this study</h2>
+      <ol>
+        <li><a href="#why">Why I ran this</a></li>
+        <li><a href="#aio">How many AI Overview citations rank in Google's top 10?</a></li>
+        <li><a href="#position">Does ranking higher make a citation more likely?</a></li>
+        <li><a href="#where">Where do the non-ranking citations come from?</a></li>
+        <li><a href="#chatgpt">What does ChatGPT cite?</a></li>
+        <li><a href="#stability">How stable are AI Overview citations?</a></li>
+        <li><a href="#do">What to do if you want to be cited</a></li>
+        <li><a href="#check">How to check your own queries</a></li>
+        <li><a href="#methodology">Methodology and limitations</a></li>
+        <li><a href="#faq">Frequently asked questions</a></li>
+      </ol>
+    </div>
+
+    <h2 id="why">1. Why I ran this</h2>
+    <p class="capsule">Small business owners keep asking whether a site can show up in AI answers without ranking in Google. The best-known numbers come from large English-language datasets and disagree with each other, so I measured it in Bulgarian, Slovak and English search.</p>
+    <p>A thread in <a href="#src-1">r/digital_marketing</a> asked exactly this in October 2026 and collected 39 comments, all opinions. In <a href="#src-2">r/localseo</a> someone noticed that ChatGPT and Perplexity recommended local shops that were not even on the first page of Google Maps. In my weekly Reddit checks, a version of this question has come up three weeks running.</p>
+    <p>The best-known figures come from Ahrefs. In July 2025 it found 76% of AI Overview citations ranked in the top 10 for the same query (<a href="#src-4">Ahrefs</a>). By March 2026 that was down to 38%, with the rest split between positions 11 to 100 and pages outside the top 100 (<a href="#src-3">Ahrefs</a>). For ChatGPT, Ahrefs found 6% to 8% of cited pages in Google's top 10 (<a href="#src-5">Ahrefs</a>). I wanted to know what this looks like on mobile, in smaller languages, today.</p>
+    <p>I took the 407 queries where sites I work on rank on page one and an AI Overview appeared in a check a week earlier. On October 26, 2026, I loaded each Google mobile results page to position 100 and asked ChatGPT 200 of the same queries with web search on. I keep the sites anonymous; the <a href="data-citations.csv">per-query file</a> has no query text.</p>
+
+    <h2 id="aio">2. How many AI Overview citations rank in Google's top 10?</h2>
+    <p class="capsule">About 28%. Of 2,961 web pages cited in AI Overviews, 28% ranked in Google's organic top 10 for the same query, 7% in positions 11 to 100, and 65% did not appear in the top 100 at all.</p>
+    <div class="table-wrap"><table class="metric-table">
+      <thead><tr><th>Organic rank of the cited page, same query</th><th>All (2,961 citations)</th><th>Bulgarian</th><th>Slovak</th><th>English</th><th>Ahrefs, March 2026</th></tr></thead>
+      <tbody>
+        <tr><td>Top 3</td><td class="v">12%</td><td class="v">13%</td><td class="v">14%</td><td class="v">9%</td><td rowspan="2" class="v">37%</td></tr>
+        <tr><td>4-10</td><td class="v">17%</td><td class="v">18%</td><td class="v">22%</td><td class="v">12%</td></tr>
+        <tr><td>11-100</td><td class="v">7%</td><td class="v">7%</td><td class="v">7%</td><td class="v">7%</td><td class="v">26%</td></tr>
+        <tr><td>Not in the top 100</td><td class="v hi">65%</td><td class="v">63%</td><td class="v">57%</td><td class="v">72%</td><td class="v">37%</td></tr>
+      </tbody>
+    </table></div>
+    <p>The top-10 share was 28.5%, with a 95% interval of 25% to 32% when I resample by query. Slovak AI Overviews leaned most on the top 10 (36%), English ones least (22%). The Ahrefs column uses its organic-only test on 863,000 keyword SERPs (<a href="#src-3">Ahrefs</a>); its setup and mine differ in sample, device and location, so read the comparison as direction, not as a precise gap.</p>
+    <div class="bar-chart" role="img" aria-label="Where AI Overview citations rank: top 3 12 percent, 4 to 10 17 percent, 11 to 100 7 percent, not in top 100 65 percent">
+      <div class="bar-row"><span class="lbl">Top 3</span><div class="bar-track"><div class="bar-fill" style="width:18%">12%</div></div></div>
+      <div class="bar-row"><span class="lbl">Positions 4-10</span><div class="bar-track"><div class="bar-fill" style="width:26%">17%</div></div></div>
+      <div class="bar-row"><span class="lbl">Positions 11-100</span><div class="bar-track"><div class="bar-fill dim" style="width:11%">7%</div></div></div>
+      <div class="bar-row"><span class="lbl">Not in the top 100</span><div class="bar-track"><div class="bar-fill" style="width:100%">65%</div></div></div>
+    </div>
+    <p>Two other readings of the same data. Per query, 52% of AI Overviews cited at least one page from the top 10, and 44% cited nothing from the top 100. And the median AI Overview took 11% of its citations from the top 10. A typical AI Overview here is built mostly from pages that do not rank for what you typed.</p>
+    <p>The middle band is the surprise. Ahrefs found a quarter of citations in positions 11 to 100; I found 7%. My guess, which this data cannot test, is that a page on page two or three for the main query rarely gets picked, while pages that rank for the follow-up searches Google runs behind the scenes, and not for the main query at all, often do. Ahrefs makes the same point about these "fan-out" searches (<a href="#src-3">Ahrefs</a>).</p>
+
+    <h2 id="position">3. Does ranking higher make a citation more likely?</h2>
+    <p class="capsule">Yes, clearly. The page in position 1 was cited in the AI Overview 34% of the time, position 3 27%, position 10 14%, and position 11 just 7%.</p>
+    <div class="table-wrap"><table class="metric-table">
+      <thead><tr><th>Organic position</th><th>Share cited in the AI Overview</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td class="v hi">34%</td></tr>
+        <tr><td>2</td><td class="v">29%</td></tr>
+        <tr><td>3</td><td class="v">27%</td></tr>
+        <tr><td>5</td><td class="v">20%</td></tr>
+        <tr><td>10</td><td class="v">14%</td></tr>
+        <tr><td>11</td><td class="v">7%</td></tr>
+        <tr><td>15</td><td class="v">2%</td></tr>
+        <tr><td>20</td><td class="v">1%</td></tr>
+      </tbody>
+    </table></div>
+    <p>So both things are true. Most cited pages do not rank for the query, and ranking on page one still multiplies your odds several times over. The drop between position 10 and 11 is sharp: in this data, page one behaves like the pool Google draws from for the original query; page two mostly does not. Even at position 1, two out of three results were left out, so a top ranking is not a citation guarantee. A citation is also not a click guarantee, as I found when I measured <a href="/research/ai-overviews-ctr-same-query/">CTR on the same query with and without an AI Overview</a>.</p>
+
+    <h2 id="where">4. Where do the non-ranking citations come from?</h2>
+    <p class="capsule">Almost half come from sites that rank anyway, with a different page. Of the 1,916 AI Overview citations outside the top 100, 46% came from a domain that ranked in the top 100 with another URL, 23% from one that ranked in the top 10, and 15% were social or video pages.</p>
+    <ul>
+      <li><b>Same site, different page.</b> A hotel brand's benefits page was cited while its awards page ranked; a skincare brand's English shop page was cited while its Slovak pages ranked. That fits a pattern where the site counts as much as the page. Across all citations, 46% were pages on a site that ranked in the top 10, against 28% for the cited page itself.</li>
+      <li><b>Social and video.</b> Facebook, YouTube, Instagram, Reddit, LinkedIn and TikTok made up 15% of the non-ranking citations, and YouTube alone 5%. Ahrefs found YouTube was 18% of non-ranking citations (<a href="#src-3">Ahrefs</a>); here Facebook (5%) and Instagram (2%) together outweighed YouTube.</li>
+      <li><b>Google's own pages.</b> 294 of 3,293 raw citations (9%) pointed to Google's own viewer pages rather than a website, in 27 AI Overviews. I left them out of every percentage above.</li>
+    </ul>
+    <p>For a small business, the first point is the useful one. The page that ranks is not always the page that gets cited, so a site that ranks across the topic gives you more chances than one strong page. That is also why <a href="/research/ai-citations-by-query-shape/">the shape of the question changes which pages get cited</a>.</p>
+
+    <h2 id="chatgpt">5. What does ChatGPT cite?</h2>
+    <p class="capsule">Pages that almost never rank for your query in Google. ChatGPT cited sources in 98.5% of 200 answers, a median of 4 each, and 91% of the 932 cited pages were not in Google's top 100 for the same query. Only 4% were in the top 10.</p>
+    <div class="table-wrap"><table class="metric-table">
+      <thead><tr><th>Measure (200 queries, ChatGPT with web search)</th><th>Result</th></tr></thead>
+      <tbody>
+        <tr><td>Cited pages in Google's top 10 for the query</td><td class="v">4%</td></tr>
+        <tr><td>Cited pages not in Google's top 100</td><td class="v hi">91%</td></tr>
+        <tr><td>Cited sites (domains) ranking in the top 10</td><td class="v">22%</td></tr>
+        <tr><td>Cited pages also cited in the AI Overview for the same query</td><td class="v">9%</td></tr>
+        <tr><td>Cited sites also cited in the AI Overview</td><td class="v">23%</td></tr>
+        <tr><td>Queries where ChatGPT searched something other than the query typed</td><td class="v">98.5%</td></tr>
+        <tr><td>Queries where a search added "2026"</td><td class="v">44%</td></tr>
+        <tr><td>Bulgarian and Slovak queries searched only in English</td><td class="v">14%</td></tr>
+      </tbody>
+    </table></div>
+    <p>The low overlap makes sense once you see what ChatGPT searches: it almost never uses the words you typed. A short Bulgarian query about a supplement became two searches about benefits, risks, evidence and pharmacy prices in Bulgaria. A Bulgarian query about websites that pay you to watch ads became two English searches. An English question about how many Ritz-Carlton hotels exist became a search with "2026" and "official" added. Ahrefs found the same low overlap in its 15,000-prompt study: 6% to 8% of ChatGPT citations in Google's top 10 (<a href="#src-5">Ahrefs</a>).</p>
+    <p>In practice, ranking in Google and being cited by ChatGPT are two different jobs with little overlap. ChatGPT and AI Overviews also disagree with each other, so being in one says little about the other. If ChatGPT matters for your business, measure it directly, with more than one run, as I describe in <a href="/research/ai-visibility-tracking-reliability/">how reliable AI visibility tracking is</a>.</p>
+
+    <h2 id="stability">6. How stable are AI Overview citations?</h2>
+    <p class="capsule">Not very. For the same query a week apart, the median AI Overview kept half of its cited pages, and 20% kept none of them. The AI Overview itself was more stable: 94% of queries that had one on October 19 still had one on October 26.</p>
+    <p>I compared 378 queries that showed an AI Overview on both dates. The median overlap of cited pages (shared pages divided by all pages cited on either date) was 0.32, and 0.43 at the level of sites. Part of this is real churn and part is sampling: AI Overviews vary between users and loads, and this is one load per date. All queries were chosen because they had an AI Overview on October 19, so the 94% is a retention rate, not a prevalence rate. Either way, a single check of "are we cited?" is one sample, not a status.</p>
+
+    <h2 id="do">7. What to do if you want to be cited</h2>
+    <p class="capsule">Treat rankings as the entry ticket and follow-up questions as the target. These are my recommendations from the patterns above, not results the data tested: build a site that ranks for the topic, cover the specific sub-questions on clear pages, keep facts dated and current, and be present on the platforms AI answers draw from in your niche.</p>
+    <ol>
+      <li><b>Keep doing SEO for the main query.</b> Position 1 was cited almost five times as often as position 11. Page one is still the strongest single signal in this data.</li>
+      <li><b>Write for the follow-up questions.</b> ChatGPT's searches were narrower than the queries, adding price, "official", country and year. Pages that answer one such question plainly give an AI system something specific to cite.</li>
+      <li><b>Date your facts.</b> For 44% of queries, at least one ChatGPT search added the current year. Pages that state current prices, numbers and "as of" dates are a better fit for those searches.</li>
+      <li><b>Show up where answers are sourced.</b> In these markets that included Facebook posts, Instagram reels and YouTube. If your customers' questions get answered on those platforms, a plain post that states the facts can be cited. Pages you control that rank you first, such as owned "best X" lists and review sites, behave differently; I tested that in <a href="/research/owned-review-sites-ai-visibility/">a separate study</a>.</li>
+      <li><b>Measure over weeks, not once.</b> The median AI Overview replaced half of its cited pages in a week.</li>
+    </ol>
+
+    <h2 id="check">8. How to check your own queries</h2>
+    <p class="capsule">Take 20 to 50 queries you rank for, load the results page to position 100 on the device your customers use, record every page the AI Overview cites, and look up each one's organic rank for that query.</p>
+    <ol>
+      <li><b>Pick queries from Search Console</b> where you rank on page one and that matter to the business. Drop your brand name.</li>
+      <li><b>Load the full results page</b> in the right country and language, on mobile if most of your traffic is mobile. A SERP API that loads AI Overviews and returns 100 results does this at scale; by hand, use a private window and expand the overview.</li>
+      <li><b>Match exact URLs, then domains.</b> Strip tracking parameters and trailing slashes first. Record which band each cited page is in: top 3, 4-10, 11-100, or not ranking.</li>
+      <li><b>Ask ChatGPT the same queries</b> with search on, and note the sources and, if your tool shows them, the searches it ran.</li>
+      <li><b>Repeat a week later.</b> Report the share of runs in which you are cited, not a yes or no.</li>
+    </ol>
+    <p>If you are cited mostly through pages that do not rank, the work is topical coverage and freshness. If you rank but are never cited, look at what the cited pages answer that yours does not. An <a href="/services/seo-audit/">SEO audit</a> can cover both.</p>
+
+    <h2 id="methodology">9. Methodology and limitations</h2>
+    <p class="capsule">407 queries, Google mobile results to position 100 with AI Overviews loaded, on October 26, 2026; ChatGPT with web search on 200 of the queries the same day; one earlier snapshot on October 19, 2026 for stability.</p>
+    <ul>
+      <li><b>Queries:</b> non-branded queries where one of 15 sites I work on ranked on page one (mobile, Search Console, September 19 to October 16, 2026) and an AI Overview appeared on October 19. All 141 English, 106 Slovak and 10 Romanian queries, and a random 150 of 679 Bulgarian ones. These are queries where AI Overviews are common, so this describes citations when an overview appears, not how often one appears.</li>
+      <li><b>Google:</b> DataForSEO SERP API, standard queue, Android mobile, depth 100, asynchronous AI Overview loading on, the site's country and language. An AI Overview showed on 383 queries and 380 had web citations. The median results page returned organic results to position 90, so "not in the top 100" means not in the organic results returned, roughly the top 90.</li>
+      <li><b>Matching:</b> exact URL after removing the fragment, tracking parameters (utm, srsltid, gclid, fbclid), "www" and trailing slashes; each URL counted once per AI Overview. Domain matches are reported separately. Google place-viewer links (294) were excluded.</li>
+      <li><b>ChatGPT:</b> DataForSEO ChatGPT scraper with web search forced, in the query's country and language, 80 Bulgarian, 60 Slovak and 60 English queries chosen at random. Cited pages are the answer's listed sources from one run, compared with the same day's Google mobile results. The overlap with AI Overviews counts all cited pages, including for the few queries without an AI Overview that day. "Searched only in English" means every ChatGPT search for a Bulgarian or Slovak query used Latin characters only.</li>
+      <li><b>Limits:</b> one snapshot per query per date, and AI answers vary between runs. The sample comes from 15 sites' rankings, so it leans to their niches: travel, health and beauty, local services, cars. Romanian is too small to report on its own. Mobile vs desktop and country vs city location differ from the Ahrefs setup. Cost of the data: about 3 USD.</li>
+      <li><b>Data:</b> <a href="data-citations.csv">data-citations.csv</a> (one anonymized row per query, no query text) and <a href="data-summary.json">data-summary.json</a> (the computed results, including the platform split), CC BY 4.0. Individual URL examples are from the raw results and are not published.</li>
+    </ul>
+
+    <h2 id="faq">10. Frequently asked questions</h2>
+    <div class="faq">
+      <details>
+        <summary>Can you get cited in AI answers without ranking in Google?</summary>
+        <p>Yes, and it is common. In my October 2026 data, 65% of the pages cited in Google AI Overviews and 91% of the pages ChatGPT cited were not in Google's top 100 for the same query. That covers 407 mobile queries in Bulgarian, Slovak and English search, with ChatGPT checked on 200 of them.</p>
+      </details>
+      <details>
+        <summary>Does ranking first in Google get you into the AI Overview?</summary>
+        <p>It helps, but it is not a guarantee. The page in position 1 was cited in the AI Overview 34% of the time, position 3 27%, position 10 14%, and position 11 only 7%. So a page-one position gives you roughly two to five times the odds of position 11, but most top results are still left out.</p>
+      </details>
+      <details>
+        <summary>Where do AI Overview citations come from if not the top 10?</summary>
+        <p>From a mix. In my data, 46% of the non-ranking citations came from sites that ranked in the top 100 with a different page, and 15% were social or video pages such as Facebook, YouTube and Instagram. The rest came from sites that did not rank for the query at all, likely through the related searches Google runs behind the scenes, though this data cannot show that directly.</p>
+      </details>
+      <details>
+        <summary>Do ChatGPT and Google AI Overviews cite the same pages?</summary>
+        <p>Rarely. Only 9% of the pages ChatGPT cited were also cited in the AI Overview for the same query, and 23% shared a domain. ChatGPT also searched for something other than the query in 98.5% of cases, often adding the current year or switching to English.</p>
+      </details>
+      <details>
+        <summary>How stable are AI Overview citations?</summary>
+        <p>Not very. For the same query a week apart, the median AI Overview kept half of its cited pages, and 20% kept none of them. One check is one sample, so measure over several runs before you report a change.</p>
+      </details>
+      <details>
+        <summary>What should I do if I want to be cited?</summary>
+        <p>Rank the site, not just one page. Cover the follow-up questions around your main topic on separate, clear pages, keep facts current with dates, and be present where AI answers draw from in your niche, which in my data included Facebook and YouTube. Then track citations over several weeks, not one check.</p>
+      </details>
+    </div>
+
+    <h2 id="sources">Sources</h2>
+    <ol class="sources">
+      <li id="src-1" value="1">r/digital_marketing. "Can Websites Rank in AI Search Results Without Ranking on Google?" October 22, 2026. <a href="https://www.reddit.com/r/digital_marketing/comments/1xc9h68/can_websites_rank_in_ai_search_results_without/" rel="noopener">reddit.com/r/digital_marketing/comments/1xc9h68/can_websites_rank_in_ai_search_results_without/</a>. Accessed October 26, 2026.</li>
+      <li id="src-2" value="2">r/localseo. "Chatgpt giving strange recommendation for local services." October 23, 2026. <a href="https://www.reddit.com/r/localseo/comments/1xdm7zl/chatgpt_giving_strange_recommendation_for_local/" rel="noopener">reddit.com/r/localseo/comments/1xdm7zl/chatgpt_giving_strange_recommendation_for_local/</a>. Accessed October 26, 2026.</li>
+      <li id="src-3" value="3">Louise Linehan, Ahrefs. "Update: 38% of AI Overview Citations Pull From The Top 10." 863K keyword SERPs, 4M AI Overview URLs. March 2, 2026. <em>Vendor: sells SEO products.</em> <a href="https://ahrefs.com/blog/ai-overview-citations-top-10/" rel="noopener">ahrefs.com/blog/ai-overview-citations-top-10/</a>. Accessed October 26, 2026.</li>
+      <li id="src-4" value="4">Louise Linehan, Ahrefs. "76% of AI Overview Citations Pull From the Top 10." July 21, 2025. <em>Vendor: sells SEO products.</em> <a href="https://ahrefs.com/blog/search-rankings-ai-citations/" rel="noopener">ahrefs.com/blog/search-rankings-ai-citations/</a>. Accessed October 26, 2026.</li>
+      <li id="src-5" value="5">Louise Linehan, Ahrefs. "Only 12% of AI Cited URLs Rank in Google's Top 10 for the Original Prompt." 15,000 prompts. August 11, 2025. <em>Vendor: sells SEO products.</em> <a href="https://ahrefs.com/blog/ai-search-overlap/" rel="noopener">ahrefs.com/blog/ai-search-overlap/</a>. Accessed October 26, 2026.</li>
+    </ol>
+    <p class="updated">Last updated: <time datetime="2026-10-26">October 26, 2026</time>. Related research: <a href="/research/">all studies</a>.</p>
+
+  </div>
+</section>
+</article>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div>© 2026 Stanislav Peev · SEO Consultant &amp; AI Search (GEO) Specialist, Bratislava, Slovakia</div>
+    <nav class="footer-nav" aria-label="Footer">
+      <a href="/">Home</a>
+      <a href="/#geo">AI / GEO</a>
+      <a href="/services/">Services</a>
+      <a href="/services/seo-audit/">SEO Audit</a>
+      <a href="/services/small-business-seo/">Small Business SEO</a>
+      <a href="/research/">Research</a>
+      <a href="https://www.linkedin.com/in/stanislav-peev-seo/" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" style="width:1em;height:1em;vertical-align:-.15em;margin-right:.35em;fill:currentColor"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29ZM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13ZM7.12 20.45H3.56V9h3.56v11.45ZM22.22 0H1.77C.79 0 0 .77 0 1.72v20.55C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0Z"/></svg>LinkedIn</a>
+      <a href="https://www.youtube.com/@stanislav_peev" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" style="width:1em;height:1em;vertical-align:-.15em;margin-right:.35em;fill:currentColor"><path d="M23.5 6.2a3 3 0 0 0-2.11-2.12C19.5 3.55 12 3.55 12 3.55s-7.5 0-9.39.53A3 3 0 0 0 .5 6.2 31.3 31.3 0 0 0 0 12a31.3 31.3 0 0 0 .5 5.8 3 3 0 0 0 2.11 2.12c1.89.53 9.39.53 9.39.53s7.5 0 9.39-.53A3 3 0 0 0 23.5 17.8 31.3 31.3 0 0 0 24 12a31.3 31.3 0 0 0-.5-5.8ZM9.55 15.57V8.43L15.82 12l-6.27 3.57Z"/></svg>YouTube</a>
+      <a href="/privacy/">Privacy</a>
+    </nav>
+  </div>
+</footer>
+
+<button class="to-top" id="toTop" aria-label="Back to top" title="Back to top">↑</button>
+<script>
+(function () {
+  var t = document.getElementById('toTop');
+  addEventListener('scroll', function () { t.classList.toggle('show', scrollY > 600); }, { passive: true });
+  t.addEventListener('click', function () { scrollTo({ top: 0, behavior: 'smooth' }); });
+})();
+</script>
+<script src="/assets/agent-tools.js?v=1" defer></script>
+</body>
+</html>

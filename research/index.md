@@ -13,6 +13,22 @@ Data reports and practical guides on how search - classic and AI-driven - actual
 
 Original data · AI Search
 
+## [Can you get cited in AI answers without ranking in Google? Usually, yes](https://stanislav-peev.com/research/ai-citations-vs-google-rankings/)
+
+407 mobile queries in Bulgarian, Slovak and English search, checked on October 26, 2026: 65% of the pages Google's AI Overviews cited did not rank in Google's top 100 for the same query, and only 28% were in the top 10. For ChatGPT, 91% of 932 cited pages were outside the top 100 and only 9% overlapped with the AI Overview. Ranking still helps: position 1 was cited 34% of the time, position 11 just 7%. Where non-ranking citations come from, how ChatGPT rewrites the search, how much citations change in a week, and a 5-step check. Downloadable data, CC BY 4.0.
+
+Published October 26, 2026 · 13 min read
+
+Original data · SEO
+
+## [Why is your site-wide CTR so low? It is rarely page 2](https://stanislav-peev.com/research/why-site-wide-ctr-is-low/)
+
+Search Console data from 15 sites and 2.85 million impressions: the median site-wide CTR was 4.1%, but only 1.2% on non-branded queries, because branded searches brought 24% of clicks from 3.5% of impressions. On the median site, positions 4-10 held 58% of non-branded impressions at a 1.4% CTR, while positions 1-3 held 19% and earned 37% of clicks. Dropping page 2 lifted non-branded CTR by just 17% on the median site, and 43% of impressions never appear in the query table. Benchmarks from Ahrefs and Databox, a year-over-year check, a 5-step diagnosis and a calculator. Downloadable data, CC BY 4.0.
+
+Published October 26, 2026 · 13 min read
+
+Original data · AI Search
+
 ## [How much do AI Overviews cut your CTR? Same query, one year apart](https://stanislav-peev.com/research/ai-overviews-ctr-same-query/)
 
 Search Console data from 15 sites, mostly in Bulgarian search: on the same query at a stable position, mobile CTR fell 28% from autumn 2025 to autumn 2026 where Google now shows an AI Overview, against a statistically unclear -10% where it does not. Impressions rose 54% while clicks fell 12%, top-3 positions lost 35%, and being cited inside the overview did not save the click. AI Overviews showed on 71% of page-one queries (74% Bulgarian, 55% Slovak), but on only 19% of queries with a map pack. Why the common with-vs-without split points the wrong way, a step-by-step method and a calculator. Downloadable data, CC BY 4.0.

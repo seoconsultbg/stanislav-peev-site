@@ -5,8 +5,22 @@
     <link>https://stanislav-peev.com/</link>
     <description>Original research and data reports on AI search visibility, GEO (generative engine optimization) and SEO - by Stanislav Peev, independent SEO consultant and AI search specialist.</description>
     <language>en</language>
-    <lastBuildDate>Mon, 19 Oct 2026 19:00:00 GMT</lastBuildDate>
+    <lastBuildDate>Mon, 26 Oct 2026 12:00:00 GMT</lastBuildDate>
     <atom:link href="https://stanislav-peev.com/rss.xml" rel="self" type="application/rss+xml"/>
+    <item>
+      <title>Can you get cited in AI answers without ranking in Google? Usually, yes</title>
+      <link>https://stanislav-peev.com/research/ai-citations-vs-google-rankings/</link>
+      <guid isPermaLink="true">https://stanislav-peev.com/research/ai-citations-vs-google-rankings/</guid>
+      <pubDate>Mon, 26 Oct 2026 12:00:00 GMT</pubDate>
+      <description>Original data: 407 Google mobile queries in Bulgarian, Slovak, English and Romanian search (October 26, 2026, results to position 100, AI Overviews loaded), ChatGPT with web search on 200 of them. Of 2,961 web pages cited in AI Overviews, 28% ranked in the organic top 10 for the same query (95% CI 25-32%), 7% in positions 11-100 and 65% outside the top 100 (Ahrefs, March 2026: 37% / 26% / 37%). Citation odds by organic position: #1 34%, #3 27%, #10 14%, #11 7%, #20 1%. Of non-ranking citations, 46% came from a domain ranking in the top 100 with another page; 15% social or video. ChatGPT: 91% of 932 cited pages outside Google's top 100, 4% in the top 10, 9% also cited in the AI Overview; searches differed from the query in 98.5% of cases, added "2026" in 44%. One week later the median AI Overview kept half of its cited pages, 20% kept none. CC BY 4.0 data.</description>
+    </item>
+    <item>
+      <title>Why is your site-wide CTR so low? It is rarely page 2</title>
+      <link>https://stanislav-peev.com/research/why-site-wide-ctr-is-low/</link>
+      <guid isPermaLink="true">https://stanislav-peev.com/research/why-site-wide-ctr-is-low/</guid>
+      <pubDate>Mon, 26 Oct 2026 10:00:00 GMT</pubDate>
+      <description>Original Search Console data from 15 sites (web search, September 26 to October 23, 2026; 2,853,158 impressions, 101,412 clicks). Median site-wide CTR 4.1% (range 0.36% to 24.5%) vs 1.2% for non-branded queries; branded queries 3.5% of impressions and 24% of clicks at a 25% CTR (median site). Non-branded, median site: positions 1-3 hold 19% of impressions and 37% of clicks (6.6% CTR); positions 4-10 hold 58% of impressions and 52% of clicks (1.4% CTR); positions 11+ 20% and 6% (0.38%). Keeping only top-10 queries lifts non-branded CTR by a median 17% (1.2% to 1.5%). Visible query rows cover a median 57% of impressions and 48% of clicks (anonymized queries). Year over year (14 sites): median 3.5% to 3.8%, 9 of 14 down. Benchmarks: Ahrefs 1-2% typical (422,421 sites), Databox 0.91% median. Diagnosis method, calculator and CC BY 4.0 data.</description>
+    </item>
     <item>
       <title>How much do AI Overviews cut your CTR? Same query, one year apart</title>
       <link>https://stanislav-peev.com/research/ai-overviews-ctr-same-query/</link>
