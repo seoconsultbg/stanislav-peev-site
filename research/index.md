@@ -11,6 +11,14 @@ Research
 
 Data reports and practical guides on how search - classic and AI-driven - actually behaves. Every statistic traces to a primary source, limitations are named, and pages are updated as new data lands. **Citable, linkable, and honest about what we don't know yet.**
 
+Guide · Hiring SEO Help
+
+## [How to hire an SEO expert: a step-by-step process for 2026](https://stanislav-peev.com/research/hire-seo-expert/)
+
+Who to hire for which problem, where to find candidates (5 of the top 10 US results for "hire seo consultant" are marketplaces), a one-page brief, eight questions with good and bad answers, a paid audit or trial, contract and access terms, red flags and what to ask about AI search - built on Google's own advice on hiring an SEO.
+
+Published October 28, 2026 · 13 min read
+
 Original data · AI Search
 
 ## [Can you get cited in AI answers without ranking in Google? Usually, yes](https://stanislav-peev.com/research/ai-citations-vs-google-rankings/)

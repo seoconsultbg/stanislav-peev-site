@@ -1,13 +1,13 @@
 ---
-title: "Small Business SEO: Right-Sized SEO Services Without the Agency Retainer - Stanislav Peev"
-description: "SEO for small businesses, scoped to small business budgets: what to do yourself for free, what actually moves the needle, and right-sized help from a senior consultant - audit, light consulting or training. No retainer lock-in."
+title: "Small Business SEO Consultant: Right-Sized SEO Services Without a Retainer - Stanislav Peev"
+description: "An independent small business SEO consultant: what to do yourself for free, what actually moves the needle, and right-sized SEO services - audit, light consulting, local SEO or training. No retainer lock-in."
 url: "https://stanislav-peev.com/services/small-business-seo/"
 lang: "en"
 ---
 
 Services · For small businesses
 
-# Small business SEO without the agency retainer
+# Small business SEO consultant, without the agency retainer
 
 Small businesses don't need less SEO expertise - they need it in smaller, honest doses. I'll tell you what to do yourself for free, what's worth paying for, and what to skip. **Senior work, scoped to a small business budget, no lock-in.**
 
@@ -15,7 +15,7 @@ Small businesses don't need less SEO expertise - they need it in smaller, honest
 
 Most SEO services are shaped for companies with marketing teams and five-figure monthly budgets. Sold to a small business, the same package turns into junior staff executing a generic template - which is why so many owners describe SEO vendors with one word: snake oil. The economics are the problem, not the discipline.
 
-For a small business the leverage is different. You don't need 40 deliverables a month; you need the **right five things done in the right order** - and most of them are cheap or free. You also face a threat bigger companies feel less: AI assistants get small businesses wrong far more often. In the largest accuracy study to date, [50% of small businesses received at least one fabricated fact in AI answers, versus 32% of large companies](https://stanislav-peev.com/research/ai-wrong-business-information-statistics/) - and AI confuses small business brand names five times more often. With 45% of consumers now asking AI for recommendations, that's not a curiosity; it's a leak.
+For a small business the leverage is different. You don't need 40 deliverables a month; you need the **right five things done in the right order** - and most of them are cheap or free. You also face a threat bigger companies feel less: AI assistants get small businesses wrong far more often. In the largest accuracy study to date, [50% of small businesses received at least one fabricated fact in AI answers, versus 32% of large companies](https://stanislav-peev.com/research/ai-wrong-business-information-statistics/) - and AI confuses small business brand names five times more often. With 45% of consumers now asking AI for recommendations, that's not a curiosity; it's a leak. Finding and fixing those errors is part of my [AI SEO (GEO) work](https://stanislav-peev.com/services/geo/), sized for a small business.
 
 ## Do these yourself first - they're free
 
@@ -48,7 +48,25 @@ Map-pack visibility for location-based businesses: GBP optimization, local entit
 
 15 hours one-on-one, built around your actual website. The most cost-effective option if you have the time and want the capability in-house for good - includes an AI search module.
 
-Every option is priced fixed after a short email exchange, with no long-term contract. And if your situation doesn't justify paid help yet, I'll say exactly that - it costs me a sale and saves you a budget, which is how trust is supposed to work. Choosing between me and other providers? My guide on [how to hire an SEO professional](https://stanislav-peev.com/research/seo-profy/) gives you the checklist and the red flags - use it on everyone, including me.
+Every option is priced fixed after a short email exchange, with no long-term contract. And if your situation doesn't justify paid help yet, I'll say exactly that - it costs me a sale and saves you a budget, which is how trust is supposed to work. Choosing between me and other providers? My guides on [how to hire an SEO expert](https://stanislav-peev.com/research/hire-seo-expert/) and [what a real SEO professional does](https://stanislav-peev.com/research/seo-profy/) give you the process, the questions and the red flags - use them on everyone, including me.
+
+## Which small businesses I'm a good fit for
+
+### Local service businesses
+
+One or a few locations: trades, clinics, law and accounting firms, restaurants. Most of the work is your Google Business Profile, service and location pages, reviews, and what AI assistants say about your hours, prices and services.
+
+### Small online stores
+
+I work on category and product pages that match how people actually search, on product structured data, and on the comparison questions buyers now ask ChatGPT before they pick a shop.
+
+### Startups and small B2B companies
+
+Pages that explain what you do and for whom, comparison and alternatives pages, and a place in the lists AI assistants cite when someone asks for a shortlist in your category.
+
+### Not a good fit
+
+If you need 20 blog posts a month, paid ads or social media management, you need an agency or a content team - I only do SEO and AI search. And if you want a guaranteed first page, no one can promise that.
 
 ## Small business SEO questions, answered
 
@@ -75,6 +93,14 @@ Senior time in small doses usually beats junior time in bulk. Most retainers are
 **How long until results?**
 
 Local improvements often show within weeks; competitive rankings take 3-6 months of consistent work; AI answer accuracy can move faster. Thirty-day page-one promises are a red flag, not a plan.
+
+**Where can a small business find a reliable SEO consultant on a limited budget?**
+
+Start with referrals from businesses like yours and with consultants who publish their methods, then send every candidate the same short brief and questions. Marketplaces work too, but the vetting is yours. A fixed-price audit is the cheapest way to test anyone, me included - my [guide to hiring an SEO expert](https://stanislav-peev.com/research/hire-seo-expert/) walks through it.
+
+**Do you work with small online stores and startups?**
+
+Yes. For stores: category and product pages, product structured data and the questions shoppers ask AI. For startups and small B2B companies: clear positioning pages, comparison pages and a place in the lists AI cites. Local service businesses are the most common fit.
 
 ## Tell me about your business
 

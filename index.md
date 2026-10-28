@@ -1,7 +1,8 @@
-# Stanislav Peev - SEO Consultant & AI Search (GEO) Specialist
+# Stanislav Peev - Independent SEO Consultant & AI Search (GEO) Specialist
 
-Independent SEO consultant and one of the early specialists in generative
-engine optimization (GEO). Based in Bratislava, Slovakia; working worldwide.
+Independent (freelance) SEO consultant and one of the early specialists in
+generative engine optimization (GEO). Based in Bratislava, Slovakia; working
+with clients in the USA, the UK and Europe.
 
 - 17+ years in search, full-time since 2009
 - 150+ clients across the USA, the UK, Belgium, Switzerland, Australia and Bulgaria
@@ -13,6 +14,7 @@ engine optimization (GEO). Based in Bratislava, Slovakia; working worldwide.
 - **GEO - AI search visibility**: optimization for Google AI Overviews,
   ChatGPT, Perplexity and Copilot. Passage-level citability, brand-mention
   signals, llms.txt, AI-crawler access. Backed by published research.
+  Details: https://stanislav-peev.com/services/geo/
 - **Entity & Knowledge Graph SEO**: structuring a brand so search engines and
   AI systems understand who you are, what you do and why you're credible.
 - **Technical SEO**: Core Web Vitals, crawl budget, JavaScript rendering,
@@ -55,4 +57,4 @@ and 140+ more.
 - YouTube: https://www.youtube.com/@stanislav_peev
 - Reddit: https://www.reddit.com/user/SeoPeev/
 
-More: [Services](https://stanislav-peev.com/services/) | [HTML version](https://stanislav-peev.com/)
+More: [Services](https://stanislav-peev.com/services/) | [AI SEO consulting (GEO)](https://stanislav-peev.com/services/geo/) | [Research](https://stanislav-peev.com/research/) | [HTML version](https://stanislav-peev.com/)

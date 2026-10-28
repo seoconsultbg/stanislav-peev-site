@@ -16,6 +16,8 @@ Copilot and Google AI Overviews.
 - Entity, Knowledge Graph and brand-mention campaigns
 - llms.txt and AI-crawler configuration
 
+Full scope, method and FAQ: https://stanislav-peev.com/services/geo/
+
 ### SEO Consulting (monthly)
 
 Ongoing strategy, execution oversight and measurement - an outsourced senior
@@ -52,4 +54,4 @@ visibility: often faster, because few competitors optimize for it yet.
 Email info@stanislav-peev.com with what you sell, where you want to grow, and
 what search does for you today. Personal reply within one business day.
 
-More: [Home](https://stanislav-peev.com/) | [HTML version](https://stanislav-peev.com/services/)
+More: [Home](https://stanislav-peev.com/) | [AI SEO consulting (GEO)](https://stanislav-peev.com/services/geo/) | [SEO audit](https://stanislav-peev.com/services/seo-audit/) | [Small business SEO](https://stanislav-peev.com/services/small-business-seo/) | [HTML version](https://stanislav-peev.com/services/)

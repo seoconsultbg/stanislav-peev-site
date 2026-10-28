@@ -35,7 +35,7 @@ How well search engines understand who you are: schema validity and gaps, entity
 
 ### AI search visibility (GEO)
 
-A baseline of what ChatGPT, Gemini, Perplexity and Google AI Overviews say and cite about you - where they're wrong, which sources they read, and how citable your key pages are. Standard in every audit, because [93% of businesses have at least one fact wrong in AI answers](https://stanislav-peev.com/research/ai-wrong-business-information-statistics/).
+A baseline of what ChatGPT, Gemini, Perplexity and Google AI Overviews say and cite about you - where they're wrong, which sources they read, and how citable your key pages are. Standard in every audit, because [93% of businesses have at least one fact wrong in AI answers](https://stanislav-peev.com/research/ai-wrong-business-information-statistics/). Ongoing work continues as [AI SEO consulting](https://stanislav-peev.com/services/geo/).
 
 ## What you get, and what you don't
 
