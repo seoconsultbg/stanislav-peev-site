@@ -22,10 +22,17 @@
 <style>
 .research-list { display: grid; gap: 22px; margin-top: 8px; }
 .research-item {
+  position: relative;
   background: var(--surface); border: 1px solid var(--line); border-radius: 16px;
   padding: 28px 30px; transition: border-color .15s ease;
 }
 .research-item:hover { border-color: var(--green); }
+/* The title link stretches over the whole card, so a click anywhere opens the study
+   while each card keeps a single link. */
+.research-item h2 a::after { content: ""; position: absolute; inset: 0; border-radius: 16px; }
+.research-item h2 a:focus-visible { outline: none; }
+.research-item h2 a:focus-visible::after { outline: 2px solid var(--green); outline-offset: 2px; }
+.research-item:hover h2 a { color: var(--green); }
 .research-item .type {
   font-size: .76rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase;
   color: var(--green); display: block; margin-bottom: 10px;
@@ -34,7 +41,12 @@
 .research-item h2 a { color: var(--ink); text-decoration: none; }
 .research-item h2 a:hover { color: var(--green); }
 .research-item p { color: var(--ink-soft); margin: 0 0 12px; max-width: 75ch; }
-.research-item .meta { font-size: .85rem; color: var(--ink-soft); }
+.research-item .meta {
+  font-size: .85rem; color: var(--ink-soft);
+  display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap;
+}
+.research-item .meta::after { content: "Read more \2192"; color: var(--green); font-weight: 600; font-size: .92rem; }
+.research-item:hover .meta::after { text-decoration: underline; }
 </style>
 <script type="application/ld+json">
 {
