@@ -1,4 +1,4 @@
-# SEO Consultant Services & GEO Programs - Stanislav Peev
+# Services: SEO Consulting, AI SEO (GEO), Audits & Training - Stanislav Peev
 
 Every service is delivered personally by Stanislav Peev (17+ years in search,
 published GEO researcher). Engagements are scoped individually over email -
@@ -19,6 +19,8 @@ Copilot and Google AI Overviews.
 Full scope, method and FAQ: https://stanislav-peev.com/services/geo/
 
 ### SEO Consulting (monthly)
+
+Full scope, method and FAQ: https://stanislav-peev.com/services/seo-consulting/
 
 Ongoing strategy, execution oversight and measurement - an outsourced senior
 SEO specialist without the full-time hire.
@@ -54,4 +56,4 @@ visibility: often faster, because few competitors optimize for it yet.
 Email info@stanislav-peev.com with what you sell, where you want to grow, and
 what search does for you today. Personal reply within one business day.
 
-More: [Home](https://stanislav-peev.com/) | [AI SEO consulting (GEO)](https://stanislav-peev.com/services/geo/) | [SEO audit](https://stanislav-peev.com/services/seo-audit/) | [Small business SEO](https://stanislav-peev.com/services/small-business-seo/) | [HTML version](https://stanislav-peev.com/services/)
+More: [Home](https://stanislav-peev.com/) | [SEO consulting](https://stanislav-peev.com/services/seo-consulting/) | [AI SEO consulting (GEO)](https://stanislav-peev.com/services/geo/) | [SEO audit](https://stanislav-peev.com/services/seo-audit/) | [Small business SEO](https://stanislav-peev.com/services/small-business-seo/) | [HTML version](https://stanislav-peev.com/services/)

@@ -38,7 +38,7 @@ The best first purchase: a complete diagnosis with a prioritized roadmap you own
 
 ### Light monthly consulting
 
-A few senior hours a month: I set direction and priorities, you or your contractors execute. The highest-leverage model for small budgets - you pay for judgment, not for busywork.
+A few senior hours a month: I set direction and priorities, you or your contractors execute. The highest-leverage model for small budgets - you pay for judgment, not for busywork. [How SEO consulting works](https://stanislav-peev.com/services/seo-consulting/).
 
 ### Local SEO & Google Business Profile
 

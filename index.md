@@ -57,4 +57,4 @@ and 140+ more.
 - YouTube: https://www.youtube.com/@stanislav_peev
 - Reddit: https://www.reddit.com/user/SeoPeev/
 
-More: [Services](https://stanislav-peev.com/services/) | [AI SEO consulting (GEO)](https://stanislav-peev.com/services/geo/) | [Research](https://stanislav-peev.com/research/) | [HTML version](https://stanislav-peev.com/)
+More: [Services](https://stanislav-peev.com/services/) | [SEO consulting](https://stanislav-peev.com/services/seo-consulting/) | [AI SEO consulting (GEO)](https://stanislav-peev.com/services/geo/) | [Research](https://stanislav-peev.com/research/) | [HTML version](https://stanislav-peev.com/)

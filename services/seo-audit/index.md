@@ -43,7 +43,7 @@ A baseline of what ChatGPT, Gemini, Perplexity and Google AI Overviews say and c
 
 **You don't get** a 90-page export of tool warnings, a document written to scare you into a retainer, or "critical errors" copied from a crawler that don't cost you a single visit. If something in your setup is fine, the report says it's fine. If SEO isn't your best next investment, the report says that too - it has, more than once.
 
-The process is simple: you write a few sentences about your business, I ask what I need to scope it, you get a fixed price and timeline, and the work runs over email with read-only access to Search Console and analytics. No calls, no meetings. When it makes sense to continue, the audit converts naturally into [monthly consulting or a GEO program](https://stanislav-peev.com/services/) - but it's built to stand alone.
+The process is simple: you write a few sentences about your business, I ask what I need to scope it, you get a fixed price and timeline, and the work runs over email with read-only access to Search Console and analytics. No calls, no meetings. When it makes sense to continue, the audit converts naturally into [monthly SEO consulting](https://stanislav-peev.com/services/seo-consulting/) or a [GEO program](https://stanislav-peev.com/services/geo/) - but it's built to stand alone.
 
 ## When a one-time audit is the right call
 
@@ -79,7 +79,7 @@ Fixed price, quoted up front after a short email exchange - scope depends on sit
 
 **Will you help implement it afterwards?**
 
-The roadmap is written so your team can implement without me, and follow-up questions are always included. If you want ongoing help, it converts into monthly consulting or a GEO program.
+The roadmap is written so your team can implement without me, and follow-up questions are always included. If you want ongoing help, it converts into [monthly SEO consulting](https://stanislav-peev.com/services/seo-consulting/) or a [GEO program](https://stanislav-peev.com/services/geo/).
 
 ## Book an audit with a short message
 
