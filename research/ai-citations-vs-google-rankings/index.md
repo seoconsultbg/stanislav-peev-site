@@ -144,6 +144,8 @@ Treat rankings as the entry ticket and follow-up questions as the target. These 
 4. **Show up where answers are sourced.** In these markets that included Facebook posts, Instagram reels and YouTube. If your customers' questions get answered on those platforms, a plain post that states the facts can be cited. Pages you control that rank you first, such as owned "best X" lists and review sites, behave differently; I tested that in [a separate study](https://stanislav-peev.com/research/owned-review-sites-ai-visibility/).
 5. **Measure over weeks, not once.** The median AI Overview replaced half of its cited pages in a week.
 
+Running these five steps on your own queries is the core of my [AI SEO (GEO) consulting](https://stanislav-peev.com/services/geo/).
+
 ## 8. How to check your own queries
 
 Take 20 to 50 queries you rank for, load the results page to position 100 on the device your customers use, record every page the AI Overview cites, and look up each one's organic rank for that query.

@@ -123,7 +123,7 @@ Find out which page the claim comes from. Decide whether it is a false fact or j
 7. **Report the answer, and do not count on it.** ChatGPT, Google AI Overviews and Perplexity each have a thumbs-down and report option. It costs a minute and leaves a record. There is no guaranteed turnaround, so treat it as a supplement to steps 4 to 6.
 8. **Measure with the same prompts.** Re-run the prompt set from step 1 every week for six weeks, then monthly. Count how many answers repeat the wrong claim and how many state the correct one, per engine. Expect Perplexity to move first, because it reads the live web on every query.
 
-If you want the diagnosis and the prompt set done for you, that is the core of the GEO work on my [services page](https://stanislav-peev.com/services/), and an [SEO audit](https://stanislav-peev.com/services/seo-audit/) includes a check of what the main assistants say about you.
+If you want the diagnosis and the prompt set done for you, that is the core of the GEO work on my [GEO consulting page](https://stanislav-peev.com/services/geo/), and an [SEO audit](https://stanislav-peev.com/services/seo-audit/) includes a check of what the main assistants say about you.
 
 One thing to avoid: answering the competitor's page with a page of your own that attacks them. My data suggests the engines do not reward a vendor for writing about its rival. It also hands the competitor a legal argument against you.
 

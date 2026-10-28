@@ -134,6 +134,8 @@ Five practical conclusions that follow directly from the data above, not from vi
 
 **5. Treat the numbers as a trend, not a guarantee.** The advantage is a year old and moving. Position for it, measure your own version of it, and revisit as the data updates - which is why this page carries dates and sources rather than a single confident headline.
 
+Points 2 to 4 are the practical core of my [AI SEO (GEO) consulting](https://stanislav-peev.com/services/geo/), if you'd rather not set them up alone.
+
 ## 8. How to measure it on your own site
 
 You do not need a vendor tool to get a first read. You need one comparison, done honestly, over enough weeks to clear noise.

@@ -52,6 +52,11 @@ RewriteRule ^((?:[^/]+/)*)$ /$1index.md [L]
   <FilesMatch "\.md$">
     Header set Content-Type "text/markdown; charset=UTF-8"
   </FilesMatch>
+  # HTML pages carry <meta charset>, but clients that read only the header (some AI
+  # fetchers, curl, requests) need the charset there too.
+  <FilesMatch "\.html$">
+    Header set Content-Type "text/html; charset=UTF-8"
+  </FilesMatch>
   Header append Vary "Accept"
 </IfModule>
 

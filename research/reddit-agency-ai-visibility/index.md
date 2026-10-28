@@ -171,6 +171,8 @@ Put the first money where you own the result. Each option below is slower than a
 - **Original data.** A small study other people quote can get cited by them, and sometimes by AI answers. That is how every page in my [research section](https://stanislav-peev.com/research/) started.
 - **Measurement.** Before you pay for visibility, know how many leads AI already sends. Most of it is invisible in analytics; see [the AI lead attribution gap](https://stanislav-peev.com/research/ai-lead-attribution-gap/).
 
+If you want an independent plan for these options, that's part of my [AI SEO (GEO) consulting](https://stanislav-peev.com/services/geo/). I don't sell Reddit posting.
+
 ## 13. Six popular claims that do not hold as stated
 
 These circulate in agency posts and rankings. In each case the number is misread, wrongly attributed, out of date, or comes with no method that could produce or check it.

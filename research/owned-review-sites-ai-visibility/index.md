@@ -194,6 +194,8 @@ Put the effort where someone else does the vouching: reviews on established plat
 
 If someone is selling you the shortcut instead, the same buyer logic applies as with [Reddit agencies that promise AI visibility](https://stanislav-peev.com/research/reddit-agency-ai-visibility/): ask which engine, which prompts, measured how, and who carries the risk.
 
+This is also how I run [AI SEO (GEO) work](https://stanislav-peev.com/services/geo/) for clients: earned third-party sources and repeat measurement, with no self-ranked lists.
+
 ## 11. Seven popular claims that do not hold as stated
 
 These circulate in posts about AI visibility. In each case the claim is rounded up, misread, wrongly attributed, or has no primary source I could find.

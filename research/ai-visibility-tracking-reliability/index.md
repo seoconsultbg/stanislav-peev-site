@@ -122,6 +122,8 @@ You do not need to run this experiment yourself to judge a report. Tick every st
 
 Six out of six is a report you can act on. Three to five, and the number is directional at best - useful for the very top of the answer, unreliable below it. Below three, you are being sold a trend line drawn through noise. None of this makes AI visibility unmeasurable; it makes it measurable only with a method that respects how much the answers move.
 
+If you'd rather have a baseline built this way for your own brand, that's where my [AI SEO (GEO) consulting](https://stanislav-peev.com/services/geo/) starts.
+
 ## 7. Methodology
 
 One category was used as a testbed: project management software. Four buyer-intent prompts were fixed in advance: "what project management software should a small team use?", "best project management tool for a 10-person startup?", "which project management app should my team pick in 2026?", and "recommend a project management platform for a small remote team." Each prompt was sent five times, unchanged, to three web-connected models, all in a single session on August 17, 2026: Perplexity Sonar, OpenAI GPT-4o and Google Gemini 2.5 Flash, each with web search enabled, routed through one OpenRouter key. That is 4 prompts x 3 models x 5 repeats = 60 answers.
