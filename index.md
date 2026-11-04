@@ -43,7 +43,9 @@ with clients in the USA, the UK and Europe.
 
 ## Selected clients
 
-Survalyzer (survey SaaS, Switzerland), YPI Yachts (superyachts), SGT Auto
+Esthetic Bratislava (dermatology and aesthetic medicine clinic, Slovakia), Dr. Sandra
+(skincare brand developed by a dermatologist, Slovakia), Survalyzer (survey SaaS,
+Switzerland), YPI Yachts (superyachts), SGT Auto
 Transport (vehicle shipping, USA), Zapiano (online piano courses), StarsDesk
 (luxury hotel booking, USA), Induct For Work (induction software, Australia) -
 and 140+ more.
