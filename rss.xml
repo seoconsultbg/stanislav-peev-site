@@ -5,8 +5,15 @@
     <link>https://stanislav-peev.com/</link>
     <description>Original research and data reports on AI search visibility, GEO (generative engine optimization) and SEO - by Stanislav Peev, independent SEO consultant and AI search specialist.</description>
     <language>en</language>
-    <lastBuildDate>Wed, 28 Oct 2026 12:00:00 GMT</lastBuildDate>
+    <lastBuildDate>Mon, 02 Nov 2026 12:00:00 GMT</lastBuildDate>
     <atom:link href="https://stanislav-peev.com/rss.xml" rel="self" type="application/rss+xml"/>
+    <item>
+      <title>How accurate are SEO tool traffic estimates? 15 sites against Search Console</title>
+      <link>https://stanislav-peev.com/research/seo-tool-traffic-estimates-accuracy/</link>
+      <guid isPermaLink="true">https://stanislav-peev.com/research/seo-tool-traffic-estimates-accuracy/</guid>
+      <pubDate>Mon, 02 Nov 2026 12:00:00 GMT</pubDate>
+      <description>Original data: Search Console clicks for October 1-30, 2026 in each site's main country (15 sites: 10 Bulgarian, 2 Slovak, 1 Romanian, 1 UK, 1 U.S.; 101,141 clicks) against DataForSEO Labs estimates for the same country. Median estimate 35% of real clicks (range 1.8% to 117%); 9 of 15 sites under half, 2 under a tenth, 6 within 25%. Bulgarian sites: median 26%. On 3,318 keywords both sources knew, the estimate was 47,109 visits against 19,433 clicks (2.4x; 12 of 15 sites over); of 897 keywords with an estimate of 5+ visits, 84% were overestimated more than twice and 40% had zero clicks. 81% of real clicks came from keywords the tool did not list: 40% anonymized queries, 40% named queries missing from its database. Rank correlation 0.71. Compared with Ahrefs (2022, 1,635 U.S. sites, median deviation 49.52%) and Screaming Frog (2016, 25 UK sites). Check method, calculator and CC BY 4.0 data.</description>
+    </item>
     <item>
       <title>How to hire an SEO expert: a step-by-step process for 2026</title>
       <link>https://stanislav-peev.com/research/hire-seo-expert/</link>

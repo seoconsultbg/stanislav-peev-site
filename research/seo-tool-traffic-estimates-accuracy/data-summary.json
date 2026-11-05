@@ -1,0 +1,77 @@
+{
+ "study": "SEO tool traffic estimates vs Search Console (15 sites)",
+ "license": "CC BY 4.0",
+ "author": "Stanislav Peev",
+ "url": "https://stanislav-peev.com/research/seo-tool-traffic-estimates-accuracy/",
+ "gsc_window": "2026-10-01/2026-10-30",
+ "gsc_scope": "web search, top country of each site, all devices",
+ "estimator": "DataForSEO Labs (Google), domain_rank_overview and ranked_keywords, collected 2026-11-02",
+ "sites": 15,
+ "markets": {
+  "BG": 10,
+  "SK": 2,
+  "RO": 1,
+  "UK": 1,
+  "US": 1
+ },
+ "gsc_clicks_total": 101141,
+ "estimated_traffic_total": 48720,
+ "estimate_to_actual_median": 0.351,
+ "estimate_to_actual_min": 0.018,
+ "estimate_to_actual_max": 1.166,
+ "sites_below_half": 9,
+ "sites_below_10pct": 2,
+ "sites_within_25pct": 6,
+ "sites_overestimated": 2,
+ "keywords_in_both_total": 3318,
+ "estimate_on_keywords_in_both_total": 47109,
+ "gsc_clicks_on_keywords_in_both_total": 19433,
+ "keywords_in_both_ratio_median_site": 2.69,
+ "sites_where_known_keywords_overestimated": 12,
+ "clicks_on_keywords_tool_does_not_list_share": 0.808,
+ "anonymized_click_share_pooled": 0.403,
+ "anonymized_click_share_median": 0.483,
+ "keyword_count_coverage_median": 0.396,
+ "share_named_query_clicks_on_known_keywords_median": 0.371,
+ "spearman_rank_correlation_sites": 0.714,
+ "keyword_level_etv_ge_5": {
+  "keywords": 897,
+  "estimate_over_2x_clicks": 756,
+  "estimate_under_half": 29,
+  "within_half_to_2x": 112,
+  "zero_gsc_clicks": 357
+ },
+ "by_market": {
+  "BG": {
+   "sites": 10,
+   "gsc_clicks": 83007,
+   "estimated": 32254,
+   "median_ratio": 0.26
+  },
+  "SK": {
+   "sites": 2,
+   "gsc_clicks": 5914,
+   "estimated": 4844,
+   "median_ratio": 0.914
+  },
+  "RO": {
+   "sites": 1,
+   "gsc_clicks": 8697,
+   "estimated": 8679,
+   "median_ratio": 0.998
+  },
+  "UK": {
+   "sites": 1,
+   "gsc_clicks": 327,
+   "estimated": 381,
+   "median_ratio": 1.166
+  },
+  "US": {
+   "sites": 1,
+   "gsc_clicks": 3196,
+   "estimated": 2561,
+   "median_ratio": 0.801
+  }
+ },
+ "dataforseo_cost_usd": 0.89
+}

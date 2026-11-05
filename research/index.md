@@ -11,6 +11,14 @@ Research
 
 Data reports and practical guides on how search - classic and AI-driven - actually behaves. Every statistic traces to a primary source, limitations are named, and pages are updated as new data lands. **Citable, linkable, and honest about what we don't know yet.**
 
+Original data · SEO Tools
+
+## [How accurate are SEO tool traffic estimates? 15 sites against Search Console](https://stanislav-peev.com/research/seo-tool-traffic-estimates-accuracy/)
+
+Search Console clicks for October 2026 in each site's main country (Bulgarian, Slovak, Romanian, UK and U.S. search; 101,141 clicks) against a keyword-based estimator for the same country: the median site was estimated at 35% of its real clicks, 9 of 15 at under half and 2 at under a tenth. The keywords the tool knew were overestimated 2.4 times, while 81% of real clicks came from searches it did not list (40% anonymized queries). Every "accurate" total was two errors cancelling out. Compared with Ahrefs and Screaming Frog studies, with a 6-step check and a correction-factor calculator. Downloadable data, CC BY 4.0.
+
+Published November 2, 2026 · 12 min read
+
 Guide · Hiring SEO Help
 
 ## [How to hire an SEO expert: a step-by-step process for 2026](https://stanislav-peev.com/research/hire-seo-expert/)

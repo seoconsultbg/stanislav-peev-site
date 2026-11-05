@@ -1,0 +1,713 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>How accurate are SEO traffic estimates? 15 sites vs GSC</title>
+<meta name="description" content="A keyword-based tool estimated 35% of real Search Console clicks on the median of 15 sites. Where totals matched, it was by accident. Data and a calculator.">
+<link rel="canonical" href="https://stanislav-peev.com/research/seo-tool-traffic-estimates-accuracy/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Stanislav Peev">
+<meta property="og:title" content="How accurate are SEO tool traffic estimates? 15 sites against Search Console">
+<meta property="og:description" content="Original data from 15 sites in Bulgarian, Slovak, Romanian and English search: the estimate was 35% of real clicks on the median site, keywords the tool knew were overestimated 2.4 times, and 81% of clicks came from keywords it did not list.">
+<meta property="og:url" content="https://stanislav-peev.com/research/seo-tool-traffic-estimates-accuracy/">
+<meta property="og:image" content="https://stanislav-peev.com/research/seo-tool-traffic-estimates-accuracy/og.jpg">
+<meta property="og:image:secure_url" content="https://stanislav-peev.com/research/seo-tool-traffic-estimates-accuracy/og.jpg">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Tool traffic estimate was 35% of real Search Console clicks on the median of 15 sites. Original data, October 2026">
+<meta property="article:published_time" content="2026-11-02T09:00:00+02:00">
+<meta property="article:modified_time" content="2026-11-02T09:00:00+02:00">
+<meta property="article:author" content="Stanislav Peev">
+<meta name="author" content="Stanislav Peev">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:creator" content="@SeoPeev">
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="alternate" type="application/rss+xml" title="Stanislav Peev - SEO &amp; AI Search Research" href="/rss.xml">
+<link rel="stylesheet" href="/assets/site.css?v=6">
+<style>
+.article-meta { font-size: .9rem; color: var(--ink-soft); margin-bottom: 34px; }
+.article-meta b { color: var(--ink); }
+.hero-stat {
+  background: linear-gradient(135deg, var(--surface), var(--band));
+  border: 1px solid var(--green); border-radius: 18px;
+  padding: 36px 32px; text-align: center; margin: 0 0 40px;
+}
+.hero-stat .big {
+  font-family: var(--serif); font-size: clamp(3.2rem, 8vw, 5rem);
+  color: var(--green); font-weight: 700; line-height: 1; display: block; margin-bottom: 12px;
+}
+.hero-stat p { color: var(--ink); font-size: 1.1rem; max-width: 62ch; margin: 0 auto 8px; }
+.hero-stat .src { font-size: .85rem; color: var(--ink-soft); }
+.takeaways {
+  background: var(--surface); border: 1px solid var(--line); border-left: 4px solid var(--green);
+  border-radius: 12px; padding: 26px 28px; margin: 0 0 40px;
+}
+.takeaways h2 {
+  font-family: var(--sans); font-size: .8rem; font-weight: 700; letter-spacing: .12em;
+  text-transform: uppercase; color: var(--green); margin-bottom: 14px;
+}
+.takeaways ul { list-style: none; display: grid; gap: 10px; }
+.takeaways li { padding-left: 22px; position: relative; color: var(--ink-soft); font-size: .98rem; }
+.takeaways li::before { content: '→'; position: absolute; left: 0; color: var(--green); }
+.takeaways li b { color: var(--ink); font-family: var(--serif); }
+.toc {
+  border: 1px solid var(--line); border-radius: 12px; padding: 22px 26px; margin: 0 0 48px;
+  background: var(--bg-alt);
+}
+.toc h2 { font-family: var(--sans); font-size: .95rem; margin-bottom: 12px; }
+.toc ol { margin-left: 20px; color: var(--ink-soft); display: grid; gap: 6px; font-size: .95rem; }
+.toc a { color: var(--green); text-decoration: none; }
+.toc a:hover { text-decoration: underline; }
+.article h2 { margin-top: 56px; margin-bottom: 16px; scroll-margin-top: 90px; }
+.article h3 { margin-top: 30px; margin-bottom: 10px; font-size: 1.1rem; }
+.article .capsule { color: var(--ink); font-size: 1.08rem; margin-bottom: 18px; max-width: 70ch; }
+.article p { color: var(--ink-soft); margin-bottom: 18px; max-width: 72ch; }
+.article p strong { color: var(--ink); }
+.article a { color: var(--green); }
+.article ul.plain { margin: 0 0 18px 20px; color: var(--ink-soft); max-width: 72ch; display: grid; gap: 8px; }
+.metric-table { width: 100%; border-collapse: collapse; margin: 22px 0; font-size: .95rem; }
+.metric-table th {
+  background: var(--band); color: var(--ink); text-align: left;
+  padding: 11px 14px; text-transform: uppercase; font-size: .76rem; letter-spacing: .07em;
+  border-bottom: 2px solid var(--green);
+}
+.metric-table td { padding: 11px 14px; border-bottom: 1px solid var(--line); color: var(--ink-soft); }
+.metric-table td.v { font-family: var(--serif); font-weight: 700; color: var(--green); white-space: nowrap; }
+.metric-table td.hi { color: var(--green); font-weight: 700; }
+.metric-table td.lo { color: var(--ink-soft); }
+.table-wrap { overflow-x: auto; }
+.stat-callout {
+  display: flex; align-items: center; gap: 22px; background: var(--surface);
+  border: 1px solid var(--line); border-left: 4px solid var(--green); border-radius: 12px;
+  padding: 20px 24px; margin: 24px 0;
+}
+.stat-callout .val {
+  font-family: var(--serif); font-size: 2.1rem; font-weight: 700; color: var(--green);
+  white-space: nowrap; min-width: 90px; text-align: center;
+}
+.stat-callout div p { margin: 0; font-size: .96rem; }
+.stat-callout div .src { font-size: .82rem; color: var(--ink-soft); margin-top: 4px; }
+.bar-chart { margin: 24px 0; display: grid; gap: 10px; max-width: 680px; }
+.bar-row { display: grid; grid-template-columns: 230px 1fr; align-items: center; gap: 12px; }
+.bar-row .lbl { font-size: .9rem; color: var(--ink-soft); text-align: right; }
+.bar-track { background: var(--band); border-radius: 6px; overflow: hidden; height: 30px; position: relative; }
+.bar-fill {
+  height: 100%; background: var(--green); border-radius: 6px;
+  display: flex; align-items: center; padding-left: 10px;
+  font-family: var(--serif); font-weight: 700; font-size: .88rem; color: var(--btn-text);
+  min-width: fit-content; white-space: nowrap;
+}
+.bar-fill.dim { background: var(--ink-soft); }
+.bar-note { font-size: .82rem; color: var(--ink-soft); margin-top: 2px; }
+.explorer {
+  background: var(--surface); border: 1px solid var(--green); border-radius: 16px;
+  padding: 24px; margin: 26px 0;
+}
+.explorer .controls { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 14px; }
+.explorer select, .explorer input[type="search"] {
+  background: var(--bg-alt); color: var(--ink); border: 1px solid var(--line); border-radius: 8px;
+  padding: 8px 10px; font-size: .92rem;
+}
+.explorer input[type="search"] { flex: 1; min-width: 180px; }
+.explorer .count { font-size: .88rem; color: var(--ink-soft); margin-bottom: 10px; }
+.explorer table { width: 100%; border-collapse: collapse; font-size: .86rem; }
+.explorer th { text-align: left; padding: 8px 10px; border-bottom: 2px solid var(--green); color: var(--ink); font-size: .74rem; text-transform: uppercase; letter-spacing: .06em; cursor: pointer; white-space: nowrap; }
+.explorer td { padding: 7px 10px; border-bottom: 1px solid var(--line); color: var(--ink-soft); vertical-align: top; }
+.explorer td a { color: var(--green); word-break: break-all; }
+.explorer .tag { display: inline-block; padding: 1px 7px; border-radius: 999px; font-size: .74rem; border: 1px solid var(--line); color: var(--ink); white-space: nowrap; }
+.explorer .tag.cmp { border-color: var(--green); color: var(--green); }
+.explorer .scroll { max-height: 520px; overflow: auto; }
+.data-box {
+  background: var(--bg-alt); border: 1px solid var(--line); border-radius: 12px;
+  padding: 22px 26px; margin: 26px 0;
+}
+.data-box h3 { font-size: 1rem; margin: 0 0 8px; }
+.data-box p { font-size: .92rem; margin-bottom: 10px; }
+.sources-list { font-size: .92rem; color: var(--ink-soft); margin-left: 20px; display: grid; gap: 10px; }
+.sources-list a { color: var(--green); word-break: break-all; }
+.updated { font-size: .88rem; color: var(--ink-soft); border-top: 1px solid var(--line); padding-top: 20px; margin-top: 48px; }
+@media (max-width: 640px) {
+  .bar-row { grid-template-columns: 1fr; gap: 4px; }
+  .bar-row .lbl { text-align: left; }
+  .stat-callout { flex-direction: column; align-items: flex-start; gap: 10px; }
+}
+.explorer.calc .calc-grid { display: grid; gap: 14px; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); margin-bottom: 18px; }
+.explorer.calc label { display: grid; gap: 6px; font-size: .88rem; color: var(--ink-soft); }
+.explorer.calc input { background: var(--bg-alt); color: var(--ink); border: 1px solid var(--line); border-radius: 8px; padding: 10px 12px; font-size: 1rem; font-variant-numeric: tabular-nums; }
+.calc-out { display: grid; gap: 10px; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); margin-bottom: 12px; }
+.calc-out .cell { background: var(--bg-alt); border: 1px solid var(--line); border-radius: 10px; padding: 14px 16px; }
+.calc-out .cell b { display: block; font-family: var(--serif); font-size: 1.6rem; color: var(--green); font-variant-numeric: tabular-nums; }
+.calc-out .cell span { font-size: .84rem; color: var(--ink-soft); }
+.explorer td.fig { font-family: var(--serif); font-weight: 700; color: var(--ink); font-variant-numeric: tabular-nums; }
+.explorer .tag.tracked { border-color: var(--green); color: var(--green); }
+.hero-stat .src a { color: var(--green); }
+.hero-stat .big { white-space: nowrap; font-size: clamp(2.1rem, 9.5vw, 5rem); }
+.viz { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 22px 22px 16px; margin: 28px 0; }
+.viz h3 { font-family: var(--sans); font-size: 1rem; font-weight: 700; color: var(--ink); margin: 0 0 4px; }
+.viz .sub { font-size: .88rem; color: var(--ink-soft); margin: 0 0 14px; max-width: 70ch; }
+.viz .plot { overflow-x: auto; }
+.viz svg { display: block; width: 100%; min-width: 620px; height: auto; font-family: var(--sans); }
+.viz svg text { fill: var(--ink-soft); font-size: 12px; }
+.viz svg text.strong { fill: var(--ink); font-weight: 600; }
+.viz svg text.row { fill: var(--ink); font-size: 13px; font-weight: 600; }
+.viz svg .grid { stroke: var(--line); stroke-width: 1; }
+.viz svg .ring { stroke: var(--surface); stroke-width: 2; }
+.viz svg [data-tip] { cursor: default; }
+.viz svg [data-tip]:hover { filter: brightness(1.25); }
+.viz .legend { display: flex; flex-wrap: wrap; gap: 6px 18px; font-size: .84rem; color: var(--ink-soft); margin: 0 0 10px; }
+.viz .legend i { display: inline-block; width: 10px; height: 10px; border-radius: 3px; margin-right: 7px; vertical-align: -1px; }
+.viz .legend i.ln { width: 16px; height: 2px; border-radius: 1px; vertical-align: 3px; }
+.viz .legend b { color: var(--ink); font-weight: 600; font-variant-numeric: tabular-nums; }
+.viz .cap { font-size: .82rem; color: var(--ink-soft); margin: 10px 0 0; }
+.viz .cap a { color: var(--green); }
+.viz details { margin-top: 10px; font-size: .84rem; color: var(--ink-soft); }
+.viz details summary { cursor: pointer; color: var(--green); }
+.viz details table { border-collapse: collapse; margin-top: 8px; font-variant-numeric: tabular-nums; }
+.viz details th, .viz details td { text-align: left; padding: 4px 14px 4px 0; border-bottom: 1px solid var(--line); }
+.viz details th { color: var(--ink); font-weight: 600; }
+.kpi-row { display: grid; grid-template-columns: 1fr auto 1fr auto 1fr; gap: 10px; align-items: stretch; margin: 6px 0 4px; }
+.kpi { background: var(--bg-alt); border: 1px solid var(--line); border-radius: 10px; padding: 14px 16px; }
+.kpi b { display: block; font-family: var(--sans); font-size: 1.9rem; font-weight: 700; color: var(--ink); line-height: 1.1; }
+.kpi span { font-size: .84rem; color: var(--ink-soft); }
+.kpi-arrow { align-self: center; color: var(--ink-soft); font-size: 1.2rem; }
+#vizTip { position: fixed; z-index: 50; pointer-events: none; background: var(--band); border: 1px solid var(--line); border-radius: 8px; padding: 8px 11px; font-size: .84rem; color: var(--ink-soft); max-width: 280px; box-shadow: 0 6px 20px rgba(0,0,0,.45); display: none; }
+#vizTip b { display: block; color: var(--ink); font-size: .98rem; font-variant-numeric: tabular-nums; }
+@media (max-width: 640px) {
+  .kpi-row { grid-template-columns: 1fr; }
+  .kpi-arrow { transform: rotate(90deg); justify-self: center; }
+}
+.explorer td.fig { font-family: var(--serif); font-weight: 700; color: var(--ink); font-variant-numeric: tabular-nums; white-space: nowrap; }
+ol.plain > li { margin-bottom: 12px; }
+.explorer.calc ul.checks { list-style: none; margin: 0 0 16px; padding: 0; display: grid; gap: 8px; }
+.explorer.calc ul.checks label { display: flex; gap: 10px; align-items: flex-start; font-size: .95rem; color: var(--ink); cursor: pointer; }
+.explorer.calc ul.checks input { margin-top: 4px; accent-color: var(--green); width: 18px; height: 18px; flex: none; }
+.calc-out { display: grid; gap: 10px; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); margin-bottom: 12px; }
+.calc-out .cell { background: var(--bg-alt); border: 1px solid var(--line); border-radius: 10px; padding: 14px 16px; }
+.calc-out .cell b { display: block; font-family: var(--serif); font-size: 1.6rem; color: var(--green); font-variant-numeric: tabular-nums; }
+.calc-out .cell.warn b { color: #e8915f; }
+.calc-out .cell span { font-size: .84rem; color: var(--ink-soft); }
+.hero-stat .src a { color: var(--green); }
+.hero-stat .big { white-space: nowrap; font-size: clamp(2.1rem, 9.5vw, 5rem); }
+.article code { font-size: .9em; }
+.explorer.calc ul.checks { list-style: none; margin: 0 0 16px; padding: 0; display: grid; gap: 8px; }
+.explorer.calc ul.checks label { display: flex; gap: 10px; align-items: flex-start; font-size: .95rem; color: var(--ink); cursor: pointer; }
+.explorer.calc ul.checks input { margin-top: 4px; accent-color: var(--green); width: 18px; height: 18px; flex: none; }
+.calc-out .cell.warn b { color: #e8915f; }
+.hero-stat .src a { color: var(--green); }
+@media (min-width: 641px) { .bar-row { grid-template-columns: 300px 1fr; } }
+.explorer.calc fieldset { border: 1px solid var(--line); border-radius: 10px; padding: 12px 14px; margin: 0; }
+.explorer.calc legend { font-weight: 700; padding: 0 6px; }
+.explorer.calc label { display: flex; justify-content: space-between; gap: 10px; align-items: center; font-size: .9rem; margin: 6px 0; }
+.explorer.calc input[type=number] { width: 120px; padding: 6px 8px; border: 1px solid var(--line); border-radius: 8px; background: var(--bg); color: var(--ink); font-variant-numeric: tabular-nums; }
+.calc-out .cell.warn b { color: #e8915f; }
+.hero-stat .src a { color: var(--green); }
+@media (min-width: 641px) { .bar-row { grid-template-columns: 260px 1fr; } }
+.explorer.calc fieldset { border: 1px solid var(--line); border-radius: 10px; padding: 12px 14px; margin: 0; }
+.explorer.calc legend { font-weight: 700; padding: 0 6px; }
+.explorer.calc label { display: flex; justify-content: space-between; gap: 10px; align-items: center; font-size: .9rem; margin: 6px 0; }
+.explorer.calc input[type=number] { width: 120px; padding: 6px 8px; border: 1px solid var(--line); border-radius: 8px; background: var(--bg); color: var(--ink); font-variant-numeric: tabular-nums; }
+.calc-out .cell.warn b { color: #e8915f; }
+.hero-stat .src a { color: var(--green); }
+@media (min-width: 641px) { .bar-row { grid-template-columns: 260px 1fr; } }
+.explorer.calc fieldset { border: 1px solid var(--line); border-radius: 10px; padding: 12px 14px; margin: 0; }
+.explorer.calc legend { font-weight: 700; padding: 0 6px; }
+.explorer.calc label { display: flex; justify-content: space-between; gap: 10px; align-items: center; font-size: .9rem; margin: 6px 0; }
+.explorer.calc input[type=number] { width: 120px; padding: 6px 8px; border: 1px solid var(--line); border-radius: 8px; background: var(--bg); color: var(--ink); font-variant-numeric: tabular-nums; }
+.calc-out .cell.warn b { color: #e8915f; }
+.hero-stat .src a { color: var(--green); }
+@media (min-width: 641px) { .bar-row { grid-template-columns: 200px 1fr; } }
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://stanislav-peev.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Research",
+          "item": "https://stanislav-peev.com/research/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "SEO tool traffic estimates",
+          "item": "https://stanislav-peev.com/research/seo-tool-traffic-estimates-accuracy/"
+        }
+      ]
+    },
+    {
+      "@type": "Article",
+      "@id": "https://stanislav-peev.com/research/seo-tool-traffic-estimates-accuracy/#article",
+      "headline": "How accurate are SEO tool traffic estimates? 15 sites against Search Console",
+      "description": "Original study: organic traffic estimates from a keyword-based SEO data provider (DataForSEO Labs) compared with Search Console clicks for 15 sites in October 2026, at site level and keyword by keyword, set against published accuracy studies, with a method to check any tool against your own data and a calculator.",
+      "author": {
+        "@type": "Person",
+        "@id": "https://stanislav-peev.com/#person",
+        "name": "Stanislav Peev",
+        "url": "https://stanislav-peev.com/",
+        "sameAs": [
+          "https://www.linkedin.com/in/stanislav-peev-seo/"
+        ]
+      },
+      "publisher": {
+        "@id": "https://stanislav-peev.com/#person"
+      },
+      "datePublished": "2026-11-02",
+      "dateModified": "2026-11-02",
+      "mainEntityOfPage": "https://stanislav-peev.com/research/seo-tool-traffic-estimates-accuracy/",
+      "image": {
+  "@type": "ImageObject",
+  "url": "https://stanislav-peev.com/research/seo-tool-traffic-estimates-accuracy/og.png?v=3",
+  "width": 1200,
+  "height": 630
+},
+      "inLanguage": "en",
+      "about": [
+        {
+          "@type": "Thing",
+          "name": "Organic traffic estimation"
+        },
+        {
+          "@type": "Thing",
+          "name": "Google Search Console"
+        },
+        {
+          "@type": "Thing",
+          "name": "SEO tools"
+        }
+      ],
+      "citation": [
+        "https://www.reddit.com/r/SEO/comments/1xigrrm/ga4_and_gsc_show_traffic_but_semrush_and_ahrefs/",
+        "https://www.reddit.com/r/bigseo/comments/1xigstu/ga4_and_gsc_show_traffic_but_semrush_and_ahrefs/",
+        "https://ahrefs.com/blog/traffic-estimations-accuracy/",
+        "https://www.screamingfrog.co.uk/how-accurate-are-website-traffic-estimators/",
+        "https://developers.google.com/search/blog/2022/10/performance-data-deep-dive",
+        "https://docs.dataforseo.com/v3/dataforseo_labs/google/domain_rank_overview/live/"
+      ],
+      "speakable": {
+        "@type": "SpeakableSpecification",
+        "cssSelector": [
+          ".hero-stat",
+          ".takeaways"
+        ]
+      }
+    },
+    {
+      "@type": "Dataset",
+      "@id": "https://stanislav-peev.com/research/seo-tool-traffic-estimates-accuracy/#dataset",
+      "name": "SEO tool traffic estimates vs Search Console clicks: 15 sites (2026)",
+      "description": "Anonymized per-site comparison of Search Console clicks (web search, each site's top country, October 1 to 30, 2026) with DataForSEO Labs estimated organic traffic and ranked keywords for the same country, collected November 2, 2026: estimate-to-actual ratio, anonymized click share, keyword counts, keyword-level overlap and position gaps.",
+      "creator": {
+        "@type": "Person",
+        "@id": "https://stanislav-peev.com/#person",
+        "name": "Stanislav Peev"
+      },
+      "license": "https://creativecommons.org/licenses/by/4.0/",
+      "datePublished": "2026-11-02",
+      "dateModified": "2026-11-02",
+      "isAccessibleForFree": true,
+      "temporalCoverage": "2026-10-01/2026-11-02",
+      "keywords": [
+        "traffic estimation",
+        "Google Search Console",
+        "SEO tools",
+        "estimated traffic volume",
+        "anonymized queries"
+      ],
+      "variableMeasured": [
+        "clicks",
+        "estimated organic traffic",
+        "ranked keywords",
+        "estimate to actual ratio"
+      ],
+      "distribution": [
+        {
+          "@type": "DataDownload",
+          "encodingFormat": "text/csv",
+          "contentUrl": "https://stanislav-peev.com/research/seo-tool-traffic-estimates-accuracy/data-sites.csv"
+        },
+        {
+          "@type": "DataDownload",
+          "encodingFormat": "application/json",
+          "contentUrl": "https://stanislav-peev.com/research/seo-tool-traffic-estimates-accuracy/data-summary.json"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://stanislav-peev.com/research/seo-tool-traffic-estimates-accuracy/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How accurate are Semrush and Ahrefs traffic estimates?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "In published studies, typically off by about half, and much worse on some sites. Ahrefs' own 2022 study of 1,635 U.S. sites found a median deviation of 49.52% for Ahrefs and 68.36% for Semrush. In my 15 sites, a keyword-based estimator put traffic at a median 35% of real Search Console clicks, with a range from 1.8% to 117%."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Why does Semrush or Ahrefs show much less traffic than Search Console?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Mainly because the tool only knows some of your keywords. In my data, 81% of real clicks came from searches the tool did not list: 40% were anonymized queries that no keyword database can contain, and the rest were named queries missing from its database. Small-language markets were hit hardest: 9 of the 10 Bulgarian sites were estimated at less than half of their real clicks."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "If the tool's total matches my Search Console, is it accurate?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Not necessarily. On the six sites where the total landed within 25% of reality, the tool overestimated the keywords it knew by 2.4 to 6.3 times, and missed the rest. The two errors cancelled out. On one site the estimate was 95% of real clicks, yet it assigned 17,434 visits to keywords that earned 4,559 clicks."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I use traffic estimates to compare competitors?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "For a rough ranking within the same market and the same tool, yes. Across my 15 sites the rank correlation between estimate and real clicks was 0.71, close to the 0.76 Ahrefs reported. But individual pairs can be badly wrong: one site with 5,025 real clicks was estimated at 92 visits, while a site with only 216 clicks was estimated at 88."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Which number should I trust to judge my SEO agency?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Search Console clicks for organic search, and the Organic Search channel in GA4 for what visitors did next. Third-party estimates are models built from keyword volume and an assumed click curve, not measurements of your site. Compare GA4 organic sessions with GSC clicks, not GA4 all channels."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is there a way to calibrate a tool to my market?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Pull 30 days of Search Console clicks for your main country, look up your own domain in the tool for the same country, and divide. That ratio is your correction factor for that tool and market. The calculator on this page does it and compares the result with the medians in this study."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+<!-- Google tag (gtag.js) with Consent Mode v2 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-SNM7XHD6X3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  // Nothing is stored until the visitor accepts the banner (assets/analytics.js).
+  gtag('consent', 'default', {
+    ad_storage: 'denied',
+    ad_user_data: 'denied',
+    ad_personalization: 'denied',
+    analytics_storage: 'denied'
+  });
+  try {
+    if (localStorage.getItem('sp-consent') === 'granted') {
+      gtag('consent', 'update', { analytics_storage: 'granted' });
+    }
+  } catch (e) {}
+  gtag('js', new Date());
+  // Only the live site reports; local previews stay out of GA4.
+  if (location.hostname === 'stanislav-peev.com') gtag('config', 'G-SNM7XHD6X3');
+  (function (s) { s.src = '/assets/analytics.js?v=1'; s.async = true; document.head.appendChild(s); })(document.createElement('script'));
+</script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="/">Stanislav <em>Peev</em></a>
+    <nav class="site-nav" aria-label="Main">
+      <a href="/services/seo-consulting/">SEO</a>
+      <a href="/services/geo/">AI SEO / GEO</a>
+      <a href="/services/">Services</a>
+      <a href="/research/" aria-current="page">Research</a>
+      <a href="/#clients" class="hide-m">Clients</a>
+      <a href="/#experience" class="hide-m">Experience</a>
+      <a href="/#proof" class="hide-m">Publications</a>
+      <a class="cta" href="#contact">Write to me</a>
+    </nav>
+  </div>
+</header>
+
+<nav class="crumbs" aria-label="Breadcrumb">
+  <div class="wrap"><a href="/">Home</a> › <a href="/research/">Research</a> › SEO tool traffic estimates</div>
+</nav>
+
+<main>
+
+<article>
+<section class="hero" style="padding:40px 0 8px">
+  <div class="wrap" style="display:block">
+    <span class="kicker">Research · Original data</span>
+    <h1 style="max-width:30ch">How accurate are SEO tool traffic estimates? <span class="accent">15 sites against Search Console</span></h1>
+    <p class="article-meta">By <b>Stanislav Peev</b>, SEO consultant &amp; GEO specialist · Published <b><time datetime="2026-11-02">November 2, 2026</time></b> · 15 sites, 101,141 real clicks, October 2026 · <a href="data-sites.csv">Download the data (CSV)</a> · 12 min read</p>
+  </div>
+</section>
+
+<section style="padding:0 0 72px">
+  <div class="wrap article">
+
+    <div class="hero-stat">
+      <span class="big">35%</span>
+      <p><b>How accurate are SEO tool traffic estimates?</b> Not very, at least in my sample, which is mostly Bulgarian. On the median of 15 sites, a keyword-based estimator put organic traffic at 35% of the clicks Search Console recorded in October 2026. Across all 15 sites it estimated 48,720 visits against 101,141 real clicks. Where the total came close, it was mostly luck: the tool overestimated the keywords it knew and missed most of the others.</p>
+      <span class="src">My data: Search Console clicks, each site's main country, October 1 to 30, 2026, against DataForSEO Labs estimates for the same country. Earlier studies for comparison: <a href="#src-3">Ahrefs</a> (49.52% median deviation, U.S.) and <a href="#src-4">Screaming Frog</a> (25 sites, mainly UK).</span>
+    </div>
+
+    <div class="takeaways">
+      <h2>Key takeaways</h2>
+      <ul>
+        <li><b>35% of real clicks</b> - the median estimate across 15 sites. Nine sites were estimated at less than half of their real traffic, two at less than a tenth</li>
+        <li><b>2.4 times too high</b> - the estimate for the 3,318 keywords that both the tool and Search Console knew: 47,109 estimated visits against 19,433 real clicks. 12 of the 15 sites were overestimated on these keywords</li>
+        <li><b>81% of clicks were invisible to the tool</b> - 40% came from anonymized queries that no keyword database can hold, and another 40% from named queries the tool did not list</li>
+        <li><b>Six "accurate" totals were accidents</b> - every site estimated within 25% of reality had its known keywords overestimated and its long tail missed. The two errors cancelled out</li>
+        <li><b>Small languages fare worst</b> - 9 of the 10 Bulgarian sites were estimated at under half of their clicks; all five Slovak, Romanian, UK and U.S. sites landed between 76% and 117%</li>
+        <li><b>The order of sites mostly holds</b> - rank correlation 0.71 between estimate and real clicks, close to what Ahrefs reported for the U.S., with some pairs badly wrong</li>
+      </ul>
+    </div>
+
+    <div class="toc">
+      <h2>What's in this study</h2>
+      <ol>
+        <li><a href="#why">Why I ran this</a></li>
+        <li><a href="#published">What earlier studies found</a></li>
+        <li><a href="#offby">How far off were the estimates?</a></li>
+        <li><a href="#accident">Why an accurate total can still be wrong</a></li>
+        <li><a href="#invisible">What the tool cannot see</a></li>
+        <li><a href="#compare">Can you still compare sites with it?</a></li>
+        <li><a href="#check">How to check a tool against your own data</a></li>
+        <li><a href="#calc">Calculator: your correction factor</a></li>
+        <li><a href="#methodology">Methodology and limitations</a></li>
+        <li><a href="#faq">Frequently asked questions</a></li>
+      </ol>
+    </div>
+
+    <h2 id="why">1. Why I ran this</h2>
+    <p class="capsule">A business owner asked on Reddit why Semrush and Ahrefs showed about a tenth of the traffic Search Console reported, and whether that meant their SEO agency was doing something wrong. The replies agreed the tools were unreliable, but nobody showed how unreliable, or in which direction.</p>
+    <p>The site had 20,000 to 30,000 monthly visits in GA4, Semrush estimated about one tenth of the Search Console figure, and neither tool showed keywords the owner could see ranking near the top (<a href="#src-1">r/SEO</a>, also posted in <a href="#src-2">r/bigseo</a>). The best reply explained the mechanism: the tools only know the queries in their own database and multiply volume by a modelled click rate. That is also how DataForSEO defines its metric: estimated traffic is the product of CTR and search volume across all the keywords a domain ranks for (<a href="#src-6">DataForSEO</a>, vendor).</p>
+    <p>So I measured it. I took 15 sites I work on, mostly in Bulgarian search, with some Slovak, Romanian, UK and U.S. traffic, and compared October 2026 Search Console clicks in each site's main country with the estimate for the same country from DataForSEO Labs. I keep the sites anonymous. The <a href="data-sites.csv">per-site file</a> labels them Site A to Site O, from the most underestimated to the most overestimated.</p>
+
+    <h2 id="published">2. What earlier studies found</h2>
+    <p class="capsule">The published tests are mostly English-language and several years old. They found typical errors of roughly 20% to 70%, and the one that tested small sites found them estimated worse.</p>
+    <div class="table-wrap"><table class="metric-table">
+      <thead><tr><th>Study</th><th>Sample</th><th>Finding</th></tr></thead>
+      <tbody>
+        <tr><td><a href="#src-3">Ahrefs</a>, 2022</td><td>1,635 sites, U.S. traffic</td><td>Median deviation 49.52% for Ahrefs, 68.36% for Semrush; correlation with GSC 0.76 and 0.74</td></tr>
+        <tr><td>Authority Hacker, as cited by <a href="#src-3">Ahrefs</a></td><td>50 sites</td><td>Six tools compared; Ahrefs first, with a 22.5% average discrepancy</td></tr>
+        <tr><td><a href="#src-4">Screaming Frog</a>, 2016</td><td>25 sites, mainly UK</td><td>Ahrefs 36% and Semrush 42% under on average; SimilarWeb 1% over</td></tr>
+        <tr><td>This study, 2026</td><td>15 sites, BG, SK, RO, UK, U.S.</td><td class="v hi">Median estimate 35% of real clicks</td></tr>
+      </tbody>
+    </table></div>
+    <p>Two of these come from tool vendors. Ahrefs notes that its error depends heavily on the site and industry, from under 5% to more than 1,000% (<a href="#src-3">Ahrefs</a>, vendor). Screaming Frog found that for its three sites with under 10,000 organic visits, almost every tool's estimate was at least 40% wrong, and that one site living on long-tail local phrases was underestimated by all three (<a href="#src-4">Screaming Frog</a>, vendor). I found no published test for small-language markets like Bulgarian or Slovak, which is where most of my sample sits.</p>
+
+    <h2 id="offby">3. How far off were the estimates?</h2>
+    <p class="capsule">Far. The median site was estimated at 35% of its real clicks. Nine of the 15 sites were below half, six landed within 25% of reality, and only two were overestimated.</p>
+    <div class="bar-chart" role="img" aria-label="Tool estimate as a share of real Search Console clicks, per site: A 1.8 percent, B 5.9, C 12, D 24, E 25, F 27, G 35, H 35, I 41, J 76, K 80, L 95, M 100, N 107, O 117">
+      <div class="bar-row"><span class="lbl">Site A (BG)</span><div class="bar-track"><div class="bar-fill dim" style="width:2%">1.8%</div></div></div>
+      <div class="bar-row"><span class="lbl">Site B (BG)</span><div class="bar-track"><div class="bar-fill dim" style="width:5%">5.9%</div></div></div>
+      <div class="bar-row"><span class="lbl">Site C (BG)</span><div class="bar-track"><div class="bar-fill dim" style="width:10%">12%</div></div></div>
+      <div class="bar-row"><span class="lbl">Site D (BG)</span><div class="bar-track"><div class="bar-fill dim" style="width:21%">24%</div></div></div>
+      <div class="bar-row"><span class="lbl">Site E (BG)</span><div class="bar-track"><div class="bar-fill dim" style="width:21%">25%</div></div></div>
+      <div class="bar-row"><span class="lbl">Site F (BG)</span><div class="bar-track"><div class="bar-fill dim" style="width:23%">27%</div></div></div>
+      <div class="bar-row"><span class="lbl">Site G (BG)</span><div class="bar-track"><div class="bar-fill dim" style="width:30%">35%</div></div></div>
+      <div class="bar-row"><span class="lbl">Site H (BG)</span><div class="bar-track"><div class="bar-fill dim" style="width:30%">35%</div></div></div>
+      <div class="bar-row"><span class="lbl">Site I (BG)</span><div class="bar-track"><div class="bar-fill dim" style="width:35%">41%</div></div></div>
+      <div class="bar-row"><span class="lbl">Site J (SK)</span><div class="bar-track"><div class="bar-fill" style="width:65%">76%</div></div></div>
+      <div class="bar-row"><span class="lbl">Site K (US)</span><div class="bar-track"><div class="bar-fill" style="width:69%">80%</div></div></div>
+      <div class="bar-row"><span class="lbl">Site L (BG)</span><div class="bar-track"><div class="bar-fill" style="width:81%">95%</div></div></div>
+      <div class="bar-row"><span class="lbl">Site M (RO)</span><div class="bar-track"><div class="bar-fill" style="width:86%">100%</div></div></div>
+      <div class="bar-row"><span class="lbl">Site N (SK)</span><div class="bar-track"><div class="bar-fill" style="width:92%">107%</div></div></div>
+      <div class="bar-row"><span class="lbl">Site O (UK)</span><div class="bar-track"><div class="bar-fill" style="width:100%">117%</div></div></div>
+    </div>
+    <p>The worst case is the Reddit question in extreme form. Site A had 5,025 clicks in Bulgaria in October, from 258 different queries with at least one click. The tool listed one ranking keyword for it and estimated 92 visits, less than 2% of reality. Site B was estimated at 142 visits against 2,420 clicks.</p>
+    <div class="table-wrap"><table class="metric-table">
+      <thead><tr><th>Market of the site</th><th>Sites</th><th>Real clicks</th><th>Estimate</th><th>Median estimate / real</th></tr></thead>
+      <tbody>
+        <tr><td>Bulgaria</td><td class="v">10</td><td class="v">83,007</td><td class="v">32,254</td><td class="v hi">26%</td></tr>
+        <tr><td>Slovakia</td><td class="v">2</td><td class="v">5,914</td><td class="v">4,844</td><td class="v">91%</td></tr>
+        <tr><td>Romania</td><td class="v">1</td><td class="v">8,697</td><td class="v">8,679</td><td class="v">100%</td></tr>
+        <tr><td>United Kingdom</td><td class="v">1</td><td class="v">327</td><td class="v">381</td><td class="v">117%</td></tr>
+        <tr><td>United States</td><td class="v">1</td><td class="v">3,196</td><td class="v">2,561</td><td class="v">80%</td></tr>
+      </tbody>
+    </table></div>
+    <p>All nine of the lowest ratios belong to Bulgarian sites. Five non-Bulgarian sites are too few to call a pattern, but the direction fits what earlier tests suspected: a keyword database is thinner where fewer people search, so the estimate falls short. The next section shows why the near-perfect totals for the other markets should not reassure you.</p>
+
+    <h2 id="accident">4. Why an accurate total can still be wrong</h2>
+    <p class="capsule">Because the tool overestimated the keywords it knew and missed most of the others. On the 3,318 keywords both sources had, it estimated 2.4 times the real clicks. Every site whose total landed within 25% shows the same pattern.</p>
+    <div class="stat-callout"><span class="val">2.4x</span><div><p>Estimated visits on keywords the tool and Search Console both knew: 47,109 estimated against 19,433 real clicks. On the median site the overestimate was 2.7 times, and 12 of 15 sites were over.</p><span class="src">15 sites, exact keyword matches in each site's main country, my data</span></div></div>
+    <p>Take Site L. Its total estimate was 18,014 visits against 19,022 real clicks, 95% of reality, the kind of number that makes a tool look trustworthy. But 17,434 of those estimated visits sat on keywords that brought 4,559 real clicks in October. The other three quarters of its traffic came from searches the tool did not list. Site M, estimated at exactly 100%, follows the same pattern: 8,551 estimated visits on keywords that earned 3,178 clicks.</p>
+    <div class="table-wrap"><table class="metric-table">
+      <thead><tr><th>Keyword-level check (897 keywords with an estimate of 5+ visits)</th><th>Keywords</th><th>Share</th></tr></thead>
+      <tbody>
+        <tr><td>Estimate more than double the real clicks</td><td class="v">756</td><td class="v hi">84%</td></tr>
+        <tr><td>Estimate within half to double of real clicks</td><td class="v">112</td><td class="v">12%</td></tr>
+        <tr><td>Estimate below half of real clicks</td><td class="v">29</td><td class="v">3%</td></tr>
+        <tr><td>Of these, keywords with zero real clicks in October</td><td class="v">357</td><td class="v">40%</td></tr>
+      </tbody>
+    </table></div>
+    <p>My data does not show why the per-keyword estimates run high, and part of it is how I matched them: clicks on a spelling variant of a keyword do not count toward it here. Two likely causes are inflated volumes for small markets and a click curve that assumes a clean results page. Real pages carry ads, maps, forums and AI Overviews; I measured how much an AI Overview alone takes in <a href="/research/ai-overviews-ctr-same-query/">my study of the same queries a year apart</a>. The positions also differed: on keywords in both sources, the tool's rank and the Search Console average position had a median gap of under 1 to 8 places, depending on the site.</p>
+
+    <h2 id="invisible">5. What the tool cannot see</h2>
+    <p class="capsule">Most of the traffic. Across the 15 sites, 81% of real clicks came from keywords the tool did not list. Half of that is anonymized queries that Google hides from every tool, the other half named queries missing from the tool's database.</p>
+    <div class="table-wrap"><table class="metric-table">
+      <thead><tr><th>Where the 101,141 real clicks came from</th><th>Clicks</th><th>Share</th></tr></thead>
+      <tbody>
+        <tr><td>Keywords both the tool and Search Console list</td><td class="v">19,433</td><td class="v">19%</td></tr>
+        <tr><td>Named queries in Search Console that the tool does not list</td><td class="v">40,936</td><td class="v hi">40%</td></tr>
+        <tr><td>Anonymized queries (only in Search Console totals)</td><td class="v">40,772</td><td class="v hi">40%</td></tr>
+      </tbody>
+    </table></div>
+    <p>Anonymized queries are searches not issued by more than a few dozen users over two to three months. Google leaves them out of the query table to protect privacy but keeps them in the totals (<a href="#src-5">Google Search Central</a>). A keyword database built from search volumes cannot contain them, so any tool will miss this part of a site, and it was large here: a median 48% of clicks per site. The same hidden share distorts CTR analysis, as I showed in <a href="/research/why-site-wide-ctr-is-low/">why site-wide CTR is low</a>.</p>
+    <p>The named queries the tool missed are its own gap. On the median site, the tool listed 40% as many ranking keywords as the site had queries with at least one click, and the keywords it did list carried 37% of the clicks on named queries. Site E is a clear case: 1,917 queries with clicks in October and 100 keywords in the tool.</p>
+
+    <h2 id="compare">6. Can you still compare sites with it?</h2>
+    <p class="capsule">Roughly, and only within one market and one tool. The rank correlation between estimate and real clicks across my 15 sites was 0.71, near the 0.76 Pearson correlation Ahrefs reported for U.S. sites (a different measure). Single comparisons can be badly wrong.</p>
+    <p>A correlation of 0.71 means that a bigger site usually gets a bigger estimate. It does not mean any two sites will be ordered correctly. Site A, with 5,025 real clicks, was estimated at 92 visits; Site I, with 216 clicks, was estimated at 88. On the tool's numbers they were the same size. In reality, one had 23 times the other's traffic. Ahrefs makes the same point, framed in its own favor: the estimates are more consistent than they are accurate, especially within one industry (<a href="#src-3">Ahrefs</a>, vendor).</p>
+    <p>That is enough for a quick look at who leads a market. It is not enough to value a site you want to buy, to forecast what a client will get, or to judge whether an agency delivered. For those, ask for the Search Console data.</p>
+
+    <h2 id="check">7. How to check a tool against your own data</h2>
+    <p class="capsule">Compare the tool's estimate for your own domain with your Search Console clicks for the same country and month. The ratio tells you how far to trust that tool in your market.</p>
+    <ol>
+      <li><b>Take 30 days of Search Console clicks</b> for your main country, web search only. Do not use GA4 all channels: as replies in the <a href="#src-2">r/bigseo thread</a> pointed out, Search Console counts only Google organic clicks, so compare it with the Organic Search channel in GA4.</li>
+      <li><b>Look up your domain in the tool</b> for the same country and note its estimated monthly organic traffic and the number of keywords it says you rank for.</li>
+      <li><b>Divide the estimate by your clicks.</b> Under 0.5 means the tool estimates less than half of your real clicks; that was 9 of my 15 sites.</li>
+      <li><b>Count your queries with at least one click</b> in Search Console and compare with the tool's keyword count. A low share means it misses your long tail.</li>
+      <li><b>Before trusting a "good" total</b>, open the tool's top keywords and compare each with Search Console clicks. If they are overestimated two or three times, the total is right by accident, as on Sites L and M.</li>
+      <li><b>Use the ratio on competitors</b> in the same market and tool, as a rough correction, not a measurement.</li>
+    </ol>
+    <p>If you are judging an agency, the tool gap is not evidence either way. Search Console clicks, the pages they land on, and the enquiries they bring are. An <a href="/services/seo-audit/">SEO audit</a> should start from that data, not from a third-party estimate.</p>
+
+    <div class="explorer calc" id="calc">
+      <h2 style="margin-top:0">8. Calculator: your correction factor</h2>
+      <p>Enter your numbers for one country and one month.</p>
+      <div class="calc-grid">
+        <fieldset><legend>Your site</legend>
+          <label>Search Console clicks <input type="number" min="0" id="gc" value="4639"></label>
+          <label>Tool's traffic estimate <input type="number" min="0" id="te" value="1600"></label>
+        </fieldset>
+        <fieldset><legend>Keyword coverage (optional)</legend>
+          <label>Queries with 1+ click in GSC <input type="number" min="0" id="gq" value="308"></label>
+          <label>Keywords the tool lists <input type="number" min="0" id="tk" value="67"></label>
+        </fieldset>
+        <fieldset><legend>Competitor (optional)</legend>
+          <label>Tool's estimate for a competitor <input type="number" min="0" id="ce" value="3000"></label>
+        </fieldset>
+      </div>
+      <div class="calc-out" id="calcOut" aria-live="polite"></div>
+      <p class="count">Pre-filled with Site G from this study. The competitor figure divides by your own ratio, so it assumes the tool misses the competitor's traffic as much as yours. Nothing you type leaves your browser.</p>
+    </div>
+
+    <h2 id="methodology">9. Methodology and limitations</h2>
+    <p class="capsule">Search Console clicks for October 1 to 30, 2026, in each site's main country, against DataForSEO Labs estimates for the same country, collected on November 2, 2026.</p>
+    <ul>
+      <li><b>Sites:</b> 15 small business, ecommerce and information sites I work on, with at least 100 clicks in their main country in October. Two more properties had too little data and were left out. Names, verticals and query text are withheld.</li>
+      <li><b>Real traffic:</b> Search Console clicks, web search, all devices, filtered to the country with the most clicks (Bulgaria for 10 sites, Slovakia for 2, Romania, the UK and the U.S. for one each). Country totals include anonymized queries; query rows do not, and no site reached the 25,000-row limit.</li>
+      <li><b>Estimates:</b> DataForSEO Labs (Google) domain overview for estimated monthly organic traffic and keyword counts, and ranked keywords for per-keyword estimates, using the same country and its main language. Ranked keywords were capped at the 1,000 keywords with the highest estimate, which affects two sites. Cost: 0.89 USD.</li>
+      <li><b>One provider:</b> I did not test Semrush or Ahrefs directly. Their databases and click models differ, so their errors will differ in size, though the earlier studies point the same way.</li>
+      <li><b>Matching:</b> keywords were matched by exact text after lowercasing and trimming spaces. Spelling variants and word-order changes do not match, which makes the keyword-level overestimate somewhat larger than it is.</li>
+      <li><b>Not like for like:</b> a tool estimate is a modelled monthly figure from a database snapshot; Search Console clicks are counted for a fixed window. Clicks are not sessions. Seasonality between the snapshot and October can move the ratio.</li>
+      <li><b>Limits:</b> 15 sites is a small, non-random sample, heavy on Bulgarian. Only five sites come from other markets, so the market comparison is a hint, not a finding.</li>
+      <li><b>Data:</b> <a href="data-sites.csv">data-sites.csv</a> (one anonymized row per site) and <a href="data-summary.json">data-summary.json</a> (every number on this page), CC BY 4.0.</li>
+    </ul>
+
+    <h2 id="faq">10. Frequently asked questions</h2>
+    <div class="faq">
+      <details>
+        <summary>How accurate are Semrush and Ahrefs traffic estimates?</summary>
+        <p>In published studies, typically off by about half, and much worse on some sites. Ahrefs' own 2022 study of 1,635 U.S. sites found a median deviation of 49.52% for Ahrefs and 68.36% for Semrush. In my 15 sites, a keyword-based estimator put traffic at a median 35% of real Search Console clicks, with a range from 1.8% to 117%.</p>
+      </details>
+      <details>
+        <summary>Why does Semrush or Ahrefs show much less traffic than Search Console?</summary>
+        <p>Mainly because the tool only knows some of your keywords. In my data, 81% of real clicks came from searches the tool did not list: 40% were anonymized queries that no keyword database can contain, and the rest were named queries missing from its database. Small-language markets were hit hardest: 9 of the 10 Bulgarian sites were estimated at less than half of their real clicks.</p>
+      </details>
+      <details>
+        <summary>If the tool's total matches my Search Console, is it accurate?</summary>
+        <p>Not necessarily. On the six sites where the total landed within 25% of reality, the tool overestimated the keywords it knew by 2.4 to 6.3 times, and missed the rest. The two errors cancelled out. On one site the estimate was 95% of real clicks, yet it assigned 17,434 visits to keywords that earned 4,559 clicks.</p>
+      </details>
+      <details>
+        <summary>Can I use traffic estimates to compare competitors?</summary>
+        <p>For a rough ranking within the same market and the same tool, yes. Across my 15 sites the rank correlation between estimate and real clicks was 0.71, close to the 0.76 Ahrefs reported. But individual pairs can be badly wrong: one site with 5,025 real clicks was estimated at 92 visits, while a site with only 216 clicks was estimated at 88.</p>
+      </details>
+      <details>
+        <summary>Which number should I trust to judge my SEO agency?</summary>
+        <p>Search Console clicks for organic search, and the Organic Search channel in GA4 for what visitors did next. Third-party estimates are models built from keyword volume and an assumed click curve, not measurements of your site. Compare GA4 organic sessions with GSC clicks, not GA4 all channels.</p>
+      </details>
+      <details>
+        <summary>Is there a way to calibrate a tool to my market?</summary>
+        <p>Yes. Pull 30 days of Search Console clicks for your main country, look up your own domain in the tool for the same country, and divide. That ratio is your correction factor for that tool and market. The calculator on this page does it and compares the result with the medians in this study.</p>
+      </details>
+    </div>
+
+    <h2 id="sources">Sources</h2>
+    <ol class="sources">
+      <li id="src-1" value="1">r/SEO. "GA4 and GSC show traffic, but Semrush and Ahrefs report much lower organic traffic. Is my SEO agency doing something wrong?" October 29, 2026. <a href="https://www.reddit.com/r/SEO/comments/1xigrrm/ga4_and_gsc_show_traffic_but_semrush_and_ahrefs/" rel="noopener">reddit.com/r/SEO/comments/1xigrrm/ga4_and_gsc_show_traffic_but_semrush_and_ahrefs/</a>. Accessed November 2, 2026.</li>
+      <li id="src-2" value="2">r/bigseo. Same question posted the same day, October 29, 2026. <a href="https://www.reddit.com/r/bigseo/comments/1xigstu/ga4_and_gsc_show_traffic_but_semrush_and_ahrefs/" rel="noopener">reddit.com/r/bigseo/comments/1xigstu/ga4_and_gsc_show_traffic_but_semrush_and_ahrefs/</a>. Accessed November 2, 2026.</li>
+      <li id="src-3" value="3">Tim Soulo, Ahrefs. "How Accurate Are the Search Traffic Estimations in Ahrefs? (New Research)." 1,635 websites, U.S. traffic. May 3, 2022. <em>Vendor: sells SEO or analytics products.</em> <a href="https://ahrefs.com/blog/traffic-estimations-accuracy/" rel="noopener">ahrefs.com/blog/traffic-estimations-accuracy/</a>. Accessed November 2, 2026.</li>
+      <li id="src-4" value="4">Patrick Langridge, Screaming Frog. "How Accurate Are Website Traffic Estimators?" 25 websites, mainly UK, Google Analytics data for February to April 2016. June 13, 2016. <em>Vendor: sells SEO or analytics products.</em> <a href="https://www.screamingfrog.co.uk/how-accurate-are-website-traffic-estimators/" rel="noopener">screamingfrog.co.uk/how-accurate-are-website-traffic-estimators/</a>. Accessed November 2, 2026.</li>
+      <li id="src-5" value="5">Daniel Waisberg, Google Search Central Blog. "A deep dive into Search Console performance data filtering and limits." October 19, 2022. <a href="https://developers.google.com/search/blog/2022/10/performance-data-deep-dive" rel="noopener">developers.google.com/search/blog/2022/10/performance-data-deep-dive</a>. Accessed November 2, 2026.</li>
+      <li id="src-6" value="6">DataForSEO. "dataforseo_labs/google/domain_rank_overview/live" API documentation (definition of estimated traffic volume). <em>Vendor: sells SEO or analytics products.</em> <a href="https://docs.dataforseo.com/v3/dataforseo_labs/google/domain_rank_overview/live/" rel="noopener">docs.dataforseo.com/v3/dataforseo_labs/google/domain_rank_overview/live/</a>. Accessed November 2, 2026.</li>
+    </ol>
+    <p class="updated">Last updated: <time datetime="2026-11-02">November 2, 2026</time>. Related research: <a href="/research/">all studies</a>.</p>
+
+  </div>
+</section>
+</article>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div>© 2026 Stanislav Peev · SEO Consultant &amp; AI Search (GEO) Specialist, Bratislava, Slovakia</div>
+    <nav class="footer-nav" aria-label="Footer">
+      <a href="/">Home</a>
+      <a href="/services/seo-consulting/">SEO Consulting</a>
+      <a href="/services/geo/">AI SEO / GEO</a>
+      <a href="/services/">Services</a>
+      <a href="/services/seo-audit/">SEO Audit</a>
+      <a href="/services/small-business-seo/">Small Business SEO</a>
+      <a href="/research/">Research</a>
+      <a href="https://www.linkedin.com/in/stanislav-peev-seo/" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" style="width:1em;height:1em;vertical-align:-.15em;margin-right:.35em;fill:currentColor"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29ZM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13ZM7.12 20.45H3.56V9h3.56v11.45ZM22.22 0H1.77C.79 0 0 .77 0 1.72v20.55C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0Z"/></svg>LinkedIn</a>
+      <a href="https://www.youtube.com/@stanislav_peev" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" style="width:1em;height:1em;vertical-align:-.15em;margin-right:.35em;fill:currentColor"><path d="M23.5 6.2a3 3 0 0 0-2.11-2.12C19.5 3.55 12 3.55 12 3.55s-7.5 0-9.39.53A3 3 0 0 0 .5 6.2 31.3 31.3 0 0 0 0 12a31.3 31.3 0 0 0 .5 5.8 3 3 0 0 0 2.11 2.12c1.89.53 9.39.53 9.39.53s7.5 0 9.39-.53A3 3 0 0 0 23.5 17.8 31.3 31.3 0 0 0 24 12a31.3 31.3 0 0 0-.5-5.8ZM9.55 15.57V8.43L15.82 12l-6.27 3.57Z"/></svg>YouTube</a>
+      <a href="/privacy/">Privacy</a>
+    </nav>
+  </div>
+</footer>
+
+<button class="to-top" id="toTop" aria-label="Back to top" title="Back to top">↑</button>
+<script>
+(function () {
+  var t = document.getElementById('toTop');
+  addEventListener('scroll', function () { t.classList.toggle('show', scrollY > 600); }, { passive: true });
+  t.addEventListener('click', function () { scrollTo({ top: 0, behavior: 'smooth' }); });
+  var out = document.getElementById('calcOut'), ids = ['gc', 'te', 'gq', 'tk', 'ce'];
+  function v(id) { var x = parseFloat(document.getElementById(id).value); return isFinite(x) && x >= 0 ? x : 0; }
+  function p(x) { return Math.round(x * 100) + '%'; }
+  function cell(val, lbl, warn) { return '<div class="cell' + (warn ? ' warn' : '') + '"><b>' + val + '</b><span>' + lbl + '</span></div>'; }
+  function run() {
+    var gc = v('gc'), te = v('te'), gq = v('gq'), tk = v('tk'), ce = v('ce');
+    if (!gc) { out.innerHTML = cell('-', 'Enter your Search Console clicks'); return; }
+    var r = te / gc, html = cell(p(r), 'Tool estimate as a share of your real clicks (study median: 35%)', r < 0.5 || r > 1.5);
+    if (gq) html += cell(p(tk / gq), 'Tool keywords vs your queries with clicks (study median: 40%)', tk / gq < 0.4);
+    if (ce && r > 0) html += cell(Math.round(ce / r).toLocaleString('en'), 'Rough real traffic of a competitor the tool estimates at ' + ce.toLocaleString('en') + ' (same tool, same country)');
+    out.innerHTML = html;
+  }
+  ids.forEach(function (k) { document.getElementById(k).addEventListener('input', run); }); run();
+})();
+</script>
+<script src="/assets/agent-tools.js?v=1" defer></script>
+</body>
+</html>
